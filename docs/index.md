@@ -1,6 +1,6 @@
-# Welcome to Sebastian Zajac Courses Pages!
+# Witaj na stronie kursu Wprowadzenie do kwantowego uczenia maszynowego !
 
-Welcome to the official web page of My SGH Courses.
+
 
 
 Środowisko Jupyter Lab: [IBM Quantum computing LAB](https://quantum-computing.ibm.com/lab)
