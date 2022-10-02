@@ -12,12 +12,20 @@ These algorithms, such as the VQA or QAOA, can be used for many computational ma
 
 ## Spis tematów: 
 
-1. Matematyczne podstawy - Liczby zespolone, Przestrzenie wektorowe, reprezentacja kwantowego bitu
-2. Quantum computing - relaizacje i sposoby + info historyczne
-3. KLasyczne bramki logiczne - algebra Boola, szyfrowanie XOR
-4. Python Libraries for QC - PennyLane, IBM qiskit 
-5. Bramki jedno i wielo qubitowe
-
+2. Classic logic gates - Boola algebra, encryption
+3. Vector spaces, quantum states, representation of classical and quantum bits
+4. Quantum logic gates in simple algorithms and quantum circuits
+5. Quantum Machine Learning in business - methods and implementations
+6. Preparation of the python environment using the Docker tool here will be nice have lectures about AWS Bracket
+7. Quantum bits using the IBM qiskit, cirq, and pennylane libraries
+8. One-qubit logic gates - random bit generator
+9. Multi-qubit logic gates
+10. Shor’s factorisation algorithm, Grover search. Python realisations.
+11. Quantum Gradients and Quatnum-aware optimizers on pennylane.
+12. HHL algorithm with implementation need help with examples
+13. Quantum Approximate Optimisation Algorithm need help with examples
+14. Community Detection with Hybrid Quantum Annealing need help with examples
+15. Variational quantum classifier, Variational quantum eigensolver need help with examples
 
 Case studies: 
 
