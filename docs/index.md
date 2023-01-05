@@ -48,28 +48,32 @@ Recommended Reading
 
 **Quantum Computing**
 
-1. M. Fingerhuth, T. Babej, P. Wittek. Open source software in quantum computing. PLOS ONE, 13:e0208561, 2018. Concise introduction to quantum computing software stack.
+1. M. Fingerhuth, T. Babej, P. Wittek. Open source software in quantum computing. PLOS ONE, 13:e0208561, 2018.
 
-2. M. Nielsen and I. Chuang. Quantum Computation and Quantum Information. Cambridge University Press, 2010. Many years on, this remains the best resource for understanding quantum computing.
+2. M. Nielsen and I. Chuang. Quantum Computation and Quantum Information. Cambridge University Press, 2010.
 
-3. J.R. McClean, J. Romero, R. Babbush, A. Aspuru-Guzik. The theory of variational hybrid quantum-classical algorithms. New Journal of Physics, 18, 023023, 2016. This is a great introduction to a new breed of quantum algorithms that were designed for noisy, intermediate-scale quantum computers.
+3. J.R. McClean, J. Romero, R. Babbush, A. Aspuru-Guzik. The theory of variational hybrid quantum-classical algorithms. New Journal of Physics, 18, 023023, 2016.
 
 4. T.G. Wong. Introduction to Classical and Quantum Computing
+
+5. Schuld book add 
+
+
 **Machine Learning**
 
-S. Raschka. Python Machine Learning. Packt Publishing, 2015. This book, along with its code repository, is a great, hands-on introduction to machine learning.
+1. S. Raschka. Python Machine Learning. Packt Publishing, 2015. T
 
-I. Goodfellow, Y. Bengio, A. Courville. Deep Learning. MIT Press, 2016. Very detailed deep learning textbook by some of the founders of the field.
+2. I. Goodfellow, Y. Bengio, A. Courville. Deep Learning. MIT Press, 2016.
 
 **Quantum Machine Learning**
 
-J. Biamonte, P. Wittek, N. Pancotti, P. Rebentrost, N. Wiebe, and S. Lloyd. Quantum Machine Learning. Nature, 549, 195-202, 2017. This review papers is good if you want to quickly wrap your head around the subject.
+1. J. Biamonte, P. Wittek, N. Pancotti, P. Rebentrost, N. Wiebe, and S. Lloyd. Quantum Machine Learning. Nature, 549, 195-202, 2017. 
 
-V. Dunjko and H.J. Briegel. Machine learning and artificial intelligence in the quantum domain. Reports on Progress in Physics,  81, 074001, 2018. This is an extensive review with a strong focus on agent-based models.
+2. V. Dunjko and H.J. Briegel. Machine learning and artificial intelligence in the quantum domain. Reports on Progress in Physics,  81, 074001, 2018.
 
-M. Schuld and F. Petruccione. Supervised Learning with Quantum Computers. Springer, 2018. This is the most up-to-date book on the subject and the course content overlaps with material significantly.
+3. M. Schuld and F. Petruccione. Supervised Learning with Quantum Computers. Springer, 2018. 
 
-P. Wittek. Quantum Machine Learning: What Quantum Computing Means to Data Mining. Elsevier, 2014. The first monograph on the subject that also covers more esoteric topics, for instance, what we call today quantum learning.
+4. P. Wittek. Quantum Machine Learning: What Quantum Computing Means to Data Mining. Elsevier, 2014.
 
 
 ### Contact
