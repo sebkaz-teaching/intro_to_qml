@@ -27,13 +27,13 @@ These algorithms, such as the VQA or QAOA, can be used for many computational ma
 14. Community Detection with Hybrid Quantum Annealing need help with examples
 15. Variational quantum classifier, Variational quantum eigensolver need help with examples
 
-Case studies: 
+## Case studies: 
 
 - kwantowe wyżarzanie - optymalizacja portfolio
-- Problem klasyfikacyjny Quantum Neural Network
-- Optymalizacja - community detection 
+- Problem klasyfikacyjny z wykorzystaniem Quantum Neural Network
+- Optymalizacja QUBO - community detection 
 
-
+## Środowiska do pracy z kodem
 
 Środowisko Jupyter Lab: [IBM Quantum computing LAB](https://quantum-computing.ibm.com/lab)
 
@@ -42,9 +42,7 @@ Inne środowisko Jupyter Lab z wszystkimi kwantowymi maszynami: [QBraid](https:/
 To do ciekawych stron: [Quantum computing report](https://quantumcomputingreport.com)
 
 
-
-Recommended Reading
-
+## Zalecana literatura
 
 **Quantum Computing**
 
@@ -64,6 +62,7 @@ Recommended Reading
 1. S. Raschka. Python Machine Learning. Packt Publishing, 2015. T
 
 2. I. Goodfellow, Y. Bengio, A. Courville. Deep Learning. MIT Press, 2016.
+3. 
 
 **Quantum Machine Learning**
 
