@@ -54,7 +54,7 @@ To do ciekawych stron: [Quantum computing report](https://quantumcomputingreport
 
 4. T.G. Wong. Introduction to Classical and Quantum Computing
 
-5. Schuld book add 
+5. E. R. Johnston, N. Harrigan, M. Gimeno-Segovia Komputer kwantowy. Programowanie, algorytmy, kod. O'Reilly (Helion). 2021
 
 
 **Machine Learning**
@@ -62,7 +62,6 @@ To do ciekawych stron: [Quantum computing report](https://quantumcomputingreport
 1. S. Raschka. Python Machine Learning. Packt Publishing, 2015. T
 
 2. I. Goodfellow, Y. Bengio, A. Courville. Deep Learning. MIT Press, 2016.
-3. 
 
 **Quantum Machine Learning**
 
