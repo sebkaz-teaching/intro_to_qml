@@ -1,0 +1,64 @@
+---
+title: "Informacje ogólne"
+---
+
+## Wstęp do kwantowego uczenia maszynowego
+
+Kod: 232530-D
+
+Semestr zimowy 2023/2024,
+SGH Szkoła Główna Handlowa w Warszawie
+
+Podstawowe informacje znajdziesz w [sylabusie](/intro_to_qml/sylabus).
+
+Ciekawe książki i strony internetowe zamieszczone zostały w zakładce [książki](/intro_to_qml/ksiazki). 
+Jeśli chciał(a)byś coś dodać prześlij informację przez MS teams.
+
+## Kalendarz
+
+#### Wykład 
+
+Wykład jest realizowany w trybie hybrydowym.
+Jest on NIEOBOWIĄZKOWY i odbywa się w sali C5D.
+
+1. 02-10-2023 (poniedziałek) 11:40-13:20 - Wykład 1
+Historia klasycznego i kwantowego komputera i jego zastosowania. Efekty kwantowe wykorzystywane do przyśpieszenia obliczeń.
+2. 09-10-2023 (poniedziałek) 11:40-13:20 - Wykład 2
+Klasyczne bramki logiczne - algebra Boola, szyfrowanie
+3. 16-10-2023 (poniedziałek) 11:40-13:20 - Wykład 3
+Przestrzenie wektorowe, stany kwantowe, reprezentacja klasycznych i kwantowych bitów
+4. 23-10-2023 (poniedziałek) 11:40-13:20 - Wykład 4
+Kwantowe bramki logiczne w prostych algorytmach i obwodach kwantowych
+5. 30-10-2023 (poniedziałek) 11:40-13:20 - Wykład 5
+Kwantowy Machine Learning w biznesie - metody i implementacje
+
+#### Laboratoria
+Wszystkie laboratoria odbywają się w sali C5D.
+1. 06-11-2023 (poniedziałek) 11:40-13:20 - Lab1
+Przygotowanie środowiska programistycznego python z wykorzystaniem narzędzia Docker
+2. 13-11-2023 (poniedziałek) 11:40-13:20 - Lab2
+Kwantowe bity z wykorzystaniem biblioteki IBM qiskit i pennylane
+3. 20-11-2023 (poniedziałek) 11:40-13:20 - Lab3
+Jedno - kubitowe bramki logiczne
+4. 27-11-2023 (poniedziałek) 11:40-13:20 - Lab4
+Wielokubitowe bramki logiczne
+5. 04-12-2023 (poniedziałek) 11:40-13:20 - Lab5
+Algorytm faktoryzacji Shora, przeszukiwanie wg algorytmu Grovera.
+6. 11-12-2023 (poniedziałek) 11:40-13:20 - Lab6
+Klasyczny i kwantowy perceptron - realizacja w bibliotece qiskit
+7. 18-12-2023 (poniedziałek) 11:40-13:20 - Lab7
+Variational quantum classifiers - klasyfikacja danych iris
+8. 08-01-2024 (poniedziałek) 11:40-13:20 - Lab8
+klasyfikacja danych MNIST z wykorzystaniem biblioteki PyTorch Quantum
+9. 15-01-2024 (poniedziałek) 11:40-13:20 - Lab9
+Algorytm qPCA z wykorzystaniem do modelowania cen instrumentów finansowych
+10. 22-01-2024 (poniedziałek) 11:40-13:20 - Lab10
+Realizacje kwantowych sztucznych sieci neuronowych - wprowadzenie
+
+## Technologie
+
+Uczestnicząc w zajęciach musisz opanować i przynajmniej w podstawowym zakresie posługiwać się następującymi technologiami informatycznymi:
+
+1. [GIT](https://sebkaz-teaching.github.io/RTA_2023/info.html#git) 
+2. Python, Jupyter notebook, Jupyter lab, Colab
+3. [Docker](https://sebkaz-teaching.github.io/RTA_2023/info.html#docker)

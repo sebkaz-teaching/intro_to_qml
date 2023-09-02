@@ -1,0 +1,135 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Informacje ogólne",
+    "section": "",
+    "text": "Kod: 232530-D\nSemestr zimowy 2023/2024, SGH Szkoła Główna Handlowa w Warszawie\nPodstawowe informacje znajdziesz w sylabusie.\nCiekawe książki i strony internetowe zamieszczone zostały w zakładce książki. Jeśli chciał(a)byś coś dodać prześlij informację przez MS teams."
+  },
+  {
+    "objectID": "index.html#wstęp-do-kwantowego-uczenia-maszynowego",
+    "href": "index.html#wstęp-do-kwantowego-uczenia-maszynowego",
+    "title": "Informacje ogólne",
+    "section": "",
+    "text": "Kod: 232530-D\nSemestr zimowy 2023/2024, SGH Szkoła Główna Handlowa w Warszawie\nPodstawowe informacje znajdziesz w sylabusie.\nCiekawe książki i strony internetowe zamieszczone zostały w zakładce książki. Jeśli chciał(a)byś coś dodać prześlij informację przez MS teams."
+  },
+  {
+    "objectID": "index.html#kalendarz",
+    "href": "index.html#kalendarz",
+    "title": "Informacje ogólne",
+    "section": "Kalendarz",
+    "text": "Kalendarz\n\nWykład\nWykład jest realizowany w trybie hybrydowym. Jest on NIEOBOWIĄZKOWY i odbywa się w sali C5D.\n\n02-10-2023 (poniedziałek) 11:40-13:20 - Wykład 1 Historia klasycznego i kwantowego komputera i jego zastosowania. Efekty kwantowe wykorzystywane do przyśpieszenia obliczeń.\n09-10-2023 (poniedziałek) 11:40-13:20 - Wykład 2 Klasyczne bramki logiczne - algebra Boola, szyfrowanie\n16-10-2023 (poniedziałek) 11:40-13:20 - Wykład 3 Przestrzenie wektorowe, stany kwantowe, reprezentacja klasycznych i kwantowych bitów\n23-10-2023 (poniedziałek) 11:40-13:20 - Wykład 4 Kwantowe bramki logiczne w prostych algorytmach i obwodach kwantowych\n30-10-2023 (poniedziałek) 11:40-13:20 - Wykład 5 Kwantowy Machine Learning w biznesie - metody i implementacje\n\n\n\nLaboratoria\nWszystkie laboratoria odbywają się w sali C5D. 1. 06-11-2023 (poniedziałek) 11:40-13:20 - Lab1 Przygotowanie środowiska programistycznego python z wykorzystaniem narzędzia Docker 2. 13-11-2023 (poniedziałek) 11:40-13:20 - Lab2 Kwantowe bity z wykorzystaniem biblioteki IBM qiskit i pennylane 3. 20-11-2023 (poniedziałek) 11:40-13:20 - Lab3 Jedno - kubitowe bramki logiczne 4. 27-11-2023 (poniedziałek) 11:40-13:20 - Lab4 Wielokubitowe bramki logiczne 5. 04-12-2023 (poniedziałek) 11:40-13:20 - Lab5 Algorytm faktoryzacji Shora, przeszukiwanie wg algorytmu Grovera. 6. 11-12-2023 (poniedziałek) 11:40-13:20 - Lab6 Klasyczny i kwantowy perceptron - realizacja w bibliotece qiskit 7. 18-12-2023 (poniedziałek) 11:40-13:20 - Lab7 Variational quantum classifiers - klasyfikacja danych iris 8. 08-01-2024 (poniedziałek) 11:40-13:20 - Lab8 klasyfikacja danych MNIST z wykorzystaniem biblioteki PyTorch Quantum 9. 15-01-2024 (poniedziałek) 11:40-13:20 - Lab9 Algorytm qPCA z wykorzystaniem do modelowania cen instrumentów finansowych 10. 22-01-2024 (poniedziałek) 11:40-13:20 - Lab10 Realizacje kwantowych sztucznych sieci neuronowych - wprowadzenie"
+  },
+  {
+    "objectID": "index.html#technologie",
+    "href": "index.html#technologie",
+    "title": "Informacje ogólne",
+    "section": "Technologie",
+    "text": "Technologie\nUczestnicząc w zajęciach musisz opanować i przynajmniej w podstawowym zakresie posługiwać się następującymi technologiami informatycznymi:\n\nGIT\nPython, Jupyter notebook, Jupyter lab, Colab\nDocker"
+  },
+  {
+    "objectID": "wyklad1.html",
+    "href": "wyklad1.html",
+    "title": "Od plików płaskich do Data Mash",
+    "section": "",
+    "text": "TBA"
+  },
+  {
+    "objectID": "ksiazki.html",
+    "href": "ksiazki.html",
+    "title": "Książki i strony WWW",
+    "section": "",
+    "text": "A. Jacquier, O. Kondratyev, Quantum Machine Learning and Optimisation in Finance. On the Road to Quantum Advantage."
+  },
+  {
+    "objectID": "ksiazki.html#książki",
+    "href": "ksiazki.html#książki",
+    "title": "Książki i strony WWW",
+    "section": "",
+    "text": "A. Jacquier, O. Kondratyev, Quantum Machine Learning and Optimisation in Finance. On the Road to Quantum Advantage."
+  },
+  {
+    "objectID": "ksiazki.html#strony-www",
+    "href": "ksiazki.html#strony-www",
+    "title": "Książki i strony WWW",
+    "section": "Strony WWW",
+    "text": "Strony WWW\n\nSoftware\n\nGithub\nGit-instrukcja\nwww.python.org\nPyPI python libraries\nAnaconda\nDocker\n\n\n\nPakiety python\n\nQiskit\nPennyLane\nYao\n\n\n\nEdytory tekstu\n\nNotepad++\nSublime Text\nVisual Studio Code\n\n\n\nMarkdown\n\nMD\n\n\n\nPython\n\nChris Albon Technical Notes on Using Data Science & AI\n40+ Python Statistics For Data Science Resources\nPractical Business Python"
+  },
+  {
+    "objectID": "sylabus.html",
+    "href": "sylabus.html",
+    "title": "Sylabus",
+    "section": "",
+    "text": "Nazwa przedmiotu: Wstęp do kwantowego uczenia maszynowego\nJednostka: SGH w Warszawie\nKod przedmiotu: 232530-D, 232530-S\nPunkty ECTS: 3\nJęzyk prowadzenia: polski\nPoziom przedmiotu: średnio-zaawansowany\nProwadzący: Sebastian Zając, sebastian.zajac@sgh.waw.pl\nWebsite: https://sebkaz-teaching.github.io/intro_to_qml/"
+  },
+  {
+    "objectID": "sylabus.html#cel-przedmiotu",
+    "href": "sylabus.html#cel-przedmiotu",
+    "title": "Sylabus",
+    "section": "Cel Przedmiotu",
+    "text": "Cel Przedmiotu\nJeszcze do niedawna rozwój technologiczny oparty był na zmniejszaniu rozmiaru tranzystorów i zwiększaniu mocy obliczeniowej procesorów. Ze względu na fizyczne aspekty natury proces ten, od pewnego momentu, musi uwzględniać ograniczenia fizyki kwantowej. Przyszłość może jednak wykorzystać inne narzędzia, których możliwości wykraczają poza klasyczne moce obliczeniowe. Mimo, iż konstrukcja komputerów kwantowych to wciąż etap inżynierski, to okazuje się, że można już wskazać i wykorzystać je do tworzenia algorytmów, które można wykorzystać w dziedzinie uczenia maszynowego. Wykorzystanie algorytmów kwantowych pozwala zmniejszyć czas przetwarzania dużej ilości danych, a tym samym rozszerza możliwości przetwarzania i modelowania danych. Przedstawione na zajęciach biblioteki - IBM qiskit czy Pennylane (python) pozwalają na prostą i szybką konstrukcje dowolnego algorytmu kwantowego. Algorytmy te, jak np. algorytm Grovera wykorzystać można do wielu problemów obliczeniowych uczenia maszynowego bądź do konstrukcji kwantowych sieci neuronowych."
+  },
+  {
+    "objectID": "sylabus.html#program-przedmiotu",
+    "href": "sylabus.html#program-przedmiotu",
+    "title": "Sylabus",
+    "section": "Program przedmiotu",
+    "text": "Program przedmiotu\n\nModelowanie, uczenie i predykcja w trybie wsadowym (offline learning) i przyrostowym (online learning). Problemy przyrostowego uczenia maszynowego.\nModele przetwarzania danych w Big Data. Od plików płaskich do Data Lake. Mity i fakty przetwarzania danych w czasie rzeczywistym.\nSystemy NRT (near real-time systems), pozyskiwanie danych, streaming, analityka.\nAlgorytmy estymacji parametrów modelu w trybie przyrostowym. Stochastic Gradient Descent.\nArchitektura Lambda i Kappa. Zaprojektowanie architektury IT dla przetwarzania danych w czasie rzeczywistym.\nPrzygotowanie mikroserwisu z modelem ML do zastosowania produkcyjnego.\nStrukturyzowane i niestrukturyzowane dane. Relacyjne bazy danych i bazy NoSQL\nAgregacje i raportowanie w bazach NoSQL (na przykładzie bazy Cassandra).\nPodstawy obiektowego programowania w Pythonie w analizie regresji liniowej, logistycznej oraz sieci neuronowych z wykorzystaniem biblioteki sklearn, TensorFLow i Keras\nArchitektura IT przetwarzania Big Data. Przygotowanie wirtualnego środowiska dla Sparka. Pierwszy program w PySpark. Wykorzystanie przygotowanego środowiska do analizy danych z serwisu Twitter.\nAnaliza 1 Detekcja wyłudzeń w zgłoszeniach szkód samochodowych w czasie rzeczywistym z wykorzystaniem przygotowanego, darmowego środowiska. Cz 1.\nAnaliza 1 Detekcja wyłudzeń w zgłoszeniach szkód samochodowych w czasie rzeczywistym z wykorzystaniem przygotowanego, darmowego środowiska. Cz 2.\nPrzygotowanie środowiska Microsoft Azure. Detekcja anomalii i wartości odstających w logowanych zdarzeniach sieci Ethernet cz 1.\nAnaliza 2 Detekcja anomalii i wartości odstających w logowanych zdarzeniach sieci Ethernet cz 2. Inne narzędzia IT do szybkiej analizy logów.\nNarzędzia SAS do strumieniowego przetwarzania danych"
+  },
+  {
+    "objectID": "sylabus.html#efekty-kształcenia",
+    "href": "sylabus.html#efekty-kształcenia",
+    "title": "Sylabus",
+    "section": "Efekty kształcenia",
+    "text": "Efekty kształcenia\n\nWiedza:\n\n\nZna historię i filozofię modeli przetwarzania danych Powiązania: (Analiza danych - Big Data)K2A_W01, (Analiza danych - Big Data)K2A_W03, (OGL)O2_W01, (OGL) O2_W02, (OGL)O2_W04, (OGL)O2_W07 Metody weryfikacji: kolokwium pisemne (pytania otwarte, zadania) Metody dokumentacji: wykaz pytań z kolokwium\nZna typy danych ustrukturyzowanych jak i nieustrukturyzowanych Powiązania: (Analiza danych - Big Data)K2A_W02, (Analiza danych - Big Data)K2A_W04, (OGL)O2_W04, (OGL) O2_W07 Metody weryfikacji: projekt Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)\nZna możliwości i obszary zastosowania procesowania danych w czasie rzeczywistym Powiązania: (Analiza danych - Big Data)K2A_W01, (Analiza danych - Big Data)K2A_W02, (OGL)O2_W01, (OGL) O2_W04, (OGL)O2_W08 Metody weryfikacji: egzamin pisemny (pytania otwarte, zadania) Metody dokumentacji: wykaz pytań egzaminacyjnych\nZna teoretyczne aspekty struktury lambda i kappa Powiązania: (Analiza danych - Big Data)K2A_W03, (Analiza danych - Big Data)K2A_W05, (OGL)O2_W04, (OGL) O2_W06, (OGL)O2_W08 Metody weryfikacji: kolokwium pisemne (pytania otwarte, zadania) Metody dokumentacji: wykaz pytań z kolokwium\nUmie wybrać strukturę IT dla danego problemu biznesowego Powiązania: (Analiza danych - Big Data)K2A_W02, (Analiza danych - Big Data)K2A_W03, (OGL)O2_W01, (OGL) O2_W04, (OGL)O2_W06, (OGL)O2_W08 Metody weryfikacji: projekt Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)\nRozumie potrzeby biznesowe podejmowania decyzji w bardzo krótkim czasie Powiązania: (Analiza danych - Big Data)K2A_W01, (Analiza danych - Big Data)K2A_W05, (OGL)O2_W01, (OGL) O2_W04, (OGL)O2_W06, (OGL)O2_W08 Metody weryfikacji: projekt Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)\n\n\nUmiejętności:\n\n\nRozróżnia typy danych strukturyzowanych jak i niestrukturyzowanych Powiązania: K2A_U02, K2A_U07, K2A_U10, O2_U02 Metody weryfikacji: test Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)\nUmie przygotować, przetwarzać oraz zachowywać dane generowane w czasie rzeczywistym Powiązania: K2A_U03, K2A_U05, K2A_U09, O2_U02, O2_U04 Metody weryfikacji: projekt Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)\nRozumie ograniczenia wynikające z czasu przetwarzania przez urządzenia oraz systemy informatyczne Powiązania: K2A_U01, K2A_U07, K2A_U11, O2_U02 Metody weryfikacji: projekt Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)\nUmie zastosować i skonstruować system do przetwarzania w czasie rzeczywistym Powiązania: K2A_U05, K2A_U10, O2_U05, O2_U06, O2_U07 Metody weryfikacji: projekt Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)\nUmie przygotować raportowanie dla systemu przetwarzania w czasie rzeczywistym Powiązania: K2A_U02, K2A_U08, K2A_U10, O2_U06, O2_U07 Metody weryfikacji: projekt Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)\n\n\nKompetencje:\n\n\nFormułuje problem analityczny wraz z jego informatycznym rozwiązaniem Powiązania: K2A_K01, K2A_K03, O2_K02, O2_K06, O2_K07 Metody weryfikacji: projekt, prezentacja Metody dokumentacji: prace pisemne studenta (w trakcie semestru, zaliczeniowe, egzaminacyjne)\nUtrwala umiejętność samodzielnego uzupełniania wiedzy teoretycznej jak i praktycznej w zakresie programowania, modelowania, nowych technologii informatycznych z wykorzystaniem analizy w czasie rzeczywistym. Powiązania: K2A_K02, K2A_K04, (OGL)O2_K01, (OGL) O2_K02, (OGL)O2_K05, (OGL)O2_K06 Metody weryfikacji: projekt Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)"
+  },
+  {
+    "objectID": "sylabus.html#realizacja-przedmiotu",
+    "href": "sylabus.html#realizacja-przedmiotu",
+    "title": "Sylabus",
+    "section": "Realizacja przedmiotu",
+    "text": "Realizacja przedmiotu\n\negzamin testowy 30%\nkolokwium 30%\nreferaty/eseje 40%"
+  },
+  {
+    "objectID": "sylabus.html#literatura",
+    "href": "sylabus.html#literatura",
+    "title": "Sylabus",
+    "section": "Literatura",
+    "text": "Literatura\n\nZając S., red. “Modelowanie dla biznesu, Analityka w czasie rzeczywistym - narzędzia informatyczne i biznesowe”, Oficyna Wydawnicza SGH, Warszawa 2022\nFrątczak E., red. “Modelowanie dla biznesu, Regresja logistyczna, Regresja Poissona, Survival Data Mining, CRM, Credit Scoring”. SGH, Warszawa 2019.\nFrątczak E., red., “Zaawansowane metody analiz statystycznych”, Oficyna Wydawnicza SGH, Warszawa 2012.\nBellemare A., “Mikrousługi oparte na zdarzeniach. Wykorzystanie danych w organizacji na dużą skalę”, O’Reilly 2021\nLakshmanan V., Robinson S., Munn M., “Wzorce projektowe uczenia maszynowego. Rozwiązania typowych problemów dotyczących przygotowania danych, konstruowania modeli i MLOps”, O’Reilly 2021\nShapira G., Palino T., Sivaram R., Petty K., “Kafka the definitive guide. Real-time data and stream processing at scale” O’Reilly 2022\nGift N., Deza A., “Practical MLOps. Operationalizing Machine Learning Models”, O’Reilly 2022."
+  },
+  {
+    "objectID": "sylabus.html#literatura-uzupełniająca",
+    "href": "sylabus.html#literatura-uzupełniająca",
+    "title": "Sylabus",
+    "section": "Literatura uzupełniająca",
+    "text": "Literatura uzupełniająca\n\nFrątczak E., “Statistics for Management & Economics” SGH, Warszawa, 2015\nSimon P., “Too Big to IGNORE. The Business Case for Big Data”, John Wiley & Sons Inc., 2013\nNandi A. “Spark for Python Developers”, 2015\nFrank J. Ohlhorst. “Big Data Analytics. Turning Big Data into Big Money”. John Wiley & Sons. Inc. 2013\nRussell J. “Zwinna analiza danych Apache Hadoop dla każdego”, Helion, 2014\nTodman C., “Projektowanie hurtowni danych, Wspomaganie zarządzania relacjami z klientami”, Helion, 2011"
+  },
+  {
+    "objectID": "info.html",
+    "href": "info.html",
+    "title": "Narzędzia",
+    "section": "",
+    "text": "W terminalu (Windows CMD) wpisz\npython\nJeśli nie odnaleziono komendy uruchom polecenie:\npython3\nZwróć uwagę, aby Twoja wersja nie była niższa niż 3.X Aby wyjść z powłoki pythona użyj funkcji exit()\nPython 3.10.9 (main, Dec 15 2022, 17:11:09) [Clang 14.0.0 (clang-1400.0.29.202)] on darwin\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt; exit()\n\n\npython3 -m venv &lt;name of env&gt;\n\nsource &lt;name of env&gt;/bin/activate\n# . env/bin/activate\n\n(venv)$ \nSzybka instalacja podstawowych bibliotek i jupyterlab.\npip install --no-cache --upgrade pip setuptools\n\npip install jupyterlab numpy pandas matplotlib scipy\n# jeśli masz plik requirements.txt z potrzebnymi bibliotekami\npip install -r requirements.txt\n# uruchom \njupyterlab\nW przeglądarce internetowej wpisz: localhost:8888\nPo ponownym uruchomieniu przejdź do katalogu w którym utworzyłeś środowisko, następnie uruchom środowisko i jupyterlab.\nsource &lt;name of env&gt;/bin/activate\njupyterlab\n\n\n\nKurs podstaw pythona Tomas Beuzen polecam.\nUtwórz konto na Kaggle, przejdź do zakładki Courses i przerób cały moduł Pythona. Zawiera on:\n\nwyrażenia i zmienne\nfunkcje\nwarunki i flow programu\nlisty\npętle\nstringi i słowniki\ndodawanie i używanie zewnętrznych bibliotek"
+  },
+  {
+    "objectID": "info.html#python",
+    "href": "info.html#python",
+    "title": "Narzędzia",
+    "section": "",
+    "text": "W terminalu (Windows CMD) wpisz\npython\nJeśli nie odnaleziono komendy uruchom polecenie:\npython3\nZwróć uwagę, aby Twoja wersja nie była niższa niż 3.X Aby wyjść z powłoki pythona użyj funkcji exit()\nPython 3.10.9 (main, Dec 15 2022, 17:11:09) [Clang 14.0.0 (clang-1400.0.29.202)] on darwin\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n&gt;&gt;&gt; exit()\n\n\npython3 -m venv &lt;name of env&gt;\n\nsource &lt;name of env&gt;/bin/activate\n# . env/bin/activate\n\n(venv)$ \nSzybka instalacja podstawowych bibliotek i jupyterlab.\npip install --no-cache --upgrade pip setuptools\n\npip install jupyterlab numpy pandas matplotlib scipy\n# jeśli masz plik requirements.txt z potrzebnymi bibliotekami\npip install -r requirements.txt\n# uruchom \njupyterlab\nW przeglądarce internetowej wpisz: localhost:8888\nPo ponownym uruchomieniu przejdź do katalogu w którym utworzyłeś środowisko, następnie uruchom środowisko i jupyterlab.\nsource &lt;name of env&gt;/bin/activate\njupyterlab\n\n\n\nKurs podstaw pythona Tomas Beuzen polecam.\nUtwórz konto na Kaggle, przejdź do zakładki Courses i przerób cały moduł Pythona. Zawiera on:\n\nwyrażenia i zmienne\nfunkcje\nwarunki i flow programu\nlisty\npętle\nstringi i słowniki\ndodawanie i używanie zewnętrznych bibliotek"
+  },
+  {
+    "objectID": "info.html#zacznij-korzystać-z-serwisu-github",
+    "href": "info.html#zacznij-korzystać-z-serwisu-github",
+    "title": "Narzędzia",
+    "section": "Zacznij korzystać z serwisu GitHub",
+    "text": "Zacznij korzystać z serwisu GitHub\n\n\n\nTekst na podstawie strony jak korzystać z serwisu github\nPracując nad projektem np. praca magisterska, (samodzielnie lub w zespole) często potrzebujesz sprawdzić jakie zmiany, kiedy i przez kogo zostały wprowadzone do projektu. W zadaniu tym świetnie sprawdza się system kontroli wersji czyli GIT.\nGit możesz pobrać i zainstalować jak zwykły program na dowolnym komputerze. Jednak najczęściej (małe projekty) korzysta się z serwisów z jakimś systemem git. Jednym z najbardziej rozpoznawanych jest GitHub dzięki któremu możesz korzystać z systemu git bez jego instalacji na swoim komputerze.\nW darmowej wersji serwisu GitHub swoje pliki możesz przechowywać w publicznych (dostęp mają wszyscy) repozytoriach.\nSkupimy się wyłącznie na darmowej wersji serwisu GitHub.\ngit --version\n\nStruktura GitHuba\nNa najwyższym poziomie znajdują się konta indywidualne (np http://github.com/sebkaz, bądź zakładane przez organizacje. Użytkownicy indywidualni mogą tworzyć repozytoria publiczne (public ) bądź prywatne (private).\nJeden plik nie powinien przekraczać 100 MB.\nRepo (skrót do repozytorium) tworzymy za pomocą Create a new repository. Każde repo powinno mieć swoją indywidualną nazwę.\n\n\nBranche\nGłówna (tworzona domyślnie) gałąź rapozytorium ma nazwę master.\n\n\nNajważniejsze polecnia do zapamiętania\n\nściąganie repozytorium z sieci\n\ngit clone https://adres_repo.git\n\nW przypadku githuba możesz pobrać repozytorium jako plik zip.\n\n\nTworzenie repozytorium dla lokalnego katalogu\n\n# tworzenie nowego katalogu\nmkdir datamining\n# przejście do katalogu\ncd datamining\n# inicjalizacja repozytorium w katalogu\ngit init\n# powinien pojawić się ukryty katalog .git\n# dodajmy plik\necho \"Info \" &gt;&gt; README.md\n\nPołącz lokalne repozytorium z kontem na githubie\n\ngit remote add origin https://github.com/&lt;twojGit&gt;/nazwa.git\n\nObsługa w 3 krokach\n\n# sprawdź zmiany jakie zostały dokonane\ngit status\n# 1. dodaj wszystkie zmiany\ngit add .\n# 2. zapisz bierzący stan wraz z informacją co zrobiłeś\ngit commit -m \" opis \"\n# 3. potem już zostaje tylko\ngit push origin master\nWarto obejrzeć Youtube course.\nCiekawe i proste wprowadzenie mozna znaleźć tutaj"
+  },
+  {
+    "objectID": "info.html#zacznij-korzystać-z-dockera",
+    "href": "info.html#zacznij-korzystać-z-dockera",
+    "title": "Narzędzia",
+    "section": "Zacznij korzystać z Dockera",
+    "text": "Zacznij korzystać z Dockera\n\n\n\nW celu pobrania oprogramowania docker na swój system przejdź do strony.\nJeżli wszystko zainstalowało się prawidłowo wykonaj następujące polecenia:\n\nSprawdź zainstalowaną wersję\n\ndocker --version\n\nŚciągnij i uruchom obraz Hello World i\n\ndocker run hello-world\n\nPrzegląd ściągnietych obrazów:\n\ndocker image ls\n\ndocker images\n\nPrzegląd uruchomionych kontenerów:\n\ndocker ps \n\ndocker ps -all\n\nZatrzymanie uruchomionego kontenera:\n\ndocker stop &lt;CONTAINER ID&gt;\n\nUsunięcie kontenera\n\ndocker rm -f &lt;CONTAINER ID&gt;\nPolecam również krótkie intro"
+  }
+]

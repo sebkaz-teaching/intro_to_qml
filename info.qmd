@@ -1,0 +1,194 @@
+---
+title: Narzędzia
+---
+
+## Python
+
+W terminalu (Windows CMD) wpisz
+```bash
+python
+```
+Jeśli nie odnaleziono komendy uruchom polecenie:
+```bash
+python3
+```
+
+Zwróć uwagę, aby Twoja wersja nie była niższa niż 3.X
+Aby wyjść z powłoki pythona użyj funkcji `exit()`
+```bash
+Python 3.10.9 (main, Dec 15 2022, 17:11:09) [Clang 14.0.0 (clang-1400.0.29.202)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> exit()
+```
+### Nowe środowisko pythona
+
+```bash
+python3 -m venv <name of env>
+
+source <name of env>/bin/activate
+# . env/bin/activate
+
+(venv)$ 
+```
+
+Szybka instalacja podstawowych bibliotek i jupyterlab.
+```bash
+pip install --no-cache --upgrade pip setuptools
+
+pip install jupyterlab numpy pandas matplotlib scipy
+# jeśli masz plik requirements.txt z potrzebnymi bibliotekami
+pip install -r requirements.txt
+# uruchom 
+jupyterlab
+```
+W przeglądarce internetowej wpisz: _localhost:8888_
+
+Po ponownym uruchomieniu przejdź do katalogu w którym utworzyłeś środowisko, 
+następnie uruchom środowisko i jupyterlab.
+
+```bash
+source <name of env>/bin/activate
+jupyterlab
+```
+### Naucz się Pythona w 2 godziny
+
+Kurs podstaw pythona [Tomas Beuzen](https://www.tomasbeuzen.com/python-programming-for-data-science/README.html) polecam.
+
+Utwórz konto na [Kaggle](https://kaggle.com), przejdź do zakładki `Courses` i przerób cały moduł Pythona. Zawiera on: 
+
+- wyrażenia i zmienne
+- funkcje
+- warunki i flow programu
+- listy
+- pętle
+- stringi i słowniki
+- dodawanie i używanie zewnętrznych bibliotek
+
+
+## Zacznij korzystać z serwisu GitHub
+<div id="git"></div>
+Tekst na podstawie strony [jak korzystać z serwisu github](http://pbiecek.github.io/Przewodnik/Programowanie/jak_korzystac_z_serwisu_github_i_waffle.html)
+
+
+Pracując nad projektem np. praca magisterska, (samodzielnie lub w zespole) często potrzebujesz sprawdzić jakie zmiany, kiedy i przez kogo zostały wprowadzone do projektu.
+W zadaniu tym świetnie sprawdza się `system kontroli wersji` czyli [GIT](https://git-scm.com). 
+
+Git możesz pobrać i zainstalować jak zwykły program na dowolnym komputerze.
+Jednak najczęściej (małe projekty) korzysta się z serwisów z jakimś systemem git. 
+Jednym z najbardziej rozpoznawanych jest [GitHub](www.github.com) dzięki któremu możesz korzystać z systemu git bez jego instalacji na swoim komputerze.
+
+W darmowej wersji serwisu `GitHub` swoje pliki możesz przechowywać w publicznych (dostęp mają wszyscy) repozytoriach.  
+Skupimy się wyłącznie na darmowej wersji serwisu GitHub.
+
+```bash
+git --version
+```
+
+### Struktura GitHuba
+
+Na najwyższym poziomie znajdują się konta indywidualne (np [http://github.com/sebkaz](http://github.com/sebkaz), bądź zakładane przez organizacje. 
+Użytkownicy indywidualni mogą tworzyć **repozytoria** publiczne (`public` ) bądź prywatne (`private`). 
+
+Jeden plik nie powinien przekraczać 100 MB.
+
+**Repo** (skrót do repozytorium) tworzymy za pomocą `Create a new repository`.
+ Każde repo powinno mieć swoją indywidualną nazwę. 
+
+### Branche
+
+Główna (tworzona domyślnie) gałąź rapozytorium ma nazwę `master`.
+
+
+### Najważniejsze polecnia do zapamiętania
+
+* _ściąganie repozytorium z sieci_
+
+```bash
+git clone https://adres_repo.git
+```
+
+> W przypadku githuba możesz pobrać repozytorium jako plik zip.
+
+* _Tworzenie repozytorium dla lokalnego katalogu_
+
+```bash
+# tworzenie nowego katalogu
+mkdir datamining
+# przejście do katalogu
+cd datamining
+# inicjalizacja repozytorium w katalogu
+git init
+# powinien pojawić się ukryty katalog .git
+# dodajmy plik
+echo "Info " >> README.md
+```
+
+* Połącz lokalne repozytorium z kontem na githubie
+
+```bash
+git remote add origin https://github.com/<twojGit>/nazwa.git
+```
+
+* Obsługa w 3 krokach
+
+```bash
+# sprawdź zmiany jakie zostały dokonane
+git status
+# 1. dodaj wszystkie zmiany
+git add .
+# 2. zapisz bierzący stan wraz z informacją co zrobiłeś
+git commit -m " opis "
+# 3. potem już zostaje tylko
+git push origin master
+```
+Warto obejrzeć [Youtube course](https://www.youtube.com/watch?v=HVsySz-h9r4).
+
+Ciekawe i proste wprowadzenie mozna znaleźć [tutaj](http://rogerdudler.github.io/git-guide/index.pl.html)
+
+## Zacznij korzystać z Dockera
+<div id="docker"></div>
+W celu pobrania oprogramowania docker na swój system przejdź do [strony](https://docs.docker.com/get-docker/).
+
+Jeżli wszystko zainstalowało się prawidłowo wykonaj następujące polecenia:
+
+1. Sprawdź zainstalowaną wersję
+
+```bash
+docker --version
+```
+
+2. Ściągnij i uruchom obraz `Hello World` i 
+
+```bash
+docker run hello-world
+```
+
+3. Przegląd ściągnietych obrazów:
+
+```bash
+docker image ls
+
+docker images
+```
+
+4. Przegląd uruchomionych kontenerów:
+
+```bash
+docker ps 
+
+docker ps -all
+```
+
+5. Zatrzymanie uruchomionego kontenera: 
+
+```bash
+docker stop <CONTAINER ID>
+```
+
+6. Usunięcie kontenera
+```bash
+docker rm -f <CONTAINER ID>
+```
+
+Polecam również [krótkie intro](https://medium.com/codingthesmartway-com-blog/docker-beginners-guide-part-1-images-containers-6f3507fffc98)
+

@@ -1,0 +1,155 @@
+---
+title: Sylabus
+---
+
+> Nazwa przedmiotu: Wstęp do kwantowego uczenia maszynowego
+> 
+> Jednostka: SGH w Warszawie
+> 
+> Kod przedmiotu: 232530-D, 232530-S
+>
+> Punkty ECTS: 3
+>
+> Język prowadzenia: polski
+>
+> Poziom przedmiotu: średnio-zaawansowany
+
+
+**Prowadzący:** [Sebastian Zając](https://sebastianzajac.pl), 
+  [sebastian.zajac@sgh.waw.pl](mailto:sebastian.zajac@sgh.waw.pl)
+
+
+**Website:**
+  [https://sebkaz-teaching.github.io/intro_to_qml/](https://sebkaz-teaching.github.io/intro_to_qml/)
+
+
+
+## Cel Przedmiotu
+Jeszcze do niedawna rozwój technologiczny oparty był na zmniejszaniu rozmiaru tranzystorów i zwiększaniu mocy obliczeniowej procesorów. 
+Ze względu na fizyczne aspekty natury proces ten, od pewnego momentu, musi uwzględniać ograniczenia fizyki kwantowej. 
+Przyszłość może jednak wykorzystać inne narzędzia, których możliwości wykraczają poza klasyczne moce obliczeniowe. 
+Mimo, iż konstrukcja komputerów kwantowych to wciąż etap inżynierski, to okazuje się, że można już wskazać i wykorzystać je do tworzenia algorytmów, 
+które można wykorzystać w dziedzinie uczenia maszynowego. 
+Wykorzystanie algorytmów kwantowych pozwala zmniejszyć czas przetwarzania dużej ilości danych, a tym samym rozszerza możliwości 
+przetwarzania i modelowania danych. Przedstawione na zajęciach biblioteki - IBM qiskit czy Pennylane (python) pozwalają na prostą
+i szybką konstrukcje dowolnego algorytmu kwantowego. 
+Algorytmy te, jak np. algorytm Grovera wykorzystać można do wielu problemów obliczeniowych uczenia
+maszynowego bądź do konstrukcji kwantowych sieci neuronowych.
+
+## Program przedmiotu
+
+1. Modelowanie, uczenie i predykcja w trybie wsadowym (offline learning) i przyrostowym (online learning). Problemy przyrostowego uczenia maszynowego.
+2. Modele przetwarzania danych w Big Data. Od plików płaskich do Data Lake. Mity i fakty przetwarzania danych w czasie rzeczywistym.
+3. Systemy NRT (near real-time systems), pozyskiwanie danych, streaming, analityka.
+4. Algorytmy estymacji parametrów modelu w trybie przyrostowym. Stochastic Gradient Descent.
+5. Architektura Lambda i Kappa. Zaprojektowanie architektury IT dla przetwarzania danych w czasie rzeczywistym.
+6. Przygotowanie mikroserwisu z modelem ML do zastosowania produkcyjnego.
+7. Strukturyzowane i niestrukturyzowane dane. Relacyjne bazy danych i bazy NoSQL
+8. Agregacje i raportowanie w bazach NoSQL (na przykładzie bazy Cassandra).
+9. Podstawy obiektowego programowania w Pythonie w analizie regresji liniowej, logistycznej oraz sieci neuronowych z wykorzystaniem biblioteki sklearn, TensorFLow i Keras
+10. Architektura IT przetwarzania Big Data. Przygotowanie wirtualnego środowiska dla Sparka. Pierwszy program w PySpark. Wykorzystanie przygotowanego środowiska do analizy danych z serwisu Twitter.
+11. Analiza 1 Detekcja wyłudzeń w zgłoszeniach szkód samochodowych w czasie rzeczywistym z wykorzystaniem przygotowanego, darmowego środowiska. Cz 1.
+12. Analiza 1 Detekcja wyłudzeń w zgłoszeniach szkód samochodowych w czasie rzeczywistym z wykorzystaniem przygotowanego, darmowego środowiska. Cz 2.
+13. Przygotowanie środowiska Microsoft Azure. Detekcja anomalii i wartości odstających w logowanych zdarzeniach sieci Ethernet cz 1.
+14. Analiza 2 Detekcja anomalii i wartości odstających w logowanych zdarzeniach sieci Ethernet cz 2. Inne narzędzia IT do szybkiej analizy logów.
+15. Narzędzia SAS do strumieniowego przetwarzania danych
+
+## Efekty kształcenia
+
+1. Wiedza:
+
+- Zna historię i filozofię modeli przetwarzania danych
+Powiązania: (Analiza danych - Big Data)K2A_W01, (Analiza danych - Big Data)K2A_W03, (OGL)O2_W01, (OGL) O2_W02, (OGL)O2_W04, (OGL)O2_W07
+Metody weryfikacji: kolokwium pisemne (pytania otwarte, zadania)
+Metody dokumentacji: wykaz pytań z kolokwium
+
+- Zna typy danych ustrukturyzowanych jak i nieustrukturyzowanych
+Powiązania: (Analiza danych - Big Data)K2A_W02, (Analiza danych - Big Data)K2A_W04, (OGL)O2_W04, (OGL) O2_W07
+Metody weryfikacji: projekt
+Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
+
+- Zna możliwości i obszary zastosowania procesowania danych w czasie rzeczywistym
+Powiązania: (Analiza danych - Big Data)K2A_W01, (Analiza danych - Big Data)K2A_W02, (OGL)O2_W01, (OGL) O2_W04, (OGL)O2_W08
+Metody weryfikacji: egzamin pisemny (pytania otwarte, zadania)
+Metody dokumentacji: wykaz pytań egzaminacyjnych
+
+- Zna teoretyczne aspekty struktury lambda i kappa
+Powiązania: (Analiza danych - Big Data)K2A_W03, (Analiza danych - Big Data)K2A_W05, (OGL)O2_W04, (OGL) O2_W06, (OGL)O2_W08
+Metody weryfikacji: kolokwium pisemne (pytania otwarte, zadania)
+Metody dokumentacji: wykaz pytań z kolokwium
+
+- Umie wybrać strukturę IT dla danego problemu biznesowego
+Powiązania: (Analiza danych - Big Data)K2A_W02, (Analiza danych - Big Data)K2A_W03, (OGL)O2_W01, (OGL) O2_W04, (OGL)O2_W06, (OGL)O2_W08
+Metody weryfikacji: projekt
+Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
+
+- Rozumie potrzeby biznesowe podejmowania decyzji w bardzo krótkim czasie
+Powiązania: (Analiza danych - Big Data)K2A_W01, (Analiza danych - Big Data)K2A_W05, (OGL)O2_W01, (OGL) O2_W04, (OGL)O2_W06, (OGL)O2_W08
+Metody weryfikacji: projekt
+Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
+
+2. Umiejętności:
+
+- Rozróżnia typy danych strukturyzowanych jak i niestrukturyzowanych
+Powiązania: K2A_U02, K2A_U07, K2A_U10, O2_U02
+Metody weryfikacji: test
+Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
+
+- Umie przygotować, przetwarzać oraz zachowywać dane generowane w czasie rzeczywistym
+Powiązania:  K2A_U03, K2A_U05, K2A_U09, O2_U02, O2_U04
+Metody weryfikacji: projekt
+Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
+
+- Rozumie ograniczenia wynikające z czasu przetwarzania przez urządzenia oraz systemy informatyczne
+Powiązania:  K2A_U01, K2A_U07, K2A_U11, O2_U02
+Metody weryfikacji: projekt
+Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
+
+- Umie zastosować i skonstruować system do przetwarzania w czasie rzeczywistym
+Powiązania:  K2A_U05, K2A_U10, O2_U05, O2_U06, O2_U07
+Metody weryfikacji: projekt
+Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
+
+- Umie przygotować raportowanie dla systemu przetwarzania w czasie rzeczywistym
+Powiązania: K2A_U02, K2A_U08, K2A_U10, O2_U06, O2_U07
+Metody weryfikacji: projekt
+Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
+
+3. Kompetencje:
+
+- Formułuje problem analityczny wraz z jego informatycznym rozwiązaniem
+Powiązania: K2A_K01, K2A_K03, O2_K02,  O2_K06, O2_K07
+Metody weryfikacji: projekt, prezentacja
+Metody dokumentacji: prace pisemne studenta (w trakcie semestru, zaliczeniowe, egzaminacyjne)
+
+- Utrwala umiejętność samodzielnego uzupełniania wiedzy teoretycznej jak i praktycznej w zakresie programowania,
+modelowania, nowych technologii informatycznych z wykorzystaniem analizy w czasie rzeczywistym. Powiązania: K2A_K02, K2A_K04, (OGL)O2_K01, (OGL) O2_K02, (OGL)O2_K05, (OGL)O2_K06
+Metody weryfikacji: projekt
+Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
+
+
+## Realizacja przedmiotu
+
+- egzamin testowy 30%
+- kolokwium 30%
+- referaty/eseje 40%
+
+## Literatura
+
+
+1. Zając S., red. "Modelowanie dla biznesu, Analityka w czasie rzeczywistym - narzędzia informatyczne i biznesowe", Oficyna Wydawnicza SGH, Warszawa 2022
+2. Frątczak E., red. "Modelowanie dla biznesu, Regresja logistyczna, Regresja Poissona, Survival Data Mining, CRM, Credit Scoring". SGH, Warszawa 2019. 
+3. Frątczak E., red., "Zaawansowane metody analiz statystycznych", Oficyna Wydawnicza SGH, Warszawa 2012. 
+4. Bellemare A., "Mikrousługi oparte na zdarzeniach. Wykorzystanie danych w organizacji na dużą skalę", O'Reilly 2021
+5. Lakshmanan V., Robinson S., Munn M., "Wzorce projektowe uczenia maszynowego. Rozwiązania typowych problemów dotyczących przygotowania danych, konstruowania modeli i MLOps", O'Reilly 2021
+6. Shapira G., Palino T., Sivaram R., Petty K., "Kafka the definitive guide. Real-time data and stream processing at scale" O'Reilly 2022
+7. Gift N., Deza A., "Practical MLOps. Operationalizing Machine Learning Models", O'Reilly 2022.  
+
+## Literatura uzupełniająca
+
+1. Frątczak E., "Statistics for Management & Economics" SGH, Warszawa, 2015 
+2. Simon P., "Too Big to IGNORE. The Business Case for Big Data", John Wiley & Sons Inc., 2013 
+3. Nandi A. "Spark for Python Developers", 2015 
+4. Frank J. Ohlhorst. "Big Data Analytics. Turning Big Data into Big Money". John Wiley & Sons. Inc. 2013 
+5. Russell J. "Zwinna analiza danych Apache Hadoop dla każdego", Helion, 2014 
+6. Todman C., "Projektowanie hurtowni danych, Wspomaganie zarządzania relacjami z klientami", Helion, 2011
