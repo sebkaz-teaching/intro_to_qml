@@ -4,14 +4,14 @@
     "href": "index.html",
     "title": "Informacje ogólne",
     "section": "",
-    "text": "Kod: 232530-D\nSemestr zimowy 2023/2024, SGH Szkoła Główna Handlowa w Warszawie\nPodstawowe informacje znajdziesz w sylabusie.\nCiekawe książki i strony internetowe zamieszczone zostały w zakładce książki. Jeśli chciał(a)byś coś dodać prześlij informację przez MS teams."
+    "text": "Kod: 232530-D\nSemestr zimowy 2023/2024,\nSGH Szkoła Główna Handlowa w Warszawie\nPodstawowe informacje znajdziesz w sylabusie.\nCiekawe książki i strony internetowe zamieszczone zostały w zakładce książki. Jeśli chciał(a)byś coś dodać prześlij informację przez MS teams."
   },
   {
-    "objectID": "index.html#wstęp-do-kwantowego-uczenia-maszynowego",
-    "href": "index.html#wstęp-do-kwantowego-uczenia-maszynowego",
+    "objectID": "index.html#var-main.nazwa",
+    "href": "index.html#var-main.nazwa",
     "title": "Informacje ogólne",
     "section": "",
-    "text": "Kod: 232530-D\nSemestr zimowy 2023/2024, SGH Szkoła Główna Handlowa w Warszawie\nPodstawowe informacje znajdziesz w sylabusie.\nCiekawe książki i strony internetowe zamieszczone zostały w zakładce książki. Jeśli chciał(a)byś coś dodać prześlij informację przez MS teams."
+    "text": "Kod: 232530-D\nSemestr zimowy 2023/2024,\nSGH Szkoła Główna Handlowa w Warszawie\nPodstawowe informacje znajdziesz w sylabusie.\nCiekawe książki i strony internetowe zamieszczone zostały w zakładce książki. Jeśli chciał(a)byś coś dodać prześlij informację przez MS teams."
   },
   {
     "objectID": "index.html#kalendarz",
@@ -53,7 +53,7 @@
     "href": "ksiazki.html#strony-www",
     "title": "Książki i strony WWW",
     "section": "Strony WWW",
-    "text": "Strony WWW\n\nSoftware\n\nGithub\nGit-instrukcja\nwww.python.org\nPyPI python libraries\nAnaconda\nDocker\n\n\n\nPakiety python\n\nQiskit\nPennyLane\nYao\n\n\n\nEdytory tekstu\n\nNotepad++\nSublime Text\nVisual Studio Code\n\n\n\nMarkdown\n\nMD\n\n\n\nPython\n\nChris Albon Technical Notes on Using Data Science & AI\n40+ Python Statistics For Data Science Resources\nPractical Business Python"
+    "text": "Strony WWW\n\nPeter Shor Wykład\n\n\nSoftware\n\nGithub\nGit-instrukcja\nwww.python.org\nPyPI python libraries\nAnaconda\nDocker\n\n\n\nPakiety python\n\nQiskit\nPennyLane\nYao\n\n\n\nEdytory tekstu\n\nNotepad++\nSublime Text\nVisual Studio Code\n\n\n\nMarkdown\n\nMD\n\n\n\nPython\n\nChris Albon Technical Notes on Using Data Science & AI\n40+ Python Statistics For Data Science Resources\nPractical Business Python"
   },
   {
     "objectID": "sylabus.html",

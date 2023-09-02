@@ -2,16 +2,17 @@
 title: "Informacje ogólne"
 ---
 
-## Wstęp do kwantowego uczenia maszynowego
+## {{< var main.nazwa >}}
 
-Kod: 232530-D
+Kod: {{< var main.kod >}}
 
-Semestr zimowy 2023/2024,
-SGH Szkoła Główna Handlowa w Warszawie
+Semestr {{< var main.semestr >}} {{< var main.rok >}},
 
-Podstawowe informacje znajdziesz w [sylabusie](/intro_to_qml/sylabus).
+{{< var main.uczelnia >}}
 
-Ciekawe książki i strony internetowe zamieszczone zostały w zakładce [książki](/intro_to_qml/ksiazki). 
+Podstawowe informacje znajdziesz w [sylabusie](/sylabus).
+
+Ciekawe książki i strony internetowe zamieszczone zostały w zakładce [książki](/ksiazki). 
 Jeśli chciał(a)byś coś dodać prześlij informację przez MS teams.
 
 ## Kalendarz

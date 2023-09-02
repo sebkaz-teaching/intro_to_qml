@@ -10,6 +10,9 @@ title: Książki i strony WWW
 
 ## Strony WWW
 
+1. Peter Shor [Wykład](https://math.mit.edu/~shor/435-LN/)
+
+
 ### Software 
 
 1. [Github](https://github.com/)
