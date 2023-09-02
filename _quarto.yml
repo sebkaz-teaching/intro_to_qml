@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website: 
-  title: Analiza danych w czasie rzeczywistym
+  title: Wstęp do kwantowego uczenia maszynowego
   navbar:
     left: 
           - href: index.qmd

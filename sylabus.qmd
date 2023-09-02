@@ -25,6 +25,7 @@ title: Sylabus
 
 
 ## Cel Przedmiotu
+
 Jeszcze do niedawna rozwój technologiczny oparty był na zmniejszaniu rozmiaru tranzystorów i zwiększaniu mocy obliczeniowej procesorów. 
 Ze względu na fizyczne aspekty natury proces ten, od pewnego momentu, musi uwzględniać ograniczenia fizyki kwantowej. 
 Przyszłość może jednak wykorzystać inne narzędzia, których możliwości wykraczają poza klasyczne moce obliczeniowe. 
@@ -38,118 +39,46 @@ maszynowego bądź do konstrukcji kwantowych sieci neuronowych.
 
 ## Program przedmiotu
 
-1. Modelowanie, uczenie i predykcja w trybie wsadowym (offline learning) i przyrostowym (online learning). Problemy przyrostowego uczenia maszynowego.
-2. Modele przetwarzania danych w Big Data. Od plików płaskich do Data Lake. Mity i fakty przetwarzania danych w czasie rzeczywistym.
-3. Systemy NRT (near real-time systems), pozyskiwanie danych, streaming, analityka.
-4. Algorytmy estymacji parametrów modelu w trybie przyrostowym. Stochastic Gradient Descent.
-5. Architektura Lambda i Kappa. Zaprojektowanie architektury IT dla przetwarzania danych w czasie rzeczywistym.
-6. Przygotowanie mikroserwisu z modelem ML do zastosowania produkcyjnego.
-7. Strukturyzowane i niestrukturyzowane dane. Relacyjne bazy danych i bazy NoSQL
-8. Agregacje i raportowanie w bazach NoSQL (na przykładzie bazy Cassandra).
-9. Podstawy obiektowego programowania w Pythonie w analizie regresji liniowej, logistycznej oraz sieci neuronowych z wykorzystaniem biblioteki sklearn, TensorFLow i Keras
-10. Architektura IT przetwarzania Big Data. Przygotowanie wirtualnego środowiska dla Sparka. Pierwszy program w PySpark. Wykorzystanie przygotowanego środowiska do analizy danych z serwisu Twitter.
-11. Analiza 1 Detekcja wyłudzeń w zgłoszeniach szkód samochodowych w czasie rzeczywistym z wykorzystaniem przygotowanego, darmowego środowiska. Cz 1.
-12. Analiza 1 Detekcja wyłudzeń w zgłoszeniach szkód samochodowych w czasie rzeczywistym z wykorzystaniem przygotowanego, darmowego środowiska. Cz 2.
-13. Przygotowanie środowiska Microsoft Azure. Detekcja anomalii i wartości odstających w logowanych zdarzeniach sieci Ethernet cz 1.
-14. Analiza 2 Detekcja anomalii i wartości odstających w logowanych zdarzeniach sieci Ethernet cz 2. Inne narzędzia IT do szybkiej analizy logów.
-15. Narzędzia SAS do strumieniowego przetwarzania danych
-
+1. 
 ## Efekty kształcenia
 
 1. Wiedza:
 
-- Zna historię i filozofię modeli przetwarzania danych
-Powiązania: (Analiza danych - Big Data)K2A_W01, (Analiza danych - Big Data)K2A_W03, (OGL)O2_W01, (OGL) O2_W02, (OGL)O2_W04, (OGL)O2_W07
-Metody weryfikacji: kolokwium pisemne (pytania otwarte, zadania)
-Metody dokumentacji: wykaz pytań z kolokwium
-
-- Zna typy danych ustrukturyzowanych jak i nieustrukturyzowanych
-Powiązania: (Analiza danych - Big Data)K2A_W02, (Analiza danych - Big Data)K2A_W04, (OGL)O2_W04, (OGL) O2_W07
-Metody weryfikacji: projekt
-Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
-
-- Zna możliwości i obszary zastosowania procesowania danych w czasie rzeczywistym
-Powiązania: (Analiza danych - Big Data)K2A_W01, (Analiza danych - Big Data)K2A_W02, (OGL)O2_W01, (OGL) O2_W04, (OGL)O2_W08
-Metody weryfikacji: egzamin pisemny (pytania otwarte, zadania)
-Metody dokumentacji: wykaz pytań egzaminacyjnych
-
-- Zna teoretyczne aspekty struktury lambda i kappa
-Powiązania: (Analiza danych - Big Data)K2A_W03, (Analiza danych - Big Data)K2A_W05, (OGL)O2_W04, (OGL) O2_W06, (OGL)O2_W08
-Metody weryfikacji: kolokwium pisemne (pytania otwarte, zadania)
-Metody dokumentacji: wykaz pytań z kolokwium
-
-- Umie wybrać strukturę IT dla danego problemu biznesowego
-Powiązania: (Analiza danych - Big Data)K2A_W02, (Analiza danych - Big Data)K2A_W03, (OGL)O2_W01, (OGL) O2_W04, (OGL)O2_W06, (OGL)O2_W08
-Metody weryfikacji: projekt
-Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
-
-- Rozumie potrzeby biznesowe podejmowania decyzji w bardzo krótkim czasie
-Powiązania: (Analiza danych - Big Data)K2A_W01, (Analiza danych - Big Data)K2A_W05, (OGL)O2_W01, (OGL) O2_W04, (OGL)O2_W06, (OGL)O2_W08
-Metody weryfikacji: projekt
-Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
+- Zna i rozumie koncepcje działania komputera klasycznego i kwantowego
+- Zna metody kwantowego uczenia maszynowego możliwe do wykorzystania w biznesie
+- Rozumie potrzebę i możliwości zastosowania komputerów kwantowych
 
 2. Umiejętności:
 
-- Rozróżnia typy danych strukturyzowanych jak i niestrukturyzowanych
-Powiązania: K2A_U02, K2A_U07, K2A_U10, O2_U02
-Metody weryfikacji: test
-Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
+- Potrafi stworzyć proste algorytmy z wykorzystaniem kwantowych bramek logicznych
+- Umie wykorzystać biblioteki pythonowe do generowania kodów obliczeń kwantowych
+- Potrafi wykorzystać metody nadzorowane wykorzystywane w kwantowym uczeniu maszynowym
+- Potrafi wykorzystać metody nienadzorowane wykorzystywane w kwantowym uczeniu maszynowym
+- Umie stworzyć prostą kwantową sieć neuronową
 
-- Umie przygotować, przetwarzać oraz zachowywać dane generowane w czasie rzeczywistym
-Powiązania:  K2A_U03, K2A_U05, K2A_U09, O2_U02, O2_U04
-Metody weryfikacji: projekt
-Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
+3. Kompetencje społeczne:
 
-- Rozumie ograniczenia wynikające z czasu przetwarzania przez urządzenia oraz systemy informatyczne
-Powiązania:  K2A_U01, K2A_U07, K2A_U11, O2_U02
-Metody weryfikacji: projekt
-Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
-
-- Umie zastosować i skonstruować system do przetwarzania w czasie rzeczywistym
-Powiązania:  K2A_U05, K2A_U10, O2_U05, O2_U06, O2_U07
-Metody weryfikacji: projekt
-Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
-
-- Umie przygotować raportowanie dla systemu przetwarzania w czasie rzeczywistym
-Powiązania: K2A_U02, K2A_U08, K2A_U10, O2_U06, O2_U07
-Metody weryfikacji: projekt
-Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
-
-3. Kompetencje:
-
-- Formułuje problem analityczny wraz z jego informatycznym rozwiązaniem
-Powiązania: K2A_K01, K2A_K03, O2_K02,  O2_K06, O2_K07
-Metody weryfikacji: projekt, prezentacja
-Metody dokumentacji: prace pisemne studenta (w trakcie semestru, zaliczeniowe, egzaminacyjne)
-
-- Utrwala umiejętność samodzielnego uzupełniania wiedzy teoretycznej jak i praktycznej w zakresie programowania,
-modelowania, nowych technologii informatycznych z wykorzystaniem analizy w czasie rzeczywistym. Powiązania: K2A_K02, K2A_K04, (OGL)O2_K01, (OGL) O2_K02, (OGL)O2_K05, (OGL)O2_K06
-Metody weryfikacji: projekt
-Metody dokumentacji: prace pisemne studenta ( w trakcie semestru, zaliczeniowe, egzaminacyjne)
-
+- formułuje problem biznesowy wraz z jego informatycznym rozwiązaniem
+- uzupełniania wiedzę teoretyczną jak i praktyczną, w zakresie teorii, programowania, modelowania, nowych technologii informatycznych z wykorzystaniem kwantowego uczenia maszynowego
 
 ## Realizacja przedmiotu
 
-- egzamin testowy 30%
-- kolokwium 30%
-- referaty/eseje 40%
+- egzamin testowy: 40\%
+- kolokwium: 20\%
+- referaty/eseje: 40\%
 
 ## Literatura
 
-
-1. Zając S., red. "Modelowanie dla biznesu, Analityka w czasie rzeczywistym - narzędzia informatyczne i biznesowe", Oficyna Wydawnicza SGH, Warszawa 2022
-2. Frątczak E., red. "Modelowanie dla biznesu, Regresja logistyczna, Regresja Poissona, Survival Data Mining, CRM, Credit Scoring". SGH, Warszawa 2019. 
-3. Frątczak E., red., "Zaawansowane metody analiz statystycznych", Oficyna Wydawnicza SGH, Warszawa 2012. 
-4. Bellemare A., "Mikrousługi oparte na zdarzeniach. Wykorzystanie danych w organizacji na dużą skalę", O'Reilly 2021
-5. Lakshmanan V., Robinson S., Munn M., "Wzorce projektowe uczenia maszynowego. Rozwiązania typowych problemów dotyczących przygotowania danych, konstruowania modeli i MLOps", O'Reilly 2021
-6. Shapira G., Palino T., Sivaram R., Petty K., "Kafka the definitive guide. Real-time data and stream processing at scale" O'Reilly 2022
-7. Gift N., Deza A., "Practical MLOps. Operationalizing Machine Learning Models", O'Reilly 2022.  
+1. M. Schuld, F. Petruccione - Supervised Learning with Quantum Computers, Quantum Science and Technology. Springer 2018 https://doi.org/10.1007/978-3-319-96424-9
+2. C. Bernhardt - Obliczenia kwantowe dla każdego, Wydawnictwo Naukowe PWN 2020
+3. E. R. Johnston, N. Harrigan, M.Gimeno-Segovia - Komputer kwantowy.Programowanie, algorytmy, kod. Helion 2020
+4. S. Zajac - Modelowanie dla Biznesu. Analiza danych w czasie rzeczywistym. Oficyna Wydawnicza SGH. 2021
+5. A. K. Bishwas, A. Nani, V. Palade "Quantum Supervised Clustering Algorithm for Big Data" 2018- 3rd International Conference for Convergence in Technology.
+6. C. Ciliberto er al. "Statistical limits of supervised quantum learning" Physical Review A 102. 4. 2020
+7. N Wiebe, A. Kapoor, K M. Svore "Quantum perceptron models" NIPS'16 Procedings of the 30th Internationa Conference on Neural information processing Systems. Vol. 29. 2016
 
 ## Literatura uzupełniająca
 
-1. Frątczak E., "Statistics for Management & Economics" SGH, Warszawa, 2015 
-2. Simon P., "Too Big to IGNORE. The Business Case for Big Data", John Wiley & Sons Inc., 2013 
-3. Nandi A. "Spark for Python Developers", 2015 
-4. Frank J. Ohlhorst. "Big Data Analytics. Turning Big Data into Big Money". John Wiley & Sons. Inc. 2013 
-5. Russell J. "Zwinna analiza danych Apache Hadoop dla każdego", Helion, 2014 
-6. Todman C., "Projektowanie hurtowni danych, Wspomaganie zarządzania relacjami z klientami", Helion, 2011
+1. Michael A. Nielsen & Isaac L. Chuang - Quantum Computation and Quantum Information, Cambridge University Press, 2010
+2. K. Przanowski, S. Zając - Modelowanie dla Biznesu. Metody Machine learning, Modele portfela consumer finance, modelek rekurencyjne analizy przeżycia, modele scoringowe. Oficyna Wydawnicza SGH. 2020
+3. E. Frątczak - Modelowanie dla Biznesu. Regresja Logistyczna, Regresja Poissona, Survival Data Mining, CRM, Credit Scoring. Oficyna Wydawnicza SGH. 2019
