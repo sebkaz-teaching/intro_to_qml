@@ -4,9 +4,19 @@ title: Książki i strony WWW
 
 ## Książki 
 
-### Qauntum Computing
+### Obliczenia kwantowe (Quantum Computing)
 
-1. A. Jacquier, O. Kondratyev, _Quantum Machine Learning and Optimisation in Finance. On the Road to Quantum Advantage_.
+1. Chris Bernhardt, _Obliczenia kwantowe dla każdego_. PWN 2020 
+> Wyjaśnienie _jak to działa_ w obliczeniach kwantowych.
+
+2. Michel Le Bellac, _Wstęp do informatyki kwantowej_. PWN 2011
+> Trudniejsza, dużo matematyki i fizyki. 
+
+3. Thomas G. Wong, _Introduction to Classical and Quantum Computing_. Rooted Grove 2022.
+> Bardzo dobra!, dużo przykładów, dużo ciekawych informacji wyjaśnianych bardzo szczegółowo. 
+ 
+
+3. A. Jacquier, O. Kondratyev, _Quantum Machine Learning and Optimisation in Finance. On the Road to Quantum Advantage_.
 
 ## Strony WWW
 

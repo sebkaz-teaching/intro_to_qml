@@ -1,5 +1,4 @@
 ---
-title: "Od plików płaskich do Data Mash"
+title: "Komputery klasyczne i kwantowe."
 ---
 
-TBA
