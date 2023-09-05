@@ -30,23 +30,37 @@
   {
     "objectID": "wyklad1.html",
     "href": "wyklad1.html",
-    "title": "Od plików płaskich do Data Mash",
+    "title": "Komputery klasyczne i kwantowe.",
     "section": "",
-    "text": "TBA"
+    "text": "Uczenie maszynowe to nauka i ,,sztuka’’ opisująca jak sprawdzić by komputery mogły uczyć się na podstawie danych tak by rozwiązać problemy, których typowe programowanie nie miałoby sensu (lub byłoby zbyt skomplikowane).\nObliczenia kwantowe opisują przetworzenie informacji na urządzeniach pracujących zgodnie z zasadami mechaniki kwantowej. &gt; Uwaga! klasyczne komputery (tranzystory) również działają zgodnie z zasadami mechaniki kwantowej, ale wykonywane operacje opierają się o logikę klasyczną.\nOba kierunki są istotne w procesie przetwarzania danych obecnie i w niedalekiej przyszłości. Dlatego naturalnym pytaniem jest jak je ze sobą połączyć?\nQML to zrealizowanie metod uczenia maszynowego, które mogą być wykonywane na komputerach kwantowych. Istotnym kierunkiem jest również analiza metod matematycznych wykorzystywanych w mechanice kwantowej i ich zastosowaniu w uczeniu maszynowym.\n\nyou start with classical mechanics and electrodynamics, solving lots of grueling differential equations at every step. Then you learn about the “black-body paradox” and various strange experimental results, and the great crisis these things posed for physics. Next you learn a complicated patchwork of ideas that physicists invented between 1900 and 1926 to try to make the crisis go away. Then, if you’re lucky, after years of study you funally get around to the central coceptual point: that nature is described ot by probabilities (which are always non-negative), but by numbers called amplitudes that can be positive, negative, or even complex. Scott Aaronson, Quantum Computing Since Democritus\n\nKwantowe uczenie maszynowe możemy określić jako uczenie maszynowe realizowane na komputerach kwantowych. Zasadniczym jest pytanie na ile i czy wogóle komputery kwantowe mogą poprawić jakość modeli uczenia maszynowego i czy pozwalają zrealizować coś więcej niż wykorzystanie klasycznych komputerów.\nOdpowiedź To zależy: - jaki problem - jakie dane - jaki typ analizy - jaki typ komputera kwantowego - co znaczy lepiej? precyzja, czas, koszt, skalowalność, zużycie energii, …"
+  },
+  {
+    "objectID": "wyklad1.html#co-oznacza-termin-kwantowe-uczenie-maszynowe-quntum-machine-learning",
+    "href": "wyklad1.html#co-oznacza-termin-kwantowe-uczenie-maszynowe-quntum-machine-learning",
+    "title": "Komputery klasyczne i kwantowe.",
+    "section": "",
+    "text": "Uczenie maszynowe to nauka i ,,sztuka’’ opisująca jak sprawdzić by komputery mogły uczyć się na podstawie danych tak by rozwiązać problemy, których typowe programowanie nie miałoby sensu (lub byłoby zbyt skomplikowane).\nObliczenia kwantowe opisują przetworzenie informacji na urządzeniach pracujących zgodnie z zasadami mechaniki kwantowej. &gt; Uwaga! klasyczne komputery (tranzystory) również działają zgodnie z zasadami mechaniki kwantowej, ale wykonywane operacje opierają się o logikę klasyczną.\nOba kierunki są istotne w procesie przetwarzania danych obecnie i w niedalekiej przyszłości. Dlatego naturalnym pytaniem jest jak je ze sobą połączyć?\nQML to zrealizowanie metod uczenia maszynowego, które mogą być wykonywane na komputerach kwantowych. Istotnym kierunkiem jest również analiza metod matematycznych wykorzystywanych w mechanice kwantowej i ich zastosowaniu w uczeniu maszynowym.\n\nyou start with classical mechanics and electrodynamics, solving lots of grueling differential equations at every step. Then you learn about the “black-body paradox” and various strange experimental results, and the great crisis these things posed for physics. Next you learn a complicated patchwork of ideas that physicists invented between 1900 and 1926 to try to make the crisis go away. Then, if you’re lucky, after years of study you funally get around to the central coceptual point: that nature is described ot by probabilities (which are always non-negative), but by numbers called amplitudes that can be positive, negative, or even complex. Scott Aaronson, Quantum Computing Since Democritus\n\nKwantowe uczenie maszynowe możemy określić jako uczenie maszynowe realizowane na komputerach kwantowych. Zasadniczym jest pytanie na ile i czy wogóle komputery kwantowe mogą poprawić jakość modeli uczenia maszynowego i czy pozwalają zrealizować coś więcej niż wykorzystanie klasycznych komputerów.\nOdpowiedź To zależy: - jaki problem - jakie dane - jaki typ analizy - jaki typ komputera kwantowego - co znaczy lepiej? precyzja, czas, koszt, skalowalność, zużycie energii, …"
+  },
+  {
+    "objectID": "wyklad1.html#sztuczna-inteligencja",
+    "href": "wyklad1.html#sztuczna-inteligencja",
+    "title": "Komputery klasyczne i kwantowe.",
+    "section": "Sztuczna inteligencja",
+    "text": "Sztuczna inteligencja"
   },
   {
     "objectID": "ksiazki.html",
     "href": "ksiazki.html",
     "title": "Książki i strony WWW",
     "section": "",
-    "text": "A. Jacquier, O. Kondratyev, Quantum Machine Learning and Optimisation in Finance. On the Road to Quantum Advantage."
+    "text": "Chris Bernhardt, Obliczenia kwantowe dla każdego. PWN 2020 &gt; Wyjaśnienie jak to działa w obliczeniach kwantowych.\nMichel Le Bellac, Wstęp do informatyki kwantowej. PWN 2011 &gt; Trudniejsza, dużo matematyki i fizyki.\nThomas G. Wong, Introduction to Classical and Quantum Computing. Rooted Grove 2022. &gt; Bardzo dobra!, dużo przykładów, dużo ciekawych informacji wyjaśnianych bardzo szczegółowo.\nA. Jacquier, O. Kondratyev, Quantum Machine Learning and Optimisation in Finance. On the Road to Quantum Advantage."
   },
   {
     "objectID": "ksiazki.html#książki",
     "href": "ksiazki.html#książki",
     "title": "Książki i strony WWW",
     "section": "",
-    "text": "A. Jacquier, O. Kondratyev, Quantum Machine Learning and Optimisation in Finance. On the Road to Quantum Advantage."
+    "text": "Chris Bernhardt, Obliczenia kwantowe dla każdego. PWN 2020 &gt; Wyjaśnienie jak to działa w obliczeniach kwantowych.\nMichel Le Bellac, Wstęp do informatyki kwantowej. PWN 2011 &gt; Trudniejsza, dużo matematyki i fizyki.\nThomas G. Wong, Introduction to Classical and Quantum Computing. Rooted Grove 2022. &gt; Bardzo dobra!, dużo przykładów, dużo ciekawych informacji wyjaśnianych bardzo szczegółowo.\nA. Jacquier, O. Kondratyev, Quantum Machine Learning and Optimisation in Finance. On the Road to Quantum Advantage."
   },
   {
     "objectID": "ksiazki.html#strony-www",

@@ -28,3 +28,7 @@ Zasadniczym jest pytanie na ile i czy wogóle komputery kwantowe mogą poprawić
 - jaki typ analizy
 - jaki typ komputera kwantowego
 - co znaczy lepiej? precyzja, czas, koszt, skalowalność, zużycie energii, ...
+
+## Sztuczna inteligencja
+
+![](img/ai.png)
