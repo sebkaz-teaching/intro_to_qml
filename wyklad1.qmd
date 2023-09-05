@@ -2,3 +2,29 @@
 title: "Komputery klasyczne i kwantowe."
 ---
 
+## Co oznacza termin kwantowe uczenie maszynowe? (Quntum Machine Learning)
+
+**Uczenie maszynowe** to nauka i ,,sztuka'' opisująca jak sprawdzić by komputery mogły uczyć się na podstawie danych tak by rozwiązać problemy, 
+których typowe programowanie nie miałoby sensu (lub byłoby zbyt skomplikowane).
+
+Obliczenia kwantowe opisują przetworzenie informacji na urządzeniach pracujących zgodnie z zasadami mechaniki kwantowej.
+> Uwaga! klasyczne komputery (tranzystory) również działają zgodnie z zasadami mechaniki kwantowej, ale wykonywane operacje opierają się o logikę klasyczną.
+
+Oba kierunki są istotne w procesie przetwarzania danych obecnie i w niedalekiej przyszłości.
+Dlatego naturalnym pytaniem jest jak je ze sobą połączyć?
+
+QML to zrealizowanie metod uczenia maszynowego, które mogą być wykonywane na komputerach kwantowych.
+Istotnym kierunkiem jest również analiza metod matematycznych wykorzystywanych w mechanice kwantowej i ich zastosowaniu w uczeniu maszynowym. 
+
+> you start with classical mechanics and electrodynamics, solving lots of grueling differential equations at every step. Then you learn about the "black-body paradox" and various strange experimental results, and the great crisis these things posed for physics. Next you learn a complicated patchwork of ideas that physicists invented between 1900 and 1926 to try to make the crisis go away. Then, if you're lucky, after years of study you funally get around to the central coceptual point: that nature is described ot by probabilities (which are always non-negative), but by numbers called amplitudes that can be positive, negative, or even complex.
+> Scott Aaronson, [Quantum Computing Since Democritus](https://www.amazon.com/Quantum-Computing-since-Democritus-Aaronson/dp/0521199565)
+
+Kwantowe uczenie maszynowe możemy określić jako uczenie maszynowe realizowane na komputerach kwantowych.
+Zasadniczym jest pytanie na ile i czy wogóle komputery kwantowe mogą poprawić jakość modeli uczenia maszynowego i czy pozwalają zrealizować coś więcej niż wykorzystanie klasycznych komputerów. 
+
+**Odpowiedź** To zależy: 
+- jaki problem 
+- jakie dane
+- jaki typ analizy
+- jaki typ komputera kwantowego
+- co znaczy lepiej? precyzja, czas, koszt, skalowalność, zużycie energii, ...
