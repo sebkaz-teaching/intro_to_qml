@@ -31,4 +31,19 @@ Zasadniczym jest pytanie na ile i czy wogóle komputery kwantowe mogą poprawić
 
 ## Sztuczna inteligencja
 
-![](img/ai.png)
+<img src="img/ai.png" >
+
+Historia AI sięga 1950 roku (A. Turing). 
+Rozwój technologii związanych z danymi ustrukturyzowanymi i nieustrukturyzowanymi realizowany np. w:
+
+- rozpoznawanie i tworzenie ,,mowy''
+- ,,rozumienie'' obrazów i filmów
+- rozgrywanie gier
+- rekomendacje
+- systemy diagnostyczne
+- planowanie
+- podejmowanie decyzji
+- booty, agenci ...
+
+Zadania te realizowane są w oparciu o uczenie maszynowe (Machine Learning) i głębokie sieci neuronowe (Deep Learning).
+
