@@ -2,12 +2,15 @@
 title: "Komputery klasyczne i kwantowe."
 ---
 
-## Co oznacza termin kwantowe uczenie maszynowe? (Quntum Machine Learning)
+## Quntum Machine Learning
+
+Co oznacza termin kwantowe uczenie maszynowe?
 
 **Uczenie maszynowe** to nauka i ,,sztuka'' opisująca jak sprawdzić by komputery mogły uczyć się na podstawie danych tak by rozwiązać problemy, 
 których typowe programowanie nie miałoby sensu (lub byłoby zbyt skomplikowane).
 
-Obliczenia kwantowe opisują przetworzenie informacji na urządzeniach pracujących zgodnie z zasadami mechaniki kwantowej.
+**Obliczenia kwantowe** opisują przetwarzenie informacji na urządzeniach pracujących zgodnie z zasadami mechaniki kwantowej.
+
 > Uwaga! klasyczne komputery (tranzystory) również działają zgodnie z zasadami mechaniki kwantowej, ale wykonywane operacje opierają się o logikę klasyczną.
 
 Oba kierunki są istotne w procesie przetwarzania danych obecnie i w niedalekiej przyszłości.
@@ -22,16 +25,17 @@ Istotnym kierunkiem jest również analiza metod matematycznych wykorzystywanych
 Kwantowe uczenie maszynowe możemy określić jako uczenie maszynowe realizowane na komputerach kwantowych.
 Zasadniczym jest pytanie na ile i czy wogóle komputery kwantowe mogą poprawić jakość modeli uczenia maszynowego i czy pozwalają zrealizować coś więcej niż wykorzystanie klasycznych komputerów. 
 
-**Odpowiedź** To zależy: 
+**Odpowiedź** To zależy:
+
 - jaki problem 
 - jakie dane
 - jaki typ analizy
-- jaki typ komputera kwantowego
+- jaki typ komputera kwantowego [procesory kwantowe](https://en.wikipedia.org/wiki/List_of_quantum_processors)
 - co znaczy lepiej? precyzja, czas, koszt, skalowalność, zużycie energii, ...
 
 ## Sztuczna inteligencja
 
-<img src="img/ai.png" >
+<img class="center" src="img/ai1.png" >
 
 Historia AI sięga 1950 roku (A. Turing). 
 Rozwój technologii związanych z danymi ustrukturyzowanymi i nieustrukturyzowanymi realizowany np. w:
@@ -45,5 +49,73 @@ Rozwój technologii związanych z danymi ustrukturyzowanymi i nieustrukturyzowan
 - podejmowanie decyzji
 - booty, agenci ...
 
-Zadania te realizowane są w oparciu o uczenie maszynowe (Machine Learning) i głębokie sieci neuronowe (Deep Learning).
+Zadania te realizowane są w oparciu o uczenie maszynowe (Machine Learning) 
+i głębokie sieci neuronowe (Deep Learning).
+
+Dlaczego tak chętnie używamy:
+
+- Wykładniczy wzrost ilości (treningowych) danych dostępnych w social mediach, internecie, aplikacjach mobilnych, IoT.
+- Wzrost możliwości i spadek ceny (kosztów) jakości sprzętu komputerowego - co-procesory GPU, TPU, ...
+- Oprogramowanie Open Source
+- Przewaga konkurencyjna przedsiębiorstw z AI na firmami bez AI
+
+<img src="img/mem.jpg" class="center">
+
+## Klasyczne komputery
+
+__Komputer__ to fizyczne urządzenie bazujące na obwodach elektronicznych (electronic circuits), które służy do przetwarzania informacji. 
+__Algorytmy__ (programy komputerowe - software) to przepisy jak manipulować informacją reprezentowaną przez prąd w obwodzie aby wykonywać obliczenia.
+
+Dla wszystkich praktycznych przypadków wystarczy nam opis makroskopowy i klasyczne teorie do opisu własności prądu w obwowdach. 
+Jedak gdy naszym jest realizacja obliczeń z wykorzystaniem własności mikro okazuje się, że 
+klasyczny opis przestaje być wystarczający i musimy użyć mechaniki kwantowej.
+Jak do tej pory jest to najlepiej przetestowany i stosowany opis mikroświata jaki znamy.
+Komputer, na którym obliczenia wykonywane są zgodnie z zasadami mechaniki kwantowej nazywamy __komputerem kwantowym__.
+
+
+> **Moore's law**
+>   An observation that the number of transistors on microchip roughly doubles every two years,
+>   whereas its cost is halved over that same timeframe. 
+> _The growth of microprocessors is exponential_
+
+Zwiększenie szybkości działania oraz pojemności klasycznych komputerów co dwa lata zmniejszając przy tym koszty. 
+
+<img class="center" src="img/rys1.png">
+
+**Fizyczne (klasyczne) ograniczenia dla procesorów**
+
+1. Rozmiary tranzystora $\sim$ rozmiary atomów - lata 90'te $500 nm$ obecnie $14 nm$ i $7 nm$.
+2. Prędkość światła $\sim$ max. prędkość przesyłu informacji. 
+3. wysoki koszt wytwarzania (kierunek układów wieloprocesorowych)
+4. wysoki pobór prądu, ciepło 
+
+## Obliczenia kwantowe 
+
+**Historia** 
+
+
+- 1936 Alan Turing [On Computable Numbers](https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf) (Hilbert Problems) - universal computing machine [local](/pubs/Turing_Paper_1936.pdf)
+- 1976 Roman S. Ingarden - [Quantum Information Theory](https://www.sciencedirect.com/science/article/abs/pii/0034487776900057?via%3Dihub)
+- 1980 Paul Benioff - teoretyczna możliwość komputerów kwantowych "Computer as a Physical System..."
+- 1981 Richard Feynman - Klasyczne komputery nie podołają z symulowaniem procesów kwantowych. \small{“Nature isn't classical, dammit, and if you want to make a simulation of nature, you'd better make it quantum mechanical, and by golly it's a wonderful problem, because it doesn't look so easy.”}
+- 1985 David Deutsch pierwszy opis kwantowej maszyny Turinga. Algorytm do uruchomienia na komputerze kwantowym. Bramki kwantowe.
+- 1994 Peter Shor - Algorytm faktoryzacji liczb w czasie wielomianowym. 
+- 1996 Lov Grover - Algorytm Grover'a "A fast quantum mechanical algorithm for database search" 
+- 2000 pierwszy 5-kubiotwy kwantowy komputer (oparty na nuklearnym rezonansie magnetycznym).
+- 2001 demonstracja algorytmu Shora 
+- 2007 implementacja algorytmu Deutschas'a
+- 2011 D-Wave pierwsza sprzedaż komercyjnego komputera kwantowego
+- 2013 pierwszy komputer kwantowy w Google
+- 2017 IBM - klasyczne superkomputery nie mogą symulować więcej niż 56 kubitów - quantum supremacy
+- 23 październik 2019 Google ogłasza uzyskanie QS na 53 kubitach - superkomputer powinien działać i liczyć 10000 lat.
+- IBM zmienia algorytm próbkowania uzyskując lepszy wynik na superkomputerze niż Google. 
+- 2020 University of Science and Technology of China (Jian-Wei Pan) 76 fotonowych kubitów na komputerze Jiuzhang - 20 sekund samplingu = 600 milionów lat obliczeń na super komputerze. 
+- 2021 USTC ... 2022 Xanadu 
+
+
+Od około 1990 roku Fizycy i inforamtycy pracują nad fizyczną realizacją komputerów kwantowych.
+Jednym ze sposobów realizacji obliczeń wykonywanych na komputerach kwantowych jest model oparty o kwantowe obwody (quantum circuit), który w swoim działaniu wykorzystuje qubity zamiast bitów.
+Analogicznie do obwodów klasycznych możemy zdefiniować bramki kwantowe (quantum gates), które realizują operacje na qubitach.
+Fizyczne zbudowanie komputera kwantowego, czy raczej kubitu nie jest trywialne, gdyż wymaga manipulacji bardzo małym układem, który zazwyczaj wrażliwy jest na każdy rodzaj oddziaływania (dekoherencja).
+
 

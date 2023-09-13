@@ -1,0 +1,92 @@
+---
+title: "Klasyczne bramki logiczne - Algebra Boola"
+---
+$$
+\newcommand{\bra}[1]{\left \langle #1 \right \rvert}
+\newcommand{\ket}[1]{\left \rvert #1 \right \rangle}
+\newcommand{\braket}[2]{\left \langle #1 \middle \rvert #2 \right \rangle}
+$$
+
+Obliczenia (przetwarzanie) wykonywane przez komputer możemy zdefiniować jako transformacje jednego stanu pamięci na inny.
+Z matematycznego punktu widzenia oznacza to, że obliczenia to funkcje, które przekształcają informacje.
+
+W przypadku klasycznych komputerów (maszyn cyfrowych) podstawową jednostką pamięci jest **bit** (ang. _binary digit_).
+Funkcje, które operują na bitach nazywamy **bramkami logicznymi** (ang. _logic gates_).
+Bramki logiczne to [funkcje Boolowskie](https://esezam.okno.pw.edu.pl/mod/book/view.php?id=38&chapterid=775), które możemy składać w bardziej złożone układy (ang. _circuits_).
+Zdolne są one do wykonywania np. dodawania, mnożenia czy też innych bardziej skomplikowanych operacji.
+Istotnym aspektem klasyczych bramek logicznych jest również to, że liczba bitów wejściowych nie musi być taka sama jak liczba bitów wyjściowych.
+
+Z pozoru obliczenia przedstawione w ten sposób wyglądają jako abstrakcjny matematyczny koncept.
+Jednak jego realizacja zawsze wymaga jakiegoś układu fizycznego realizującego wykonywanie funkcji.
+Nie ma znaczenia jak ten układ zostanie zrealizowany: kule bilardowe, przełączniki elektroniczne, tranzystory, czy cokolwiek innego.
+Logika obliczeń jest niezależna od ich realizacji. 
+
+Z punktu widzenia realizacji zawsze chodzi nam o _kontrolowany_ sposób zmiany stanu układu.
+Obliczenia klasyczne wymagają fizycznej implementacji dwóch (odróżnialnych) stanów
+(zazwyczaj oznaczamy te stany jako $0$ i $1$) oraz zbioru bramek, które pozwalają przechodzić pomiędzy stanami.
+
+Zastosujmy nowe oznaczenia dla tych stanów: 
+$$0 = \ket{0} $$ oraz $$1 = \ket{1}$$.
+
+Na wykładzie postaramy się wskazać jak i kiedy logika klasycznych obliczeń może być uogólniona przez logikę obliczeń kwantowych.
+Jasne jest, że przypadek klasyczny powinien być szczególnym przypadkiem kwantowego.
+
+## Klasyczne bramki logiczne
+
+Zróbmy krótkie przedstawienie niektórych, klasycznych bramek logicznych.
+
+**Bramka logiczna** jest implementacją funkcji boolowskiej. Operacją logiczną przeprowadzaną na jednym lub kilku binarnych wejściach 
+produkującą jedną binarną wartość wyjściową.
+$$f: \{0,1\}^{n} \to \{0,1\} $$
+
+Każdy element algebry boola (Boolean Statements) musi być określony jako **prawda** albo **fałsz**.
+
+Bramki logiczne możemy wyrazić za pomocą **tablicy prawdy** (ang. _truth table_).
+Tablica ta posiada jedną kolumnę dla każdej zmiennej wejściowej oraz jedną kolumnę dla zmiennej wyjściowej. 
+Kolumna wyjściowa przedstawia wszystkie możliwe wyniki przedstawianej logicznej operacji reprezentowanej przez tablicę. 
+Każdy wiersz tablicy prawdy reprezentuje jedną możliwą kombinację (konfiguracje) danych wejściowych oraz wyniku. 
+
+Podstawowe bramki, które znasz to: 
+
+1. **AND** - koniunkcja
+2. **OR** - alternatywa
+3. **NOT** - negacja
+3. **NAND** - not and
+4. **XOR** - alternatywa wykluczająca
+
+> Zadanie: zapisz tablicę prawdy dla każdej bramki. 
+
+Powyższe bramki pozwalają łączyć Ci pojedyncze elemnty algebry boola ze sobą. 
+
+> Zadanie: Porównaj `and` oraz `or` z potocznym, językowym znaczeniem tych słów.
+
+> Zadanie: Dlaczego Algebra boola nazywana jest algebrą zbiorów? 
+
+> Zadanie: Czy składanie podzbiorów zbioru też generuje algebrę boola ?
+
+> Zadanie: Kiedy dodajemy i mnożymy liczby jakie operacje i własności wykorzystujemy? 
+
+> Zadanie: ile bramek logicznych możemy stworzyć dla jednego bitu, dwóch bitów, trzech bitów? 
+### Uniweralne bramki logiczne - NAND
+
+## Fizyczna realizacja klasycznych bitów i bramek logicznych
+
+Bramka NAND jest bramką uniwersalną, co oznacza, że każdą funkcję boolowską można zrealizować za pomocą układu bramek NAND.
+Dlatego ważne dla komputerów klasycznych jest, aby znaleźć praktyczną realizację i jej implementację w układach. 
+
+Istnieje wiele fizycznych realizacji [bramki NAND](https://en.wikipedia.org/wiki/NAND_gate).
+
+
+
+### Implementacja komórki pamięci RAM 
+
+Random Access Memory (RAM) uzywany jest do przechowywania instrukcji i danych aktualnie używanych przez CPU. 
+Stan pamięci RAM jest tracony gdy urządzenie zostanie odłączone od zasilania.
+Pamięć RAM jest zorganizowana w komórki, które mogą przechowywać pojedynczy bit informacji.
+Do implementacji pamięci RAM wykorzystuje się zbiór bramek logicznych (NAND) oraz tranzystorów.
+
+
+
+
+! DODAC MATERIALY Z UDEMY - SZYFROWANIE jako coś do zrobienia !!
+

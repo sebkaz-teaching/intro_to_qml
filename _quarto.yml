@@ -10,6 +10,8 @@ website:
             text: 232530-D
           - href: wyklad1.qmd
             text: Wykład 1
+          - href: bity.qmd
+            text: Wykład 2
           - href: sylabus.qmd
             text: Sylabus
           - href: info.qmd

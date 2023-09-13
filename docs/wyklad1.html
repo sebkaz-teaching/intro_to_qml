@@ -60,6 +60,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -90,6 +92,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Wykład 1</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./bity.html" rel="" target="">
+ <span class="menu-text">Wykład 2</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./sylabus.html" rel="" target="">
  <span class="menu-text">Sylabus</span></a>
   </li>  
@@ -117,8 +123,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#co-oznacza-termin-kwantowe-uczenie-maszynowe-quntum-machine-learning" id="toc-co-oznacza-termin-kwantowe-uczenie-maszynowe-quntum-machine-learning" class="nav-link active" data-scroll-target="#co-oznacza-termin-kwantowe-uczenie-maszynowe-quntum-machine-learning">Co oznacza termin kwantowe uczenie maszynowe? (Quntum Machine Learning)</a></li>
+  <li><a href="#quntum-machine-learning" id="toc-quntum-machine-learning" class="nav-link active" data-scroll-target="#quntum-machine-learning">Quntum Machine Learning</a></li>
   <li><a href="#sztuczna-inteligencja" id="toc-sztuczna-inteligencja" class="nav-link" data-scroll-target="#sztuczna-inteligencja">Sztuczna inteligencja</a></li>
+  <li><a href="#klasyczne-komputery" id="toc-klasyczne-komputery" class="nav-link" data-scroll-target="#klasyczne-komputery">Klasyczne komputery</a></li>
+  <li><a href="#obliczenia-kwantowe" id="toc-obliczenia-kwantowe" class="nav-link" data-scroll-target="#obliczenia-kwantowe">Obliczenia kwantowe</a></li>
   </ul>
 </nav>
     </div>
@@ -142,24 +150,93 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="co-oznacza-termin-kwantowe-uczenie-maszynowe-quntum-machine-learning" class="level2">
-<h2 class="anchored" data-anchor-id="co-oznacza-termin-kwantowe-uczenie-maszynowe-quntum-machine-learning">Co oznacza termin kwantowe uczenie maszynowe? (Quntum Machine Learning)</h2>
+<section id="quntum-machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="quntum-machine-learning">Quntum Machine Learning</h2>
+<p>Co oznacza termin kwantowe uczenie maszynowe?</p>
 <p><strong>Uczenie maszynowe</strong> to nauka i ,,sztuka’’ opisująca jak sprawdzić by komputery mogły uczyć się na podstawie danych tak by rozwiązać problemy, których typowe programowanie nie miałoby sensu (lub byłoby zbyt skomplikowane).</p>
-<p>Obliczenia kwantowe opisują przetworzenie informacji na urządzeniach pracujących zgodnie z zasadami mechaniki kwantowej. &gt; Uwaga! klasyczne komputery (tranzystory) również działają zgodnie z zasadami mechaniki kwantowej, ale wykonywane operacje opierają się o logikę klasyczną.</p>
+<p><strong>Obliczenia kwantowe</strong> opisują przetwarzenie informacji na urządzeniach pracujących zgodnie z zasadami mechaniki kwantowej.</p>
+<blockquote class="blockquote">
+<p>Uwaga! klasyczne komputery (tranzystory) również działają zgodnie z zasadami mechaniki kwantowej, ale wykonywane operacje opierają się o logikę klasyczną.</p>
+</blockquote>
 <p>Oba kierunki są istotne w procesie przetwarzania danych obecnie i w niedalekiej przyszłości. Dlatego naturalnym pytaniem jest jak je ze sobą połączyć?</p>
 <p>QML to zrealizowanie metod uczenia maszynowego, które mogą być wykonywane na komputerach kwantowych. Istotnym kierunkiem jest również analiza metod matematycznych wykorzystywanych w mechanice kwantowej i ich zastosowaniu w uczeniu maszynowym.</p>
 <blockquote class="blockquote">
 <p>you start with classical mechanics and electrodynamics, solving lots of grueling differential equations at every step. Then you learn about the “black-body paradox” and various strange experimental results, and the great crisis these things posed for physics. Next you learn a complicated patchwork of ideas that physicists invented between 1900 and 1926 to try to make the crisis go away. Then, if you’re lucky, after years of study you funally get around to the central coceptual point: that nature is described ot by probabilities (which are always non-negative), but by numbers called amplitudes that can be positive, negative, or even complex. Scott Aaronson, <a href="https://www.amazon.com/Quantum-Computing-since-Democritus-Aaronson/dp/0521199565">Quantum Computing Since Democritus</a></p>
 </blockquote>
 <p>Kwantowe uczenie maszynowe możemy określić jako uczenie maszynowe realizowane na komputerach kwantowych. Zasadniczym jest pytanie na ile i czy wogóle komputery kwantowe mogą poprawić jakość modeli uczenia maszynowego i czy pozwalają zrealizować coś więcej niż wykorzystanie klasycznych komputerów.</p>
-<p><strong>Odpowiedź</strong> To zależy: - jaki problem - jakie dane - jaki typ analizy - jaki typ komputera kwantowego - co znaczy lepiej? precyzja, czas, koszt, skalowalność, zużycie energii, …</p>
+<p><strong>Odpowiedź</strong> To zależy:</p>
+<ul>
+<li>jaki problem</li>
+<li>jakie dane</li>
+<li>jaki typ analizy</li>
+<li>jaki typ komputera kwantowego <a href="https://en.wikipedia.org/wiki/List_of_quantum_processors">procesory kwantowe</a></li>
+<li>co znaczy lepiej? precyzja, czas, koszt, skalowalność, zużycie energii, …</li>
+</ul>
 </section>
 <section id="sztuczna-inteligencja" class="level2">
 <h2 class="anchored" data-anchor-id="sztuczna-inteligencja">Sztuczna inteligencja</h2>
-<p><img src="img/ai.png"></p>
-<p>Historia AI sięga 1950 roku (A. Turing).</p>
-<p>Rozwój technologii związanych z danymi ustrukturyzowanymi i~nieustrukturyzowanymi realizowany np. w:</p>
-<p>Zadania te realizowane są w oparciu o ML i DL.</p>
+<p><img class="center" src="img/ai1.png"></p>
+<p>Historia AI sięga 1950 roku (A. Turing). Rozwój technologii związanych z danymi ustrukturyzowanymi i nieustrukturyzowanymi realizowany np. w:</p>
+<ul>
+<li>rozpoznawanie i tworzenie ,,mowy’’</li>
+<li>,,rozumienie’’ obrazów i filmów</li>
+<li>rozgrywanie gier</li>
+<li>rekomendacje</li>
+<li>systemy diagnostyczne</li>
+<li>planowanie</li>
+<li>podejmowanie decyzji</li>
+<li>booty, agenci …</li>
+</ul>
+<p>Zadania te realizowane są w oparciu o uczenie maszynowe (Machine Learning) i głębokie sieci neuronowe (Deep Learning).</p>
+<p>Dlaczego tak chętnie używamy:</p>
+<ul>
+<li>Wykładniczy wzrost ilości (treningowych) danych dostępnych w social mediach, internecie, aplikacjach mobilnych, IoT.</li>
+<li>Wzrost możliwości i spadek ceny (kosztów) jakości sprzętu komputerowego - co-procesory GPU, TPU, …</li>
+<li>Oprogramowanie Open Source</li>
+<li>Przewaga konkurencyjna przedsiębiorstw z AI na firmami bez AI</li>
+</ul>
+<p><img src="img/mem.jpg" class="center"></p>
+</section>
+<section id="klasyczne-komputery" class="level2">
+<h2 class="anchored" data-anchor-id="klasyczne-komputery">Klasyczne komputery</h2>
+<p><strong>Komputer</strong> to fizyczne urządzenie bazujące na obwodach elektronicznych (electronic circuits), które służy do przetwarzania informacji. <strong>Algorytmy</strong> (programy komputerowe - software) to przepisy jak manipulować informacją reprezentowaną przez prąd w obwodzie aby wykonywać obliczenia.</p>
+<p>Dla wszystkich praktycznych przypadków wystarczy nam opis makroskopowy i klasyczne teorie do opisu własności prądu w obwowdach. Jedak gdy naszym jest realizacja obliczeń z wykorzystaniem własności mikro okazuje się, że klasyczny opis przestaje być wystarczający i musimy użyć mechaniki kwantowej. Jak do tej pory jest to najlepiej przetestowany i stosowany opis mikroświata jaki znamy. Komputer, na którym obliczenia wykonywane są zgodnie z zasadami mechaniki kwantowej nazywamy <strong>komputerem kwantowym</strong>.</p>
+<blockquote class="blockquote">
+<p><strong>Moore’s law</strong> An observation that the number of transistors on microchip roughly doubles every two years, whereas its cost is halved over that same timeframe. <em>The growth of microprocessors is exponential</em></p>
+</blockquote>
+<p>Zwiększenie szybkości działania oraz pojemności klasycznych komputerów co dwa lata zmniejszając przy tym koszty.</p>
+<p><img class="center" src="img/rys1.png"></p>
+<p><strong>Fizyczne (klasyczne) ograniczenia dla procesorów</strong></p>
+<ol type="1">
+<li>Rozmiary tranzystora <span class="math inline">\(\sim\)</span> rozmiary atomów - lata 90’te <span class="math inline">\(500 nm\)</span> obecnie <span class="math inline">\(14 nm\)</span> i <span class="math inline">\(7 nm\)</span>.</li>
+<li>Prędkość światła <span class="math inline">\(\sim\)</span> max. prędkość przesyłu informacji.</li>
+<li>wysoki koszt wytwarzania (kierunek układów wieloprocesorowych)</li>
+<li>wysoki pobór prądu, ciepło</li>
+</ol>
+</section>
+<section id="obliczenia-kwantowe" class="level2">
+<h2 class="anchored" data-anchor-id="obliczenia-kwantowe">Obliczenia kwantowe</h2>
+<p><strong>Historia</strong></p>
+<ul>
+<li>1936 Alan Turing <a href="https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf">On Computable Numbers</a> (Hilbert Problems) - universal computing machine <a href="./pubs/Turing_Paper_1936.pdf">local</a></li>
+<li>1976 Roman S. Ingarden - <a href="https://www.sciencedirect.com/science/article/abs/pii/0034487776900057?via%3Dihub">Quantum Information Theory</a></li>
+<li>1980 Paul Benioff - teoretyczna możliwość komputerów kwantowych “Computer as a Physical System…”</li>
+<li>1981 Richard Feynman - Klasyczne komputery nie podołają z symulowaniem procesów kwantowych. {“Nature isn’t classical, dammit, and if you want to make a simulation of nature, you’d better make it quantum mechanical, and by golly it’s a wonderful problem, because it doesn’t look so easy.”}</li>
+<li>1985 David Deutsch pierwszy opis kwantowej maszyny Turinga. Algorytm do uruchomienia na komputerze kwantowym. Bramki kwantowe.</li>
+<li>1994 Peter Shor - Algorytm faktoryzacji liczb w czasie wielomianowym.</li>
+<li>1996 Lov Grover - Algorytm Grover’a “A fast quantum mechanical algorithm for database search”</li>
+<li>2000 pierwszy 5-kubiotwy kwantowy komputer (oparty na nuklearnym rezonansie magnetycznym).</li>
+<li>2001 demonstracja algorytmu Shora</li>
+<li>2007 implementacja algorytmu Deutschas’a</li>
+<li>2011 D-Wave pierwsza sprzedaż komercyjnego komputera kwantowego</li>
+<li>2013 pierwszy komputer kwantowy w Google</li>
+<li>2017 IBM - klasyczne superkomputery nie mogą symulować więcej niż 56 kubitów - quantum supremacy</li>
+<li>23 październik 2019 Google ogłasza uzyskanie QS na 53 kubitach - superkomputer powinien działać i liczyć 10000 lat.</li>
+<li>IBM zmienia algorytm próbkowania uzyskując lepszy wynik na superkomputerze niż Google.</li>
+<li>2020 University of Science and Technology of China (Jian-Wei Pan) 76 fotonowych kubitów na komputerze Jiuzhang - 20 sekund samplingu = 600 milionów lat obliczeń na super komputerze.</li>
+<li>2021 USTC … 2022 Xanadu</li>
+</ul>
+<p>Od około 1990 roku Fizycy i inforamtycy pracują nad fizyczną realizacją komputerów kwantowych. Jednym ze sposobów realizacji obliczeń wykonywanych na komputerach kwantowych jest model oparty o kwantowe obwody (quantum circuit), który w swoim działaniu wykorzystuje qubity zamiast bitów. Analogicznie do obwodów klasycznych możemy zdefiniować bramki kwantowe (quantum gates), które realizują operacje na qubitach. Fizyczne zbudowanie komputera kwantowego, czy raczej kubitu nie jest trywialne, gdyż wymaga manipulacji bardzo małym układem, który zazwyczaj wrażliwy jest na każdy rodzaj oddziaływania (dekoherencja).</p>
 
 
 </section>
