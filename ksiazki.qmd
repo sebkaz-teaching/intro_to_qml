@@ -32,11 +32,16 @@ title: Książki i strony WWW
 5. [Anaconda](http://continuum.io/downloads)
 6. [Docker](https://docs.docker.com/get-docker/)
 
-### Pakiety python
+### Pakiety Python
 
 1. [Qiskit](http://www.numpy.org)
 2. [PennyLane](http://www.scipy.org)
 3. [Yao](http://pandas.pydata.org)
+
+### Pakiety Julia 
+
+1. [Yao]()
+2. QAOA
 
 ### Edytory tekstu
 

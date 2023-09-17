@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Wstęp do kwantowego uczenia maszynowego - Klasyczne bramki logiczne - algebra Boola</title>
+<title>Wstęp do kwantowego uczenia maszynowego - Klasyczne bramki logiczne - Algebra Boola</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -92,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Wykład 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./bity.html" rel="" target="" aria-current="page">
+    <a class="nav-link active" href="./wyklad2.html" rel="" target="" aria-current="page">
  <span class="menu-text">Wykład 2</span></a>
   </li>  
   <li class="nav-item">
@@ -123,10 +123,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#klasyczne-bramki-logiczne" id="toc-klasyczne-bramki-logiczne" class="nav-link active" data-scroll-target="#klasyczne-bramki-logiczne">Klasyczne bramki logiczne</a>
-  <ul class="collapse">
-  <li><a href="#uniweralne-bramki-logiczne---nand" id="toc-uniweralne-bramki-logiczne---nand" class="nav-link" data-scroll-target="#uniweralne-bramki-logiczne---nand">Uniweralne bramki logiczne - NAND</a></li>
-  </ul></li>
+  <li><a href="#klasyczne-bramki-logiczne" id="toc-klasyczne-bramki-logiczne" class="nav-link active" data-scroll-target="#klasyczne-bramki-logiczne">Klasyczne bramki logiczne</a></li>
   <li><a href="#fizyczna-realizacja-klasycznych-bitów-i-bramek-logicznych" id="toc-fizyczna-realizacja-klasycznych-bitów-i-bramek-logicznych" class="nav-link" data-scroll-target="#fizyczna-realizacja-klasycznych-bitów-i-bramek-logicznych">Fizyczna realizacja klasycznych bitów i bramek logicznych</a>
   <ul class="collapse">
   <li><a href="#implementacja-komórki-pamięci-ram" id="toc-implementacja-komórki-pamięci-ram" class="nav-link" data-scroll-target="#implementacja-komórki-pamięci-ram">Implementacja komórki pamięci RAM</a></li>
@@ -139,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Klasyczne bramki logiczne - algebra Boola</h1>
+<h1 class="title">Klasyczne bramki logiczne - Algebra Boola</h1>
 </div>
 
 
@@ -160,15 +157,16 @@ ul.task-list li input[type="checkbox"] {
 \newcommand{\braket}[2]{\left \langle #1 \middle \rvert #2 \right \rangle}
 \]</span></p>
 <p>Obliczenia (przetwarzanie) wykonywane przez komputer możemy zdefiniować jako transformacje jednego stanu pamięci na inny. Z matematycznego punktu widzenia oznacza to, że obliczenia to funkcje, które przekształcają informacje.</p>
-<p>W przypadku klasycznych komputerów (maszyn cyfrowych) podstawową jednostką pamięci jest <strong>bit</strong> (ang. binary digit). Funkcje, które operują na bitach nazywamy <strong>bramkami logicznymi</strong> (ang. logic gates). Bramki logiczne to <a href="https://esezam.okno.pw.edu.pl/mod/book/view.php?id=38&amp;chapterid=775">funkcje Boolowskie</a>, które możemy składać w bardziej złożone układy (ang. <em>circuits</em>). Zdolne są one do wykonywania np. dodawania, mnożenia czy też innych bardziej skomplikowanych operacji. Istotnym aspektem klasyczych bramek logicznych jest również to, że liczba bitów wejściowych nie musi być taka sama jak liczba bitów wyjściowych.</p>
-<p>Z pozoru obliczenia przedstawione w ten sposób wyglądają jako abstrakcjny matematyczny koncept. Jednak jego realizacja zawsze wymaga jakiegoś układu fizycznego realizującego wykonywanie funkcji. Nie ma znaczenia jak ten układ zostanie zrealizowany: kule bilardowe, przełączniki elektroniczne, tranzystory, czy cokolwiek innego. Logika obliczeń jest niezależna od realizacji. Z punktu widzenia realizacji zawsze chodzi nam o <em>kontrolowany</em> sposób zmiany stanu układu.</p>
-<p>Obliczenia klasyczne wymagają fizycznej implementacji dwóch (odróżnialnych) stanów (zazwyczaj oznaczamy te stany jako <span class="math inline">\(0\)</span> i <span class="math inline">\(1\)</span>) oraz zbioru braek które pozwalają przechodzić pomiędzy stanami.</p>
+<p>W przypadku klasycznych komputerów (maszyn cyfrowych) podstawową jednostką pamięci jest <strong>bit</strong> (ang. <em>binary digit</em>). Funkcje, które operują na bitach nazywamy <strong>bramkami logicznymi</strong> (ang. <em>logic gates</em>). Bramki logiczne to <a href="https://esezam.okno.pw.edu.pl/mod/book/view.php?id=38&amp;chapterid=775">funkcje Boolowskie</a>, które możemy składać w bardziej złożone układy (ang. <em>circuits</em>). Zdolne są one do wykonywania np. dodawania, mnożenia czy też innych bardziej skomplikowanych operacji. Istotnym aspektem klasyczych bramek logicznych jest również to, że liczba bitów wejściowych nie musi być taka sama jak liczba bitów wyjściowych.</p>
+<p>Z pozoru obliczenia przedstawione w ten sposób wyglądają jako abstrakcjny matematyczny koncept. Jednak jego realizacja zawsze wymaga jakiegoś układu fizycznego realizującego wykonywanie funkcji. Nie ma znaczenia jak ten układ zostanie zrealizowany: kule bilardowe, przełączniki elektroniczne, tranzystory, czy cokolwiek innego. Logika obliczeń jest niezależna od ich realizacji.</p>
+<p>Z punktu widzenia realizacji zawsze chodzi nam o <em>kontrolowany</em> sposób zmiany stanu układu. Obliczenia klasyczne wymagają fizycznej implementacji dwóch (odróżnialnych) stanów (zazwyczaj oznaczamy te stany jako <span class="math inline">\(0\)</span> i <span class="math inline">\(1\)</span>) oraz zbioru bramek, które pozwalają przechodzić pomiędzy stanami.</p>
 <p>Zastosujmy nowe oznaczenia dla tych stanów: <span class="math display">\[0 = \ket{0} \]</span> oraz <span class="math display">\[1 = \ket{1}\]</span>.</p>
 <p>Na wykładzie postaramy się wskazać jak i kiedy logika klasycznych obliczeń może być uogólniona przez logikę obliczeń kwantowych. Jasne jest, że przypadek klasyczny powinien być szczególnym przypadkiem kwantowego.</p>
 <section id="klasyczne-bramki-logiczne" class="level2">
 <h2 class="anchored" data-anchor-id="klasyczne-bramki-logiczne">Klasyczne bramki logiczne</h2>
 <p>Zróbmy krótkie przedstawienie niektórych, klasycznych bramek logicznych.</p>
 <p><strong>Bramka logiczna</strong> jest implementacją funkcji boolowskiej. Operacją logiczną przeprowadzaną na jednym lub kilku binarnych wejściach produkującą jedną binarną wartość wyjściową. <span class="math display">\[f: \{0,1\}^{n} \to \{0,1\} \]</span></p>
+<p>Każdy element algebry boola (Boolean Statements) musi być określony jako <strong>prawda</strong> albo <strong>fałsz</strong>.</p>
 <p>Bramki logiczne możemy wyrazić za pomocą <strong>tablicy prawdy</strong> (ang. <em>truth table</em>). Tablica ta posiada jedną kolumnę dla każdej zmiennej wejściowej oraz jedną kolumnę dla zmiennej wyjściowej. Kolumna wyjściowa przedstawia wszystkie możliwe wyniki przedstawianej logicznej operacji reprezentowanej przez tablicę. Każdy wiersz tablicy prawdy reprezentuje jedną możliwą kombinację (konfiguracje) danych wejściowych oraz wyniku.</p>
 <p>Podstawowe bramki, które znasz to:</p>
 <ol type="1">
@@ -178,8 +176,181 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>NAND</strong> - not and</li>
 <li><strong>XOR</strong> - alternatywa wykluczająca</li>
 </ol>
-<section id="uniweralne-bramki-logiczne---nand" class="level3">
-<h3 class="anchored" data-anchor-id="uniweralne-bramki-logiczne---nand">Uniweralne bramki logiczne - NAND</h3>
+<blockquote class="blockquote">
+<p>Zadanie: zapisz tablicę prawdy dla każdej bramki.</p>
+</blockquote>
+<section id="not-gate" class="level4">
+<h4 class="anchored" data-anchor-id="not-gate">NOT gate</h4>
+<table class="table">
+<thead>
+<tr class="header">
+<th>A</th>
+<th>not A</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="and-gate" class="level4">
+<h4 class="anchored" data-anchor-id="and-gate">AND gate</h4>
+<table class="table">
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="or-gate" class="level4">
+<h4 class="anchored" data-anchor-id="or-gate">OR gate</h4>
+<table class="table">
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="nand" class="level4">
+<h4 class="anchored" data-anchor-id="nand">NAND</h4>
+<table class="table">
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="xor" class="level4">
+<h4 class="anchored" data-anchor-id="xor">XOR</h4>
+<table class="table">
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Powyższe bramki pozwalają łączyć Ci pojedyncze elemnty algebry boola ze sobą.</p>
+<blockquote class="blockquote">
+<p>Zadanie: Porównaj <code>AND</code> oraz <code>OR</code> z potocznym, językowym znaczeniem tych słów.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Zadanie: Dlaczego Algebra boola nazywana jest algebrą zbiorów?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Zadanie: Czy składanie podzbiorów zbioru też generuje algebrę boola ?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Zadanie: Kiedy dodajemy i mnożymy liczby jakie operacje i własności wykorzystujemy?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Zadanie: ile bramek logicznych możemy stworzyć dla jednego bitu, dwóch bitów, trzech bitów? ### Uniweralne bramki logiczne - NAND</p>
+</blockquote>
 </section>
 </section>
 <section id="fizyczna-realizacja-klasycznych-bitów-i-bramek-logicznych" class="level2">

@@ -56,9 +56,53 @@ Podstawowe bramki, które znasz to:
 
 > Zadanie: zapisz tablicę prawdy dla każdej bramki. 
 
+#### NOT gate
+
+|A | not A | 
+|---|---|
+|0|  | 
+|1|  |
+
+#### AND gate
+
+|A | B | C|
+|---|---|---|
+|0| 0 | |
+|1| 0 | |
+|0| 1 | |
+|1| 1 | |
+
+#### OR gate
+
+|A | B | C|
+|---|---|---|
+|0| 0 | |
+|1| 0 | |
+|0| 1 | |
+|1| 1 | |
+
+#### NAND
+
+|A | B | C|
+|---|---|---|
+|0| 0 | |
+|1| 0 | |
+|0| 1 | |
+|1| 1 | |
+
+#### XOR
+
+|A | B | C|
+|---|---|---|
+|0| 0 | |
+|1| 0 | |
+|0| 1 | |
+|1| 1 | |
+
+
 Powyższe bramki pozwalają łączyć Ci pojedyncze elemnty algebry boola ze sobą. 
 
-> Zadanie: Porównaj `and` oraz `or` z potocznym, językowym znaczeniem tych słów.
+> Zadanie: Porównaj `AND` oraz `OR` z potocznym, językowym znaczeniem tych słów.
 
 > Zadanie: Dlaczego Algebra boola nazywana jest algebrą zbiorów? 
 

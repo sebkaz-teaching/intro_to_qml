@@ -92,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Wykład 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./bity.html" rel="" target="">
+    <a class="nav-link" href="./wyklad2.html" rel="" target="">
  <span class="menu-text">Wykład 2</span></a>
   </li>  
   <li class="nav-item">
@@ -127,6 +127,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sztuczna-inteligencja" id="toc-sztuczna-inteligencja" class="nav-link" data-scroll-target="#sztuczna-inteligencja">Sztuczna inteligencja</a></li>
   <li><a href="#klasyczne-komputery" id="toc-klasyczne-komputery" class="nav-link" data-scroll-target="#klasyczne-komputery">Klasyczne komputery</a></li>
   <li><a href="#obliczenia-kwantowe" id="toc-obliczenia-kwantowe" class="nav-link" data-scroll-target="#obliczenia-kwantowe">Obliczenia kwantowe</a></li>
+  <li><a href="#realizacje-problemów-biznesowych-na-komputerach-kwantowych" id="toc-realizacje-problemów-biznesowych-na-komputerach-kwantowych" class="nav-link" data-scroll-target="#realizacje-problemów-biznesowych-na-komputerach-kwantowych">Realizacje problemów biznesowych na komputerach kwantowych</a></li>
+  <li><a href="#dostęp-do-obliczeń-kwantowych-w-chmurze" id="toc-dostęp-do-obliczeń-kwantowych-w-chmurze" class="nav-link" data-scroll-target="#dostęp-do-obliczeń-kwantowych-w-chmurze">Dostęp do obliczeń kwantowych w chmurze</a></li>
   </ul>
 </nav>
     </div>
@@ -150,6 +152,9 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<blockquote class="blockquote">
+<p>Nature isn’t classical, dammit, and if you want to make a simulation of Nature, you’d better make it quantum mechanical, and by golly it’s a wonderful problem because it doesn’t look so easy.</p>
+</blockquote>
 <section id="quntum-machine-learning" class="level2">
 <h2 class="anchored" data-anchor-id="quntum-machine-learning">Quntum Machine Learning</h2>
 <p>Co oznacza termin kwantowe uczenie maszynowe?</p>
@@ -199,8 +204,9 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="klasyczne-komputery" class="level2">
 <h2 class="anchored" data-anchor-id="klasyczne-komputery">Klasyczne komputery</h2>
-<p><strong>Komputer</strong> to fizyczne urządzenie bazujące na obwodach elektronicznych (electronic circuits), które służy do przetwarzania informacji. <strong>Algorytmy</strong> (programy komputerowe - software) to przepisy jak manipulować informacją reprezentowaną przez prąd w obwodzie aby wykonywać obliczenia.</p>
-<p>Dla wszystkich praktycznych przypadków wystarczy nam opis makroskopowy i klasyczne teorie do opisu własności prądu w obwowdach. Jedak gdy naszym jest realizacja obliczeń z wykorzystaniem własności mikro okazuje się, że klasyczny opis przestaje być wystarczający i musimy użyć mechaniki kwantowej. Jak do tej pory jest to najlepiej przetestowany i stosowany opis mikroświata jaki znamy. Komputer, na którym obliczenia wykonywane są zgodnie z zasadami mechaniki kwantowej nazywamy <strong>komputerem kwantowym</strong>.</p>
+<p><strong>Komputer</strong> to fizyczne urządzenie bazujące na obwodach elektronicznych (electronic circuits), które służy do przetwarzania informacji.</p>
+<p><strong>Algorytmy</strong> (programy komputerowe - software) to przepisy jak manipulować informacją reprezentowaną przez prąd w obwodzie aby wykonywać obliczenia.</p>
+<p>Dla wszystkich praktycznych przypadków wystarczy nam opis makroskopowy i klasyczne teorie do opisu własności prądu w obwodach. Jedak gdy naszym jest realizacja obliczeń z wykorzystaniem własności mikro okazuje się, że klasyczny opis przestaje być wystarczający i musimy użyć mechaniki kwantowej. Jak do tej pory jest to najlepiej przetestowany i stosowany opis mikroświata jaki znamy. Komputer, na którym obliczenia wykonywane są zgodnie z zasadami mechaniki kwantowej nazywamy <strong>komputerem kwantowym</strong>.</p>
 <blockquote class="blockquote">
 <p><strong>Moore’s law</strong> An observation that the number of transistors on microchip roughly doubles every two years, whereas its cost is halved over that same timeframe. <em>The growth of microprocessors is exponential</em></p>
 </blockquote>
@@ -216,7 +222,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="obliczenia-kwantowe" class="level2">
 <h2 class="anchored" data-anchor-id="obliczenia-kwantowe">Obliczenia kwantowe</h2>
-<p><strong>Historia</strong></p>
+<p>Termin <em>Mechanika Kwantowa</em> używany jest zamiennie z terminem <em>Teoria Kwantowa</em>. Chociaż istnieją teorie kwantowe wychodzące poza zakres mechaniki kwantowej (np. Kwantowa teoria pola). MK przewiduje wyniki rezultatów doświadczeń przeprowadzanaych na <em>układach kwantowych</em>, czyli mikroskopowych fizycznych obiektach, dla których fizyka Newtonowska nie prowadzi do prawidłowych wyników (np. atom wodoru).</p>
+<p>W uczeniu maszynowym, spora część problemów nie jest rozwiązywalna dokładnie. Jednakże istnieją techniki przybliżania rozwiązań, dzięki czemu możemy stosować te metody w medycynie, chemii, biologii czy inżynierii.</p>
+<p>Fizyka klasyczna realizowana jest jako graniczny przypadek MK, jednak fizycy zazwyczaj rozdzielają zagadnienia i stosują odpowiednią teorię do odpowiedniego problemu.</p>
+<p>Ze wzlgędu, iż wyniki MK są probabilistyczne, bardzo często można spotkać przekonanie, że MK jest teorią statystyczną. Nie jest to jednak prawda. MK można uznać za uogólnienie klasycznej definicji prawdopodobieństwa.</p>
+<p><strong>Historia MK</strong></p>
+<p>Początek MK związany jest z pracami Maxa Plancka (1900) i Alberta Einsteina (1905), którzy wprowadzili pojęcie <em>kwantu</em> - czyli najmniejszej porcji energii. Natomiast dalszy rozwój MK związany jest z pracami Nielsa Bohra, Erwina Schrödingera, Louisa de Broglie, Heisenberga, Diraca, Feynmana, …</p>
+<p><strong>Historia obliczeń kwantowych</strong></p>
 <ul>
 <li>1936 Alan Turing <a href="https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf">On Computable Numbers</a> (Hilbert Problems) - universal computing machine <a href="./pubs/Turing_Paper_1936.pdf">local</a></li>
 <li>1976 Roman S. Ingarden - <a href="https://www.sciencedirect.com/science/article/abs/pii/0034487776900057?via%3Dihub">Quantum Information Theory</a></li>
@@ -237,6 +249,17 @@ ul.task-list li input[type="checkbox"] {
 <li>2021 USTC … 2022 Xanadu</li>
 </ul>
 <p>Od około 1990 roku Fizycy i inforamtycy pracują nad fizyczną realizacją komputerów kwantowych. Jednym ze sposobów realizacji obliczeń wykonywanych na komputerach kwantowych jest model oparty o kwantowe obwody (quantum circuit), który w swoim działaniu wykorzystuje qubity zamiast bitów. Analogicznie do obwodów klasycznych możemy zdefiniować bramki kwantowe (quantum gates), które realizują operacje na qubitach. Fizyczne zbudowanie komputera kwantowego, czy raczej kubitu nie jest trywialne, gdyż wymaga manipulacji bardzo małym układem, który zazwyczaj wrażliwy jest na każdy rodzaj oddziaływania (dekoherencja).</p>
+</section>
+<section id="realizacje-problemów-biznesowych-na-komputerach-kwantowych" class="level2">
+<h2 class="anchored" data-anchor-id="realizacje-problemów-biznesowych-na-komputerach-kwantowych">Realizacje problemów biznesowych na komputerach kwantowych</h2>
+<ol type="1">
+<li><a href="https://www.dwavesys.com/media/2pojgtcx/dwave_vw_case_story_v2f.pdf">DWave and VW</a></li>
+<li>https://www.dwavesys.com/learn/customer-success-stories/</li>
+</ol>
+</section>
+<section id="dostęp-do-obliczeń-kwantowych-w-chmurze" class="level2">
+<h2 class="anchored" data-anchor-id="dostęp-do-obliczeń-kwantowych-w-chmurze">Dostęp do obliczeń kwantowych w chmurze</h2>
+<p><a href="https://www.ibm.com/quantum/access-plans/">IBM Quantum</a> z wykorzystaniem biblioteki qiskit. [Pennylane] (https://pennylane.ai/) z wykorzystaniem biblioteki pennylane.</p>
 
 
 </section>
