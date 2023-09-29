@@ -3,6 +3,7 @@ title: "Komputery klasyczne i kwantowe."
 ---
 
 > Nature isn’t classical, dammit, and if you want to make a simulation of Nature, you’d better make it quantum mechanical, and by golly it’s a wonderful problem because it doesn’t look so easy.
+> Richard Feynman
 
 ## Quntum Machine Learning
 
@@ -103,17 +104,18 @@ W uczeniu maszynowym, spora część problemów nie jest rozwiązywalna dokładn
 Jednakże istnieją techniki przybliżania rozwiązań, dzięki czemu możemy stosować te metody w medycynie, chemii, biologii czy inżynierii. 
 
 Fizyka klasyczna realizowana jest jako graniczny przypadek MK, jednak fizycy zazwyczaj rozdzielają zagadnienia i stosują odpowiednią 
-teorię do odpowiedniego problemu. 
+teorię do odpowiedniego problemu. Nikt nie buduje mostów używając MK.
 
 Ze wzlgędu, iż wyniki MK są probabilistyczne, bardzo często można spotkać przekonanie, że MK jest teorią statystyczną. 
-Nie jest to jednak prawda. MK można uznać za uogólnienie klasycznej definicji prawdopodobieństwa. 
+Nie jest to jednak prawda! MK można uznać za uogólnienie klasycznej definicji prawdopodobieństwa. 
 
 
 **Historia MK** 
 
 Początek MK związany jest z pracami Maxa Plancka (1900) i Alberta Einsteina (1905), którzy wprowadzili pojęcie _kwantu_ - czyli
 najmniejszej porcji energii. Natomiast dalszy rozwój MK związany jest z pracami Nielsa Bohra, Erwina Schrödingera, 
-Louisa de Broglie, Heisenberga, Diraca, Feynmana, ...
+Louisa de Broglie, Heisenberga, Diraca, Feynmana, ... Pozostałe informacje możesz znaleźć w [artykule o obliczeniach kwantowych](https://medium.com/@warsaw.quantum/czym-są-technologie-kwantowe-13de3f3e4475)
+
 
 **Historia obliczeń kwantowych**
  
@@ -137,19 +139,33 @@ Louisa de Broglie, Heisenberga, Diraca, Feynmana, ...
 
 
 Od około 1990 roku Fizycy i inforamtycy pracują nad fizyczną realizacją komputerów kwantowych.
-Jednym ze sposobów realizacji obliczeń wykonywanych na komputerach kwantowych jest model oparty o kwantowe obwody (quantum circuit), który w swoim działaniu wykorzystuje qubity zamiast bitów.
-Analogicznie do obwodów klasycznych możemy zdefiniować bramki kwantowe (quantum gates), które realizują operacje na qubitach.
-Fizyczne zbudowanie komputera kwantowego, czy raczej kubitu nie jest trywialne, gdyż wymaga manipulacji bardzo małym układem, który zazwyczaj wrażliwy jest na każdy rodzaj oddziaływania (dekoherencja).
+Jednym ze sposobów realizacji obliczeń wykonywanych na komputerach kwantowych jest model oparty o kwantowe obwody (_quantum circuit_), który w swoim działaniu wykorzystuje qubity zamiast bitów.
+Analogicznie do obwodów klasycznych możemy zdefiniować bramki kwantowe (_quantum gates_), które realizują operacje na qubitach.
+Fizyczne zbudowanie komputera kwantowego, czy raczej kubitu nie jest trywialne, 
+gdyż wymaga manipulacji bardzo małym układem, który zazwyczaj wrażliwy jest na każdy rodzaj oddziaływania (dekoherencja).
 
 
 ## Realizacje problemów biznesowych na komputerach kwantowych
 
-1. [DWave and VW](https://www.dwavesys.com/media/2pojgtcx/dwave_vw_case_story_v2f.pdf)
+1. Systemy obrony - kryptografia
+2. Rigetti - [przewidywanie pogody](https://thequantuminsider.com/2021/12/07/quantum-machine-learning-may-improve-weather-forecasting/)
+3. NASA (QuAIL) - [Kontrola lotów kosmicznych](https://www.sciencedirect.com/science/article/pii/S0167819116301326)
+4. Accenture - Finanse, logistyka, komunikacja i systemy bezpieczeństwa
+5. BASF - Obliczenia molekularne w chemii kwantowej.
+6. Ford/ VW/ BMW [link1](https://spectrum.ieee.org/ford-signs-up-to-use-nasas-quantum-computers) [link2](https://www.volkswagenag.com/en/news/stories/2021/08/volkswagen-takes-quantum-computing-from-the-lab-to-the-factory.html)[link3](https://www.zdnet.com/article/bmw-explores-quantum-computing-to-boost-supply-chain-efficiencies/)
+7. Boeing/Airbus
+8. Goldman Sach / JPMorgan
+...
+. [DWave and VW](https://www.dwavesys.com/media/2pojgtcx/dwave_vw_case_story_v2f.pdf)
 2. https://www.dwavesys.com/learn/customer-success-stories/
 
 
 
-## Dostęp do obliczeń kwantowych w chmurze 
+## Współczesne komputery kwantowe
 
+<img class="center" src="img/maszyny_kwantowe.png">
+
+
+## Dostęp do obliczeń kwantowych w chmurze
 [IBM Quantum](https://www.ibm.com/quantum/access-plans/) z wykorzystaniem biblioteki qiskit.
 [Pennylane] (https://pennylane.ai/) z wykorzystaniem biblioteki pennylane.
