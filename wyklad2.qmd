@@ -33,6 +33,8 @@ Jasne jest, że przypadek klasyczny powinien być szczególnym przypadkiem kwant
 
 ## Klasyczne bramki logiczne
 
+<img class="center" src="img/bramki.png">
+
 Zróbmy krótkie przedstawienie niektórych, klasycznych bramek logicznych.
 
 **Bramka logiczna** jest implementacją funkcji boolowskiej. Operacją logiczną przeprowadzaną na jednym lub kilku binarnych wejściach 

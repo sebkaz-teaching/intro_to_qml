@@ -30,6 +30,7 @@ source <name of env>/bin/activate
 
 (venv)$ 
 ```
+Jak uruchomić środowisko pythona w systemie Windows. 
 
 Szybka instalacja podstawowych bibliotek i jupyterlab.
 ```bash

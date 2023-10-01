@@ -9,8 +9,9 @@ title: "Komputery klasyczne i kwantowe."
 
 Co oznacza termin kwantowe uczenie maszynowe?
 
-**Uczenie maszynowe** to nauka i ,,sztuka'' opisująca jak sprawdzić by komputery mogły uczyć się na podstawie danych tak by rozwiązać problemy, 
-których typowe programowanie nie miałoby sensu (lub byłoby zbyt skomplikowane).
+**Uczenie maszynowe** to nauka i ,,sztuka'' opisująca jak sprawić by komputery mogły _,,uczyć się''_ na podstawie danych,
+ tak by rozwiązać problemy, których typowe programowanie nie miałoby sensu (lub byłoby zbyt skomplikowane).
+ Więcej na ten temat znajdziesz w [książce](/ksiazki#AI)
 
 **Obliczenia kwantowe** opisują przetwarzenie informacji na urządzeniach pracujących zgodnie z zasadami mechaniki kwantowej.
 
@@ -35,6 +36,9 @@ Zasadniczym jest pytanie na ile i czy wogóle komputery kwantowe mogą poprawić
 - jaki typ analizy
 - jaki typ komputera kwantowego [procesory kwantowe](https://en.wikipedia.org/wiki/List_of_quantum_processors)
 - co znaczy lepiej? precyzja, czas, koszt, skalowalność, zużycie energii, ...
+
+> Film wprowadzający: [link](https://www.youtube.com/watch?v=-UlxHPIEVqA)
+
 
 ## Sztuczna inteligencja
 
@@ -64,18 +68,24 @@ Dlaczego tak chętnie używamy:
 
 <img src="img/mem.jpg" class="center">
 
+> Uwaga! Zakładam, że znasz pojęcia związane z ML i DL. 
+
+
 ## Klasyczne komputery
 
 __Komputer__ to fizyczne urządzenie bazujące na obwodach elektronicznych (electronic circuits), które służy do przetwarzania informacji. 
 
-__Algorytmy__ (programy komputerowe - software) to przepisy jak manipulować informacją reprezentowaną przez prąd w obwodzie aby wykonywać obliczenia.
+<img class="center" src="img/circ.png">
+
+
+__Algorytmy__ (programy komputerowe - software) to przepisy jak manipulować informacją reprezentowaną przez prąd w obwodzie, aby wykonywać obliczenia.
 
 Dla wszystkich praktycznych przypadków wystarczy nam opis makroskopowy i klasyczne teorie do opisu własności prądu w obwodach. 
-Jedak gdy naszym jest realizacja obliczeń z wykorzystaniem własności mikro okazuje się, że 
+Jedak gdy naszym celem jest realizacja obliczeń z wykorzystaniem własności obiektów mikroskopowych okazuje się, że 
 klasyczny opis przestaje być wystarczający i musimy użyć mechaniki kwantowej.
 Jak do tej pory jest to najlepiej przetestowany i stosowany opis mikroświata jaki znamy.
-Komputer, na którym obliczenia wykonywane są zgodnie z zasadami mechaniki kwantowej nazywamy __komputerem kwantowym__.
 
+Komputer, na którym obliczenia wykonywane są zgodnie z zasadami mechaniki kwantowej nazywamy __komputerem kwantowym__.
 
 > **Moore's law**
 >   An observation that the number of transistors on microchip roughly doubles every two years,
@@ -90,13 +100,14 @@ Zwiększenie szybkości działania oraz pojemności klasycznych komputerów co d
 
 1. Rozmiary tranzystora $\sim$ rozmiary atomów - lata 90'te $500 nm$ obecnie $14 nm$ i $7 nm$.
 2. Prędkość światła $\sim$ max. prędkość przesyłu informacji. 
-3. wysoki koszt wytwarzania (kierunek układów wieloprocesorowych)
-4. wysoki pobór prądu, ciepło 
+3. Wysoki koszt wytwarzania (kierunek układów wieloprocesorowych)
+4. Wysoki pobór prądu, ciepło 
+
 
 ## Obliczenia kwantowe 
 
-Termin _Mechanika Kwantowa_ używany jest zamiennie z terminem _Teoria Kwantowa_. 
-Chociaż istnieją teorie kwantowe wychodzące poza zakres mechaniki kwantowej (np. Kwantowa teoria pola).
+Termin _Mechanika Kwantowa_ (MK) używany jest zamiennie z terminem _Teoria Kwantowa_. 
+Istnieją teorie kwantowe wychodzące poza zakres mechaniki kwantowej (np. Kwantowa Teoria Pola).
 MK przewiduje wyniki rezultatów doświadczeń przeprowadzanaych na _układach kwantowych_, czyli mikroskopowych fizycznych obiektach,
 dla których fizyka Newtonowska nie prowadzi do prawidłowych wyników (np. atom wodoru).
 
@@ -144,6 +155,43 @@ Analogicznie do obwodów klasycznych możemy zdefiniować bramki kwantowe (_quan
 Fizyczne zbudowanie komputera kwantowego, czy raczej kubitu nie jest trywialne, 
 gdyż wymaga manipulacji bardzo małym układem, który zazwyczaj wrażliwy jest na każdy rodzaj oddziaływania (dekoherencja).
 
+<img class="center" src="img/qiskit.jpeg">
+
+## Dlaczego chcemy używać komputerów kwantowych?
+
+1. Quantum Complexity 
+
+Nowy paradygmat wykorzystujący własności interferencji, superpozycji i splątania do wykonywania obliczeń. 
+Realizowany (aktualnie) w trzech modelach:
+
+- Quantum Circuits - model bramkowy, QAOA, VQA, metody hybrydowe
+- Adiabatyczne obliczenia kwantowe (DWave) - Minimalizacja energii, QUBO, analogi modelu Isinga.
+- Topologiczne komputery kwantowe 
+
+Problemy, które uważamy za trudne do rozwiązania klasycznie (optymalizacja) będą łatwe dla komputerów kwantowych. 
+Na przykład faktoryzacja liczby. 
+
+Klasyczne komputery nie są w stanie symulować kwantowego komputera. Koszt najlepszych symulatorów 
+rośnie wykładniczo wraz ze wzrostem liczby kubitów. 
+
+Możliwości komputerów kwantowych są ograniczone - raczej nie rozwiązują problemów np-trudnych.
+
+Kwantowy komputer może symulować efektywnie dowolny fizyczny process, który realizuje się w naturze.
+(ale tego nie jesteśmy pewni).
+
+2. Quantum Error Correction
+
+Dekoherencja niszczy stan komputera kwantowego - a to wprowadza błędy obliczeniowe.
+Jak zapobiec dekoherencji skoro to oddziaływanie ze środowiskiem. 
+
+Obliczenia Kwantowe potrzebują tzw. korekcji błędów. 
+
+Aktualnie ERA **Noisy Intermediate-Scale Quantum** (NISQ)
+
+
+## Proces obliczeń kwantowych
+
+<img class="center" src="img/proces_kwantowy.png">
 
 ## Realizacje problemów biznesowych na komputerach kwantowych
 
@@ -152,14 +200,13 @@ gdyż wymaga manipulacji bardzo małym układem, który zazwyczaj wrażliwy jest
 3. NASA (QuAIL) - [Kontrola lotów kosmicznych](https://www.sciencedirect.com/science/article/pii/S0167819116301326)
 4. Accenture - Finanse, logistyka, komunikacja i systemy bezpieczeństwa
 5. BASF - Obliczenia molekularne w chemii kwantowej.
-6. Ford/ VW/ BMW [link1](https://spectrum.ieee.org/ford-signs-up-to-use-nasas-quantum-computers) [link2](https://www.volkswagenag.com/en/news/stories/2021/08/volkswagen-takes-quantum-computing-from-the-lab-to-the-factory.html)[link3](https://www.zdnet.com/article/bmw-explores-quantum-computing-to-boost-supply-chain-efficiencies/)
-7. Boeing/Airbus
-8. Goldman Sach / JPMorgan
+6. Ford [link](https://spectrum.ieee.org/ford-signs-up-to-use-nasas-quantum-computers)
+7. Volkswagen [link](https://www.volkswagenag.com/en/news/stories/2021/08/volkswagen-takes-quantum-computing-from-the-lab-to-the-factory.html) 
+8. BMW [link](https://www.zdnet.com/article/bmw-explores-quantum-computing-to-boost-supply-chain-efficiencies/)
+9. Boeing/Airbus
+10. Goldman Sach / JPMorgan
+11. [DWave](https://www.dwavesys.com/learn/customer-success-stories/) [DWave and VW](https://www.dwavesys.com/media/2pojgtcx/dwave_vw_case_story_v2f.pdf)
 ...
-. [DWave and VW](https://www.dwavesys.com/media/2pojgtcx/dwave_vw_case_story_v2f.pdf)
-2. https://www.dwavesys.com/learn/customer-success-stories/
-
-
 
 ## Współczesne komputery kwantowe
 
@@ -167,5 +214,17 @@ gdyż wymaga manipulacji bardzo małym układem, który zazwyczaj wrażliwy jest
 
 
 ## Dostęp do obliczeń kwantowych w chmurze
-[IBM Quantum](https://www.ibm.com/quantum/access-plans/) z wykorzystaniem biblioteki qiskit.
-[Pennylane] (https://pennylane.ai/) z wykorzystaniem biblioteki pennylane.
+
+- [IBM Quantum](https://www.ibm.com/quantum/access-plans/) z wykorzystaniem biblioteki qiskit.
+- [Pennylane](https://pennylane.ai/) z wykorzystaniem biblioteki pennylane.
+
+<!--
+# info do przekazania 
+
+> obliczenia na komputerze kwantowym wykonywane są w inny sposób nież na komputerze klasycznym
+>  - klasyczny komputer znajduje się zawsze w jednym stanie, komputer kwantowy może realizować wiele stanów jednocześnie
+>  - superpozycja, splątanie i interferencja - wyjaśnienie dlaczego to są efekty, które pomagają przyśpieszyć obliczenia
+>  - bity i qubity - jak działają - to na drugim wykładzie
+
+
+-->

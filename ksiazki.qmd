@@ -4,6 +4,7 @@ title: Książki i strony WWW
 
 ## Książki 
 
+<div id="QC">
 ### Obliczenia kwantowe (Quantum Computing)
 
 1. Chris Bernhardt, _Obliczenia kwantowe dla każdego_. PWN 2020 
@@ -15,33 +16,29 @@ title: Książki i strony WWW
 3. Thomas G. Wong, _Introduction to Classical and Quantum Computing_. Rooted Grove 2022.
 > Bardzo dobra!, dużo przykładów, dużo ciekawych informacji wyjaśnianych bardzo szczegółowo. 
  
+4. A. Jacquier, O. Kondratyev, _Quantum Machine Learning and Optimisation in Finance. On the Road to Quantum Advantage_.
 
-3. A. Jacquier, O. Kondratyev, _Quantum Machine Learning and Optimisation in Finance. On the Road to Quantum Advantage_.
+</div>
 
 ## Strony WWW
 
 1. Peter Shor [Wykład](https://math.mit.edu/~shor/435-LN/)
 
+<div id="AI">
+### AI 
 
-### Software 
-
-1. [Github](https://github.com/)
-2. [Git-instrukcja](https://git-scm.com/book/pl/v2)
-3. [www.python.org](http://www.python.org/downloads/)
-4. [PyPI python libraries](https://pypi.python.org/pypi)
-5. [Anaconda](http://continuum.io/downloads)
-6. [Docker](https://docs.docker.com/get-docker/)
+1. L. Moroney, Sztuczna inteligencja i uczenie maszynowe dla programistów. Praktyczny przewodnik po sztucznej inteligencji. Helion 2021.
+</div>
 
 ### Pakiety Python
 
 1. [Qiskit](http://www.numpy.org)
 2. [PennyLane](http://www.scipy.org)
-3. [Yao](http://pandas.pydata.org)
 
 ### Pakiety Julia 
 
 1. [Yao]()
-2. QAOA
+2. [QAOA]()
 
 ### Edytory tekstu
 
@@ -53,9 +50,8 @@ title: Książki i strony WWW
 
 1. [MD](http://daringfireball.net/projects/markdown/)
 
+### Filmy
 
-### Python
+1. [Wprowadzenie do obliczeń kwantowych](https://www.youtube.com/watch?v=-UlxHPIEVqA)
+2. 
 
-1. [Chris Albon](https://chrisalbon.com/) Technical Notes on Using **Data Science & AI** 
-2. [40+ Python Statistics For Data Science Resources](https://www.datacamp.com/community/tutorials/python-statistics-data-science)
-3. [Practical Business Python](http://pbpython.com/)

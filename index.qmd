@@ -52,7 +52,7 @@ Przygotowanie środowiska programistycznego python z wykorzystaniem narzędzia D
 
 2. 13-11-2023 (poniedziałek) 11:40-13:20 - Lab2
 
-Kwantowe bity z wykorzystaniem biblioteki IBM qiskit i pennylane
+Kwantowe bity z wykorzystaniem biblioteki IBM Qiskit i Pennylane
 
 3. 20-11-2023 (poniedziałek) 11:40-13:20 - Lab3
 

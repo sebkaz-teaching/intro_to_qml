@@ -92,16 +92,8 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Wykład 1</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./wyklad2.html" rel="" target="">
- <span class="menu-text">Wykład 2</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./sylabus.html" rel="" target="">
  <span class="menu-text">Sylabus</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./info.html" rel="" target="">
- <span class="menu-text">Narzędzia</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./ksiazki.html" rel="" target="">
@@ -127,6 +119,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sztuczna-inteligencja" id="toc-sztuczna-inteligencja" class="nav-link" data-scroll-target="#sztuczna-inteligencja">Sztuczna inteligencja</a></li>
   <li><a href="#klasyczne-komputery" id="toc-klasyczne-komputery" class="nav-link" data-scroll-target="#klasyczne-komputery">Klasyczne komputery</a></li>
   <li><a href="#obliczenia-kwantowe" id="toc-obliczenia-kwantowe" class="nav-link" data-scroll-target="#obliczenia-kwantowe">Obliczenia kwantowe</a></li>
+  <li><a href="#dlaczego-chcemy-używać-komputerów-kwantowych" id="toc-dlaczego-chcemy-używać-komputerów-kwantowych" class="nav-link" data-scroll-target="#dlaczego-chcemy-używać-komputerów-kwantowych">Dlaczego chcemy używać komputerów kwantowych?</a></li>
+  <li><a href="#proces-obliczeń-kwantowych" id="toc-proces-obliczeń-kwantowych" class="nav-link" data-scroll-target="#proces-obliczeń-kwantowych">Proces obliczeń kwantowych</a></li>
   <li><a href="#realizacje-problemów-biznesowych-na-komputerach-kwantowych" id="toc-realizacje-problemów-biznesowych-na-komputerach-kwantowych" class="nav-link" data-scroll-target="#realizacje-problemów-biznesowych-na-komputerach-kwantowych">Realizacje problemów biznesowych na komputerach kwantowych</a></li>
   <li><a href="#współczesne-komputery-kwantowe" id="toc-współczesne-komputery-kwantowe" class="nav-link" data-scroll-target="#współczesne-komputery-kwantowe">Współczesne komputery kwantowe</a></li>
   <li><a href="#dostęp-do-obliczeń-kwantowych-w-chmurze" id="toc-dostęp-do-obliczeń-kwantowych-w-chmurze" class="nav-link" data-scroll-target="#dostęp-do-obliczeń-kwantowych-w-chmurze">Dostęp do obliczeń kwantowych w chmurze</a></li>
@@ -159,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="quntum-machine-learning" class="level2">
 <h2 class="anchored" data-anchor-id="quntum-machine-learning">Quntum Machine Learning</h2>
 <p>Co oznacza termin kwantowe uczenie maszynowe?</p>
-<p><strong>Uczenie maszynowe</strong> to nauka i ,,sztuka’’ opisująca jak sprawdzić by komputery mogły uczyć się na podstawie danych tak by rozwiązać problemy, których typowe programowanie nie miałoby sensu (lub byłoby zbyt skomplikowane).</p>
+<p><strong>Uczenie maszynowe</strong> to nauka i ,,sztuka’’ opisująca jak sprawić by komputery mogły <em>,,uczyć się’’</em> na podstawie danych, tak by rozwiązać problemy, których typowe programowanie nie miałoby sensu (lub byłoby zbyt skomplikowane). Więcej na ten temat znajdziesz w <a href="./ksiazki#AI">książce</a></p>
 <p><strong>Obliczenia kwantowe</strong> opisują przetwarzenie informacji na urządzeniach pracujących zgodnie z zasadami mechaniki kwantowej.</p>
 <blockquote class="blockquote">
 <p>Uwaga! klasyczne komputery (tranzystory) również działają zgodnie z zasadami mechaniki kwantowej, ale wykonywane operacje opierają się o logikę klasyczną.</p>
@@ -178,6 +172,9 @@ ul.task-list li input[type="checkbox"] {
 <li>jaki typ komputera kwantowego <a href="https://en.wikipedia.org/wiki/List_of_quantum_processors">procesory kwantowe</a></li>
 <li>co znaczy lepiej? precyzja, czas, koszt, skalowalność, zużycie energii, …</li>
 </ul>
+<blockquote class="blockquote">
+<p>Film wprowadzający: <a href="https://www.youtube.com/watch?v=-UlxHPIEVqA">link</a></p>
+</blockquote>
 </section>
 <section id="sztuczna-inteligencja" class="level2">
 <h2 class="anchored" data-anchor-id="sztuczna-inteligencja">Sztuczna inteligencja</h2>
@@ -202,12 +199,17 @@ ul.task-list li input[type="checkbox"] {
 <li>Przewaga konkurencyjna przedsiębiorstw z AI na firmami bez AI</li>
 </ul>
 <p><img src="img/mem.jpg" class="center"></p>
+<blockquote class="blockquote">
+<p>Uwaga! Zakładam, że znasz pojęcia związane z ML i DL.</p>
+</blockquote>
 </section>
 <section id="klasyczne-komputery" class="level2">
 <h2 class="anchored" data-anchor-id="klasyczne-komputery">Klasyczne komputery</h2>
 <p><strong>Komputer</strong> to fizyczne urządzenie bazujące na obwodach elektronicznych (electronic circuits), które służy do przetwarzania informacji.</p>
-<p><strong>Algorytmy</strong> (programy komputerowe - software) to przepisy jak manipulować informacją reprezentowaną przez prąd w obwodzie aby wykonywać obliczenia.</p>
-<p>Dla wszystkich praktycznych przypadków wystarczy nam opis makroskopowy i klasyczne teorie do opisu własności prądu w obwodach. Jedak gdy naszym jest realizacja obliczeń z wykorzystaniem własności mikro okazuje się, że klasyczny opis przestaje być wystarczający i musimy użyć mechaniki kwantowej. Jak do tej pory jest to najlepiej przetestowany i stosowany opis mikroświata jaki znamy. Komputer, na którym obliczenia wykonywane są zgodnie z zasadami mechaniki kwantowej nazywamy <strong>komputerem kwantowym</strong>.</p>
+<p><img class="center" src="img/circ.png"></p>
+<p><strong>Algorytmy</strong> (programy komputerowe - software) to przepisy jak manipulować informacją reprezentowaną przez prąd w obwodzie, aby wykonywać obliczenia.</p>
+<p>Dla wszystkich praktycznych przypadków wystarczy nam opis makroskopowy i klasyczne teorie do opisu własności prądu w obwodach. Jedak gdy naszym celem jest realizacja obliczeń z wykorzystaniem własności obiektów mikroskopowych okazuje się, że klasyczny opis przestaje być wystarczający i musimy użyć mechaniki kwantowej. Jak do tej pory jest to najlepiej przetestowany i stosowany opis mikroświata jaki znamy.</p>
+<p>Komputer, na którym obliczenia wykonywane są zgodnie z zasadami mechaniki kwantowej nazywamy <strong>komputerem kwantowym</strong>.</p>
 <blockquote class="blockquote">
 <p><strong>Moore’s law</strong> An observation that the number of transistors on microchip roughly doubles every two years, whereas its cost is halved over that same timeframe. <em>The growth of microprocessors is exponential</em></p>
 </blockquote>
@@ -217,13 +219,13 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li>Rozmiary tranzystora <span class="math inline">\(\sim\)</span> rozmiary atomów - lata 90’te <span class="math inline">\(500 nm\)</span> obecnie <span class="math inline">\(14 nm\)</span> i <span class="math inline">\(7 nm\)</span>.</li>
 <li>Prędkość światła <span class="math inline">\(\sim\)</span> max. prędkość przesyłu informacji.</li>
-<li>wysoki koszt wytwarzania (kierunek układów wieloprocesorowych)</li>
-<li>wysoki pobór prądu, ciepło</li>
+<li>Wysoki koszt wytwarzania (kierunek układów wieloprocesorowych)</li>
+<li>Wysoki pobór prądu, ciepło</li>
 </ol>
 </section>
 <section id="obliczenia-kwantowe" class="level2">
 <h2 class="anchored" data-anchor-id="obliczenia-kwantowe">Obliczenia kwantowe</h2>
-<p>Termin <em>Mechanika Kwantowa</em> używany jest zamiennie z terminem <em>Teoria Kwantowa</em>. Chociaż istnieją teorie kwantowe wychodzące poza zakres mechaniki kwantowej (np. Kwantowa teoria pola). MK przewiduje wyniki rezultatów doświadczeń przeprowadzanaych na <em>układach kwantowych</em>, czyli mikroskopowych fizycznych obiektach, dla których fizyka Newtonowska nie prowadzi do prawidłowych wyników (np. atom wodoru).</p>
+<p>Termin <em>Mechanika Kwantowa</em> (MK) używany jest zamiennie z terminem <em>Teoria Kwantowa</em>. Istnieją teorie kwantowe wychodzące poza zakres mechaniki kwantowej (np. Kwantowa Teoria Pola). MK przewiduje wyniki rezultatów doświadczeń przeprowadzanaych na <em>układach kwantowych</em>, czyli mikroskopowych fizycznych obiektach, dla których fizyka Newtonowska nie prowadzi do prawidłowych wyników (np. atom wodoru).</p>
 <p>W uczeniu maszynowym, spora część problemów nie jest rozwiązywalna dokładnie. Jednakże istnieją techniki przybliżania rozwiązań, dzięki czemu możemy stosować te metody w medycynie, chemii, biologii czy inżynierii.</p>
 <p>Fizyka klasyczna realizowana jest jako graniczny przypadek MK, jednak fizycy zazwyczaj rozdzielają zagadnienia i stosują odpowiednią teorię do odpowiedniego problemu. Nikt nie buduje mostów używając MK.</p>
 <p>Ze wzlgędu, iż wyniki MK są probabilistyczne, bardzo często można spotkać przekonanie, że MK jest teorią statystyczną. Nie jest to jednak prawda! MK można uznać za uogólnienie klasycznej definicji prawdopodobieństwa.</p>
@@ -250,6 +252,33 @@ ul.task-list li input[type="checkbox"] {
 <li>2021 USTC … 2022 Xanadu</li>
 </ul>
 <p>Od około 1990 roku Fizycy i inforamtycy pracują nad fizyczną realizacją komputerów kwantowych. Jednym ze sposobów realizacji obliczeń wykonywanych na komputerach kwantowych jest model oparty o kwantowe obwody (<em>quantum circuit</em>), który w swoim działaniu wykorzystuje qubity zamiast bitów. Analogicznie do obwodów klasycznych możemy zdefiniować bramki kwantowe (<em>quantum gates</em>), które realizują operacje na qubitach. Fizyczne zbudowanie komputera kwantowego, czy raczej kubitu nie jest trywialne, gdyż wymaga manipulacji bardzo małym układem, który zazwyczaj wrażliwy jest na każdy rodzaj oddziaływania (dekoherencja).</p>
+<p><img class="center" src="img/qiskit.jpeg"></p>
+</section>
+<section id="dlaczego-chcemy-używać-komputerów-kwantowych" class="level2">
+<h2 class="anchored" data-anchor-id="dlaczego-chcemy-używać-komputerów-kwantowych">Dlaczego chcemy używać komputerów kwantowych?</h2>
+<ol type="1">
+<li>Quantum Complexity</li>
+</ol>
+<p>Nowy paradygmat wykorzystujący własności interferencji, superpozycji i splątania do wykonywania obliczeń. Realizowany (aktualnie) w trzech modelach:</p>
+<ul>
+<li>Quantum Circuits - model bramkowy, QAOA, VQA, metody hybrydowe</li>
+<li>Adiabatyczne obliczenia kwantowe (DWave) - Minimalizacja energii, QUBO, analogi modelu Isinga.</li>
+<li>Topologiczne komputery kwantowe</li>
+</ul>
+<p>Problemy, które uważamy za trudne do rozwiązania klasycznie (optymalizacja) będą łatwe dla komputerów kwantowych. Na przykład faktoryzacja liczby.</p>
+<p>Klasyczne komputery nie są w stanie symulować kwantowego komputera. Koszt najlepszych symulatorów rośnie wykładniczo wraz ze wzrostem liczby kubitów.</p>
+<p>Możliwości komputerów kwantowych są ograniczone - raczej nie rozwiązują problemów np-trudnych.</p>
+<p>Kwantowy komputer może symulować efektywnie dowolny fizyczny process, który realizuje się w naturze. (ale tego nie jesteśmy pewni).</p>
+<ol start="2" type="1">
+<li>Quantum Error Correction</li>
+</ol>
+<p>Dekoherencja niszczy stan komputera kwantowego - a to wprowadza błędy obliczeniowe. Jak zapobiec dekoherencji skoro to oddziaływanie ze środowiskiem.</p>
+<p>Obliczenia Kwantowe potrzebują tzw. korekcji błędów.</p>
+<p>Aktualnie ERA <strong>Noisy Intermediate-Scale Quantum</strong> (NISQ)</p>
+</section>
+<section id="proces-obliczeń-kwantowych" class="level2">
+<h2 class="anchored" data-anchor-id="proces-obliczeń-kwantowych">Proces obliczeń kwantowych</h2>
+<p><img class="center" src="img/proces_kwantowy.png"></p>
 </section>
 <section id="realizacje-problemów-biznesowych-na-komputerach-kwantowych" class="level2">
 <h2 class="anchored" data-anchor-id="realizacje-problemów-biznesowych-na-komputerach-kwantowych">Realizacje problemów biznesowych na komputerach kwantowych</h2>
@@ -259,10 +288,12 @@ ul.task-list li input[type="checkbox"] {
 <li>NASA (QuAIL) - <a href="https://www.sciencedirect.com/science/article/pii/S0167819116301326">Kontrola lotów kosmicznych</a></li>
 <li>Accenture - Finanse, logistyka, komunikacja i systemy bezpieczeństwa</li>
 <li>BASF - Obliczenia molekularne w chemii kwantowej.</li>
-<li>Ford/ VW/ BMW <a href="https://spectrum.ieee.org/ford-signs-up-to-use-nasas-quantum-computers">link1</a> <a href="https://www.volkswagenag.com/en/news/stories/2021/08/volkswagen-takes-quantum-computing-from-the-lab-to-the-factory.html">link2</a><a href="https://www.zdnet.com/article/bmw-explores-quantum-computing-to-boost-supply-chain-efficiencies/">link3</a></li>
+<li>Ford <a href="https://spectrum.ieee.org/ford-signs-up-to-use-nasas-quantum-computers">link</a></li>
+<li>Volkswagen <a href="https://www.volkswagenag.com/en/news/stories/2021/08/volkswagen-takes-quantum-computing-from-the-lab-to-the-factory.html">link</a></li>
+<li>BMW <a href="https://www.zdnet.com/article/bmw-explores-quantum-computing-to-boost-supply-chain-efficiencies/">link</a></li>
 <li>Boeing/Airbus</li>
-<li>Goldman Sach / JPMorgan … . <a href="https://www.dwavesys.com/media/2pojgtcx/dwave_vw_case_story_v2f.pdf">DWave and VW</a></li>
-<li>https://www.dwavesys.com/learn/customer-success-stories/</li>
+<li>Goldman Sach / JPMorgan</li>
+<li><a href="https://www.dwavesys.com/learn/customer-success-stories/">DWave</a> <a href="https://www.dwavesys.com/media/2pojgtcx/dwave_vw_case_story_v2f.pdf">DWave and VW</a> …</li>
 </ol>
 </section>
 <section id="współczesne-komputery-kwantowe" class="level2">
@@ -271,7 +302,20 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="dostęp-do-obliczeń-kwantowych-w-chmurze" class="level2">
 <h2 class="anchored" data-anchor-id="dostęp-do-obliczeń-kwantowych-w-chmurze">Dostęp do obliczeń kwantowych w chmurze</h2>
-<p><a href="https://www.ibm.com/quantum/access-plans/">IBM Quantum</a> z wykorzystaniem biblioteki qiskit. [Pennylane] (https://pennylane.ai/) z wykorzystaniem biblioteki pennylane.</p>
+<ul>
+<li><a href="https://www.ibm.com/quantum/access-plans/">IBM Quantum</a> z wykorzystaniem biblioteki qiskit.</li>
+<li><a href="https://pennylane.ai/">Pennylane</a> z wykorzystaniem biblioteki pennylane.</li>
+</ul>
+<!--
+# info do przekazania 
+
+> obliczenia na komputerze kwantowym wykonywane są w inny sposób nież na komputerze klasycznym
+>  - klasyczny komputer znajduje się zawsze w jednym stanie, komputer kwantowy może realizować wiele stanów jednocześnie
+>  - superpozycja, splątanie i interferencja - wyjaśnienie dlaczego to są efekty, które pomagają przyśpieszyć obliczenia
+>  - bity i qubity - jak działają - to na drugim wykładzie
+
+
+-->
 
 
 </section>
