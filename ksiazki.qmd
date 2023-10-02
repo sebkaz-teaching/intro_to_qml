@@ -7,28 +7,33 @@ title: Książki i strony WWW
 <div id="QC">
 ### Obliczenia kwantowe (Quantum Computing)
 
-1. Chris Bernhardt, _Obliczenia kwantowe dla każdego_. PWN 2020 
+1. Chris Bernhardt, _Obliczenia kwantowe dla każdego_. PWN 2020
+
 > Wyjaśnienie _jak to działa_ w obliczeniach kwantowych.
 
 2. Michel Le Bellac, _Wstęp do informatyki kwantowej_. PWN 2011
+
 > Trudniejsza, dużo matematyki i fizyki. 
 
 3. Thomas G. Wong, _Introduction to Classical and Quantum Computing_. Rooted Grove 2022.
+
 > Bardzo dobra!, dużo przykładów, dużo ciekawych informacji wyjaśnianych bardzo szczegółowo. 
  
 4. A. Jacquier, O. Kondratyev, _Quantum Machine Learning and Optimisation in Finance. On the Road to Quantum Advantage_.
 
 </div>
 
-## Strony WWW
-
-1. Peter Shor [Wykład](https://math.mit.edu/~shor/435-LN/)
-
 <div id="AI">
 ### AI 
 
 1. L. Moroney, Sztuczna inteligencja i uczenie maszynowe dla programistów. Praktyczny przewodnik po sztucznej inteligencji. Helion 2021.
+[Zobacz opis](http://helion.pl/view/111546/szinum.html) lub [Kup e-book](http://helion.pl/add111546~szinum_ebook)
+
 </div>
+
+## Strony WWW
+
+1. Peter Shor [Wykład](https://math.mit.edu/~shor/435-LN/)
 
 ### Pakiety Python
 
