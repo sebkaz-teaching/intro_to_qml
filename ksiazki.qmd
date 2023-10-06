@@ -6,7 +6,7 @@ title: Książki i strony WWW
 
 <div id="QC">
 ### Obliczenia kwantowe (Quantum Computing)
-
+</div>
 1. Chris Bernhardt, _Obliczenia kwantowe dla każdego_. PWN 2020
 
 > Wyjaśnienie _jak to działa_ w obliczeniach kwantowych.
@@ -21,15 +21,15 @@ title: Książki i strony WWW
  
 4. A. Jacquier, O. Kondratyev, _Quantum Machine Learning and Optimisation in Finance. On the Road to Quantum Advantage_.
 
-</div>
+5. P. Gawron, M. Cholewa, ... _Rewolucja stanu. Fantastyczne wprowadzenie do informatyki kwantowej_. Quantumz.io 2021
 
 <div id="AI">
 ### AI 
-
+</div>
 1. L. Moroney, Sztuczna inteligencja i uczenie maszynowe dla programistów. Praktyczny przewodnik po sztucznej inteligencji. Helion 2021.
 [Zobacz opis](http://helion.pl/view/111546/szinum.html) lub [Kup e-book](http://helion.pl/add111546~szinum_ebook)
 
-</div>
+2. Bruce, Bruce, Gedeck, Statystyka praktyczna w data science. Wydanie II. Helion. 2021.
 
 ## Strony WWW
 
@@ -58,5 +58,5 @@ title: Książki i strony WWW
 ### Filmy
 
 1. [Wprowadzenie do obliczeń kwantowych](https://www.youtube.com/watch?v=-UlxHPIEVqA)
-2. 
+2. QPoland, Bronze, [Warsztaty z programowania komputerów kwantowych 2023](https://www.youtube.com/watch?v=nDCROyWULkw&list=PLjZhz-aJHvA1q5DcsR_Y1XvsF2juz0FoN&index=2)
 

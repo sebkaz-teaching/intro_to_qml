@@ -3,15 +3,15 @@ title: "Komputery klasyczne i kwantowe."
 ---
 
 > Nature isn’t classical, dammit, and if you want to make a simulation of Nature, you’d better make it quantum mechanical, and by golly it’s a wonderful problem because it doesn’t look so easy.
-> Richard Feynman
+> **Richard Feynman**
 
-## Quntum Machine Learning
+**Quntum Machine Learning**
 
-Co oznacza termin kwantowe uczenie maszynowe?
+Co oznacza termin _kwantowe uczenie maszynowe_?
 
-**Uczenie maszynowe** to nauka i ,,sztuka'' opisująca jak sprawić by komputery mogły _,,uczyć się''_ na podstawie danych,
- tak by rozwiązać problemy, których typowe programowanie nie miałoby sensu (lub byłoby zbyt skomplikowane).
- Więcej na ten temat znajdziesz w [książce](/ksiazki#AI)
+**Uczenie maszynowe** (ale również i uczenie głębokie) to nauka i ,,sztuka'' opisująca jak sprawić by komputery mogły _,,uczyć się''_ na podstawie danych,
+tak by rozwiązać problemy, których typowe programowanie nie miałoby sensu (lub byłoby zbyt skomplikowane).
+Więcej na ten temat znajdziesz w [książce](/ksiazki#AI)
 
 **Obliczenia kwantowe** opisują przetwarzenie informacji na urządzeniach pracujących zgodnie z zasadami mechaniki kwantowej.
 
@@ -20,8 +20,7 @@ Co oznacza termin kwantowe uczenie maszynowe?
 Oba kierunki są istotne w procesie przetwarzania danych obecnie i w niedalekiej przyszłości.
 Dlatego naturalnym pytaniem jest jak je ze sobą połączyć?
 
-QML to zrealizowanie metod uczenia maszynowego, które mogą być wykonywane na komputerach kwantowych.
-Istotnym kierunkiem jest również analiza metod matematycznych wykorzystywanych w mechanice kwantowej i ich zastosowaniu w uczeniu maszynowym. 
+QML to realizowanie metod uczenia maszynowego, które mogą być wykonywane na komputerach kwantowych.
 
 > you start with classical mechanics and electrodynamics, solving lots of grueling differential equations at every step. Then you learn about the "black-body paradox" and various strange experimental results, and the great crisis these things posed for physics. Next you learn a complicated patchwork of ideas that physicists invented between 1900 and 1926 to try to make the crisis go away. Then, if you're lucky, after years of study you funally get around to the central conceptual point: _that nature is described not by probabilities_ (which are always non-negative), but by numbers called amplitudes that can be positive, negative, or even complex.
 > Scott Aaronson, [Quantum Computing Since Democritus](https://www.amazon.com/Quantum-Computing-since-Democritus-Aaronson/dp/0521199565)
@@ -34,10 +33,8 @@ Zasadniczym jest pytanie na ile i czy wogóle komputery kwantowe mogą poprawić
 - jaki problem 
 - jakie dane
 - jaki typ analizy
-- jaki typ komputera kwantowego [procesory kwantowe](https://en.wikipedia.org/wiki/List_of_quantum_processors)
+- jaki typ komputera kwantowego
 - co znaczy lepiej? precyzja, czas, koszt, skalowalność, zużycie energii, ...
-
-> Film wprowadzający: [link](https://www.youtube.com/watch?v=-UlxHPIEVqA)
 
 
 ## Sztuczna inteligencja
@@ -68,24 +65,19 @@ Dlaczego tak chętnie używamy:
 
 <img src="img/mem.jpg" class="center">
 
-> Uwaga! Zakładam, że znasz pojęcia związane z ML i DL. 
+> Uwaga! Zakładam, że znasz podstawowe pojęcia związane z uczeniem maszynowym i głębokim.
 
 
 ## Klasyczne komputery
 
-__Komputer__ to fizyczne urządzenie bazujące na obwodach elektronicznych (electronic circuits), które służy do przetwarzania informacji. 
+
+__Komputer__ to fizyczne urządzenie bazujące na _obwodach elektronicznych_ (electronic circuits), 
+które służy do przetwarzania informacji. 
 
 <img class="center" src="img/circ.png">
 
 
 __Algorytmy__ (programy komputerowe - software) to przepisy jak manipulować informacją reprezentowaną przez prąd w obwodzie, aby wykonywać obliczenia.
-
-Dla wszystkich praktycznych przypadków wystarczy nam opis makroskopowy i klasyczne teorie do opisu własności prądu w obwodach. 
-Jedak gdy naszym celem jest realizacja obliczeń z wykorzystaniem własności obiektów mikroskopowych okazuje się, że 
-klasyczny opis przestaje być wystarczający i musimy użyć mechaniki kwantowej.
-Jak do tej pory jest to najlepiej przetestowany i stosowany opis mikroświata jaki znamy.
-
-Komputer, na którym obliczenia wykonywane są zgodnie z zasadami mechaniki kwantowej nazywamy __komputerem kwantowym__.
 
 > **Moore's law**
 >   An observation that the number of transistors on microchip roughly doubles every two years,
@@ -103,16 +95,26 @@ Zwiększenie szybkości działania oraz pojemności klasycznych komputerów co d
 3. Wysoki koszt wytwarzania (kierunek układów wieloprocesorowych)
 4. Wysoki pobór prądu, ciepło 
 
+Dla wszystkich praktycznych przypadków wystarczy nam opis makroskopowy i klasyczne teorie do opisu własności prądu w obwodach. 
+Jedak gdy naszym celem jest realizacja obliczeń z wykorzystaniem własności obiektów mikroskopowych okazuje się, że 
+klasyczny opis przestaje być wystarczający i musimy użyć mechaniki kwantowej.
+Jak do tej pory jest to najlepiej przetestowany i stosowany opis mikroświata jaki znamy.
+
+Komputer, na którym obliczenia wykonywane są zgodnie z zasadami mechaniki kwantowej nazywamy __komputerem kwantowym__.
+
 
 ## Obliczenia kwantowe 
+
+> Film wprowadzający: [link](https://www.youtube.com/watch?v=-UlxHPIEVqA)
+
 
 Termin _Mechanika Kwantowa_ (MK) używany jest zamiennie z terminem _Teoria Kwantowa_. 
 Istnieją teorie kwantowe wychodzące poza zakres mechaniki kwantowej (np. Kwantowa Teoria Pola).
 MK przewiduje wyniki rezultatów doświadczeń przeprowadzanaych na _układach kwantowych_, czyli mikroskopowych fizycznych obiektach,
-dla których fizyka Newtonowska nie prowadzi do prawidłowych wyników (np. atom wodoru).
+dla których fizyka Newtonowska nie prowadzi do prawidłowych wyników (np. atom wodoru). Opisuje ona zachowanie np. fotonów, elektronów lub kwantowych bitów.
 
-W uczeniu maszynowym, spora część problemów nie jest rozwiązywalna dokładnie.
-Jednakże istnieją techniki przybliżania rozwiązań, dzięki czemu możemy stosować te metody w medycynie, chemii, biologii czy inżynierii. 
+> Na naszym wykładzie nie będą interesować nas własności fizyczne kubitów a ograniczymy się do znajomości ich pewnych, abstrakcyjnych stanów 
+> w jakich mogą się one znajdować. Stany te numerowane będą liczbami naturalnymi. 
 
 Fizyka klasyczna realizowana jest jako graniczny przypadek MK, jednak fizycy zazwyczaj rozdzielają zagadnienia i stosują odpowiednią 
 teorię do odpowiedniego problemu. Nikt nie buduje mostów używając MK.
@@ -121,19 +123,25 @@ Ze wzlgędu, iż wyniki MK są probabilistyczne, bardzo często można spotkać 
 Nie jest to jednak prawda! MK można uznać za uogólnienie klasycznej definicji prawdopodobieństwa. 
 
 
-**Historia MK** 
+### Historia MK
 
 Początek MK związany jest z pracami Maxa Plancka (1900) i Alberta Einsteina (1905), którzy wprowadzili pojęcie _kwantu_ - czyli
 najmniejszej porcji energii. Natomiast dalszy rozwój MK związany jest z pracami Nielsa Bohra, Erwina Schrödingera, 
 Louisa de Broglie, Heisenberga, Diraca, Feynmana, ... Pozostałe informacje możesz znaleźć w [artykule o obliczeniach kwantowych](https://medium.com/@warsaw.quantum/czym-są-technologie-kwantowe-13de3f3e4475)
 
+> Informatyków (najczęściej) nie interesuje, w jaki sposób właściwości fizyczne układów są wykorzystywane do zapisu informacji klasycznej w komputerze klasycznym.
+> Tym bardziej informatyków (i analityków danych) nie musi interesować w jaki sposób informacja kwantowa jest fizycznie realizowana na komputerze kwantowym. 
+> 
+> Czy prowadząc samochód zastanawiasz się jak dokładnie działają wszystkie części? 
+> A czy pisząc kod modelu zastanawiasz się jak został on zaimplementowany w bibliotece? 
 
-**Historia obliczeń kwantowych**
+
+### Historia obliczeń kwantowych
  
 - 1936 Alan Turing [On Computable Numbers](https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf) (Hilbert Problems) - universal computing machine [local](/pubs/Turing_Paper_1936.pdf)
 - 1976 Roman S. Ingarden - [Quantum Information Theory](https://www.sciencedirect.com/science/article/abs/pii/0034487776900057?via%3Dihub)
 - 1980 Paul Benioff - teoretyczna możliwość komputerów kwantowych "Computer as a Physical System..."
-- 1981 Richard Feynman - Klasyczne komputery nie podołają z symulowaniem procesów kwantowych. \small{“Nature isn't classical, dammit, and if you want to make a simulation of nature, you'd better make it quantum mechanical, and by golly it's a wonderful problem, because it doesn't look so easy.”}
+- 1981 Richard Feynman - Klasyczne komputery nie podołają z symulowaniem procesów kwantowych. 
 - 1985 David Deutsch pierwszy opis kwantowej maszyny Turinga. Algorytm do uruchomienia na komputerze kwantowym. Bramki kwantowe.
 - 1994 Peter Shor - Algorytm faktoryzacji liczb w czasie wielomianowym. 
 - 1996 Lov Grover - Algorytm Grover'a "A fast quantum mechanical algorithm for database search" 
@@ -157,7 +165,7 @@ gdyż wymaga manipulacji bardzo małym układem, który zazwyczaj wrażliwy jest
 
 <img class="center" src="img/qiskit.jpeg">
 
-## Dlaczego chcemy używać komputerów kwantowych?
+### Dlaczego chcemy używać komputerów kwantowych?
 
 1. Quantum Complexity 
 
@@ -174,7 +182,7 @@ Na przykład faktoryzacja liczby.
 Klasyczne komputery nie są w stanie symulować kwantowego komputera. Koszt najlepszych symulatorów 
 rośnie wykładniczo wraz ze wzrostem liczby kubitów. 
 
-Możliwości komputerów kwantowych są ograniczone - raczej nie rozwiązują problemów np-trudnych.
+Możliwości komputerów kwantowych [są ograniczone](https://medium.com/qiskit/what-can-a-quantum-computer-actually-do-4daed0691f6b).
 
 Kwantowy komputer może symulować efektywnie dowolny fizyczny process, który realizuje się w naturze.
 (ale tego nie jesteśmy pewni).
@@ -188,17 +196,41 @@ Obliczenia Kwantowe potrzebują tzw. korekcji błędów.
 
 Aktualnie ERA **Noisy Intermediate-Scale Quantum** (NISQ)
 
-## Rodzaje QML ze względu na dane
+### Realizacja fizyczna komputerów kwantowych
 
-<img class="center" src="img/qml.jpeg">
+[procesory kwantowe](https://en.wikipedia.org/wiki/List_of_quantum_processors)
 
-## Proces obliczeń kwantowych
+<img class="center" src="img/maszyny_kwantowe.png">
 
+### Proces obliczeń kwantowych
+
+Wykonanie obliczeń związane jest z pojęciem fizycznego _doświadczenia_.
+Będzie się ono składać z trzech części:
+
+1. przygotowanie (przygotuj stan kwantowy kubitów),
+2. ewolucja (przeprowadź transformację za pomocą bramek kwantowych),
+3. pomiar i interpretacja wyników.
+
+<img class="center" src="img/quantum_proces2.png">
+
+Podobnie w informatyce i w analizach danych wykonujemy obliczenia klasyczne. 
+przygotowujemy dane (stan początkowy); następnie wykonujemy program (ewolucja) i odczytujemy wyniki (pomiar).
+
+> Nie obserwujemy tych etapów podczas codziennej interakcji z komputerem, więc nie zauważamy w sposób świadomy powyższego schematu działania.
+> Piotr Gawron, Oscar Słowik - [Rewolucja Stanu, Fantastyczne wprowadzenie do informatyki kwantowej.](https://depot.ceon.pl/handle/123456789/16807)
+
+Każdy komputer kwantowy (koprocesor) musi komunikować się z podukładem klasycznym.
 <img class="center" src="img/proces_kwantowy.png">
 
-## Realizacje problemów biznesowych na komputerach kwantowych
+## Quantum Machine Learning
 
-1. Systemy obrony - kryptografia
+### Dane w QML
+
+<img class="center" src="img/qml.png">
+
+### Realizacje problemów biznesowych na komputerach kwantowych
+
+1. Systemy obrony - [kryptografia](https://learning.quantum-computing.ibm.com/course/practical-introduction-to-quantum-safe-cryptography/introduction-to-this-course)
 2. Rigetti - [przewidywanie pogody](https://thequantuminsider.com/2021/12/07/quantum-machine-learning-may-improve-weather-forecasting/)
 3. NASA (QuAIL) - [Kontrola lotów kosmicznych](https://www.sciencedirect.com/science/article/pii/S0167819116301326)
 4. Accenture - Finanse, logistyka, komunikacja i systemy bezpieczeństwa
@@ -209,25 +241,13 @@ Aktualnie ERA **Noisy Intermediate-Scale Quantum** (NISQ)
 9. Boeing/Airbus
 10. Goldman Sach / JPMorgan
 11. [DWave](https://www.dwavesys.com/learn/customer-success-stories/) [DWave and VW](https://www.dwavesys.com/media/2pojgtcx/dwave_vw_case_story_v2f.pdf)
-...
-
-## Współczesne komputery kwantowe
-
-<img class="center" src="img/maszyny_kwantowe.png">
+12. [IBM Case study](https://www.ibm.com/quantum/case-studies)
+13. [IBM 127 qubitów](https://research.ibm.com/blog/utility-toward-useful-quantum)
+14. Quantum Natural Language Processing [link](https://medium.com/qiskit/an-introduction-to-quantum-natural-language-processing-7aa4cc73c674)
 
 
-## Dostęp do obliczeń kwantowych w chmurze
+### Dostęp do obliczeń kwantowych w chmurze
 
 - [IBM Quantum](https://www.ibm.com/quantum/access-plans/) z wykorzystaniem biblioteki qiskit.
 - [Pennylane](https://pennylane.ai/) z wykorzystaniem biblioteki pennylane.
-
-<!--
-# info do przekazania 
-
-> obliczenia na komputerze kwantowym wykonywane są w inny sposób nież na komputerze klasycznym
->  - klasyczny komputer znajduje się zawsze w jednym stanie, komputer kwantowy może realizować wiele stanów jednocześnie
->  - superpozycja, splątanie i interferencja - wyjaśnienie dlaczego to są efekty, które pomagają przyśpieszyć obliczenia
->  - bity i qubity - jak działają - to na drugim wykładzie
-
-
--->
+- [Cirq Google]() z wykorzystaniem biblioteki cirq.

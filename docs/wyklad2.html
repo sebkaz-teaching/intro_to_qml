@@ -115,7 +115,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#klasyczne-bramki-logiczne" id="toc-klasyczne-bramki-logiczne" class="nav-link active" data-scroll-target="#klasyczne-bramki-logiczne">Klasyczne bramki logiczne</a></li>
+  <li><a href="#klasyczne-bramki-logiczne" id="toc-klasyczne-bramki-logiczne" class="nav-link active" data-scroll-target="#klasyczne-bramki-logiczne">Klasyczne bramki logiczne</a>
+  <ul class="collapse">
+  <li><a href="#bramki-logiczne-dla-jednego-bitu" id="toc-bramki-logiczne-dla-jednego-bitu" class="nav-link" data-scroll-target="#bramki-logiczne-dla-jednego-bitu">Bramki logiczne dla jednego bitu</a></li>
+  <li><a href="#inne-bramki-i-operacje-logiczne" id="toc-inne-bramki-i-operacje-logiczne" class="nav-link" data-scroll-target="#inne-bramki-i-operacje-logiczne">Inne bramki i operacje logiczne</a></li>
+  </ul></li>
   <li><a href="#fizyczna-realizacja-klasycznych-bitów-i-bramek-logicznych" id="toc-fizyczna-realizacja-klasycznych-bitów-i-bramek-logicznych" class="nav-link" data-scroll-target="#fizyczna-realizacja-klasycznych-bitów-i-bramek-logicznych">Fizyczna realizacja klasycznych bitów i bramek logicznych</a>
   <ul class="collapse">
   <li><a href="#implementacja-komórki-pamięci-ram" id="toc-implementacja-komórki-pamięci-ram" class="nav-link" data-scroll-target="#implementacja-komórki-pamięci-ram">Implementacja komórki pamięci RAM</a></li>
@@ -148,14 +152,36 @@ ul.task-list li input[type="checkbox"] {
 \newcommand{\ket}[1]{\left \rvert #1 \right \rangle}
 \newcommand{\braket}[2]{\left \langle #1 \middle \rvert #2 \right \rangle}
 \]</span></p>
-<p>Obliczenia (przetwarzanie) wykonywane przez komputer możemy zdefiniować jako transformacje jednego stanu pamięci na inny. Z matematycznego punktu widzenia oznacza to, że obliczenia to funkcje, które przekształcają informacje.</p>
-<p>W przypadku klasycznych komputerów (maszyn cyfrowych) podstawową jednostką pamięci jest <strong>bit</strong> (ang. <em>binary digit</em>). Funkcje, które operują na bitach nazywamy <strong>bramkami logicznymi</strong> (ang. <em>logic gates</em>). Bramki logiczne to <a href="https://esezam.okno.pw.edu.pl/mod/book/view.php?id=38&amp;chapterid=775">funkcje Boolowskie</a>, które możemy składać w bardziej złożone układy (ang. <em>circuits</em>). Zdolne są one do wykonywania np. dodawania, mnożenia czy też innych bardziej skomplikowanych operacji. Istotnym aspektem klasyczych bramek logicznych jest również to, że liczba bitów wejściowych nie musi być taka sama jak liczba bitów wyjściowych.</p>
-<p>Z pozoru obliczenia przedstawione w ten sposób wyglądają jako abstrakcjny matematyczny koncept. Jednak jego realizacja zawsze wymaga jakiegoś układu fizycznego realizującego wykonywanie funkcji. Nie ma znaczenia jak ten układ zostanie zrealizowany: kule bilardowe, przełączniki elektroniczne, tranzystory, czy cokolwiek innego. Logika obliczeń jest niezależna od ich realizacji.</p>
+<p>Obliczenia (przetwarzanie) wykonywane przez komputer możemy zdefiniować jako transformacje jednego stanu pamięci na inny. Z matematycznego punktu widzenia oznacza to, że obliczenia to <em>funkcje</em>, które przekształcają informacje.</p>
+<p>W przypadku klasycznych komputerów podstawową jednostką pamięci jest <strong>bit</strong> (ang. <em>binary digit</em>). Funkcje, które operują na bitach nazywamy <strong>bramkami logicznymi</strong> (ang. <em>logic gates</em>).</p>
+<p>Bramki logiczne to <a href="https://esezam.okno.pw.edu.pl/mod/book/view.php?id=38&amp;chapterid=775">funkcje Boolowskie</a>, które możemy składać w bardziej złożone układy (ang. <em>circuits</em>). Stworzone przez _George’a Boole’a w 1854 roku, algebra boola jest matematyczną strukturą, która opisuje zachowanie się obiektów, które mogą przyjmować tylko jedną z dwóch wartości: prawda lub fałsz. Zdolne są one do wykonywania np. dodawania, mnożenia czy też innych bardziej skomplikowanych operacji.</p>
+<p>W latach trzydziestych XX wieku <em>Claude Shannon</em> zastosował algebrę boola do analizy i projektowania układów elektrycznych. Co oznacza, że zareprezentował on funkcje boolowskie za pomocą przełączników elektrycznych. Dlatego też komponenty elektroniczne odpowiadające funkcjom boolowskim nazywamy <strong>bramkami logicznymi</strong>.</p>
+<blockquote class="blockquote">
+<p>Ciekawostka. Richard Feynman wykładał teorię obliczeń na Kalifornijskim Instytucie Technologii. Wykład ten prezentowany jest obecnie jako <em>Feynmana wykłady o obliczeniach</em> (ang. <em>Feynman Lectures on Computation</em>).</p>
+</blockquote>
+<p>Istotnym aspektem klasyczych bramek logicznych jest również to, że liczba bitów wejściowych nie musi być taka sama jak liczba bitów wyjściowych.</p>
+<p>Z pozoru obliczenia przedstawione w ten sposób wyglądają jako abstrakcjny matematyczny koncept. Jednak jego realizacja zawsze wymaga jakiegoś układu fizycznego realizującego wykonywanie funkcji. Nie ma znaczenia jak ten układ zostanie zrealizowany: kule bilardowe, przełączniki elektroniczne, tranzystory, czy cokolwiek innego.</p>
+<blockquote class="blockquote">
+<p>Logika obliczeń jest niezależna od ich realizacji.</p>
+</blockquote>
 <p>Z punktu widzenia realizacji zawsze chodzi nam o <em>kontrolowany</em> sposób zmiany stanu układu. Obliczenia klasyczne wymagają fizycznej implementacji dwóch (odróżnialnych) stanów (zazwyczaj oznaczamy te stany jako <span class="math inline">\(0\)</span> i <span class="math inline">\(1\)</span>) oraz zbioru bramek, które pozwalają przechodzić pomiędzy stanami.</p>
 <p>Zastosujmy nowe oznaczenia dla tych stanów: <span class="math display">\[0 = \ket{0} \]</span> oraz <span class="math display">\[1 = \ket{1}\]</span>.</p>
 <p>Na wykładzie postaramy się wskazać jak i kiedy logika klasycznych obliczeń może być uogólniona przez logikę obliczeń kwantowych. Jasne jest, że przypadek klasyczny powinien być szczególnym przypadkiem kwantowego.</p>
 <section id="klasyczne-bramki-logiczne" class="level2">
 <h2 class="anchored" data-anchor-id="klasyczne-bramki-logiczne">Klasyczne bramki logiczne</h2>
+<p>Zobaczmy jakie bramki możemy określić dla jednego bitu.</p>
+<section id="bramki-logiczne-dla-jednego-bitu" class="level3">
+<h3 class="anchored" data-anchor-id="bramki-logiczne-dla-jednego-bitu">Bramki logiczne dla jednego bitu</h3>
+<p>Operatory działające na jednym bicie możemy określić jako</p>
+<ol type="1">
+<li>Identyczność (ang. <em>identity</em>) - <span class="math inline">\(I\)</span></li>
+<li>Negacja (ang. <em>negation</em>) - <span class="math inline">\(X\)</span></li>
+<li>Stałe <span class="math inline">\(0\)</span></li>
+<li>Stałe <span class="math inline">\(1\)</span></li>
+</ol>
+</section>
+<section id="inne-bramki-i-operacje-logiczne" class="level3">
+<h3 class="anchored" data-anchor-id="inne-bramki-i-operacje-logiczne">Inne bramki i operacje logiczne</h3>
 <p><img class="center" src="img/bramki.png"></p>
 <p>Zróbmy krótkie przedstawienie niektórych, klasycznych bramek logicznych.</p>
 <p><strong>Bramka logiczna</strong> jest implementacją funkcji boolowskiej. Operacją logiczną przeprowadzaną na jednym lub kilku binarnych wejściach produkującą jedną binarną wartość wyjściową. <span class="math display">\[f: \{0,1\}^{n} \to \{0,1\} \]</span></p>
@@ -344,6 +370,7 @@ ul.task-list li input[type="checkbox"] {
 <blockquote class="blockquote">
 <p>Zadanie: ile bramek logicznych możemy stworzyć dla jednego bitu, dwóch bitów, trzech bitów? ### Uniweralne bramki logiczne - NAND</p>
 </blockquote>
+</section>
 </section>
 </section>
 <section id="fizyczna-realizacja-klasycznych-bitów-i-bramek-logicznych" class="level2">

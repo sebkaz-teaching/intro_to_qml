@@ -8,18 +8,29 @@ $$
 $$
 
 Obliczenia (przetwarzanie) wykonywane przez komputer możemy zdefiniować jako transformacje jednego stanu pamięci na inny.
-Z matematycznego punktu widzenia oznacza to, że obliczenia to funkcje, które przekształcają informacje.
+Z matematycznego punktu widzenia oznacza to, że obliczenia to _funkcje_, które przekształcają informacje.
 
-W przypadku klasycznych komputerów (maszyn cyfrowych) podstawową jednostką pamięci jest **bit** (ang. _binary digit_).
+W przypadku klasycznych komputerów podstawową jednostką pamięci jest **bit** (ang. _binary digit_).
 Funkcje, które operują na bitach nazywamy **bramkami logicznymi** (ang. _logic gates_).
+
 Bramki logiczne to [funkcje Boolowskie](https://esezam.okno.pw.edu.pl/mod/book/view.php?id=38&chapterid=775), które możemy składać w bardziej złożone układy (ang. _circuits_).
+Stworzone przez _George'a Boole'a w 1854 roku, algebra boola jest matematyczną strukturą, która opisuje zachowanie się obiektów, które mogą przyjmować tylko jedną z dwóch wartości: prawda lub fałsz.
 Zdolne są one do wykonywania np. dodawania, mnożenia czy też innych bardziej skomplikowanych operacji.
+
+W latach trzydziestych XX wieku _Claude Shannon_ zastosował algebrę boola do analizy i projektowania układów elektrycznych.
+Co oznacza, że zareprezentował on funkcje boolowskie za pomocą przełączników elektrycznych.
+Dlatego też komponenty elektroniczne odpowiadające funkcjom boolowskim nazywamy **bramkami logicznymi**.
+
+> Ciekawostka. Richard Feynman wykładał teorię obliczeń na Kalifornijskim Instytucie Technologii. Wykład ten prezentowany jest obecnie jako 
+> _Feynmana wykłady o obliczeniach_ (ang. _Feynman Lectures on Computation_).
+
 Istotnym aspektem klasyczych bramek logicznych jest również to, że liczba bitów wejściowych nie musi być taka sama jak liczba bitów wyjściowych.
 
 Z pozoru obliczenia przedstawione w ten sposób wyglądają jako abstrakcjny matematyczny koncept.
 Jednak jego realizacja zawsze wymaga jakiegoś układu fizycznego realizującego wykonywanie funkcji.
 Nie ma znaczenia jak ten układ zostanie zrealizowany: kule bilardowe, przełączniki elektroniczne, tranzystory, czy cokolwiek innego.
-Logika obliczeń jest niezależna od ich realizacji. 
+
+> Logika obliczeń jest niezależna od ich realizacji. 
 
 Z punktu widzenia realizacji zawsze chodzi nam o _kontrolowany_ sposób zmiany stanu układu.
 Obliczenia klasyczne wymagają fizycznej implementacji dwóch (odróżnialnych) stanów
@@ -32,6 +43,23 @@ Na wykładzie postaramy się wskazać jak i kiedy logika klasycznych obliczeń m
 Jasne jest, że przypadek klasyczny powinien być szczególnym przypadkiem kwantowego.
 
 ## Klasyczne bramki logiczne
+
+Zobaczmy jakie bramki możemy określić dla jednego bitu.
+
+### Bramki logiczne dla jednego bitu
+
+Operatory działające na jednym bicie możemy określić jako 
+
+1. Identyczność (ang. _identity_) - $I$
+2. Negacja (ang. _negation_) - $X$
+3. Stałe $0$
+4. Stałe $1$
+
+
+
+
+
+### Inne bramki i operacje logiczne
 
 <img class="center" src="img/bramki.png">
 

@@ -22,7 +22,7 @@ Jeśli chciał(a)byś coś dodać prześlij informację przez MS teams.
 Wykład jest realizowany w trybie hybrydowym.
 Jest on NIEOBOWIĄZKOWY i odbywa się w sali C5D.
 
-1. 02-10-2023 (poniedziałek) 11:40-13:20 - Wykład 1
+1. 02-10-2023 (poniedziałek) 11:40-13:20 - <del> Wykład 1 </del>
 
 Historia klasycznego i kwantowego komputera i jego zastosowania. Efekty kwantowe wykorzystywane do przyśpieszenia obliczeń.
 
@@ -93,3 +93,9 @@ Uczestnicząc w zajęciach musisz opanować i przynajmniej w podstawowym zakresi
 1. [GIT](https://sebkaz-teaching.github.io/RTA_2023/info.html#git) 
 2. Python, Jupyter notebook, Jupyter lab, Colab
 3. [Docker](https://sebkaz-teaching.github.io/RTA_2023/info.html#docker)
+
+## QPoland 
+
+[QPoland](https://qworld.net/qpoland/) jest cześcią międzynarodowej sieci [QWorld](https://qworld.net).
+
+> QWorld is a global network of individuals, groups, and communities collaborating on education and implementation of quantum technologies and research activities.
