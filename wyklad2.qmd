@@ -13,8 +13,117 @@ Z matematycznego punktu widzenia oznacza to, że obliczenia to _funkcje_, które
 W przypadku klasycznych komputerów podstawową jednostką pamięci jest **bit** (ang. _binary digit_).
 Funkcje, które operują na bitach nazywamy **bramkami logicznymi** (ang. _logic gates_).
 
+### Monety
+
+Rozważmy monetę. Posiada ona dwie strony  (odróżnialne od siebie). 
+Kładąc monetę na podłożu możemy określić dostępne stay jako: $\ket{O}$, $\ket{R}$. 
+
+Posiadając dwie takie monety możemy określić cztery możliwe stany: $$\ket{OO}, \ket{OR}, \ket{RO}, \ket{RR}$$
+
+Ponieważ pierwsza moneta ma dwa możliwe stany i druga moneta również ma dwie możliwości istnieją $2\times 2= 2^{2} =4$ możliwe stany dla dwóch monet.
+
+W przypadku trzech monet możemy określić osiem możliwych stanów: $$\ket{OOO}, \ket{OOR}, \ket{ORO}, \ket{ORR}, \ket{ROO}, \ket{ROR}, \ket{RRO}, \ket{RRR}$$
+Co daje nam $2 \times 2 \times 2 = 2^{3}=8$ możliwych stanów. 
+
+dla $n$ monet możemy określić $2^{n}$ możliwych stanów.
+
+### Kości do gry 
+
+Kości do gry posiadają sześć stron. Każdej możemy przypisać liczbę od 1 do 6.
+Dwie kości do gry posiadają $6 \times 6 = 36$ możliwych stanów.
+Idąc dalej, dla trzech kości do gry mamy $6 \times 6 \times 6 = 6^{3} = 216$ możliwych stanów.
+Dla n kości do gry mamy $6^{n}$ możliwych stanów.
+
+### Kodowanie informacji 
+
+> Ile informacji możemy zakodować za pomocą monet i kości do gry?
+
+Załóżmy, że chcemy przekazać informacje o jednym kolorze tęczy. 
+Dla przypomnienia mamy 7 kolorów (czerwony, pomarańczowy, żółty, zielony, niebieski, indygo, fioletowy).
+Te 7 kolorów można _zakodować_ (albo zareprezetować) poprzez różne konfiguracje monet i kości. 
+
+|kolor|monety|kości|
+---|---|---
+czerwony|OOO|11|
+pomarańczowy|OOR|12|
+żółty|ORO|13|
+zielony|ORR|14|
+niebieski|ROO|15|
+indygo|ROR|16|
+fioletowy|RRO|21|
+
+Pozostałe konfiguracje nie są używane (albo można w nich powtórzyć elementy do zakodowania).
+
+> Monety niosą mniej informacji niż kości do gry. Co prowadzi do ważnego wniosku:
+> **obiekt o dwóch stanach niesie najmniejszą (możliwą) ilość informacji**.
+
+> Zadanie: Angielski alfabet posiada 26 liter. Ile monet i kości potrzeba aby zakodować informacje o jednej literze?
+
+### Fizyczna realizacja klasycznych bitów
+
+Obiekty fizyczne, które mogą przyjmować dwa stany: 
+
+- przełącznik włączony/wyłączony 
+- moneta 
+- Płyty CD, DVD (ang. pits - wypalone laserem dziury, lands - nie wypalone dziury)
+- obwód elektryczny - może mieć dowolny prąd - ale wybieramy np. 0 lub 5V.
+
+> jak sprowadzić klasyfikację dla wielu klas do 2 klasowej? 
+
+Zazwyczaj oznaczamy te stany jako $0$ i $1$.
+
+Zastosujmy nowe oznaczenia dla tych stanów: 
+$$0 = \ket{0} $$ oraz $$1 = \ket{1}$$
+
+### Reprezentacja binarna
+
+W przypadku trzech monet mieliśmy następujące stany:
+$$OOO, OOR, ORO, ORR, ROO, ROR, RRO, RRR.$$
+
+Możemy je zapisać w postaci binarnej jako:
+$$000, 001, 010, 011, 100, 101, 110, 111$$
+Dla przyzwyczajenia z zapisem możemy napisać również:
+$$\ket{000}, \ket{001}, \ket{010}, \ket{011}, \ket{100}, \ket{101}, \ket{110}, \ket{111}$$
+
+
+Co oznacza, że możemy te stany zapisać matematycznie - łatwo nam nimi operować.
+> **liczby tego typu nazywamy liczbami binarnymi, albo liczbami o podstawie 2**.
+
+Jak zapisujemy liczby w systemie dziesiętnym? i dlaczego nazywa się on dziesiętnym?
+
+$$6174 = 6*1000 + 1*100 + 7*10 + 4*1 = 6*10^{3} + 1*10^{2} + 7*10^{1} +4*10^{0}$$
+
+Natomiast:
+$$11010_{2} = 1*2^{4} + 1*2^{3} + 0*2^{2} + 1*2^{1} + 0*2^{0} $$
+co w systemie dziesiętnym daje nam: $26$.
+
+> Zadanie: $10111_{2}= ?_{10}$
+> Zadanie: $42= ?_{2}$
+
+Istnieje jeszcze wygodny system 16-tkowy (szesnastkowy) - gdzie współczynniki zapisujemy jako $0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F$.
+
+> Zadanie: $F2A_{16}= ?_{10}$
+
+> **Jak zliczamy liczby w systemie dziesiętnym? a jak w dwójkowym?**
+
+> Jak zapisać liczby ujemne i zmiennoprzecinkowe binarnie?
+
+### ASCII American Standard Code for Information Interchange
+
+Komputer przechowuje informacje jako bity, jednak w naszym świecie używamy tekstu złożonego z liter.
+System ASCII przechowuje informacje o literach w postaci 7 bitowych liczb binarnych.
+W ten sposób możemy zapisać 128 znaków (liter, cyfr, znaków specjalnych) $0000000$ do $1111111$.
+
+> Znajdź w internecie tablicę ASCII i zapisz w kodzie ASCII swoje imię.
+
+Standard UTF-8 (Unicode Transformation Format) przechowuje informacje o literach w postaci liczb binarnych do 32 bitów.
+co daje nam możliwość zapisania $2^{32}=4294967296$ stanów. 128 pierwszych bitowych napisów w UTF-8 to kod ASCII.
+
+
+## Bramki logiczne
+
 Bramki logiczne to [funkcje Boolowskie](https://esezam.okno.pw.edu.pl/mod/book/view.php?id=38&chapterid=775), które możemy składać w bardziej złożone układy (ang. _circuits_).
-Stworzone przez _George'a Boole'a w 1854 roku, algebra boola jest matematyczną strukturą, która opisuje zachowanie się obiektów, które mogą przyjmować tylko jedną z dwóch wartości: prawda lub fałsz.
+Stworzone przez _George'a Boole'a_ w 1854 roku, algebra boola jest matematyczną strukturą, która opisuje zachowanie się obiektów, które mogą przyjmować tylko jedną z dwóch wartości: prawda lub fałsz.
 Zdolne są one do wykonywania np. dodawania, mnożenia czy też innych bardziej skomplikowanych operacji.
 
 W latach trzydziestych XX wieku _Claude Shannon_ zastosował algebrę boola do analizy i projektowania układów elektrycznych.
@@ -30,23 +139,21 @@ Z pozoru obliczenia przedstawione w ten sposób wyglądają jako abstrakcjny mat
 Jednak jego realizacja zawsze wymaga jakiegoś układu fizycznego realizującego wykonywanie funkcji.
 Nie ma znaczenia jak ten układ zostanie zrealizowany: kule bilardowe, przełączniki elektroniczne, tranzystory, czy cokolwiek innego.
 
-> Logika obliczeń jest niezależna od ich realizacji. 
+> **Logika obliczeń jest niezależna od ich realizacji.** 
 
 Z punktu widzenia realizacji zawsze chodzi nam o _kontrolowany_ sposób zmiany stanu układu.
-Obliczenia klasyczne wymagają fizycznej implementacji dwóch (odróżnialnych) stanów
-(zazwyczaj oznaczamy te stany jako $0$ i $1$) oraz zbioru bramek, które pozwalają przechodzić pomiędzy stanami.
-
-Zastosujmy nowe oznaczenia dla tych stanów: 
-$$0 = \ket{0} $$ oraz $$1 = \ket{1}$$.
 
 Na wykładzie postaramy się wskazać jak i kiedy logika klasycznych obliczeń może być uogólniona przez logikę obliczeń kwantowych.
 Jasne jest, że przypadek klasyczny powinien być szczególnym przypadkiem kwantowego.
 
-## Klasyczne bramki logiczne
+[obwody klasyczne](https://www.circuit-diagram.org)
+
 
 Zobaczmy jakie bramki możemy określić dla jednego bitu.
 
 ### Bramki logiczne dla jednego bitu
+
+Ile bramek mamy gdy input = 1 bit, output = 1 bit? Ile funkcji możemy zdefiniować dla odwzorowania jednego bitu w jeden bit?
 
 Operatory działające na jednym bicie możemy określić jako 
 
@@ -54,9 +161,6 @@ Operatory działające na jednym bicie możemy określić jako
 2. Negacja (ang. _negation_) - $X$
 3. Stałe $0$
 4. Stałe $1$
-
-
-
 
 
 ### Inne bramki i operacje logiczne
@@ -82,7 +186,7 @@ Podstawowe bramki, które znasz to:
 2. **OR** - alternatywa
 3. **NOT** - negacja
 3. **NAND** - not and
-4. **XOR** - alternatywa wykluczająca
+4. **XOR** - alternatywa wykluczająca (Exclusive OR) - dodawanie modulo 2
 
 > Zadanie: zapisz tablicę prawdy dla każdej bramki. 
 
@@ -136,21 +240,35 @@ Powyższe bramki pozwalają łączyć Ci pojedyncze elemnty algebry boola ze sob
 
 > Zadanie: Dlaczego Algebra boola nazywana jest algebrą zbiorów? 
 
-> Zadanie: Czy składanie podzbiorów zbioru też generuje algebrę boola ?
+> Zadanie: Czy składanie podzbiorów zbioru również generuje algebrę boola ?
 
 > Zadanie: Kiedy dodajemy i mnożymy liczby jakie operacje i własności wykorzystujemy? 
 
 > Zadanie: ile bramek logicznych możemy stworzyć dla jednego bitu, dwóch bitów, trzech bitów? 
+
 ### Uniweralne bramki logiczne - NAND
 
-## Fizyczna realizacja klasycznych bitów i bramek logicznych
+Tak jak widzieliśmy dla  1-bit mieliśmy 4 bramki logiczne.
+Dla 2-bitów mieliśmy 16 bramek logicznych. Dla 3-bitów mamy 256 możliwości.
+W przypadku 2-bitów nie wypisaliśmy wszystkich bramek, dlaczego? A czy musimy realizować wszystkie? 
+
+> Na szczęście odpowiedź jest negatywna.
+
+Istnieją tzw. _zbiory bramek uniwersalnych_ dzięki którym możemy zrealizować dowolną funkcję boolowską.
+
+- **NOT, AND, OR**
+- **NAND, AND**
+- **NAND**
+- **NOT, OR**
+- **NOR**
+
+
+## Fizyczna realizacja klasycznych  bramek logicznych
 
 Bramka NAND jest bramką uniwersalną, co oznacza, że każdą funkcję boolowską można zrealizować za pomocą układu bramek NAND.
 Dlatego ważne dla komputerów klasycznych jest, aby znaleźć praktyczną realizację i jej implementację w układach. 
 
 Istnieje wiele fizycznych realizacji [bramki NAND](https://en.wikipedia.org/wiki/NAND_gate).
-
-
 
 ### Implementacja komórki pamięci RAM 
 
@@ -160,7 +278,43 @@ Pamięć RAM jest zorganizowana w komórki, które mogą przechowywać pojedyncz
 Do implementacji pamięci RAM wykorzystuje się zbiór bramek logicznych (NAND) oraz tranzystorów.
 
 
+## Szyfrowanie z wykorzystaniem bramki XOR 
+Weźmy dwie sekwencje bitów:
 
 
-! DODAC MATERIALY Z UDEMY - SZYFROWANIE jako coś do zrobienia !!
+sekwencja A:
+$$1 0 1 1 0 1 1 1 0 0 0$$ 
 
+sekwencja B:
+$$0 1 1 0 1 1 0 1 1 0 1$$ 
+
+i obliczmy XOR między dwoma sekwencjami $A XOR B$. 
+Zgodnie z tablicą prawdy dla XOR otrzymujemy:
+$$1 1 0 1 1 0 1 0 1 0 1$$
+
+
+> Oblicz A XOR B XOR B. 
+Co możesz zauważyć?  
+
+### Sender decyrpting message
+Zamień wiadomość, którą chcesz zaszyfrować na binarną postać (czyli jako sekwencję zer i jedynek).
+
+Weź losową sekwencję bitów (klucz szyfrujący) którą zna tylko nadawca i odbiorca.
+
+$1001011010...$ - wiadomość
+
+$0110101010...$ - klucz szyfrujący, czyli losowa sekwencja bitów
+
+Zaszyfruj wiadomość wykonując operację XOR na każdym bicie wiadomości i klucza szyfrującego. 
+Tak otrzymaną wiadomość (zaszyfrowaną) wyślij do odbiorcy.
+
+### decyrpting message
+
+Odbiorca otrzymuje zaszyfrowaną wiadomość i klucz szyfrujący.
+
+Message XOR SecretSequence = EncryptedMessage
+
+Message XOR SecretSequence XOR SecretSequence = Message
+
+Nie powinniśmy używać SecretSequence więcej niż raz. Jeśli użyjemy go więcej niż raz, to łatwo jest złamać szyfrowanie.
+Zakodowana wiadomość przestaje być losowa. 

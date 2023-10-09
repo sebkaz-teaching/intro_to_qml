@@ -92,6 +92,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Wykład 1</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link active" href="./wyklad2.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Wykład 2</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./sylabus.html" rel="" target="">
  <span class="menu-text">Sylabus</span></a>
   </li>  
@@ -115,14 +119,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#klasyczne-bramki-logiczne" id="toc-klasyczne-bramki-logiczne" class="nav-link active" data-scroll-target="#klasyczne-bramki-logiczne">Klasyczne bramki logiczne</a>
+  <li><a href="#monety" id="toc-monety" class="nav-link active" data-scroll-target="#monety">Monety</a></li>
+  <li><a href="#kości-do-gry" id="toc-kości-do-gry" class="nav-link" data-scroll-target="#kości-do-gry">Kości do gry</a></li>
+  <li><a href="#kodowanie-informacji" id="toc-kodowanie-informacji" class="nav-link" data-scroll-target="#kodowanie-informacji">Kodowanie informacji</a></li>
+  <li><a href="#fizyczna-realizacja-klasycznych-bitów" id="toc-fizyczna-realizacja-klasycznych-bitów" class="nav-link" data-scroll-target="#fizyczna-realizacja-klasycznych-bitów">Fizyczna realizacja klasycznych bitów</a></li>
+  <li><a href="#reprezentacja-binarna" id="toc-reprezentacja-binarna" class="nav-link" data-scroll-target="#reprezentacja-binarna">Reprezentacja binarna</a></li>
+  <li><a href="#ascii-american-standard-code-for-information-interchange" id="toc-ascii-american-standard-code-for-information-interchange" class="nav-link" data-scroll-target="#ascii-american-standard-code-for-information-interchange">ASCII American Standard Code for Information Interchange</a></li>
+  <li><a href="#bramki-logiczne" id="toc-bramki-logiczne" class="nav-link" data-scroll-target="#bramki-logiczne">Bramki logiczne</a>
   <ul class="collapse">
   <li><a href="#bramki-logiczne-dla-jednego-bitu" id="toc-bramki-logiczne-dla-jednego-bitu" class="nav-link" data-scroll-target="#bramki-logiczne-dla-jednego-bitu">Bramki logiczne dla jednego bitu</a></li>
   <li><a href="#inne-bramki-i-operacje-logiczne" id="toc-inne-bramki-i-operacje-logiczne" class="nav-link" data-scroll-target="#inne-bramki-i-operacje-logiczne">Inne bramki i operacje logiczne</a></li>
+  <li><a href="#uniweralne-bramki-logiczne---nand" id="toc-uniweralne-bramki-logiczne---nand" class="nav-link" data-scroll-target="#uniweralne-bramki-logiczne---nand">Uniweralne bramki logiczne - NAND</a></li>
   </ul></li>
-  <li><a href="#fizyczna-realizacja-klasycznych-bitów-i-bramek-logicznych" id="toc-fizyczna-realizacja-klasycznych-bitów-i-bramek-logicznych" class="nav-link" data-scroll-target="#fizyczna-realizacja-klasycznych-bitów-i-bramek-logicznych">Fizyczna realizacja klasycznych bitów i bramek logicznych</a>
+  <li><a href="#fizyczna-realizacja-klasycznych-bramek-logicznych" id="toc-fizyczna-realizacja-klasycznych-bramek-logicznych" class="nav-link" data-scroll-target="#fizyczna-realizacja-klasycznych-bramek-logicznych">Fizyczna realizacja klasycznych bramek logicznych</a>
   <ul class="collapse">
   <li><a href="#implementacja-komórki-pamięci-ram" id="toc-implementacja-komórki-pamięci-ram" class="nav-link" data-scroll-target="#implementacja-komórki-pamięci-ram">Implementacja komórki pamięci RAM</a></li>
+  </ul></li>
+  <li><a href="#szyfrowanie-z-wykorzystaniem-bramki-xor" id="toc-szyfrowanie-z-wykorzystaniem-bramki-xor" class="nav-link" data-scroll-target="#szyfrowanie-z-wykorzystaniem-bramki-xor">Szyfrowanie z wykorzystaniem bramki XOR</a>
+  <ul class="collapse">
+  <li><a href="#sender-decyrpting-message" id="toc-sender-decyrpting-message" class="nav-link" data-scroll-target="#sender-decyrpting-message">Sender decyrpting message</a></li>
+  <li><a href="#decyrpting-message" id="toc-decyrpting-message" class="nav-link" data-scroll-target="#decyrpting-message">decyrpting message</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -154,7 +170,126 @@ ul.task-list li input[type="checkbox"] {
 \]</span></p>
 <p>Obliczenia (przetwarzanie) wykonywane przez komputer możemy zdefiniować jako transformacje jednego stanu pamięci na inny. Z matematycznego punktu widzenia oznacza to, że obliczenia to <em>funkcje</em>, które przekształcają informacje.</p>
 <p>W przypadku klasycznych komputerów podstawową jednostką pamięci jest <strong>bit</strong> (ang. <em>binary digit</em>). Funkcje, które operują na bitach nazywamy <strong>bramkami logicznymi</strong> (ang. <em>logic gates</em>).</p>
-<p>Bramki logiczne to <a href="https://esezam.okno.pw.edu.pl/mod/book/view.php?id=38&amp;chapterid=775">funkcje Boolowskie</a>, które możemy składać w bardziej złożone układy (ang. <em>circuits</em>). Stworzone przez _George’a Boole’a w 1854 roku, algebra boola jest matematyczną strukturą, która opisuje zachowanie się obiektów, które mogą przyjmować tylko jedną z dwóch wartości: prawda lub fałsz. Zdolne są one do wykonywania np. dodawania, mnożenia czy też innych bardziej skomplikowanych operacji.</p>
+<section id="monety" class="level3">
+<h3 class="anchored" data-anchor-id="monety">Monety</h3>
+<p>Rozważmy monetę. Posiada ona dwie strony (odróżnialne od siebie). Kładąc monetę na podłożu możemy określić dostępne stay jako: <span class="math inline">\(\ket{O}\)</span>, <span class="math inline">\(\ket{R}\)</span>.</p>
+<p>Posiadając dwie takie monety możemy określić cztery możliwe stany: <span class="math display">\[\ket{OO}, \ket{OR}, \ket{RO}, \ket{RR}\]</span></p>
+<p>Ponieważ pierwsza moneta ma dwa możliwe stany i druga moneta również ma dwie możliwości istnieją <span class="math inline">\(2\times 2= 2^{2} =4\)</span> możliwe stany dla dwóch monet.</p>
+<p>W przypadku trzech monet możemy określić osiem możliwych stanów: <span class="math display">\[\ket{OOO}, \ket{OOR}, \ket{ORO}, \ket{ORR}, \ket{ROO}, \ket{ROR}, \ket{RRO}, \ket{RRR}\]</span> Co daje nam <span class="math inline">\(2 \times 2 \times 2 = 2^{3}=8\)</span> możliwych stanów.</p>
+<p>dla <span class="math inline">\(n\)</span> monet możemy określić <span class="math inline">\(2^{n}\)</span> możliwych stanów.</p>
+</section>
+<section id="kości-do-gry" class="level3">
+<h3 class="anchored" data-anchor-id="kości-do-gry">Kości do gry</h3>
+<p>Kości do gry posiadają sześć stron. Każdej możemy przypisać liczbę od 1 do 6. Dwie kości do gry posiadają <span class="math inline">\(6 \times 6 = 36\)</span> możliwych stanów. Idąc dalej, dla trzech kości do gry mamy <span class="math inline">\(6 \times 6 \times 6 = 6^{3} = 216\)</span> możliwych stanów. Dla n kości do gry mamy <span class="math inline">\(6^{n}\)</span> możliwych stanów.</p>
+</section>
+<section id="kodowanie-informacji" class="level3">
+<h3 class="anchored" data-anchor-id="kodowanie-informacji">Kodowanie informacji</h3>
+<blockquote class="blockquote">
+<p>Ile informacji możemy zakodować za pomocą monet i kości do gry?</p>
+</blockquote>
+<p>Załóżmy, że chcemy przekazać informacje o jednym kolorze tęczy. Dla przypomnienia mamy 7 kolorów (czerwony, pomarańczowy, żółty, zielony, niebieski, indygo, fioletowy). Te 7 kolorów można <em>zakodować</em> (albo zareprezetować) poprzez różne konfiguracje monet i kości.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>kolor</th>
+<th>monety</th>
+<th>kości</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>czerwony</td>
+<td>OOO</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>pomarańczowy</td>
+<td>OOR</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>żółty</td>
+<td>ORO</td>
+<td>13</td>
+</tr>
+<tr class="even">
+<td>zielony</td>
+<td>ORR</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td>niebieski</td>
+<td>ROO</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>indygo</td>
+<td>ROR</td>
+<td>16</td>
+</tr>
+<tr class="odd">
+<td>fioletowy</td>
+<td>RRO</td>
+<td>21</td>
+</tr>
+</tbody>
+</table>
+<p>Pozostałe konfiguracje nie są używane (albo można w nich powtórzyć elementy do zakodowania).</p>
+<blockquote class="blockquote">
+<p>Monety niosą mniej informacji niż kości do gry. Co prowadzi do ważnego wniosku: <strong>obiekt o dwóch stanach niesie najmniejszą (możliwą) ilość informacji</strong>.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Zadanie: Angielski alfabet posiada 26 liter. Ile monet i kości potrzeba aby zakodować informacje o jednej literze?</p>
+</blockquote>
+</section>
+<section id="fizyczna-realizacja-klasycznych-bitów" class="level3">
+<h3 class="anchored" data-anchor-id="fizyczna-realizacja-klasycznych-bitów">Fizyczna realizacja klasycznych bitów</h3>
+<p>Obiekty fizyczne, które mogą przyjmować dwa stany:</p>
+<ul>
+<li>przełącznik włączony/wyłączony</li>
+<li>moneta</li>
+<li>Płyty CD, DVD (ang. pits - wypalone laserem dziury, lands - nie wypalone dziury)</li>
+<li>obwód elektryczny - może mieć dowolny prąd - ale wybieramy np. 0 lub 5V.</li>
+</ul>
+<blockquote class="blockquote">
+<p>jak sprowadzić klasyfikację dla wielu klas do 2 klasowej?</p>
+</blockquote>
+<p>Zazwyczaj oznaczamy te stany jako <span class="math inline">\(0\)</span> i <span class="math inline">\(1\)</span>.</p>
+<p>Zastosujmy nowe oznaczenia dla tych stanów: <span class="math display">\[0 = \ket{0} \]</span> oraz <span class="math display">\[1 = \ket{1}\]</span></p>
+</section>
+<section id="reprezentacja-binarna" class="level3">
+<h3 class="anchored" data-anchor-id="reprezentacja-binarna">Reprezentacja binarna</h3>
+<p>W przypadku trzech monet mieliśmy następujące stany: <span class="math display">\[OOO, OOR, ORO, ORR, ROO, ROR, RRO, RRR.\]</span></p>
+<p>Możemy je zapisać w postaci binarnej jako: <span class="math display">\[000, 001, 010, 011, 100, 101, 110, 111\]</span> Dla przyzwyczajenia z zapisem możemy napisać również: <span class="math display">\[\ket{000}, \ket{001}, \ket{010}, \ket{011}, \ket{100}, \ket{101}, \ket{110}, \ket{111}\]</span></p>
+<p>Co oznacza, że możemy te stany zapisać matematycznie - łatwo nam nimi operować. &gt; <strong>liczby tego typu nazywamy liczbami binarnymi, albo liczbami o podstawie 2</strong>.</p>
+<p>Jak zapisujemy liczby w systemie dziesiętnym? i dlaczego nazywa się on dziesiętnym?</p>
+<p><span class="math display">\[6174 = 6*1000 + 1*100 + 7*10 + 4*1 = 6*10^{3} + 1*10^{2} + 7*10^{1} +4*10^{0}\]</span></p>
+<p>Natomiast: <span class="math display">\[11010_{2} = 1*2^{4} + 1*2^{3} + 0*2^{2} + 1*2^{1} + 0*2^{0} \]</span> co w systemie dziesiętnym daje nam: <span class="math inline">\(26\)</span>.</p>
+<blockquote class="blockquote">
+<p>Zadanie: <span class="math inline">\(10111_{2}= ?_{10}\)</span> Zadanie: <span class="math inline">\(42= ?_{2}\)</span></p>
+</blockquote>
+<p>Istnieje jeszcze wygodny system 16-tkowy (szesnastkowy) - gdzie współczynniki zapisujemy jako <span class="math inline">\(0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F\)</span>.</p>
+<blockquote class="blockquote">
+<p>Zadanie: <span class="math inline">\(F2A_{16}= ?_{10}\)</span></p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Jak zliczamy liczby w systemie dziesiętnym? a jak w dwójkowym?</strong></p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Jak zapisać liczby ujemne i zmiennoprzecinkowe binarnie?</p>
+</blockquote>
+</section>
+<section id="ascii-american-standard-code-for-information-interchange" class="level3">
+<h3 class="anchored" data-anchor-id="ascii-american-standard-code-for-information-interchange">ASCII American Standard Code for Information Interchange</h3>
+<p>Komputer przechowuje informacje jako bity, jednak w naszym świecie używamy tekstu złożonego z liter. System ASCII przechowuje informacje o literach w postaci 7 bitowych liczb binarnych. W ten sposób możemy zapisać 128 znaków (liter, cyfr, znaków specjalnych) <span class="math inline">\(0000000\)</span> do <span class="math inline">\(1111111\)</span>.</p>
+<blockquote class="blockquote">
+<p>Znajdź w internecie tablicę ASCII i zapisz w kodzie ASCII swoje imię.</p>
+</blockquote>
+<p>Standard UTF-8 (Unicode Transformation Format) przechowuje informacje o literach w postaci liczb binarnych do 32 bitów. co daje nam możliwość zapisania <span class="math inline">\(2^{32}=4294967296\)</span> stanów. 128 pierwszych bitowych napisów w UTF-8 to kod ASCII.</p>
+</section>
+<section id="bramki-logiczne" class="level2">
+<h2 class="anchored" data-anchor-id="bramki-logiczne">Bramki logiczne</h2>
+<p>Bramki logiczne to <a href="https://esezam.okno.pw.edu.pl/mod/book/view.php?id=38&amp;chapterid=775">funkcje Boolowskie</a>, które możemy składać w bardziej złożone układy (ang. <em>circuits</em>). Stworzone przez <em>George’a Boole’a</em> w 1854 roku, algebra boola jest matematyczną strukturą, która opisuje zachowanie się obiektów, które mogą przyjmować tylko jedną z dwóch wartości: prawda lub fałsz. Zdolne są one do wykonywania np. dodawania, mnożenia czy też innych bardziej skomplikowanych operacji.</p>
 <p>W latach trzydziestych XX wieku <em>Claude Shannon</em> zastosował algebrę boola do analizy i projektowania układów elektrycznych. Co oznacza, że zareprezentował on funkcje boolowskie za pomocą przełączników elektrycznych. Dlatego też komponenty elektroniczne odpowiadające funkcjom boolowskim nazywamy <strong>bramkami logicznymi</strong>.</p>
 <blockquote class="blockquote">
 <p>Ciekawostka. Richard Feynman wykładał teorię obliczeń na Kalifornijskim Instytucie Technologii. Wykład ten prezentowany jest obecnie jako <em>Feynmana wykłady o obliczeniach</em> (ang. <em>Feynman Lectures on Computation</em>).</p>
@@ -162,16 +297,15 @@ ul.task-list li input[type="checkbox"] {
 <p>Istotnym aspektem klasyczych bramek logicznych jest również to, że liczba bitów wejściowych nie musi być taka sama jak liczba bitów wyjściowych.</p>
 <p>Z pozoru obliczenia przedstawione w ten sposób wyglądają jako abstrakcjny matematyczny koncept. Jednak jego realizacja zawsze wymaga jakiegoś układu fizycznego realizującego wykonywanie funkcji. Nie ma znaczenia jak ten układ zostanie zrealizowany: kule bilardowe, przełączniki elektroniczne, tranzystory, czy cokolwiek innego.</p>
 <blockquote class="blockquote">
-<p>Logika obliczeń jest niezależna od ich realizacji.</p>
+<p><strong>Logika obliczeń jest niezależna od ich realizacji.</strong></p>
 </blockquote>
-<p>Z punktu widzenia realizacji zawsze chodzi nam o <em>kontrolowany</em> sposób zmiany stanu układu. Obliczenia klasyczne wymagają fizycznej implementacji dwóch (odróżnialnych) stanów (zazwyczaj oznaczamy te stany jako <span class="math inline">\(0\)</span> i <span class="math inline">\(1\)</span>) oraz zbioru bramek, które pozwalają przechodzić pomiędzy stanami.</p>
-<p>Zastosujmy nowe oznaczenia dla tych stanów: <span class="math display">\[0 = \ket{0} \]</span> oraz <span class="math display">\[1 = \ket{1}\]</span>.</p>
+<p>Z punktu widzenia realizacji zawsze chodzi nam o <em>kontrolowany</em> sposób zmiany stanu układu.</p>
 <p>Na wykładzie postaramy się wskazać jak i kiedy logika klasycznych obliczeń może być uogólniona przez logikę obliczeń kwantowych. Jasne jest, że przypadek klasyczny powinien być szczególnym przypadkiem kwantowego.</p>
-<section id="klasyczne-bramki-logiczne" class="level2">
-<h2 class="anchored" data-anchor-id="klasyczne-bramki-logiczne">Klasyczne bramki logiczne</h2>
+<p><a href="https://www.circuit-diagram.org">obwody klasyczne</a></p>
 <p>Zobaczmy jakie bramki możemy określić dla jednego bitu.</p>
 <section id="bramki-logiczne-dla-jednego-bitu" class="level3">
 <h3 class="anchored" data-anchor-id="bramki-logiczne-dla-jednego-bitu">Bramki logiczne dla jednego bitu</h3>
+<p>Ile bramek mamy gdy input = 1 bit, output = 1 bit? Ile funkcji możemy zdefiniować dla odwzorowania jednego bitu w jeden bit?</p>
 <p>Operatory działające na jednym bicie możemy określić jako</p>
 <ol type="1">
 <li>Identyczność (ang. <em>identity</em>) - <span class="math inline">\(I\)</span></li>
@@ -193,7 +327,7 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>OR</strong> - alternatywa</li>
 <li><strong>NOT</strong> - negacja</li>
 <li><strong>NAND</strong> - not and</li>
-<li><strong>XOR</strong> - alternatywa wykluczająca</li>
+<li><strong>XOR</strong> - alternatywa wykluczająca (Exclusive OR) - dodawanie modulo 2</li>
 </ol>
 <blockquote class="blockquote">
 <p>Zadanie: zapisz tablicę prawdy dla każdej bramki.</p>
@@ -362,25 +496,64 @@ ul.task-list li input[type="checkbox"] {
 <p>Zadanie: Dlaczego Algebra boola nazywana jest algebrą zbiorów?</p>
 </blockquote>
 <blockquote class="blockquote">
-<p>Zadanie: Czy składanie podzbiorów zbioru też generuje algebrę boola ?</p>
+<p>Zadanie: Czy składanie podzbiorów zbioru również generuje algebrę boola ?</p>
 </blockquote>
 <blockquote class="blockquote">
 <p>Zadanie: Kiedy dodajemy i mnożymy liczby jakie operacje i własności wykorzystujemy?</p>
 </blockquote>
 <blockquote class="blockquote">
-<p>Zadanie: ile bramek logicznych możemy stworzyć dla jednego bitu, dwóch bitów, trzech bitów? ### Uniweralne bramki logiczne - NAND</p>
+<p>Zadanie: ile bramek logicznych możemy stworzyć dla jednego bitu, dwóch bitów, trzech bitów?</p>
 </blockquote>
 </section>
 </section>
+<section id="uniweralne-bramki-logiczne---nand" class="level3">
+<h3 class="anchored" data-anchor-id="uniweralne-bramki-logiczne---nand">Uniweralne bramki logiczne - NAND</h3>
+<p>Tak jak widzieliśmy dla 1-bit mieliśmy 4 bramki logiczne. Dla 2-bitów mieliśmy 16 bramek logicznych. Dla 3-bitów mamy 256 możliwości. W przypadku 2-bitów nie wypisaliśmy wszystkich bramek, dlaczego? A czy musimy realizować wszystkie?</p>
+<blockquote class="blockquote">
+<p>Na szczęście odpowiedź jest negatywna.</p>
+</blockquote>
+<p>Istnieją tzw. <em>zbiory bramek uniwersalnych</em> dzięki którym możemy zrealizować dowolną funkcję boolowską.</p>
+<ul>
+<li><strong>NOT, AND, OR</strong></li>
+<li><strong>NAND, AND</strong></li>
+<li><strong>NAND</strong></li>
+<li><strong>NOT, OR</strong></li>
+<li><strong>NOR</strong></li>
+</ul>
 </section>
-<section id="fizyczna-realizacja-klasycznych-bitów-i-bramek-logicznych" class="level2">
-<h2 class="anchored" data-anchor-id="fizyczna-realizacja-klasycznych-bitów-i-bramek-logicznych">Fizyczna realizacja klasycznych bitów i bramek logicznych</h2>
+</section>
+<section id="fizyczna-realizacja-klasycznych-bramek-logicznych" class="level2">
+<h2 class="anchored" data-anchor-id="fizyczna-realizacja-klasycznych-bramek-logicznych">Fizyczna realizacja klasycznych bramek logicznych</h2>
 <p>Bramka NAND jest bramką uniwersalną, co oznacza, że każdą funkcję boolowską można zrealizować za pomocą układu bramek NAND. Dlatego ważne dla komputerów klasycznych jest, aby znaleźć praktyczną realizację i jej implementację w układach.</p>
 <p>Istnieje wiele fizycznych realizacji <a href="https://en.wikipedia.org/wiki/NAND_gate">bramki NAND</a>.</p>
 <section id="implementacja-komórki-pamięci-ram" class="level3">
 <h3 class="anchored" data-anchor-id="implementacja-komórki-pamięci-ram">Implementacja komórki pamięci RAM</h3>
 <p>Random Access Memory (RAM) uzywany jest do przechowywania instrukcji i danych aktualnie używanych przez CPU. Stan pamięci RAM jest tracony gdy urządzenie zostanie odłączone od zasilania. Pamięć RAM jest zorganizowana w komórki, które mogą przechowywać pojedynczy bit informacji. Do implementacji pamięci RAM wykorzystuje się zbiór bramek logicznych (NAND) oraz tranzystorów.</p>
-<p>! DODAC MATERIALY Z UDEMY - SZYFROWANIE jako coś do zrobienia !!</p>
+</section>
+</section>
+<section id="szyfrowanie-z-wykorzystaniem-bramki-xor" class="level2">
+<h2 class="anchored" data-anchor-id="szyfrowanie-z-wykorzystaniem-bramki-xor">Szyfrowanie z wykorzystaniem bramki XOR</h2>
+<p>Weźmy dwie sekwencje bitów:</p>
+<p>sekwencja A: <span class="math display">\[1 0 1 1 0 1 1 1 0 0 0\]</span></p>
+<p>sekwencja B: <span class="math display">\[0 1 1 0 1 1 0 1 1 0 1\]</span></p>
+<p>i obliczmy XOR między dwoma sekwencjami <span class="math inline">\(A XOR B\)</span>. Zgodnie z tablicą prawdy dla XOR otrzymujemy: <span class="math display">\[1 1 0 1 1 0 1 0 1 0 1\]</span></p>
+<blockquote class="blockquote">
+<p>Oblicz A XOR B XOR B. Co możesz zauważyć?</p>
+</blockquote>
+<section id="sender-decyrpting-message" class="level3">
+<h3 class="anchored" data-anchor-id="sender-decyrpting-message">Sender decyrpting message</h3>
+<p>Zamień wiadomość, którą chcesz zaszyfrować na binarną postać (czyli jako sekwencję zer i jedynek).</p>
+<p>Weź losową sekwencję bitów (klucz szyfrujący) którą zna tylko nadawca i odbiorca.</p>
+<p><span class="math inline">\(1001011010...\)</span> - wiadomość</p>
+<p><span class="math inline">\(0110101010...\)</span> - klucz szyfrujący, czyli losowa sekwencja bitów</p>
+<p>Zaszyfruj wiadomość wykonując operację XOR na każdym bicie wiadomości i klucza szyfrującego. Tak otrzymaną wiadomość (zaszyfrowaną) wyślij do odbiorcy.</p>
+</section>
+<section id="decyrpting-message" class="level3">
+<h3 class="anchored" data-anchor-id="decyrpting-message">decyrpting message</h3>
+<p>Odbiorca otrzymuje zaszyfrowaną wiadomość i klucz szyfrujący.</p>
+<p>Message XOR SecretSequence = EncryptedMessage</p>
+<p>Message XOR SecretSequence XOR SecretSequence = Message</p>
+<p>Nie powinniśmy używać SecretSequence więcej niż raz. Jeśli użyjemy go więcej niż raz, to łatwo jest złamać szyfrowanie. Zakodowana wiadomość przestaje być losowa.</p>
 
 
 </section>
