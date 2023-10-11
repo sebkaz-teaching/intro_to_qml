@@ -26,7 +26,7 @@ Jest on NIEOBOWIĄZKOWY i odbywa się w sali C5D.
 
 Historia klasycznego i kwantowego komputera i jego zastosowania. Efekty kwantowe wykorzystywane do przyśpieszenia obliczeń.
 
-2. 09-10-2023 (poniedziałek) 11:40-13:20 - Wykład 2
+2. 09-10-2023 (poniedziałek) 11:40-13:20 - <del> Wykład 2 </del>
 
 Klasyczne bramki logiczne - algebra Boola, szyfrowanie
 

@@ -16,7 +16,7 @@ Funkcje, które operują na bitach nazywamy **bramkami logicznymi** (ang. _logic
 ### Monety
 
 Rozważmy monetę. Posiada ona dwie strony  (odróżnialne od siebie). 
-Kładąc monetę na podłożu możemy określić dostępne stay jako: $\ket{O}$, $\ket{R}$. 
+Kładąc monetę na podłożu możemy określić dostępne stany jako: $\ket{O}$, $\ket{R}$. 
 
 Posiadając dwie takie monety możemy określić cztery możliwe stany: $$\ket{OO}, \ket{OR}, \ket{RO}, \ket{RR}$$
 

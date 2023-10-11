@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Wstęp do kwantowego uczenia maszynowego - Sylabus</title>
+<title>Wstęp do kwantowego uczenia maszynowego - Przestrzenie wektorowe, stany kwantowe, reprezentacja klasycznych i kwantowych bitów</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,6 +60,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -94,11 +96,11 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Wykład 2</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./wyklad3.html" rel="" target="">
+    <a class="nav-link active" href="./wyklad3.html" rel="" target="" aria-current="page">
  <span class="menu-text">Wykład 3</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./sylabus.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./sylabus.html" rel="" target="">
  <span class="menu-text">Sylabus</span></a>
   </li>  
   <li class="nav-item">
@@ -121,11 +123,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#cel-przedmiotu" id="toc-cel-przedmiotu" class="nav-link active" data-scroll-target="#cel-przedmiotu">Cel Przedmiotu</a></li>
-  <li><a href="#program-przedmiotu" id="toc-program-przedmiotu" class="nav-link" data-scroll-target="#program-przedmiotu">Program przedmiotu</a></li>
-  <li><a href="#realizacja-przedmiotu" id="toc-realizacja-przedmiotu" class="nav-link" data-scroll-target="#realizacja-przedmiotu">Realizacja przedmiotu</a></li>
-  <li><a href="#literatura" id="toc-literatura" class="nav-link" data-scroll-target="#literatura">Literatura</a></li>
-  <li><a href="#literatura-uzupełniająca" id="toc-literatura-uzupełniająca" class="nav-link" data-scroll-target="#literatura-uzupełniająca">Literatura uzupełniająca</a></li>
+  <li><a href="#liczby-zespolone---przypomnienie" id="toc-liczby-zespolone---przypomnienie" class="nav-link active" data-scroll-target="#liczby-zespolone---przypomnienie">Liczby zespolone - przypomnienie</a></li>
+  <li><a href="#wektory-i-przestrzenie-wektorowe" id="toc-wektory-i-przestrzenie-wektorowe" class="nav-link" data-scroll-target="#wektory-i-przestrzenie-wektorowe">Wektory i przestrzenie wektorowe</a></li>
   </ul>
 </nav>
     </div>
@@ -134,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Sylabus</h1>
+<h1 class="title">Przestrzenie wektorowe, stany kwantowe, reprezentacja klasycznych i kwantowych bitów</h1>
 </div>
 
 
@@ -149,76 +148,16 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<blockquote class="blockquote">
-<p>Nazwa przedmiotu: Wstęp do kwantowego uczenia maszynowego</p>
-<p>Jednostka: SGH w Warszawie</p>
-<p>Kod przedmiotu: 232530-D, 232530-S</p>
-<p>Punkty ECTS: 3</p>
-<p>Język prowadzenia: polski</p>
-<p>Poziom przedmiotu: średnio-zaawansowany</p>
-</blockquote>
-<p><strong>Prowadzący:</strong> <a href="https://sebastianzajac.pl">Sebastian Zając</a>, <a href="mailto:sebastian.zajac@sgh.waw.pl">sebastian.zajac@sgh.waw.pl</a></p>
-<p><strong>Website:</strong> <a href="https://sebkaz-teaching.github.io/intro_to_qml/">https://sebkaz-teaching.github.io/intro_to_qml/</a></p>
-<section id="cel-przedmiotu" class="level2">
-<h2 class="anchored" data-anchor-id="cel-przedmiotu">Cel Przedmiotu</h2>
-<p>Jeszcze do niedawna rozwój technologiczny oparty był na zmniejszaniu rozmiaru tranzystorów i zwiększaniu mocy obliczeniowej procesorów. Ze względu na fizyczne aspekty natury proces ten, od pewnego momentu, musi uwzględniać ograniczenia fizyki kwantowej. Przyszłość może jednak wykorzystać inne narzędzia, których możliwości wykraczają poza klasyczne moce obliczeniowe. Mimo, iż konstrukcja komputerów kwantowych to wciąż etap inżynierski, to okazuje się, że można już wskazać i wykorzystać je do tworzenia algorytmów, które można wykorzystać w dziedzinie uczenia maszynowego. Wykorzystanie algorytmów kwantowych pozwala zmniejszyć czas przetwarzania dużej ilości danych, a tym samym rozszerza możliwości przetwarzania i modelowania danych. Przedstawione na zajęciach biblioteki - IBM qiskit czy Pennylane (python) pozwalają na prostą i szybką konstrukcje dowolnego algorytmu kwantowego. Algorytmy te, jak np. algorytm Grovera wykorzystać można do wielu problemów obliczeniowych uczenia maszynowego bądź do konstrukcji kwantowych sieci neuronowych.</p>
+<p><span class="math display">\[
+\newcommand{\bra}[1]{\left \langle #1 \right \rvert}
+\newcommand{\ket}[1]{\left \rvert #1 \right \rangle}
+\newcommand{\braket}[2]{\left \langle #1 \middle \rvert #2 \right \rangle}
+\]</span></p>
+<section id="liczby-zespolone---przypomnienie" class="level2">
+<h2 class="anchored" data-anchor-id="liczby-zespolone---przypomnienie">Liczby zespolone - przypomnienie</h2>
 </section>
-<section id="program-przedmiotu" class="level2">
-<h2 class="anchored" data-anchor-id="program-przedmiotu">Program przedmiotu</h2>
-<ol type="1">
-<li><h2 id="efekty-kształcenia" class="anchored">Efekty kształcenia</h2></li>
-<li>Wiedza:</li>
-</ol>
-<ul>
-<li>Zna i rozumie koncepcje działania komputera klasycznego i kwantowego</li>
-<li>Zna metody kwantowego uczenia maszynowego możliwe do wykorzystania w biznesie</li>
-<li>Rozumie potrzebę i możliwości zastosowania komputerów kwantowych</li>
-</ul>
-<ol start="2" type="1">
-<li>Umiejętności:</li>
-</ol>
-<ul>
-<li>Potrafi stworzyć proste algorytmy z wykorzystaniem kwantowych bramek logicznych</li>
-<li>Umie wykorzystać biblioteki pythonowe do generowania kodów obliczeń kwantowych</li>
-<li>Potrafi wykorzystać metody nadzorowane wykorzystywane w kwantowym uczeniu maszynowym</li>
-<li>Potrafi wykorzystać metody nienadzorowane wykorzystywane w kwantowym uczeniu maszynowym</li>
-<li>Umie stworzyć prostą kwantową sieć neuronową</li>
-</ul>
-<ol start="3" type="1">
-<li>Kompetencje społeczne:</li>
-</ol>
-<ul>
-<li>formułuje problem biznesowy wraz z jego informatycznym rozwiązaniem</li>
-<li>uzupełniania wiedzę teoretyczną jak i praktyczną, w zakresie teorii, programowania, modelowania, nowych technologii informatycznych z wykorzystaniem kwantowego uczenia maszynowego</li>
-</ul>
-</section>
-<section id="realizacja-przedmiotu" class="level2">
-<h2 class="anchored" data-anchor-id="realizacja-przedmiotu">Realizacja przedmiotu</h2>
-<ul>
-<li>egzamin testowy: 40%</li>
-<li>kolokwium: 20%</li>
-<li>referaty/eseje: 40%</li>
-</ul>
-</section>
-<section id="literatura" class="level2">
-<h2 class="anchored" data-anchor-id="literatura">Literatura</h2>
-<ol type="1">
-<li>M. Schuld, F. Petruccione - Supervised Learning with Quantum Computers, Quantum Science and Technology. Springer 2018 https://doi.org/10.1007/978-3-319-96424-9</li>
-<li>C. Bernhardt - Obliczenia kwantowe dla każdego, Wydawnictwo Naukowe PWN 2020</li>
-<li>E. R. Johnston, N. Harrigan, M.Gimeno-Segovia - Komputer kwantowy.Programowanie, algorytmy, kod. Helion 2020</li>
-<li>S. Zajac - Modelowanie dla Biznesu. Analiza danych w czasie rzeczywistym. Oficyna Wydawnicza SGH. 2021</li>
-<li>A. K. Bishwas, A. Nani, V. Palade “Quantum Supervised Clustering Algorithm for Big Data” 2018- 3rd International Conference for Convergence in Technology.</li>
-<li>C. Ciliberto er al.&nbsp;“Statistical limits of supervised quantum learning” Physical Review A 102. 4. 2020</li>
-<li>N Wiebe, A. Kapoor, K M. Svore “Quantum perceptron models” NIPS’16 Procedings of the 30th Internationa Conference on Neural information processing Systems. Vol. 29. 2016</li>
-</ol>
-</section>
-<section id="literatura-uzupełniająca" class="level2">
-<h2 class="anchored" data-anchor-id="literatura-uzupełniająca">Literatura uzupełniająca</h2>
-<ol type="1">
-<li>Michael A. Nielsen &amp; Isaac L. Chuang - Quantum Computation and Quantum Information, Cambridge University Press, 2010</li>
-<li>K. Przanowski, S. Zając - Modelowanie dla Biznesu. Metody Machine learning, Modele portfela consumer finance, modelek rekurencyjne analizy przeżycia, modele scoringowe. Oficyna Wydawnicza SGH. 2020</li>
-<li>E. Frątczak - Modelowanie dla Biznesu. Regresja Logistyczna, Regresja Poissona, Survival Data Mining, CRM, Credit Scoring. Oficyna Wydawnicza SGH. 2019</li>
-</ol>
+<section id="wektory-i-przestrzenie-wektorowe" class="level2">
+<h2 class="anchored" data-anchor-id="wektory-i-przestrzenie-wektorowe">Wektory i przestrzenie wektorowe</h2>
 
 
 </section>
