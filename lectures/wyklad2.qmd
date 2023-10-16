@@ -193,14 +193,14 @@ Podstawowe bramki, które znasz to:
 #### NOT gate
 
 |A | not A | 
-|---|---|
+|:---:|:---:|
 |0|  | 
 |1|  |
 
 #### AND gate
 
 |A | B | C|
-|---|---|---|
+|:---:|:---:|:---:|
 |0| 0 | |
 |1| 0 | |
 |0| 1 | |
@@ -209,7 +209,7 @@ Podstawowe bramki, które znasz to:
 #### OR gate
 
 |A | B | C|
-|---|---|---|
+|:---:|:---:|:---:|
 |0| 0 | |
 |1| 0 | |
 |0| 1 | |
@@ -288,7 +288,7 @@ $$1 0 1 1 0 1 1 1 0 0 0$$
 sekwencja B:
 $$0 1 1 0 1 1 0 1 1 0 1$$ 
 
-i obliczmy XOR między dwoma sekwencjami $A XOR B$. 
+i obliczmy `XOR` między dwoma sekwencjami $A$ XOR $B$. 
 Zgodnie z tablicą prawdy dla XOR otrzymujemy:
 $$1 1 0 1 1 0 1 0 1 0 1$$
 

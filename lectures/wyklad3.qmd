@@ -1,0 +1,212 @@
+---
+title: "Przestrzenie wektorowe, stany kwantowe, reprezentacja klasycznych i kwantowych bitów"
+---
+$$
+\newcommand{\bra}[1]{\left \langle #1 \right \rvert}
+\newcommand{\ket}[1]{\left \rvert #1 \right \rangle}
+\newcommand{\braket}[2]{\left \langle #1 \middle \rvert #2 \right \rangle}
+$$
+
+Mechanika opiera się na _algebrze liniowej_. 
+W ogólności teoria ta posługuje się pojęciem nieskończenie wymiarowej przestrzeni liniowej.
+Na szczęście do opisu kubitów (2-dim) i układów kwantowych ($2^{n}$-dim) wystarczy nam pojęcie skończenie wymiarowej przestrzeni wektorowej.
+Bardzo upraszcza nam to naukę o kwantowym uczeniu maszynowym, gdyż wiele problemów matematycznych (dla fizyków) 
+tutaj nie występuje. Upraszcza to również ilość potrzebnych matematycznych pojęć. 
+
+Będziemy posługiwali się notacją Diraca, jednego z twórców mechaniki kwantowej.
+W książce Ch.Bernhardta "Obliczenia kwantowe dla każdego" autor rezygnuje z liczb zespolonych, 
+na rzecz liczb rzeczywistych. O ile podejście takie sprawdza się na poziomie opisu o tyle dla pełnego zrozumienia
+posługiwanie się liczbami zespolonymi jest niezbędne.
+
+
+## Liczby rzeczywiste i zespolone - przypomnienie
+
+Liczby to matematyczne, abstrakcyjne pojęcie wywodzące się z teorii mnogości (zbiorów).
+Przykładowo liczba 42 zapisywana w postaci zapisu dziesiętnego lub binarnego $42=101010_2$.
+Można oczywiście znaleźć 42 przedmioty i je przeliczyć jednak w naszym przypadku skupimy się na abstrakcyjnym pojęciu niezależnym od jego reprezentacji. 
+Liczba 42 jest liczbą naturalną. Zbiór liczb naturalnych oznaczamy jako $\mathbb{N}$.
+Identyczne własności abstrakcji mają liczby całkowite $\mathbb{Z}$, wymierne $\mathbb{Q}$, rzeczywiste $\mathbb{R}$ i zespolone $\mathbb{C}$.
+Nie możemy liczb zobaczyć czy dotknąć, ale możemy na nich wykonywać operacje matematyczne.
+Liczby zespolone nie są bardziej abstrakcyjne niż liczby rzeczywiste, czy naturalne.
+
+Liczba zespolona (we współrzędnych Kartezjańskich) $z=x + i y$ składa się z części rzeczywistej $R(z)=x$ i urojonej $I(z)=y$.
+gdzie $$i^2=-1$$.
+
+$$1+i\sqrt{3}$$
+$R(z)=1$ i $I(z)=\sqrt{3}$.
+
+Każdą liczbę zespoloną możemy zapisać w postaci polarnej $z=r e^{i \theta}$, gdzie $r=|z|$ to moduł liczby zespolonej, a $\theta$ to jej argument.
+$$ z = r e^{i \theta} = r (\cos{\theta} + i \sin{\theta})$$
+gdzie:
+$$r = |z| = \sqrt{x^2 + y^2}$$
+$$\theta = \arctan{\frac{y}{x}}$$
+Natomiast:
+$$x = r \cos{\theta}$$
+$$y = r \sin{\theta}$$
+
+Dla naszego przykładu:
+$$1+i\sqrt{3} = 2 e^{i \frac{\pi}{3}}$$
+
+> Udowodnij samodzielnie, że powyższe równanie jest prawdziwe.
+
+**Liczba sprzężona** do liczby zespolonej $z=x + i y$ to $z^*=x - i y = r*e^{-i \theta}$.
+
+**Norma** liczby zespolonej $z=x + i y$ to $|z|=\sqrt{x^2 + y^2}=r$.
+
+**Kwadrat normy** liczby zespolonej $z=x + i y$ to $|z|^2=x^2 + y^2=r^2$.
+Można go również zapisać jako $|z|=z z^* = z^* z$.
+
+> Udowodnij w kartezjańskim i polarnym układzie oniesienia.
+
+Dodawanie licz zespolonych jest zdefiniowane jako dodawanie poszczególnych składników. 
+
+> ile wynosi $z_1 z_2$?
+
+> ile wynosi $\frac{z_1}{z_2}$
+
+
+
+## Wektory i przestrzenie wektorowe
+
+Niech dany będzie zbiór $\mathbb{V}$ oraz zbiór $\mathbb{K}$. 
+Elementy zbioru $\mathbb{V}$ można ze sobą dodawać i mnożyć przez elementy zbioru $\mathbb{K}$.
+Wraz z dodatkowymi opracjami (zdefiniowanymi poniżej) zbiór ten będziemy nazwywali **przestrzenią wektorową**.
+Jej elementy to **wektory**.
+
+Uwaga wektory będziemy oznaczać jako $\ket{v}$. Będą to kolekcje liczb.
+Jeśli liczby te będą rzeczywiste to będziemy mówić o **przestrzeni wektorowej rzeczywistej**.
+Natomiast jeśli liczby te będą zespolone to będziemy mówić o **przestrzeni wektorowej zespolonej**.
+
+Myśląc o wektorach często wyobrażamy je sobie jako strzałki w przestrzeni.
+Tak nas nauczono jednak nie jest to prawdziwe. Na tych zajęciach wektory będą reprezentowane jako abstrakcyjne elementy przestrzeni wektorowej.
+Warto jednak pamiętać, że wszystkie własności (algebraiczne) wektorów są również spełnione dla strzałek.
+
+### Własności 
+
+1. Istnieje szczególny (i jedyny) wektor $\ket{0}$ zerowy.
+Niech $\ket{v}$ , $\ket{u}$, $\ket{z}$ będą dowolnymi wektorami, natomiast $\alpha$ i $\beta$ dowolnymi liczbami.
+
+2. Dodawanie wektorów jest przemienne:
+$$\ket{v} + \ket{u} = \ket{u} + \ket{v}$$
+
+3. Dodawanie wektorów jest łączne:
+$$\ket{v} + (\ket{u} + \ket{z}) = (\ket{v} + \ket{u}) + \ket{z}$$
+
+4. Istnieje szczególny (i jedyny) wektor $\ket{v}$ odwrotny do wektora $\ket{u}$:
+$$\ket{v} + \ket{u} = \ket{0}$$
+
+5. Dla każdego wektora $\ket{v}$ zachodzi:
+$$\ket{v} + \ket{0} = \ket{0} + \ket{v} = \ket{v}$$
+
+6. 1*wektor = wektor: 
+$$1 \ket{v} = \ket{v}$$
+
+7. łączność mnożenia przez skalar:
+ $$\alpha (\beta \ket{v}) = (\alpha \beta) \ket{v}$$
+
+8. Rozdzielność mnożenia przez skalar względem dodawania wektorów:
+$$\alpha (\ket{v} + \ket{u}) = \alpha \ket{v} + \alpha \ket{u}$$
+
+9. Rozdzielność dodawania skalarów względem mnożenia przez wektor:
+$$(\alpha + \beta) \ket{v} = \alpha \ket{v} + \beta \ket{v}$$
+
+### Wektory kolumnowe
+
+Zapiszmy pionową jednokolumnową tablicę liczb:
+$$ \begin{bmatrix} x_1 \\ x_2 \\ .\\ x_n \end{bmatrix} $$
+
+Mnożenie przez liczbę:
+$$ \alpha \begin{bmatrix} x_1 \\ x_2 \\ .\\ x_n \end{bmatrix} = \begin{bmatrix} \alpha x_1 \\ \alpha x_2 \\ .\\ \alpha x_n \end{bmatrix} $$
+
+Dodawanie kolumn:
+$$ \begin{bmatrix} x_1 \\ x_2 \\ .\\ x_n \end{bmatrix} + \begin{bmatrix} y_1 \\ y_2 \\ .\\ y_n \end{bmatrix} = \begin{bmatrix} x_1+y_1 \\ x_2+y_2 \\ .\\ x_n+y_n \end{bmatrix}$$
+
+Pozwala to otrzymać konkretną _reprezentację_ wektorów, które będziemy oznaczać w notacji Diraca przez "ket" $\ket{.}$.
+
+### Wektory wierszowe 
+
+$$ \begin{bmatrix} x_1  x_2 \dots x_n \end{bmatrix}$$. 
+Analogicznie do poprzedniego przykładu łatwo określić jak dodawać je ze sobą i mnożyć przez liczbę. 
+W notacji Diraca będziemy takie wektory oznaczali przez "bra" $\bra{.}$.
+
+### Transpozycja i sprzężenie Hermitowskie.
+Transpozycja $T$ Zamienia wektory wierszowe na kolumnowe i odwrotnie.
+Natomiast sprzężenie hermitowskie $\dagger$ dodatkowo dodaje sprzężenie zespolone.
+
+$$\ket{u}^{\dagger} = \bra{u}$$
+$$\bra{u}^{\dagger} = \ket{u}$$
+
+### Iloczyn skalarny
+
+Iloczynem skalarnym dwóch wektorów $\ket{u}$ i $\ket{v}$ nazywany funkcję, która zwraca liczbę.
+
+
+- $\braket{u}{v} = \braket{v}{u}^{\ast}$
+- $(\alpha \bra{u})\ket{v} = \alpha \braket{u}{v}$
+- $(\bra{u} + \bra{v}) \ket{z} = \braket{u}{z} +\braket{v}{z}$
+- $\braket{u}{u} > 0$
+- $\braket{u}{u} = 0, gdy \ket{u}=\ket{0}$
+
+Dla dwóch wektorów $\ket{u}$ i $\ket{v}$ otrzymujemy:
+$$ \ket{u} = \begin{bmatrix} x_1 \\ x_2 \\ .\\ x_n \end{bmatrix}, \ket{v} = \begin{bmatrix} y_1 \\ y_2 \\ .\\ y_n \end{bmatrix} $$
+
+$$ \braket{u}{v} = x_1^{*}y_1 +x_2^{*}y_2 + \dots + x_n^{*}y_n$$
+
+### Kombinacja liniowa wektorów
+Dla dwóch wektorów $\ket{u}$ i $\ket{v}$ oraz dwóch liczb $\alpha$, $\beta$ możemy stworzyć nowy wektor:
+$$\ket{z} = \alpha \ket{u} + \beta \ket{v}$$
+Wektor ten nazywamy kombinacją liniową wektorów $\ket{u}$ i $\ket{v}$.
+
+
+
+## Formalizm matematyczny obliczeń kwantowych
+
+Ta wiedza wystarczy do wyjaśnienia _notacji Diraca_. 
+
+Iloczyn skalarny $\braket{\psi}{\phi}$ wektorów $\ket{\psi}$ i $\ket{\phi}$ czytamy jako _braket u v_.
+
+
+## Stan 
+
+Stanem w mechanice kwantowej nazywamy wektor:
+$$\ket{\phi} = begin{bmatrix} \alpha_0 \\ \alpha_1 \\ .\\ \alpha_{n-1} \end{bmatrix}$$
+
+Chcemy aby współczynniki $\alpha_i$ były liczbami zespolonymi a cały wektor był unormowany do 1.
+
+Liczby $\alpha_i$ nazywamy **amplitudami prawdopodobieństwa** stanu kwantowego.
+Jeśli przynajmniej dwie liczby $\alpha_i$ są niezerowe, to układ znajduje się w **superpozycji** stanów. 
+
+
+### Kubit
+
+Elementarnym obiektem w informatyce kwantowej jest _kubit_, który realizowany jest jako dwu wymiarowy układ kwantowy.
+Stan kwantowy kubitu opisuje **wektor** w przestrzeni liniowej $\mathbb{C}^2$.
+
+W celu wykonywania obliczeń i opisu stanu kubitu wybierzemy tzw.  bazę obliczeniową:
+$$\ket{0} = \begin{bmatrix} 1 \\ 0  \end{bmatrix} , \ket{1} = \begin{bmatrix} 0 \\ 1  \end{bmatrix}$$
+
+To co wyróżnia kubit w porównaniu do klasycznego bitu dowolny stan $\ket{\psi}$ może być superpozycją stanów bazowych:
+$$\ket{\psi} = \alpha \ket{0} + \beta \ket{1}$$
+dla którego zachodzi warunek normalizacji:
+$$\braket{\psi}{\psi} = |\alpha|^2 + |\beta|^2 = 1$$ i $\alpha, \beta \in \mathbb{C}$.
+
+Liczby $\alpha$ i $\beta$ są zespolone, zatem potrzeba 4 liczb rzeczywistych aby je opisać. 
+Ze względu na warunek normalizacji wystarczą 3 liczby rzeczywiste. 
+Czwartą liczbę możemy obliczyć. 
+
+Stan kubitu możemy zapisać w postaci:
+$$\ket{\psi} = e^{i \gamma}\left( \cos{\frac{\theta}{2}} \ket{0} + e^{i \phi} \sin{\frac{\theta}{2}} \ket{1} \right)$$
+gdzie $\theta \in [0, \pi]$, $\phi \in [0, 2\pi]$ i $\gamma \in [0, 2\pi]$ są liczbami rzeczywistymi.
+
+Współczynnik $e^{i \gamma}$ nazywamy _fazą globalną_. Ze względu, iż analizować będziemy kwadraty amplitud prawdopodobieństwa
+to faza globalna nie ma znaczenia. Dlatego możemy napisać: 
+$$\ket{\psi} = \cos{\frac{\theta}{2}} \ket{0} + e^{i \phi} \sin{\frac{\theta}{2}} \ket{1}$$
+
+Warto zauważyć, że dwa dowolne stany kubitów 
+$\ket{\psi}$ i $\ket{\phi}$ różnią się o czynnik fazowy $e^{i \gamma}$ to stany te dają identyczne wyniki.
+
+Liczby rzeczywiste $\theta$ i $\phi$ nazywamy _kątami_ kubitu i możemy interpretować je jako współrzędne 
+na **sferze Blocha**. Bardzo często będziemy wykorzystywać ją do wizualizacji stanów kubitów.
+
+
+

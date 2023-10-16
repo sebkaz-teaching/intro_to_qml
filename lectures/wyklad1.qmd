@@ -67,6 +67,14 @@ Dlaczego tak chętnie używamy:
 
 > Uwaga! Zakładam, że znasz podstawowe pojęcia związane z uczeniem maszynowym i głębokim.
 
+Uczenie maszynowe (ang. Machine Learning) można podzielić na trzy główne kategorie:
+
+1. Uczenie nadzorowane (ang. supervised learning) - posiadając oznaczone dane $(x_i, y_i)$
+szukamy funkcji $f(x_i) = y_i$ tak by uogólnić ją na nowe dane. Np. dać kredyt, czy na obrazie jest kot albo pies itp. 
+
+2. Uczenie nienadzorowane (ang. unsupervised learning) - posiadając dane $(x_i)$ szukamy struktury w danych.
+
+3. Uczenie przez wzmacnianie (ang. reinforcement learning) - agent uczy się na podstawie nagród i kar.
 
 ## Klasyczne komputery
 
@@ -227,6 +235,16 @@ Każdy komputer kwantowy (koprocesor) musi komunikować się z podukładem klasy
 ### Dane w QML
 
 <img class="center" src="img/qml.png">
+
+1. CC - Classical data using classical computers, 
+algorytmy [inspirowane obliczeniami kwantowymi](https://dl.acm.org/doi/10.1145/3313276.3316310)
+
+2. QC - Quantum data using classical (ML) computers. [link1](https://www.nature.com/articles/s41524-020-0282-0), 
+[link2](https://www.nature.com/articles/s41534-019-0141-3), [link3](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.114.200501)
+
+3. CQ - Classical data on qunatum computers. Na tym chcemy się skupić.
+
+4. QQ - Quantum data on quantum computers. Who knows?
 
 ### Realizacje problemów biznesowych na komputerach kwantowych
 
