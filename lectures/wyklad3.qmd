@@ -169,12 +169,13 @@ Iloczyn skalarny $\braket{\psi}{\phi}$ wektorów $\ket{\psi}$ i $\ket{\phi}$ czy
 ## Stan 
 
 Stanem w mechanice kwantowej nazywamy wektor:
-$$\ket{\phi} = begin{bmatrix} \alpha_0 \\ \alpha_1 \\ .\\ \alpha_{n-1} \end{bmatrix}$$
 
-Chcemy aby współczynniki $\alpha_i$ były liczbami zespolonymi a cały wektor był unormowany do 1.
+$$\ket{\psi} = x_0 \ket{0} + x_1 \ket{1} + \dots x_{n-1} \ket{n-1}$$
 
-Liczby $\alpha_i$ nazywamy **amplitudami prawdopodobieństwa** stanu kwantowego.
-Jeśli przynajmniej dwie liczby $\alpha_i$ są niezerowe, to układ znajduje się w **superpozycji** stanów. 
+Chcemy aby współczynniki $x_i$ były liczbami zespolonymi a cały wektor był unormowany do 1.
+
+Liczby $x_i$ nazywamy **amplitudami prawdopodobieństwa** stanu kwantowego.
+Jeśli przynajmniej dwie liczby $x_i$ są niezerowe, to układ znajduje się w **superpozycji** stanów. 
 
 
 ### Kubit

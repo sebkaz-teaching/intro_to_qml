@@ -39,7 +39,7 @@ Zasadniczym jest pytanie na ile i czy wogóle komputery kwantowe mogą poprawić
 
 ## Sztuczna inteligencja
 
-<img class="center" src="img/ai1.png" >
+<img class="center" src="../img/ai1.png" >
 
 Historia AI sięga 1950 roku (A. Turing). 
 Rozwój technologii związanych z danymi ustrukturyzowanymi i nieustrukturyzowanymi realizowany np. w:
@@ -63,7 +63,7 @@ Dlaczego tak chętnie używamy:
 - Oprogramowanie Open Source
 - Przewaga konkurencyjna przedsiębiorstw z AI na firmami bez AI
 
-<img src="img/mem.jpg" class="center">
+<img src="../img/mem.jpg" class="center">
 
 > Uwaga! Zakładam, że znasz podstawowe pojęcia związane z uczeniem maszynowym i głębokim.
 
@@ -82,7 +82,7 @@ szukamy funkcji $f(x_i) = y_i$ tak by uogólnić ją na nowe dane. Np. dać kred
 __Komputer__ to fizyczne urządzenie bazujące na _obwodach elektronicznych_ (electronic circuits), 
 które służy do przetwarzania informacji. 
 
-<img class="center" src="img/circ.png">
+<img class="center" src="../img/circ.png">
 
 
 __Algorytmy__ (programy komputerowe - software) to przepisy jak manipulować informacją reprezentowaną przez prąd w obwodzie, aby wykonywać obliczenia.
@@ -94,7 +94,7 @@ __Algorytmy__ (programy komputerowe - software) to przepisy jak manipulować inf
 
 Zwiększenie szybkości działania oraz pojemności klasycznych komputerów co dwa lata zmniejszając przy tym koszty. 
 
-<img class="center" src="img/rys1.png">
+<img class="center" src="../img/rys1.png">
 
 **Fizyczne (klasyczne) ograniczenia dla procesorów**
 
@@ -171,7 +171,7 @@ Analogicznie do obwodów klasycznych możemy zdefiniować bramki kwantowe (_quan
 Fizyczne zbudowanie komputera kwantowego, czy raczej kubitu nie jest trywialne, 
 gdyż wymaga manipulacji bardzo małym układem, który zazwyczaj wrażliwy jest na każdy rodzaj oddziaływania (dekoherencja).
 
-<img class="center" src="img/qiskit.jpeg">
+<img class="center" src="../img/qiskit.jpeg">
 
 ### Dlaczego chcemy używać komputerów kwantowych?
 
@@ -208,7 +208,7 @@ Aktualnie ERA **Noisy Intermediate-Scale Quantum** (NISQ)
 
 [procesory kwantowe](https://en.wikipedia.org/wiki/List_of_quantum_processors)
 
-<img class="center" src="img/maszyny_kwantowe.png">
+<img class="center" src="../img/maszyny_kwantowe.png">
 
 ### Proces obliczeń kwantowych
 
@@ -219,7 +219,7 @@ Będzie się ono składać z trzech części:
 2. ewolucja (przeprowadź transformację za pomocą bramek kwantowych),
 3. pomiar i interpretacja wyników.
 
-<img class="center" src="img/quantum_proces2.png">
+<img class="center" src="../img/quantum_proces2.png">
 
 Podobnie w informatyce i w analizach danych wykonujemy obliczenia klasyczne. 
 przygotowujemy dane (stan początkowy); następnie wykonujemy program (ewolucja) i odczytujemy wyniki (pomiar).
@@ -228,13 +228,13 @@ przygotowujemy dane (stan początkowy); następnie wykonujemy program (ewolucja)
 > Piotr Gawron, Oscar Słowik - [Rewolucja Stanu, Fantastyczne wprowadzenie do informatyki kwantowej.](https://depot.ceon.pl/handle/123456789/16807)
 
 Każdy komputer kwantowy (koprocesor) musi komunikować się z podukładem klasycznym.
-<img class="center" src="img/proces_kwantowy.png">
+<img class="center" src="../img/proces_kwantowy.png">
 
 ## Quantum Machine Learning
 
 ### Dane w QML
 
-<img class="center" src="img/qml.png">
+<img class="center" src="../img/qml.png">
 
 1. CC - Classical data using classical computers, 
 algorytmy [inspirowane obliczeniami kwantowymi](https://dl.acm.org/doi/10.1145/3313276.3316310)
