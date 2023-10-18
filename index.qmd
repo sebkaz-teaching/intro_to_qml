@@ -26,11 +26,24 @@ Jest on NIEOBOWIĄZKOWY i odbywa się w sali C5D.
 
 Historia klasycznego i kwantowego komputera i jego zastosowania. Efekty kwantowe wykorzystywane do przyśpieszenia obliczeń.
 
+Realizacja:
+
+- Zna i rozumie koncepcje działania komputera klasycznego i kwantowego
+- Rozumie potrzebę i możliwości zastosowania komputerów kwantowych
+- formułuje problem biznesowy wraz z jego informatycznym rozwiązaniem
+- uzupełniania wiedzę teoretyczną jak i praktyczną, w zakresie teorii, programowania, modelowania, nowych technologii informatycznych z wykorzystaniem kwantowego uczenia maszynowego
+
 2. 09-10-2023 (poniedziałek) 11:40-13:20 - <del> Wykład 2 </del>
 
 Klasyczne bramki logiczne - algebra Boola, szyfrowanie
 
-3. 16-10-2023 (poniedziałek) 11:40-13:20 - Wykład 3
+Realizacja:
+
+- Zna i rozumie koncepcje działania komputera klasycznego i kwantowego
+- Rozumie potrzebę i możliwości zastosowania komputerów kwantowych
+
+
+3. 16-10-2023 (poniedziałek) 11:40-13:20 - <del> Wykład 3 </del>
 
 Przestrzenie wektorowe, stany kwantowe, reprezentacja klasycznych i kwantowych bitów
 
@@ -38,7 +51,13 @@ Przestrzenie wektorowe, stany kwantowe, reprezentacja klasycznych i kwantowych b
 
 Kwantowe bramki logiczne w prostych algorytmach i obwodach kwantowych
 
-5. 30-10-2023 (poniedziałek) 11:40-13:20 - Wykład 5
+Realizacja:
+
+- Potrafi stworzyć proste algorytmy z wykorzystaniem kwantowych bramek logicznych
+
+5. 30-10-2023 (poniedziałek) 11:40-13:20 - <del> Wykład 5 </del>
+
+DZIEŃ WOLNY
 
 Kwantowy Machine Learning w biznesie - metody i implementacje
 

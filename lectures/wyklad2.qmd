@@ -165,7 +165,7 @@ Operatory działające na jednym bicie możemy określić jako
 
 ### Inne bramki i operacje logiczne
 
-<img class="center" src="img/bramki.png">
+<img class="center" src="../img/bramki.png">
 
 Zróbmy krótkie przedstawienie niektórych, klasycznych bramek logicznych.
 
