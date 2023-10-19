@@ -305,15 +305,6 @@ from random import randrange
 # randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)
 # Twoje rozwiązanie 
 ```
-> Zadanie 3: Napisz kod funckji której dwa argumenty to $N$ (int) oznacza ilośc rzutów, 
-> oraz $B$ realizujące prawdopodobieństwo wyrzucenia Orła ($< B$). 
-```python
-def biased_coin(N,B):
-    from random import randrange
-    #
-    # your solution is here
-    #
-```
 
 
 ## Szyfrowanie z wykorzystaniem bramki XOR 
