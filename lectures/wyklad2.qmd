@@ -1,5 +1,6 @@
 ---
 title: "Klasyczne bramki logiczne - Algebra Boola"
+jupyter: python3
 ---
 $$
 \newcommand{\bra}[1]{\left \langle #1 \right \rvert}
@@ -87,6 +88,7 @@ $$\ket{000}, \ket{001}, \ket{010}, \ket{011}, \ket{100}, \ket{101}, \ket{110}, \
 
 
 Co oznacza, że możemy te stany zapisać matematycznie - łatwo nam nimi operować.
+
 > **liczby tego typu nazywamy liczbami binarnymi, albo liczbami o podstawie 2**.
 
 Jak zapisujemy liczby w systemie dziesiętnym? i dlaczego nazywa się on dziesiętnym?
@@ -98,6 +100,7 @@ $$11010_{2} = 1*2^{4} + 1*2^{3} + 0*2^{2} + 1*2^{1} + 0*2^{0} $$
 co w systemie dziesiętnym daje nam: $26$.
 
 > Zadanie: $10111_{2}= ?_{10}$
+> 
 > Zadanie: $42= ?_{2}$
 
 Istnieje jeszcze wygodny system 16-tkowy (szesnastkowy) - gdzie współczynniki zapisujemy jako $0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F$.
@@ -133,7 +136,7 @@ Dlatego też komponenty elektroniczne odpowiadające funkcjom boolowskim nazywam
 > Ciekawostka. Richard Feynman wykładał teorię obliczeń na Kalifornijskim Instytucie Technologii. Wykład ten prezentowany jest obecnie jako 
 > _Feynmana wykłady o obliczeniach_ (ang. _Feynman Lectures on Computation_).
 
-Istotnym aspektem klasyczych bramek logicznych jest również to, że liczba bitów wejściowych nie musi być taka sama jak liczba bitów wyjściowych.
+<!-- Istotnym aspektem klasyczych bramek logicznych jest również to, że liczba bitów wejściowych nie musi być taka sama jak liczba bitów wyjściowych. -->
 
 Z pozoru obliczenia przedstawione w ten sposób wyglądają jako abstrakcjny matematyczny koncept.
 Jednak jego realizacja zawsze wymaga jakiegoś układu fizycznego realizującego wykonywanie funkcji.
@@ -148,20 +151,28 @@ Jasne jest, że przypadek klasyczny powinien być szczególnym przypadkiem kwant
 
 [obwody klasyczne](https://www.circuit-diagram.org)
 
-
 Zobaczmy jakie bramki możemy określić dla jednego bitu.
 
 ### Bramki logiczne dla jednego bitu
 
 Ile bramek mamy gdy input = 1 bit, output = 1 bit? Ile funkcji możemy zdefiniować dla odwzorowania jednego bitu w jeden bit?
 
-Operatory działające na jednym bicie możemy określić jako 
+Wszystkie cztery operatory działające na jednym bicie możemy określić jako: 
 
-1. Identyczność (ang. _identity_) - $I$
-2. Negacja (ang. _negation_) - $X$
-3. Stałe $0$
-4. Stałe $1$
+1. Identyczność (ang. _identity_) - $I(0)=0$, $I(1)=1$
+2. Negacja (ang. _negation_, _NOT_, _filps_) - $NOT(0)=1$, $NOT(1)=0$
+3. Stałe zero $ZERO(0)=0$, $ZERO(1)=0$
+4. Stałe jeden $ONE(0)=1$, $ONE(1)=1$
 
+Po zastosowaniu operatora $I$ oraz $NOT$, z otrzymanego wyniku możemy wyznaczyc wartości początkowe.
+Jednak po zastosowaniu dwóch pozostałych operacji $ZERO$ i $ONE$ nie jesteśmy w stanie określic jaki był stan początkowy, który wygenerował określony wynik.
+
+Te dwie własności pozwalają nam sklasyfikowac operatory jako: 
+
+1. Odwracalne - możemy odtworzyc wartośc początkową z wartości końcowej
+2. Nieodwracalne - NIE możemy odtworzyc wartości początkowej z wartości końcowej.
+
+Jak pokażemy później, wszystkie operatory reprezentujące kwantowe bramki będą odwracalne.
 
 ### Inne bramki i operacje logiczne
 
@@ -262,7 +273,7 @@ Istnieją tzw. _zbiory bramek uniwersalnych_ dzięki którym możemy zrealizowa�
 - **NOT, OR**
 - **NOR**
 
-
+<!-- 
 ## Fizyczna realizacja klasycznych  bramek logicznych
 
 Bramka NAND jest bramką uniwersalną, co oznacza, że każdą funkcję boolowską można zrealizować za pomocą układu bramek NAND.
@@ -275,7 +286,34 @@ Istnieje wiele fizycznych realizacji [bramki NAND](https://en.wikipedia.org/wiki
 Random Access Memory (RAM) uzywany jest do przechowywania instrukcji i danych aktualnie używanych przez CPU. 
 Stan pamięci RAM jest tracony gdy urządzenie zostanie odłączone od zasilania.
 Pamięć RAM jest zorganizowana w komórki, które mogą przechowywać pojedynczy bit informacji.
-Do implementacji pamięci RAM wykorzystuje się zbiór bramek logicznych (NAND) oraz tranzystorów.
+Do implementacji pamięci RAM wykorzystuje się zbiór bramek logicznych (NAND) oraz tranzystorów. -->
+
+## Kody python
+
+> Zadanie 1: Napisz kod symuljący wyrzucenie symetrycznej monety $100$, $1000$, $10000$ i $100000$ razy
+
+```python
+from random import randrange
+# randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)
+# Twoje rozwiązanie 
+```
+
+> Zadanie 2: Napisz kod symulujący wyrzucenie niesymetrycznej monety gdzie prawdopodobieństwo
+> wyrzucenia orła będzie wynosiło $60\%$.
+```python
+from random import randrange
+# randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)
+# Twoje rozwiązanie 
+```
+> Zadanie 3: Napisz kod funckji której dwa argumenty to $N$ (int) oznacza ilośc rzutów, 
+> oraz $B$ realizujące prawdopodobieństwo wyrzucenia Orła ($< B$). 
+```python
+def biased_coin(N,B):
+    from random import randrange
+    #
+    # your solution is here
+    #
+```
 
 
 ## Szyfrowanie z wykorzystaniem bramki XOR 
@@ -318,3 +356,37 @@ Message XOR SecretSequence XOR SecretSequence = Message
 
 Nie powinniśmy używać SecretSequence więcej niż raz. Jeśli użyjemy go więcej niż raz, to łatwo jest złamać szyfrowanie.
 Zakodowana wiadomość przestaje być losowa. 
+
+## kody - solutions 
+
+```{python}
+from random import randrange
+# randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)
+for experiment in [100,1000,10000,100000]:
+    heads = tails = 0
+    for i in range(experiment):
+        if randrange(2) == 0: heads = heads + 1
+        else: tails = tails + 1
+    print("experiment:",experiment)
+    print("heads =",heads,"  tails = ",tails)
+    print("the ratio of #heads/#tails is",(round(heads/tails,4)))
+    print() # empty line
+```
+
+```{python}
+from random import randrange
+
+# let's pick a random number between {0,1,...,99}
+# it is expected to be less than 60 with probability 0.6
+#     and greater than or equal to 60 with probability 0.4
+
+for experiment in [100,1000,10000,100000]:
+    heads = tails = 0
+    for i in range(experiment):
+        if randrange(100) <60: heads = heads + 1 # with probability 0.6
+        else: tails = tails + 1 # with probability 0.4
+    print("experiment:",experiment)
+    print("heads =",heads,"  tails = ",tails)
+    print("the ratio of #heads/#tails is",(round(heads/tails,4)))
+    print() # empty line
+```

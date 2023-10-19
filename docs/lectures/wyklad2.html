@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -135,15 +169,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#inne-bramki-i-operacje-logiczne" id="toc-inne-bramki-i-operacje-logiczne" class="nav-link" data-scroll-target="#inne-bramki-i-operacje-logiczne">Inne bramki i operacje logiczne</a></li>
   <li><a href="#uniweralne-bramki-logiczne---nand" id="toc-uniweralne-bramki-logiczne---nand" class="nav-link" data-scroll-target="#uniweralne-bramki-logiczne---nand">Uniweralne bramki logiczne - NAND</a></li>
   </ul></li>
-  <li><a href="#fizyczna-realizacja-klasycznych-bramek-logicznych" id="toc-fizyczna-realizacja-klasycznych-bramek-logicznych" class="nav-link" data-scroll-target="#fizyczna-realizacja-klasycznych-bramek-logicznych">Fizyczna realizacja klasycznych bramek logicznych</a>
-  <ul class="collapse">
-  <li><a href="#implementacja-komórki-pamięci-ram" id="toc-implementacja-komórki-pamięci-ram" class="nav-link" data-scroll-target="#implementacja-komórki-pamięci-ram">Implementacja komórki pamięci RAM</a></li>
-  </ul></li>
+  <li><a href="#kody-python" id="toc-kody-python" class="nav-link" data-scroll-target="#kody-python">Kody python</a></li>
   <li><a href="#szyfrowanie-z-wykorzystaniem-bramki-xor" id="toc-szyfrowanie-z-wykorzystaniem-bramki-xor" class="nav-link" data-scroll-target="#szyfrowanie-z-wykorzystaniem-bramki-xor">Szyfrowanie z wykorzystaniem bramki XOR</a>
   <ul class="collapse">
   <li><a href="#sender-decyrpting-message" id="toc-sender-decyrpting-message" class="nav-link" data-scroll-target="#sender-decyrpting-message">Sender decyrpting message</a></li>
   <li><a href="#decyrpting-message" id="toc-decyrpting-message" class="nav-link" data-scroll-target="#decyrpting-message">decyrpting message</a></li>
   </ul></li>
+  <li><a href="#kody---solutions" id="toc-kody---solutions" class="nav-link" data-scroll-target="#kody---solutions">kody - solutions</a></li>
   </ul>
 </nav>
     </div>
@@ -265,12 +297,16 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="reprezentacja-binarna">Reprezentacja binarna</h3>
 <p>W przypadku trzech monet mieliśmy następujące stany: <span class="math display">\[OOO, OOR, ORO, ORR, ROO, ROR, RRO, RRR.\]</span></p>
 <p>Możemy je zapisać w postaci binarnej jako: <span class="math display">\[000, 001, 010, 011, 100, 101, 110, 111\]</span> Dla przyzwyczajenia z zapisem możemy napisać również: <span class="math display">\[\ket{000}, \ket{001}, \ket{010}, \ket{011}, \ket{100}, \ket{101}, \ket{110}, \ket{111}\]</span></p>
-<p>Co oznacza, że możemy te stany zapisać matematycznie - łatwo nam nimi operować. &gt; <strong>liczby tego typu nazywamy liczbami binarnymi, albo liczbami o podstawie 2</strong>.</p>
+<p>Co oznacza, że możemy te stany zapisać matematycznie - łatwo nam nimi operować.</p>
+<blockquote class="blockquote">
+<p><strong>liczby tego typu nazywamy liczbami binarnymi, albo liczbami o podstawie 2</strong>.</p>
+</blockquote>
 <p>Jak zapisujemy liczby w systemie dziesiętnym? i dlaczego nazywa się on dziesiętnym?</p>
 <p><span class="math display">\[6174 = 6*1000 + 1*100 + 7*10 + 4*1 = 6*10^{3} + 1*10^{2} + 7*10^{1} +4*10^{0}\]</span></p>
 <p>Natomiast: <span class="math display">\[11010_{2} = 1*2^{4} + 1*2^{3} + 0*2^{2} + 1*2^{1} + 0*2^{0} \]</span> co w systemie dziesiętnym daje nam: <span class="math inline">\(26\)</span>.</p>
 <blockquote class="blockquote">
-<p>Zadanie: <span class="math inline">\(10111_{2}= ?_{10}\)</span> Zadanie: <span class="math inline">\(42= ?_{2}\)</span></p>
+<p>Zadanie: <span class="math inline">\(10111_{2}= ?_{10}\)</span></p>
+<p>Zadanie: <span class="math inline">\(42= ?_{2}\)</span></p>
 </blockquote>
 <p>Istnieje jeszcze wygodny system 16-tkowy (szesnastkowy) - gdzie współczynniki zapisujemy jako <span class="math inline">\(0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F\)</span>.</p>
 <blockquote class="blockquote">
@@ -298,7 +334,7 @@ ul.task-list li input[type="checkbox"] {
 <blockquote class="blockquote">
 <p>Ciekawostka. Richard Feynman wykładał teorię obliczeń na Kalifornijskim Instytucie Technologii. Wykład ten prezentowany jest obecnie jako <em>Feynmana wykłady o obliczeniach</em> (ang. <em>Feynman Lectures on Computation</em>).</p>
 </blockquote>
-<p>Istotnym aspektem klasyczych bramek logicznych jest również to, że liczba bitów wejściowych nie musi być taka sama jak liczba bitów wyjściowych.</p>
+<!-- Istotnym aspektem klasyczych bramek logicznych jest również to, że liczba bitów wejściowych nie musi być taka sama jak liczba bitów wyjściowych. -->
 <p>Z pozoru obliczenia przedstawione w ten sposób wyglądają jako abstrakcjny matematyczny koncept. Jednak jego realizacja zawsze wymaga jakiegoś układu fizycznego realizującego wykonywanie funkcji. Nie ma znaczenia jak ten układ zostanie zrealizowany: kule bilardowe, przełączniki elektroniczne, tranzystory, czy cokolwiek innego.</p>
 <blockquote class="blockquote">
 <p><strong>Logika obliczeń jest niezależna od ich realizacji.</strong></p>
@@ -310,13 +346,20 @@ ul.task-list li input[type="checkbox"] {
 <section id="bramki-logiczne-dla-jednego-bitu" class="level3">
 <h3 class="anchored" data-anchor-id="bramki-logiczne-dla-jednego-bitu">Bramki logiczne dla jednego bitu</h3>
 <p>Ile bramek mamy gdy input = 1 bit, output = 1 bit? Ile funkcji możemy zdefiniować dla odwzorowania jednego bitu w jeden bit?</p>
-<p>Operatory działające na jednym bicie możemy określić jako</p>
+<p>Wszystkie cztery operatory działające na jednym bicie możemy określić jako:</p>
 <ol type="1">
-<li>Identyczność (ang. <em>identity</em>) - <span class="math inline">\(I\)</span></li>
-<li>Negacja (ang. <em>negation</em>) - <span class="math inline">\(X\)</span></li>
-<li>Stałe <span class="math inline">\(0\)</span></li>
-<li>Stałe <span class="math inline">\(1\)</span></li>
+<li>Identyczność (ang. <em>identity</em>) - <span class="math inline">\(I(0)=0\)</span>, <span class="math inline">\(I(1)=1\)</span></li>
+<li>Negacja (ang. <em>negation</em>, <em>NOT</em>, <em>filps</em>) - <span class="math inline">\(NOT(0)=1\)</span>, <span class="math inline">\(NOT(1)=0\)</span></li>
+<li>Stałe zero <span class="math inline">\(ZERO(0)=0\)</span>, <span class="math inline">\(ZERO(1)=0\)</span></li>
+<li>Stałe jeden <span class="math inline">\(ONE(0)=1\)</span>, <span class="math inline">\(ONE(1)=1\)</span></li>
 </ol>
+<p>Po zastosowaniu operatora <span class="math inline">\(I\)</span> oraz <span class="math inline">\(NOT\)</span>, z otrzymanego wyniku możemy wyznaczyc wartości początkowe. Jednak po zastosowaniu dwóch pozostałych operacji <span class="math inline">\(ZERO\)</span> i <span class="math inline">\(ONE\)</span> nie jesteśmy w stanie określic jaki był stan początkowy, który wygenerował określony wynik.</p>
+<p>Te dwie własności pozwalają nam sklasyfikowac operatory jako:</p>
+<ol type="1">
+<li>Odwracalne - możemy odtworzyc wartośc początkową z wartości końcowej</li>
+<li>Nieodwracalne - NIE możemy odtworzyc wartości początkowej z wartości końcowej.</li>
+</ol>
+<p>Jak pokażemy później, wszystkie operatory reprezentujące kwantowe bramki będą odwracalne.</p>
 </section>
 <section id="inne-bramki-i-operacje-logiczne" class="level3">
 <h3 class="anchored" data-anchor-id="inne-bramki-i-operacje-logiczne">Inne bramki i operacje logiczne</h3>
@@ -524,16 +567,44 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>NOT, OR</strong></li>
 <li><strong>NOR</strong></li>
 </ul>
+<!-- 
+## Fizyczna realizacja klasycznych  bramek logicznych
+
+Bramka NAND jest bramką uniwersalną, co oznacza, że każdą funkcję boolowską można zrealizować za pomocą układu bramek NAND.
+Dlatego ważne dla komputerów klasycznych jest, aby znaleźć praktyczną realizację i jej implementację w układach. 
+
+Istnieje wiele fizycznych realizacji [bramki NAND](https://en.wikipedia.org/wiki/NAND_gate).
+
+### Implementacja komórki pamięci RAM 
+
+Random Access Memory (RAM) uzywany jest do przechowywania instrukcji i danych aktualnie używanych przez CPU. 
+Stan pamięci RAM jest tracony gdy urządzenie zostanie odłączone od zasilania.
+Pamięć RAM jest zorganizowana w komórki, które mogą przechowywać pojedynczy bit informacji.
+Do implementacji pamięci RAM wykorzystuje się zbiór bramek logicznych (NAND) oraz tranzystorów. -->
 </section>
 </section>
-<section id="fizyczna-realizacja-klasycznych-bramek-logicznych" class="level2">
-<h2 class="anchored" data-anchor-id="fizyczna-realizacja-klasycznych-bramek-logicznych">Fizyczna realizacja klasycznych bramek logicznych</h2>
-<p>Bramka NAND jest bramką uniwersalną, co oznacza, że każdą funkcję boolowską można zrealizować za pomocą układu bramek NAND. Dlatego ważne dla komputerów klasycznych jest, aby znaleźć praktyczną realizację i jej implementację w układach.</p>
-<p>Istnieje wiele fizycznych realizacji <a href="https://en.wikipedia.org/wiki/NAND_gate">bramki NAND</a>.</p>
-<section id="implementacja-komórki-pamięci-ram" class="level3">
-<h3 class="anchored" data-anchor-id="implementacja-komórki-pamięci-ram">Implementacja komórki pamięci RAM</h3>
-<p>Random Access Memory (RAM) uzywany jest do przechowywania instrukcji i danych aktualnie używanych przez CPU. Stan pamięci RAM jest tracony gdy urządzenie zostanie odłączone od zasilania. Pamięć RAM jest zorganizowana w komórki, które mogą przechowywać pojedynczy bit informacji. Do implementacji pamięci RAM wykorzystuje się zbiór bramek logicznych (NAND) oraz tranzystorów.</p>
-</section>
+<section id="kody-python" class="level2">
+<h2 class="anchored" data-anchor-id="kody-python">Kody python</h2>
+<blockquote class="blockquote">
+<p>Zadanie 1: Napisz kod symuljący wyrzucenie symetrycznej monety <span class="math inline">\(100\)</span>, <span class="math inline">\(1000\)</span>, <span class="math inline">\(10000\)</span> i <span class="math inline">\(100000\)</span> razy</p>
+</blockquote>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Twoje rozwiązanie </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>Zadanie 2: Napisz kod symulujący wyrzucenie niesymetrycznej monety gdzie prawdopodobieństwo wyrzucenia orła będzie wynosiło <span class="math inline">\(60\%\)</span>.</p>
+</blockquote>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Twoje rozwiązanie </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>Zadanie 3: Napisz kod funckji której dwa argumenty to <span class="math inline">\(N\)</span> (int) oznacza ilośc rzutów, oraz <span class="math inline">\(B\)</span> realizujące prawdopodobieństwo wyrzucenia Orła (<span class="math inline">\(&lt; B\)</span>).</p>
+</blockquote>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> biased_coin(N,B):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> random <span class="im">import</span> randrange</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># your solution is here</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="szyfrowanie-z-wykorzystaniem-bramki-xor" class="level2">
 <h2 class="anchored" data-anchor-id="szyfrowanie-z-wykorzystaniem-bramki-xor">Szyfrowanie z wykorzystaniem bramki XOR</h2>
@@ -558,9 +629,78 @@ ul.task-list li input[type="checkbox"] {
 <p>Message XOR SecretSequence = EncryptedMessage</p>
 <p>Message XOR SecretSequence XOR SecretSequence = Message</p>
 <p>Nie powinniśmy używać SecretSequence więcej niż raz. Jeśli użyjemy go więcej niż raz, to łatwo jest złamać szyfrowanie. Zakodowana wiadomość przestaje być losowa.</p>
-
-
 </section>
+</section>
+<section id="kody---solutions" class="level2">
+<h2 class="anchored" data-anchor-id="kody---solutions">kody - solutions</h2>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> experiment <span class="kw">in</span> [<span class="dv">100</span>,<span class="dv">1000</span>,<span class="dv">10000</span>,<span class="dv">100000</span>]:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    heads <span class="op">=</span> tails <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(experiment):</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> randrange(<span class="dv">2</span>) <span class="op">==</span> <span class="dv">0</span>: heads <span class="op">=</span> heads <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: tails <span class="op">=</span> tails <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"experiment:"</span>,experiment)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"heads ="</span>,heads,<span class="st">"  tails = "</span>,tails)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"the ratio of #heads/#tails is"</span>,(<span class="bu">round</span>(heads<span class="op">/</span>tails,<span class="dv">4</span>)))</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>() <span class="co"># empty line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>experiment: 100
+heads = 55   tails =  45
+the ratio of #heads/#tails is 1.2222
+
+experiment: 1000
+heads = 507   tails =  493
+the ratio of #heads/#tails is 1.0284
+
+experiment: 10000
+heads = 4956   tails =  5044
+the ratio of #heads/#tails is 0.9826
+
+experiment: 100000
+heads = 49843   tails =  50157
+the ratio of #heads/#tails is 0.9937
+</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># let's pick a random number between {0,1,...,99}</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># it is expected to be less than 60 with probability 0.6</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     and greater than or equal to 60 with probability 0.4</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> experiment <span class="kw">in</span> [<span class="dv">100</span>,<span class="dv">1000</span>,<span class="dv">10000</span>,<span class="dv">100000</span>]:</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    heads <span class="op">=</span> tails <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(experiment):</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> randrange(<span class="dv">100</span>) <span class="op">&lt;</span><span class="dv">60</span>: heads <span class="op">=</span> heads <span class="op">+</span> <span class="dv">1</span> <span class="co"># with probability 0.6</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: tails <span class="op">=</span> tails <span class="op">+</span> <span class="dv">1</span> <span class="co"># with probability 0.4</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"experiment:"</span>,experiment)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"heads ="</span>,heads,<span class="st">"  tails = "</span>,tails)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"the ratio of #heads/#tails is"</span>,(<span class="bu">round</span>(heads<span class="op">/</span>tails,<span class="dv">4</span>)))</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>() <span class="co"># empty line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>experiment: 100
+heads = 56   tails =  44
+the ratio of #heads/#tails is 1.2727
+
+experiment: 1000
+heads = 617   tails =  383
+the ratio of #heads/#tails is 1.611
+
+experiment: 10000
+heads = 5945   tails =  4055
+the ratio of #heads/#tails is 1.4661
+
+experiment: 100000
+heads = 60019   tails =  39981
+the ratio of #heads/#tails is 1.5012
+</code></pre>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

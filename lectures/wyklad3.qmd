@@ -7,7 +7,7 @@ $$
 \newcommand{\braket}[2]{\left \langle #1 \middle \rvert #2 \right \rangle}
 $$
 
-Mechanika opiera się na _algebrze liniowej_. 
+Mechanika Kwantowa opiera się na _algebrze liniowej_. 
 W ogólności teoria ta posługuje się pojęciem nieskończenie wymiarowej przestrzeni liniowej.
 Na szczęście do opisu kubitów (2-dim) i układów kwantowych ($2^{n}$-dim) wystarczy nam pojęcie skończenie wymiarowej przestrzeni wektorowej.
 Bardzo upraszcza nam to naukę o kwantowym uczeniu maszynowym, gdyż wiele problemów matematycznych (dla fizyków) 
@@ -21,21 +21,24 @@ posługiwanie się liczbami zespolonymi jest niezbędne.
 
 ## Liczby rzeczywiste i zespolone - przypomnienie
 
-Liczby to matematyczne, abstrakcyjne pojęcie wywodzące się z teorii mnogości (zbiorów).
-Przykładowo liczba 42 zapisywana w postaci zapisu dziesiętnego lub binarnego $42=101010_2$.
-Można oczywiście znaleźć 42 przedmioty i je przeliczyć jednak w naszym przypadku skupimy się na abstrakcyjnym pojęciu niezależnym od jego reprezentacji. 
+Liczby to matematyczne, abstrakcyjne pojęcia wywodzące się z teorii mnogości (zbiorów).
+Przykładowo, liczbę 42 można zapisa w postaci dziesiętnej lub binarnej $42=101010_2$.
+Możemy znaleźć 42 przedmioty i je przeliczyć, ale w naszym przypadku skupimy się na abstrakcyjnym pojęciu liczby, niezależnie od jej reprezentacji. 
 Liczba 42 jest liczbą naturalną. Zbiór liczb naturalnych oznaczamy jako $\mathbb{N}$.
-Identyczne własności abstrakcji mają liczby całkowite $\mathbb{Z}$, wymierne $\mathbb{Q}$, rzeczywiste $\mathbb{R}$ i zespolone $\mathbb{C}$.
-Nie możemy liczb zobaczyć czy dotknąć, ale możemy na nich wykonywać operacje matematyczne.
-Liczby zespolone nie są bardziej abstrakcyjne niż liczby rzeczywiste, czy naturalne.
+Identyczne cechy abstrakcji mają liczby całkowite $\mathbb{Z}$, liczby wymierne $\mathbb{Q}$, liczby rzeczywiste $\mathbb{R}$ oraz liczby zespolone $\mathbb{C}$.
+Nie możemy zobaczyć ani dotknąć liczb, ale możemy wykonywać na nich operacje matematyczne.
+Liczb
+Warto zaznaczyc,że liczby zespolone nie są bardziej abstrakcyjne niż liczby rzeczywiste, czy naturalne.
 
-Liczba zespolona (we współrzędnych Kartezjańskich) $z=x + i y$ składa się z części rzeczywistej $R(z)=x$ i urojonej $I(z)=y$.
-gdzie $$i^2=-1$$.
+Liczba zespolona (we współrzędnych Kartezjańskich)  składa się z (dwóch liczb rzeczywistych) części rzeczywistej i urojonej:
+$$z=x + i y$$
+gdzie $R(z)=x$, $I(z)=y$ oraz $$i^2=-1$$.
 
+Na przykład:
 $$1+i\sqrt{3}$$
 $R(z)=1$ i $I(z)=\sqrt{3}$.
 
-Każdą liczbę zespoloną możemy zapisać w postaci polarnej $z=r e^{i \theta}$, gdzie $r=|z|$ to moduł liczby zespolonej, a $\theta$ to jej argument.
+Każdą liczbę zespoloną możemy zapisać w postaci polarnej (współrzędne biegunowe) $$z=r e^{i \theta}$$, gdzie $r=|z|$ to moduł liczby zespolonej, a $\theta$ to jej argument.
 $$ z = r e^{i \theta} = r (\cos{\theta} + i \sin{\theta})$$
 gdzie:
 $$r = |z| = \sqrt{x^2 + y^2}$$
@@ -47,6 +50,8 @@ $$y = r \sin{\theta}$$
 Dla naszego przykładu:
 $$1+i\sqrt{3} = 2 e^{i \frac{\pi}{3}}$$
 
+Dodawanie liczb zespolonych jest łatwe dla postaci kartezjańskiej. Natomiast mnożenie dla postaci biegunowej.
+
 > Udowodnij samodzielnie, że powyższe równanie jest prawdziwe.
 
 **Liczba sprzężona** do liczby zespolonej $z=x + i y$ to $z^*=x - i y = r*e^{-i \theta}$.
@@ -54,12 +59,12 @@ $$1+i\sqrt{3} = 2 e^{i \frac{\pi}{3}}$$
 **Norma** liczby zespolonej $z=x + i y$ to $|z|=\sqrt{x^2 + y^2}=r$.
 
 **Kwadrat normy** liczby zespolonej $z=x + i y$ to $|z|^2=x^2 + y^2=r^2$.
-Można go również zapisać jako $|z|=z z^* = z^* z$.
+Można go również zapisać jako $|z|^2=z z^* = z^* z$.
+
+**Czynnik fazowy** to liczba $z$ dla której $r=1$. $z=e^{i\theta}$ i $z z^* = 1$.
 
 > Udowodnij w kartezjańskim i polarnym układzie oniesienia.
-
-Dodawanie licz zespolonych jest zdefiniowane jako dodawanie poszczególnych składników. 
-
+ 
 > ile wynosi $z_1 z_2$?
 
 > ile wynosi $\frac{z_1}{z_2}$
