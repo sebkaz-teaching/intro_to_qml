@@ -1,0 +1,20 @@
+---
+title: "Kwantowe bramki logiczne w prostych algorytmach i obwodach kwantowych"
+---
+
+## Ewolucja kwantowa
+
+## Bramki kwantowe
+
+### Bramki jednokubitowe
+
+### Bramki kontrolne
+
+## Układy kwantowe
+
+## losowy bit
+
+## losowy bajt
+
+## Gra w obracanie monety
+

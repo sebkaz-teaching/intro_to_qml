@@ -56,7 +56,7 @@ fioletowy|RRO|21|
 Pozostałe konfiguracje nie są używane (albo można w nich powtórzyć elementy do zakodowania).
 
 > Monety niosą mniej informacji niż kości do gry. Co prowadzi do ważnego wniosku:
-> **obiekt o dwóch stanach niesie najmniejszą (możliwą) ilość informacji**.
+> **obiekt o dwóch stanach niesie najmniejszą (możliwą) ilość informacji**. A co za tym idzie bit jest najmniejszą jednostką klasycznej informacji.
 
 > Zadanie: Angielski alfabet posiada 26 liter. Ile monet i kości potrzeba aby zakodować informacje o jednej literze?
 
@@ -142,7 +142,7 @@ Z pozoru obliczenia przedstawione w ten sposób wyglądają jako abstrakcjny mat
 Jednak jego realizacja zawsze wymaga jakiegoś układu fizycznego realizującego wykonywanie funkcji.
 Nie ma znaczenia jak ten układ zostanie zrealizowany: kule bilardowe, przełączniki elektroniczne, tranzystory, czy cokolwiek innego.
 
-> **Logika obliczeń jest niezależna od ich realizacji.** 
+> **Logika obliczeń jest niezależna od realizacji bramek logicznych.** 
 
 Z punktu widzenia realizacji zawsze chodzi nam o _kontrolowany_ sposób zmiany stanu układu.
 
@@ -245,23 +245,24 @@ Podstawowe bramki, które znasz to:
 |1| 1 | |
 
 
-Powyższe bramki pozwalają łączyć Ci pojedyncze elemnty algebry boola ze sobą. 
+Powyższe bramki pozwalają łączyć poszczególne elementy algebry boola ze sobą. 
 
-> Zadanie: Porównaj `AND` oraz `OR` z potocznym, językowym znaczeniem tych słów.
+> Zadanie: Porównaj `AND` oraz `OR` z potocznym znaczeniem tych słów.
 
 > Zadanie: Dlaczego Algebra boola nazywana jest algebrą zbiorów? 
 
 > Zadanie: Czy składanie podzbiorów zbioru również generuje algebrę boola ?
 
-> Zadanie: Kiedy dodajemy i mnożymy liczby jakie operacje i własności wykorzystujemy? 
-
 > Zadanie: ile bramek logicznych możemy stworzyć dla jednego bitu, dwóch bitów, trzech bitów? 
 
 ### Uniweralne bramki logiczne - NAND
 
-Tak jak widzieliśmy dla  1-bit mieliśmy 4 bramki logiczne.
-Dla 2-bitów mieliśmy 16 bramek logicznych. Dla 3-bitów mamy 256 możliwości.
-W przypadku 2-bitów nie wypisaliśmy wszystkich bramek, dlaczego? A czy musimy realizować wszystkie? 
+Tak jak widzieliśmy dla  1-bitu informacji mieliśmy 4 bramki logiczne.
+Dla 2-bitów mieliśmy 16 bramek logicznych. Dla 3-bitów mamy już 256 możliwości.
+
+W przypadku 2-bitów nie wypisaliśmy wszystkich bramek, dlaczego? 
+
+Czy musimy realizować wszystkie? 
 
 > Na szczęście odpowiedź jest negatywna.
 
@@ -311,24 +312,27 @@ from random import randrange
 Weźmy dwie sekwencje bitów:
 
 
-sekwencja A:
+sekwencja A - przedstawiająca naszą zakodowaną wiadomośc:
 $$1 0 1 1 0 1 1 1 0 0 0$$ 
 
-sekwencja B:
+losowa sekwencja B:
 $$0 1 1 0 1 1 0 1 1 0 1$$ 
 
-i obliczmy `XOR` między dwoma sekwencjami $A$ XOR $B$. 
+i obliczmy `XOR` między dwoma sekwencjami (dla poszczególnych kolumn) $A$ XOR $B$. 
+
 Zgodnie z tablicą prawdy dla XOR otrzymujemy:
 $$1 1 0 1 1 0 1 0 1 0 1$$
 
+Na otrzymanym wyniku jeszcze raz zastosuj bramkę XOR. 
+
+Co możesz zauważyć? 
 
 > Oblicz A XOR B XOR B. 
-Co możesz zauważyć?  
+ 
 
-### Sender decyrpting message
 Zamień wiadomość, którą chcesz zaszyfrować na binarną postać (czyli jako sekwencję zer i jedynek).
 
-Weź losową sekwencję bitów (klucz szyfrujący) którą zna tylko nadawca i odbiorca.
+Weź losową sekwencję bitów (klucz szyfrujący), którą zna tylko nadawca i odbiorca.
 
 $1001011010...$ - wiadomość
 
@@ -339,16 +343,19 @@ Tak otrzymaną wiadomość (zaszyfrowaną) wyślij do odbiorcy.
 
 ### decyrpting message
 
-Odbiorca otrzymuje zaszyfrowaną wiadomość i klucz szyfrujący.
+Odbiorca otrzymuje zaszyfrowaną wiadomość (posiada klucz szyfrujący).
 
 Message XOR SecretSequence = EncryptedMessage
 
 Message XOR SecretSequence XOR SecretSequence = Message
 
-Nie powinniśmy używać SecretSequence więcej niż raz. Jeśli użyjemy go więcej niż raz, to łatwo jest złamać szyfrowanie.
-Zakodowana wiadomość przestaje być losowa. 
+Nie powinniśmy używać SecretSequence więcej niż raz. 
+Jeśli użyjemy jej więcej niż raz, to łatwo jest złamać szyfrowanie.
 
-## kody - solutions 
+> Dlaczego nie powinno się używać szyfru więcej niż jeden raz? 
+> Podpowiedź: Zakodowana wiadomość przestaje być losowa. 
+
+## kody - rozwiązania zadań 
 
 ```{python}
 from random import randrange
@@ -370,6 +377,8 @@ from random import randrange
 # let's pick a random number between {0,1,...,99}
 # it is expected to be less than 60 with probability 0.6
 #     and greater than or equal to 60 with probability 0.4
+# ten sam przypadek możesz zrealizować dla losowania wartosci rzeczywistej
+# pomiędzy 0 i 1.
 
 for experiment in [100,1000,10000,100000]:
     heads = tails = 0

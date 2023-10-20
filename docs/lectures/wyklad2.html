@@ -134,6 +134,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Wykład 3</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../lectures/wyklad4.html" rel="" target="">
+ <span class="menu-text">Wykład 4</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../sylabus.html" rel="" target="">
  <span class="menu-text">Sylabus</span></a>
   </li>  
@@ -172,10 +176,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#kody-python" id="toc-kody-python" class="nav-link" data-scroll-target="#kody-python">Kody python</a></li>
   <li><a href="#szyfrowanie-z-wykorzystaniem-bramki-xor" id="toc-szyfrowanie-z-wykorzystaniem-bramki-xor" class="nav-link" data-scroll-target="#szyfrowanie-z-wykorzystaniem-bramki-xor">Szyfrowanie z wykorzystaniem bramki XOR</a>
   <ul class="collapse">
-  <li><a href="#sender-decyrpting-message" id="toc-sender-decyrpting-message" class="nav-link" data-scroll-target="#sender-decyrpting-message">Sender decyrpting message</a></li>
   <li><a href="#decyrpting-message" id="toc-decyrpting-message" class="nav-link" data-scroll-target="#decyrpting-message">decyrpting message</a></li>
   </ul></li>
-  <li><a href="#kody---solutions" id="toc-kody---solutions" class="nav-link" data-scroll-target="#kody---solutions">kody - solutions</a></li>
+  <li><a href="#kody---rozwiązania-zadań" id="toc-kody---rozwiązania-zadań" class="nav-link" data-scroll-target="#kody---rozwiązania-zadań">kody - rozwiązania zadań</a></li>
   </ul>
 </nav>
     </div>
@@ -272,7 +275,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <p>Pozostałe konfiguracje nie są używane (albo można w nich powtórzyć elementy do zakodowania).</p>
 <blockquote class="blockquote">
-<p>Monety niosą mniej informacji niż kości do gry. Co prowadzi do ważnego wniosku: <strong>obiekt o dwóch stanach niesie najmniejszą (możliwą) ilość informacji</strong>.</p>
+<p>Monety niosą mniej informacji niż kości do gry. Co prowadzi do ważnego wniosku: <strong>obiekt o dwóch stanach niesie najmniejszą (możliwą) ilość informacji</strong>. A co za tym idzie bit jest najmniejszą jednostką klasycznej informacji.</p>
 </blockquote>
 <blockquote class="blockquote">
 <p>Zadanie: Angielski alfabet posiada 26 liter. Ile monet i kości potrzeba aby zakodować informacje o jednej literze?</p>
@@ -337,7 +340,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- Istotnym aspektem klasyczych bramek logicznych jest również to, że liczba bitów wejściowych nie musi być taka sama jak liczba bitów wyjściowych. -->
 <p>Z pozoru obliczenia przedstawione w ten sposób wyglądają jako abstrakcjny matematyczny koncept. Jednak jego realizacja zawsze wymaga jakiegoś układu fizycznego realizującego wykonywanie funkcji. Nie ma znaczenia jak ten układ zostanie zrealizowany: kule bilardowe, przełączniki elektroniczne, tranzystory, czy cokolwiek innego.</p>
 <blockquote class="blockquote">
-<p><strong>Logika obliczeń jest niezależna od ich realizacji.</strong></p>
+<p><strong>Logika obliczeń jest niezależna od realizacji bramek logicznych.</strong></p>
 </blockquote>
 <p>Z punktu widzenia realizacji zawsze chodzi nam o <em>kontrolowany</em> sposób zmiany stanu układu.</p>
 <p>Na wykładzie postaramy się wskazać jak i kiedy logika klasycznych obliczeń może być uogólniona przez logikę obliczeń kwantowych. Jasne jest, że przypadek klasyczny powinien być szczególnym przypadkiem kwantowego.</p>
@@ -535,9 +538,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p>Powyższe bramki pozwalają łączyć Ci pojedyncze elemnty algebry boola ze sobą.</p>
+<p>Powyższe bramki pozwalają łączyć poszczególne elementy algebry boola ze sobą.</p>
 <blockquote class="blockquote">
-<p>Zadanie: Porównaj <code>AND</code> oraz <code>OR</code> z potocznym, językowym znaczeniem tych słów.</p>
+<p>Zadanie: Porównaj <code>AND</code> oraz <code>OR</code> z potocznym znaczeniem tych słów.</p>
 </blockquote>
 <blockquote class="blockquote">
 <p>Zadanie: Dlaczego Algebra boola nazywana jest algebrą zbiorów?</p>
@@ -546,16 +549,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Zadanie: Czy składanie podzbiorów zbioru również generuje algebrę boola ?</p>
 </blockquote>
 <blockquote class="blockquote">
-<p>Zadanie: Kiedy dodajemy i mnożymy liczby jakie operacje i własności wykorzystujemy?</p>
-</blockquote>
-<blockquote class="blockquote">
 <p>Zadanie: ile bramek logicznych możemy stworzyć dla jednego bitu, dwóch bitów, trzech bitów?</p>
 </blockquote>
 </section>
 </section>
 <section id="uniweralne-bramki-logiczne---nand" class="level3">
 <h3 class="anchored" data-anchor-id="uniweralne-bramki-logiczne---nand">Uniweralne bramki logiczne - NAND</h3>
-<p>Tak jak widzieliśmy dla 1-bit mieliśmy 4 bramki logiczne. Dla 2-bitów mieliśmy 16 bramek logicznych. Dla 3-bitów mamy 256 możliwości. W przypadku 2-bitów nie wypisaliśmy wszystkich bramek, dlaczego? A czy musimy realizować wszystkie?</p>
+<p>Tak jak widzieliśmy dla 1-bitu informacji mieliśmy 4 bramki logiczne. Dla 2-bitów mieliśmy 16 bramek logicznych. Dla 3-bitów mamy już 256 możliwości.</p>
+<p>W przypadku 2-bitów nie wypisaliśmy wszystkich bramek, dlaczego?</p>
+<p>Czy musimy realizować wszystkie?</p>
 <blockquote class="blockquote">
 <p>Na szczęście odpowiedź jest negatywna.</p>
 </blockquote>
@@ -601,30 +603,33 @@ Do implementacji pamięci RAM wykorzystuje się zbiór bramek logicznych (NAND) 
 <section id="szyfrowanie-z-wykorzystaniem-bramki-xor" class="level2">
 <h2 class="anchored" data-anchor-id="szyfrowanie-z-wykorzystaniem-bramki-xor">Szyfrowanie z wykorzystaniem bramki XOR</h2>
 <p>Weźmy dwie sekwencje bitów:</p>
-<p>sekwencja A: <span class="math display">\[1 0 1 1 0 1 1 1 0 0 0\]</span></p>
-<p>sekwencja B: <span class="math display">\[0 1 1 0 1 1 0 1 1 0 1\]</span></p>
-<p>i obliczmy <code>XOR</code> między dwoma sekwencjami <span class="math inline">\(A\)</span> XOR <span class="math inline">\(B\)</span>. Zgodnie z tablicą prawdy dla XOR otrzymujemy: <span class="math display">\[1 1 0 1 1 0 1 0 1 0 1\]</span></p>
+<p>sekwencja A - przedstawiająca naszą zakodowaną wiadomośc: <span class="math display">\[1 0 1 1 0 1 1 1 0 0 0\]</span></p>
+<p>losowa sekwencja B: <span class="math display">\[0 1 1 0 1 1 0 1 1 0 1\]</span></p>
+<p>i obliczmy <code>XOR</code> między dwoma sekwencjami (dla poszczególnych kolumn) <span class="math inline">\(A\)</span> XOR <span class="math inline">\(B\)</span>.</p>
+<p>Zgodnie z tablicą prawdy dla XOR otrzymujemy: <span class="math display">\[1 1 0 1 1 0 1 0 1 0 1\]</span></p>
+<p>Na otrzymanym wyniku jeszcze raz zastosuj bramkę XOR.</p>
+<p>Co możesz zauważyć?</p>
 <blockquote class="blockquote">
-<p>Oblicz A XOR B XOR B. Co możesz zauważyć?</p>
+<p>Oblicz A XOR B XOR B.</p>
 </blockquote>
-<section id="sender-decyrpting-message" class="level3">
-<h3 class="anchored" data-anchor-id="sender-decyrpting-message">Sender decyrpting message</h3>
 <p>Zamień wiadomość, którą chcesz zaszyfrować na binarną postać (czyli jako sekwencję zer i jedynek).</p>
-<p>Weź losową sekwencję bitów (klucz szyfrujący) którą zna tylko nadawca i odbiorca.</p>
+<p>Weź losową sekwencję bitów (klucz szyfrujący), którą zna tylko nadawca i odbiorca.</p>
 <p><span class="math inline">\(1001011010...\)</span> - wiadomość</p>
 <p><span class="math inline">\(0110101010...\)</span> - klucz szyfrujący, czyli losowa sekwencja bitów</p>
 <p>Zaszyfruj wiadomość wykonując operację XOR na każdym bicie wiadomości i klucza szyfrującego. Tak otrzymaną wiadomość (zaszyfrowaną) wyślij do odbiorcy.</p>
-</section>
 <section id="decyrpting-message" class="level3">
 <h3 class="anchored" data-anchor-id="decyrpting-message">decyrpting message</h3>
-<p>Odbiorca otrzymuje zaszyfrowaną wiadomość i klucz szyfrujący.</p>
+<p>Odbiorca otrzymuje zaszyfrowaną wiadomość (posiada klucz szyfrujący).</p>
 <p>Message XOR SecretSequence = EncryptedMessage</p>
 <p>Message XOR SecretSequence XOR SecretSequence = Message</p>
-<p>Nie powinniśmy używać SecretSequence więcej niż raz. Jeśli użyjemy go więcej niż raz, to łatwo jest złamać szyfrowanie. Zakodowana wiadomość przestaje być losowa.</p>
+<p>Nie powinniśmy używać SecretSequence więcej niż raz. Jeśli użyjemy jej więcej niż raz, to łatwo jest złamać szyfrowanie.</p>
+<blockquote class="blockquote">
+<p>Dlaczego nie powinno się używać szyfru więcej niż jeden raz? Podpowiedź: Zakodowana wiadomość przestaje być losowa.</p>
+</blockquote>
 </section>
 </section>
-<section id="kody---solutions" class="level2">
-<h2 class="anchored" data-anchor-id="kody---solutions">kody - solutions</h2>
+<section id="kody---rozwiązania-zadań" class="level2">
+<h2 class="anchored" data-anchor-id="kody---rozwiązania-zadań">kody - rozwiązania zadań</h2>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)</span></span>
@@ -639,20 +644,20 @@ Do implementacji pamięci RAM wykorzystuje się zbiór bramek logicznych (NAND) 
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>() <span class="co"># empty line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>experiment: 100
-heads = 49   tails =  51
-the ratio of #heads/#tails is 0.9608
+heads = 53   tails =  47
+the ratio of #heads/#tails is 1.1277
 
 experiment: 1000
-heads = 509   tails =  491
-the ratio of #heads/#tails is 1.0367
+heads = 528   tails =  472
+the ratio of #heads/#tails is 1.1186
 
 experiment: 10000
 heads = 5016   tails =  4984
 the ratio of #heads/#tails is 1.0064
 
 experiment: 100000
-heads = 49749   tails =  50251
-the ratio of #heads/#tails is 0.99
+heads = 49979   tails =  50021
+the ratio of #heads/#tails is 0.9992
 </code></pre>
 </div>
 </div>
@@ -662,32 +667,34 @@ the ratio of #heads/#tails is 0.99
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># let's pick a random number between {0,1,...,99}</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># it is expected to be less than 60 with probability 0.6</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     and greater than or equal to 60 with probability 0.4</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> experiment <span class="kw">in</span> [<span class="dv">100</span>,<span class="dv">1000</span>,<span class="dv">10000</span>,<span class="dv">100000</span>]:</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    heads <span class="op">=</span> tails <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(experiment):</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> randrange(<span class="dv">100</span>) <span class="op">&lt;</span><span class="dv">60</span>: heads <span class="op">=</span> heads <span class="op">+</span> <span class="dv">1</span> <span class="co"># with probability 0.6</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: tails <span class="op">=</span> tails <span class="op">+</span> <span class="dv">1</span> <span class="co"># with probability 0.4</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"experiment:"</span>,experiment)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"heads ="</span>,heads,<span class="st">"  tails = "</span>,tails)</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"the ratio of #heads/#tails is"</span>,(<span class="bu">round</span>(heads<span class="op">/</span>tails,<span class="dv">4</span>)))</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>() <span class="co"># empty line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ten sam przypadek możesz zrealizować dla losowania wartosci rzeczywistej</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># pomiędzy 0 i 1.</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> experiment <span class="kw">in</span> [<span class="dv">100</span>,<span class="dv">1000</span>,<span class="dv">10000</span>,<span class="dv">100000</span>]:</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    heads <span class="op">=</span> tails <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(experiment):</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> randrange(<span class="dv">100</span>) <span class="op">&lt;</span><span class="dv">60</span>: heads <span class="op">=</span> heads <span class="op">+</span> <span class="dv">1</span> <span class="co"># with probability 0.6</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: tails <span class="op">=</span> tails <span class="op">+</span> <span class="dv">1</span> <span class="co"># with probability 0.4</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"experiment:"</span>,experiment)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"heads ="</span>,heads,<span class="st">"  tails = "</span>,tails)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"the ratio of #heads/#tails is"</span>,(<span class="bu">round</span>(heads<span class="op">/</span>tails,<span class="dv">4</span>)))</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>() <span class="co"># empty line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>experiment: 100
-heads = 57   tails =  43
-the ratio of #heads/#tails is 1.3256
+heads = 56   tails =  44
+the ratio of #heads/#tails is 1.2727
 
 experiment: 1000
-heads = 605   tails =  395
-the ratio of #heads/#tails is 1.5316
+heads = 607   tails =  393
+the ratio of #heads/#tails is 1.5445
 
 experiment: 10000
-heads = 6000   tails =  4000
-the ratio of #heads/#tails is 1.5
+heads = 6042   tails =  3958
+the ratio of #heads/#tails is 1.5265
 
 experiment: 100000
-heads = 60027   tails =  39973
-the ratio of #heads/#tails is 1.5017
+heads = 59955   tails =  40045
+the ratio of #heads/#tails is 1.4972
 </code></pre>
 </div>
 </div>

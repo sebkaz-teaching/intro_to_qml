@@ -14,6 +14,8 @@ website:
             text: Wykład 2
           - href: lectures/wyklad3.qmd
             text: Wykład 3
+          - href: lectures/wyklad4.qmd
+            text: Wykład 4
           - href: sylabus.qmd
             text: Sylabus
           # - href: info.qmd

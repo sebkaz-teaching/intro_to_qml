@@ -100,6 +100,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Wykład 3</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../lectures/wyklad4.html" rel="" target="">
+ <span class="menu-text">Wykład 4</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../sylabus.html" rel="" target="">
  <span class="menu-text">Sylabus</span></a>
   </li>  
@@ -126,17 +130,20 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#liczby-rzeczywiste-i-zespolone---przypomnienie" id="toc-liczby-rzeczywiste-i-zespolone---przypomnienie" class="nav-link active" data-scroll-target="#liczby-rzeczywiste-i-zespolone---przypomnienie">Liczby rzeczywiste i zespolone - przypomnienie</a></li>
   <li><a href="#wektory-i-przestrzenie-wektorowe" id="toc-wektory-i-przestrzenie-wektorowe" class="nav-link" data-scroll-target="#wektory-i-przestrzenie-wektorowe">Wektory i przestrzenie wektorowe</a>
   <ul class="collapse">
-  <li><a href="#własności" id="toc-własności" class="nav-link" data-scroll-target="#własności">Własności</a></li>
+  <li><a href="#aksjomaty-przestrzeni-stanów" id="toc-aksjomaty-przestrzeni-stanów" class="nav-link" data-scroll-target="#aksjomaty-przestrzeni-stanów">Aksjomaty przestrzeni stanów</a></li>
   <li><a href="#wektory-kolumnowe" id="toc-wektory-kolumnowe" class="nav-link" data-scroll-target="#wektory-kolumnowe">Wektory kolumnowe</a></li>
   <li><a href="#wektory-wierszowe" id="toc-wektory-wierszowe" class="nav-link" data-scroll-target="#wektory-wierszowe">Wektory wierszowe</a></li>
   <li><a href="#transpozycja-i-sprzężenie-hermitowskie." id="toc-transpozycja-i-sprzężenie-hermitowskie." class="nav-link" data-scroll-target="#transpozycja-i-sprzężenie-hermitowskie.">Transpozycja i sprzężenie Hermitowskie.</a></li>
   <li><a href="#iloczyn-skalarny" id="toc-iloczyn-skalarny" class="nav-link" data-scroll-target="#iloczyn-skalarny">Iloczyn skalarny</a></li>
   <li><a href="#kombinacja-liniowa-wektorów" id="toc-kombinacja-liniowa-wektorów" class="nav-link" data-scroll-target="#kombinacja-liniowa-wektorów">Kombinacja liniowa wektorów</a></li>
+  <li><a href="#baza" id="toc-baza" class="nav-link" data-scroll-target="#baza">Baza</a></li>
   </ul></li>
-  <li><a href="#formalizm-matematyczny-obliczeń-kwantowych" id="toc-formalizm-matematyczny-obliczeń-kwantowych" class="nav-link" data-scroll-target="#formalizm-matematyczny-obliczeń-kwantowych">Formalizm matematyczny obliczeń kwantowych</a></li>
-  <li><a href="#stan" id="toc-stan" class="nav-link" data-scroll-target="#stan">Stan</a>
+  <li><a href="#formalizm-matematyczny-obliczeń-kwantowych" id="toc-formalizm-matematyczny-obliczeń-kwantowych" class="nav-link" data-scroll-target="#formalizm-matematyczny-obliczeń-kwantowych">Formalizm matematyczny obliczeń kwantowych</a>
   <ul class="collapse">
+  <li><a href="#stan" id="toc-stan" class="nav-link" data-scroll-target="#stan">Stan</a></li>
   <li><a href="#kubit" id="toc-kubit" class="nav-link" data-scroll-target="#kubit">Kubit</a></li>
+  <li><a href="#dwa-kubity" id="toc-dwa-kubity" class="nav-link" data-scroll-target="#dwa-kubity">Dwa kubity</a></li>
+  <li><a href="#stan-splątany-i-separowalny" id="toc-stan-splątany-i-separowalny" class="nav-link" data-scroll-target="#stan-splątany-i-separowalny">Stan splątany i separowalny</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -167,27 +174,29 @@ ul.task-list li input[type="checkbox"] {
 \newcommand{\braket}[2]{\left \langle #1 \middle \rvert #2 \right \rangle}
 \]</span></p>
 <p>Mechanika Kwantowa opiera się na <em>algebrze liniowej</em>. W ogólności teoria ta posługuje się pojęciem nieskończenie wymiarowej przestrzeni liniowej. Na szczęście do opisu kubitów (2-dim) i układów kwantowych (<span class="math inline">\(2^{n}\)</span>-dim) wystarczy nam pojęcie skończenie wymiarowej przestrzeni wektorowej. Bardzo upraszcza nam to naukę o kwantowym uczeniu maszynowym, gdyż wiele problemów matematycznych (dla fizyków) tutaj nie występuje. Upraszcza to również ilość potrzebnych matematycznych pojęć.</p>
-<p>Będziemy posługiwali się notacją Diraca, jednego z twórców mechaniki kwantowej. W książce Ch.Bernhardta “Obliczenia kwantowe dla każdego” autor rezygnuje z liczb zespolonych, na rzecz liczb rzeczywistych. O ile podejście takie sprawdza się na poziomie opisu o tyle dla pełnego zrozumienia posługiwanie się liczbami zespolonymi jest niezbędne.</p>
+<p>Będziemy posługiwali się notacją Diraca, jednego z twórców mechaniki kwantowej. W książce Ch. Bernhardta “Obliczenia kwantowe dla każdego” autor rezygnuje z liczb zespolonych, na rzecz liczb rzeczywistych. O ile podejście takie sprawdza się na poziomie opisu o tyle dla pełnego zrozumienia posługiwanie się liczbami zespolonymi jest niezbędne.</p>
 <section id="liczby-rzeczywiste-i-zespolone---przypomnienie" class="level2">
 <h2 class="anchored" data-anchor-id="liczby-rzeczywiste-i-zespolone---przypomnienie">Liczby rzeczywiste i zespolone - przypomnienie</h2>
 <p>Liczby to matematyczne, abstrakcyjne pojęcia wywodzące się z teorii mnogości (zbiorów). Przykładowo, liczbę 42 można zapisa w postaci dziesiętnej lub binarnej <span class="math inline">\(42=101010_2\)</span>. Możemy znaleźć 42 przedmioty i je przeliczyć, ale w naszym przypadku skupimy się na abstrakcyjnym pojęciu liczby, niezależnie od jej reprezentacji. Liczba 42 jest liczbą naturalną. Zbiór liczb naturalnych oznaczamy jako <span class="math inline">\(\mathbb{N}\)</span>. Identyczne cechy abstrakcji mają liczby całkowite <span class="math inline">\(\mathbb{Z}\)</span>, liczby wymierne <span class="math inline">\(\mathbb{Q}\)</span>, liczby rzeczywiste <span class="math inline">\(\mathbb{R}\)</span> oraz liczby zespolone <span class="math inline">\(\mathbb{C}\)</span>. Nie możemy zobaczyć ani dotknąć liczb, ale możemy wykonywać na nich operacje matematyczne. Liczb Warto zaznaczyc,że liczby zespolone nie są bardziej abstrakcyjne niż liczby rzeczywiste, czy naturalne.</p>
-<p>Liczba zespolona (we współrzędnych Kartezjańskich) składa się z (dwóch liczb rzeczywistych) części rzeczywistej i urojonej: <span class="math display">\[z=x + i y\]</span> gdzie <span class="math inline">\(R(z)=x\)</span>, <span class="math inline">\(I(z)=y\)</span> oraz <span class="math display">\[i^2=-1\]</span>.</p>
+<p>Liczba zespolona (we współrzędnych Kartezjańskich) składa się z (dwóch liczb rzeczywistych) części rzeczywistej i urojonej: <span class="math display">\[z=x + i y\]</span> gdzie częśc rzeczywista <span class="math inline">\(R(z)=x\)</span> i urojona <span class="math inline">\(I(z)=y\)</span> oraz <span class="math display">\[i^2=-1 .\]</span></p>
 <p>Na przykład: <span class="math display">\[1+i\sqrt{3}\]</span> <span class="math inline">\(R(z)=1\)</span> i <span class="math inline">\(I(z)=\sqrt{3}\)</span>.</p>
-<p>Każdą liczbę zespoloną możemy zapisać w postaci polarnej (współrzędne biegunowe) <span class="math display">\[z=r e^{i \theta}\]</span>, gdzie <span class="math inline">\(r=|z|\)</span> to moduł liczby zespolonej, a <span class="math inline">\(\theta\)</span> to jej argument. <span class="math display">\[ z = r e^{i \theta} = r (\cos{\theta} + i \sin{\theta})\]</span> gdzie: <span class="math display">\[r = |z| = \sqrt{x^2 + y^2}\]</span> <span class="math display">\[\theta = \arctan{\frac{y}{x}}\]</span> Natomiast: <span class="math display">\[x = r \cos{\theta}\]</span> <span class="math display">\[y = r \sin{\theta}\]</span></p>
-<p>Dla naszego przykładu: <span class="math display">\[1+i\sqrt{3} = 2 e^{i \frac{\pi}{3}}\]</span></p>
-<p>Dodawanie liczb zespolonych jest łatwe dla postaci kartezjańskiej. Natomiast mnożenie dla postaci biegunowej.</p>
+<p>Każdą liczbę zespoloną możemy zapisać w postaci polarnej (współrzędne biegunowe) <span class="math display">\[ z=r e^{i \theta} , \]</span> gdzie <span class="math inline">\(r=|z|\)</span> to moduł liczby zespolonej, a <span class="math inline">\(\theta\)</span> to jej argument czyli wyrażony w radianach kąt między osią rzeczywistą a półprostą poprowadzoną od środka ukł. wsp. i przechodzącą przez punkt <span class="math inline">\(z\)</span>. <span class="math display">\[ z = r e^{i \theta} = r (\cos{\theta} + i \sin{\theta})\]</span> gdzie: <span class="math display">\[r = |z| = \sqrt{x^2 + y^2}\]</span> <span class="math display">\[\theta = \arctan{\frac{y}{x}}. \]</span> Natomiast: <span class="math display">\[x = r \cos{\theta}\]</span> <span class="math display">\[y = r \sin{\theta}\]</span></p>
+<p>Dla naszego przykładu: <span class="math display">\[1+i\sqrt{3} = 2 e^{i \frac{\pi}{3}} . \]</span></p>
 <blockquote class="blockquote">
 <p>Udowodnij samodzielnie, że powyższe równanie jest prawdziwe.</p>
 </blockquote>
+<p>Dodawanie liczb zespolonych jest łatwe dla liczb w postaci kartezjańskiej. Natomiast mnożenie liczb zespolonych upraszcza się dla postaci biegunowej (następuje zamiana mnożenia na dodawanie fazy).</p>
 <p><strong>Liczba sprzężona</strong> do liczby zespolonej <span class="math inline">\(z=x + i y\)</span> to <span class="math inline">\(z^*=x - i y = r*e^{-i \theta}\)</span>.</p>
 <p><strong>Norma</strong> liczby zespolonej <span class="math inline">\(z=x + i y\)</span> to <span class="math inline">\(|z|=\sqrt{x^2 + y^2}=r\)</span>.</p>
-<p><strong>Kwadrat normy</strong> liczby zespolonej <span class="math inline">\(z=x + i y\)</span> to <span class="math inline">\(|z|^2=x^2 + y^2=r^2\)</span>. Można go również zapisać jako <span class="math inline">\(|z|^2=z z^* = z^* z\)</span>.</p>
-<p><strong>Czynnik fazowy</strong> to liczba <span class="math inline">\(z\)</span> dla której <span class="math inline">\(r=1\)</span>. <span class="math inline">\(z=e^{i\theta}\)</span> i <span class="math inline">\(z z^* = 1\)</span>.</p>
+<p><strong>Kwadrat normy</strong> liczby zespolonej <span class="math inline">\(z=x + i y\)</span> to <span class="math inline">\(|z|^2=x^2 + y^2=r^2\)</span>.</p>
+<p>Można go również zapisać jako <span class="math display">\[|z|^2=z z^* = z^* z\]</span></p>
+<p><strong>Czynnik fazowy</strong> to liczba <span class="math inline">\(z\)</span> dla której <span class="math inline">\(r=1\)</span>.</p>
+<p>Otrzymujemy wtedy: <span class="math inline">\(z=e^{i\theta}\)</span> i <span class="math inline">\(z z^* = 1\)</span>.</p>
 <blockquote class="blockquote">
 <p>Udowodnij w kartezjańskim i polarnym układzie oniesienia.</p>
 </blockquote>
 <blockquote class="blockquote">
-<p>ile wynosi <span class="math inline">\(z_1 z_2\)</span>?</p>
+<p>ile wynosi <span class="math inline">\(z_1 z_2\)</span></p>
 </blockquote>
 <blockquote class="blockquote">
 <p>ile wynosi <span class="math inline">\(\frac{z_1}{z_2}\)</span></p>
@@ -195,19 +204,21 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="wektory-i-przestrzenie-wektorowe" class="level2">
 <h2 class="anchored" data-anchor-id="wektory-i-przestrzenie-wektorowe">Wektory i przestrzenie wektorowe</h2>
-<p>Niech dany będzie zbiór <span class="math inline">\(\mathbb{V}\)</span> oraz zbiór <span class="math inline">\(\mathbb{K}\)</span>. Elementy zbioru <span class="math inline">\(\mathbb{V}\)</span> można ze sobą dodawać i mnożyć przez elementy zbioru <span class="math inline">\(\mathbb{K}\)</span>. Wraz z dodatkowymi opracjami (zdefiniowanymi poniżej) zbiór ten będziemy nazwywali <strong>przestrzenią wektorową</strong>. Jej elementy to <strong>wektory</strong>.</p>
-<p>Uwaga wektory będziemy oznaczać jako <span class="math inline">\(\ket{v}\)</span>. Będą to kolekcje liczb. Jeśli liczby te będą rzeczywiste to będziemy mówić o <strong>przestrzeni wektorowej rzeczywistej</strong>. Natomiast jeśli liczby te będą zespolone to będziemy mówić o <strong>przestrzeni wektorowej zespolonej</strong>.</p>
-<p>Myśląc o wektorach często wyobrażamy je sobie jako strzałki w przestrzeni. Tak nas nauczono jednak nie jest to prawdziwe. Na tych zajęciach wektory będą reprezentowane jako abstrakcyjne elementy przestrzeni wektorowej. Warto jednak pamiętać, że wszystkie własności (algebraiczne) wektorów są również spełnione dla strzałek.</p>
-<section id="własności" class="level3">
-<h3 class="anchored" data-anchor-id="własności">Własności</h3>
+<p>Niech dany będzie zbiór <span class="math inline">\(\mathbb{V}\)</span> oraz zbiór <span class="math inline">\(\mathbb{K}\)</span>. Elementy zbioru <span class="math inline">\(\mathbb{V}\)</span> można ze sobą dodawać i mnożyć przez elementy zbioru <span class="math inline">\(\mathbb{K}\)</span>. Wraz z dodatkowymi opracjami (zdefiniowanymi poniżej) zbiór ten będziemy nazwywali <strong>przestrzenią wektorową</strong>. Jej elementy to <strong>wektory ket</strong> <span class="math inline">\(\ket{u}\)</span> (lub kety).</p>
+<p>Jeśli współczynniki liczbowe wektorów będą rzeczywiste to będziemy mówić o <strong>przestrzeni wektorowej rzeczywistej</strong>. Natomiast jeśli liczby te będą zespolone to będziemy mówić o <strong>przestrzeni wektorowej zespolonej</strong>.</p>
+<p>Myśląc o wektorach często wyobrażamy je sobie jako strzałki w przestrzeni. Przez strzałki rozumiemy tutaj obiekty znajdujące się w zwykłej przestrzeni i posiadające wielkoś oraz kierunek. Wektory takie mają trzy składowe - trzy (rzeczywiste) współrzędne przestrzenne.</p>
+<p>Na tych zajęciach lepiej zapomniec o tej koncepcji. Wszystkie wektory będą reprezentowane jako abstrakcyjne elementy przestrzeni wektorowej. Warto jednak pamiętać, że wszystkie własności (algebraiczne) wektorów są również spełnione dla strzałek.</p>
+<section id="aksjomaty-przestrzeni-stanów" class="level3">
+<h3 class="anchored" data-anchor-id="aksjomaty-przestrzeni-stanów">Aksjomaty przestrzeni stanów</h3>
+<p>Niech <span class="math inline">\(\ket{v}\)</span> , <span class="math inline">\(\ket{u}\)</span>, <span class="math inline">\(\ket{z}\)</span> będą dowolnymi wektorami, natomiast <span class="math inline">\(\alpha\)</span> i <span class="math inline">\(\beta\)</span> dowolnymi liczbami.</p>
 <ol type="1">
-<li><p>Istnieje szczególny (i jedyny) wektor <span class="math inline">\(\ket{0}\)</span> zerowy. Niech <span class="math inline">\(\ket{v}\)</span> , <span class="math inline">\(\ket{u}\)</span>, <span class="math inline">\(\ket{z}\)</span> będą dowolnymi wektorami, natomiast <span class="math inline">\(\alpha\)</span> i <span class="math inline">\(\beta\)</span> dowolnymi liczbami.</p></li>
+<li><p>Suma dwóch wektorów ket jest wektorem ket <span class="math display">\[\ket{v} + \ket{u} = \ket{z}\]</span></p></li>
 <li><p>Dodawanie wektorów jest przemienne: <span class="math display">\[\ket{v} + \ket{u} = \ket{u} + \ket{v}\]</span></p></li>
 <li><p>Dodawanie wektorów jest łączne: <span class="math display">\[\ket{v} + (\ket{u} + \ket{z}) = (\ket{v} + \ket{u}) + \ket{z}\]</span></p></li>
-<li><p>Istnieje szczególny (i jedyny) wektor <span class="math inline">\(\ket{v}\)</span> odwrotny do wektora <span class="math inline">\(\ket{u}\)</span>: <span class="math display">\[\ket{v} + \ket{u} = \ket{0}\]</span></p></li>
-<li><p>Dla każdego wektora <span class="math inline">\(\ket{v}\)</span> zachodzi: <span class="math display">\[\ket{v} + \ket{0} = \ket{0} + \ket{v} = \ket{v}\]</span></p></li>
+<li><p>Istnieje szczególny (i jedyny) wektor <span class="math inline">\(\ket{v}\)</span> odwrotny do wektora <span class="math inline">\(\ket{u}\)</span>: <span class="math display">\[\ket{v} + \ket{u} = 0\]</span></p></li>
+<li><p>Istnieje szczególny (i jedyny) wektor <span class="math inline">\(0\)</span> zerowy. Dla każdego wektora <span class="math inline">\(\ket{v}\)</span> zachodzi: <span class="math display">\[\ket{v} + 0 = 0 + \ket{v} = \ket{v}\]</span></p></li>
 <li><p>1*wektor = wektor: <span class="math display">\[1 \ket{v} = \ket{v}\]</span></p></li>
-<li><p>łączność mnożenia przez skalar: <span class="math display">\[\alpha (\beta \ket{v}) = (\alpha \beta) \ket{v}\]</span></p></li>
+<li><p>Łączność mnożenia przez skalar: <span class="math display">\[\alpha (\beta \ket{v}) = (\alpha \beta) \ket{v}\]</span></p></li>
 <li><p>Rozdzielność mnożenia przez skalar względem dodawania wektorów: <span class="math display">\[\alpha (\ket{v} + \ket{u}) = \alpha \ket{v} + \alpha \ket{u}\]</span></p></li>
 <li><p>Rozdzielność&nbsp;dodawania skalarów względem mnożenia przez wektor: <span class="math display">\[(\alpha + \beta) \ket{v} = \alpha \ket{v} + \beta \ket{v}\]</span></p></li>
 </ol>
@@ -221,12 +232,19 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="wektory-wierszowe" class="level3">
 <h3 class="anchored" data-anchor-id="wektory-wierszowe">Wektory wierszowe</h3>
-<p><span class="math display">\[ \begin{bmatrix} x_1  x_2 \dots x_n \end{bmatrix}\]</span>. Analogicznie do poprzedniego przykładu łatwo określić jak dodawać je ze sobą i mnożyć przez liczbę. W notacji Diraca będziemy takie wektory oznaczali przez “bra” <span class="math inline">\(\bra{.}\)</span>.</p>
+<p><span class="math display">\[ \begin{bmatrix} x_1 \,\, x_2 \,\, \dots \,\, x_n \end{bmatrix}\]</span></p>
+<p>Analogicznie do poprzedniego przykładu łatwo określić jak dodawać je ze sobą i mnożyć przez liczbę. W notacji Diraca będziemy takie wektory oznaczali przez “bra” <span class="math inline">\(\bra{.}\)</span>.</p>
 </section>
 <section id="transpozycja-i-sprzężenie-hermitowskie." class="level3">
 <h3 class="anchored" data-anchor-id="transpozycja-i-sprzężenie-hermitowskie.">Transpozycja i sprzężenie Hermitowskie.</h3>
-<p>Transpozycja <span class="math inline">\(T\)</span> Zamienia wektory wierszowe na kolumnowe i odwrotnie. Natomiast sprzężenie hermitowskie <span class="math inline">\(\dagger\)</span> dodatkowo dodaje sprzężenie zespolone.</p>
+<p>Transpozycja <span class="math inline">\(T\)</span> Zamienia wektory wierszowe na kolumnowe i odwrotnie.</p>
+<p><span class="math display">\[ \begin{bmatrix} x_1 \\ x_2 \\ .\\ x_n \end{bmatrix}^{T} = \begin{bmatrix} x_1 \,\, x_2 \,\, \dots \,\, x_n \end{bmatrix}\]</span></p>
+<p>oraz <span class="math display">\[ \begin{bmatrix} x_1 \,\, x_2 \,\, \dots \,\, x_n \end{bmatrix}^{T} = \begin{bmatrix} x_1 \\ x_2 \\ .\\ x_n \end{bmatrix}\]</span></p>
+<p>Natomiast sprzężenie hermitowskie <span class="math inline">\(\dagger = T \ast\)</span> dodatkowo do transpozycji dodaje sprzężenie zespolone.</p>
 <p><span class="math display">\[\ket{u}^{\dagger} = \bra{u}\]</span> <span class="math display">\[\bra{u}^{\dagger} = \ket{u}\]</span></p>
+<p>Czyli: <span class="math display">\[ (\ket{u} + \ket{v})^{\dagger} = \bra{u} + \bra{v} \]</span> oraz <span class="math display">\[ \alpha \ket{u} \to \bra{u} \alpha^*\]</span></p>
+<p><span class="math display">\[ \begin{bmatrix} x_1 \\ x_2 \\ .\\ x_n \end{bmatrix}^{\dagger} = \begin{bmatrix} x_1^* \,\, x_2^* \,\, \dots \,\, x_n^* \end{bmatrix}\]</span></p>
+<p>oraz <span class="math display">\[ \begin{bmatrix} x_1 \,\, x_2 \,\, \dots \,\, x_n \end{bmatrix}^{\dagger} = \begin{bmatrix} x_1^* \\ x_2^* \\ .\\ x_n^* \end{bmatrix}\]</span></p>
 </section>
 <section id="iloczyn-skalarny" class="level3">
 <h3 class="anchored" data-anchor-id="iloczyn-skalarny">Iloczyn skalarny</h3>
@@ -240,33 +258,62 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Dla dwóch wektorów <span class="math inline">\(\ket{u}\)</span> i <span class="math inline">\(\ket{v}\)</span> otrzymujemy: <span class="math display">\[ \ket{u} = \begin{bmatrix} x_1 \\ x_2 \\ .\\ x_n \end{bmatrix}, \ket{v} = \begin{bmatrix} y_1 \\ y_2 \\ .\\ y_n \end{bmatrix} \]</span></p>
 <p><span class="math display">\[ \braket{u}{v} = x_1^{*}y_1 +x_2^{*}y_2 + \dots + x_n^{*}y_n\]</span></p>
+<blockquote class="blockquote">
+<p>Zadanie - Udowodnij, że <span class="math inline">\(\braket{u}{u}\)</span> jest liczbą rzeczywistą.</p>
+</blockquote>
+<p><strong>wektor znormalizowany</strong> <span class="math inline">\(\braket{u}{u}=1\)</span></p>
+<p><strong>wektory ortogonalne</strong> <span class="math inline">\(\braket{u}{v}=0\)</span></p>
 </section>
 <section id="kombinacja-liniowa-wektorów" class="level3">
 <h3 class="anchored" data-anchor-id="kombinacja-liniowa-wektorów">Kombinacja liniowa wektorów</h3>
-<p>Dla dwóch wektorów <span class="math inline">\(\ket{u}\)</span> i <span class="math inline">\(\ket{v}\)</span> oraz dwóch liczb <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> możemy stworzyć nowy wektor: <span class="math display">\[\ket{z} = \alpha \ket{u} + \beta \ket{v}\]</span> Wektor ten nazywamy kombinacją liniową wektorów <span class="math inline">\(\ket{u}\)</span> i <span class="math inline">\(\ket{v}\)</span>.</p>
+<p>Dla dwóch wektorów <span class="math inline">\(\ket{u}\)</span> i <span class="math inline">\(\ket{v}\)</span> oraz dwóch liczb <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span> możemy stworzyć nowy wektor: <span class="math display">\[\ket{z} = \alpha \ket{u} + \beta \ket{v}\]</span> Wektor ten nazywamy kombinacją liniową wektorów <span class="math inline">\(\ket{u}\)</span> i <span class="math inline">\(\ket{v}\)</span> o współczynnikach <span class="math inline">\(\alpha\)</span> i <span class="math inline">\(\beta\)</span>.</p>
+</section>
+<section id="baza" class="level3">
+<h3 class="anchored" data-anchor-id="baza">Baza</h3>
+<p>Każda przestrzeń&nbsp;wektorowa ma <em>bazę</em>.</p>
+<p><strong>Dowolny wektor można zapisa jako kombinację liniową wektorów bazowych.</strong></p>
+<p>Interesowac będzie nas baza (obliczeniowa) dla której:</p>
+<p><span class="math display">\[ \braket{e_i}{e_i}=1 \,\, \braket{e_i}{e_j}=0 \,\, \text{dla i} \neq j \]</span> gdzie <span class="math inline">\(i,\,j = 1,2,\dots, n\)</span>.</p>
+<p>Dowolny wektor <span class="math inline">\(\ket{u}\)</span> możemy zapisa jako: <span class="math display">\[ \ket{u} = \braket{e_1}{u}\ket{e_1} + \braket{e_2}{u}\ket{e_2} + ... + \braket{e_n}{u}\ket{e_n}  \]</span></p>
+<p>Warto zauważyc: <span class="math display">\[\braket{e_1}{u}= x_1\]</span> <span class="math display">\[\ket{u} = \sum_{i=1}^{n} \ket{i}\bra{i} \ket{u}\]</span></p>
 </section>
 </section>
 <section id="formalizm-matematyczny-obliczeń-kwantowych" class="level2">
 <h2 class="anchored" data-anchor-id="formalizm-matematyczny-obliczeń-kwantowych">Formalizm matematyczny obliczeń kwantowych</h2>
 <p>Ta wiedza wystarczy do wyjaśnienia <em>notacji Diraca</em>.</p>
 <p>Iloczyn skalarny <span class="math inline">\(\braket{\psi}{\phi}\)</span> wektorów <span class="math inline">\(\ket{\psi}\)</span> i <span class="math inline">\(\ket{\phi}\)</span> czytamy jako <em>braket u v</em>.</p>
-</section>
-<section id="stan" class="level2">
-<h2 class="anchored" data-anchor-id="stan">Stan</h2>
+<section id="stan" class="level3">
+<h3 class="anchored" data-anchor-id="stan">Stan</h3>
 <p>Stanem w mechanice kwantowej nazywamy wektor:</p>
 <p><span class="math display">\[\ket{\psi} = x_0 \ket{0} + x_1 \ket{1} + \dots x_{n-1} \ket{n-1}\]</span></p>
 <p>Chcemy aby współczynniki <span class="math inline">\(x_i\)</span> były liczbami zespolonymi a cały wektor był unormowany do 1.</p>
 <p>Liczby <span class="math inline">\(x_i\)</span> nazywamy <strong>amplitudami prawdopodobieństwa</strong> stanu kwantowego. Jeśli przynajmniej dwie liczby <span class="math inline">\(x_i\)</span> są niezerowe, to układ znajduje się w <strong>superpozycji</strong> stanów.</p>
+</section>
 <section id="kubit" class="level3">
 <h3 class="anchored" data-anchor-id="kubit">Kubit</h3>
 <p>Elementarnym obiektem w informatyce kwantowej jest <em>kubit</em>, który realizowany jest jako dwu wymiarowy układ kwantowy. Stan kwantowy kubitu opisuje <strong>wektor</strong> w przestrzeni liniowej <span class="math inline">\(\mathbb{C}^2\)</span>.</p>
 <p>W celu wykonywania obliczeń i opisu stanu kubitu wybierzemy tzw. bazę obliczeniową: <span class="math display">\[\ket{0} = \begin{bmatrix} 1 \\ 0  \end{bmatrix} , \ket{1} = \begin{bmatrix} 0 \\ 1  \end{bmatrix}\]</span></p>
-<p>To co wyróżnia kubit w porównaniu do klasycznego bitu dowolny stan <span class="math inline">\(\ket{\psi}\)</span> może być superpozycją stanów bazowych: <span class="math display">\[\ket{\psi} = \alpha \ket{0} + \beta \ket{1}\]</span> dla którego zachodzi warunek normalizacji: <span class="math display">\[\braket{\psi}{\psi} = |\alpha|^2 + |\beta|^2 = 1\]</span> i <span class="math inline">\(\alpha, \beta \in \mathbb{C}\)</span>.</p>
-<p>Liczby <span class="math inline">\(\alpha\)</span> i <span class="math inline">\(\beta\)</span> są zespolone, zatem potrzeba 4 liczb rzeczywistych aby je opisać. Ze względu na warunek normalizacji wystarczą 3 liczby rzeczywiste. Czwartą liczbę możemy obliczyć.</p>
+<p>To co wyróżnia kubit w porównaniu do klasycznego bitu dowolny stan <span class="math inline">\(\ket{\psi}\)</span> może być superpozycją stanów bazowych: <span class="math display">\[\ket{\psi} = \alpha \ket{0} + \beta \ket{1}\]</span> dla którego zachodzi warunek normalizacji: <span class="math display">\[\braket{\psi}{\psi} = |\alpha|^2 + |\beta|^2 = 1\]</span> gdzie <span class="math inline">\(\alpha, \beta \in \mathbb{C}\)</span>.</p>
+<blockquote class="blockquote">
+<p>ZADANIE - oblicz powyższą amplitudę.</p>
+</blockquote>
+<p>Liczby <span class="math inline">\(\alpha\)</span> i <span class="math inline">\(\beta\)</span> są zespolone, zatem potrzeba 4 liczb rzeczywistych aby je opisać. Ze względu na warunek normalizacji wystarczą 3 liczby rzeczywiste. Czwartą liczbę możemy obliczyć z warunku normalizacji.</p>
 <p>Stan kubitu możemy zapisać w postaci: <span class="math display">\[\ket{\psi} = e^{i \gamma}\left( \cos{\frac{\theta}{2}} \ket{0} + e^{i \phi} \sin{\frac{\theta}{2}} \ket{1} \right)\]</span> gdzie <span class="math inline">\(\theta \in [0, \pi]\)</span>, <span class="math inline">\(\phi \in [0, 2\pi]\)</span> i <span class="math inline">\(\gamma \in [0, 2\pi]\)</span> są liczbami rzeczywistymi.</p>
 <p>Współczynnik <span class="math inline">\(e^{i \gamma}\)</span> nazywamy <em>fazą globalną</em>. Ze względu, iż analizować będziemy kwadraty amplitud prawdopodobieństwa to faza globalna nie ma znaczenia. Dlatego możemy napisać: <span class="math display">\[\ket{\psi} = \cos{\frac{\theta}{2}} \ket{0} + e^{i \phi} \sin{\frac{\theta}{2}} \ket{1}\]</span></p>
 <p>Warto zauważyć, że dwa dowolne stany kubitów <span class="math inline">\(\ket{\psi}\)</span> i <span class="math inline">\(\ket{\phi}\)</span> różnią się o czynnik fazowy <span class="math inline">\(e^{i \gamma}\)</span> to stany te dają identyczne wyniki.</p>
 <p>Liczby rzeczywiste <span class="math inline">\(\theta\)</span> i <span class="math inline">\(\phi\)</span> nazywamy <em>kątami</em> kubitu i możemy interpretować je jako współrzędne na <strong>sferze Blocha</strong>. Bardzo często będziemy wykorzystywać ją do wizualizacji stanów kubitów.</p>
+</section>
+<section id="dwa-kubity" class="level3">
+<h3 class="anchored" data-anchor-id="dwa-kubity">Dwa kubity</h3>
+<p>Złączenie układu dwóch kubitów realizowane jest przez <em>iloczyn tensorowy</em> (iloczyn Kroneckera).</p>
+<p>Rozważmy dwa stany kubitów <span class="math inline">\(\ket{\psi}\)</span>, <span class="math inline">\(\ket{\phi}\)</span></p>
+<p><span class="math display">\[\ket{\psi} = \alpha \ket{0} + \beta \ket{1} = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}\, ,\,\,
+\ket{\phi} = \gamma \ket{0} + \delta \ket{1} = \begin{bmatrix} \gamma \\ \delta \end{bmatrix}
+\]</span></p>
+<p>Stan dwukubitowy: <span class="math display">\[ \ket{\psi} \otimes \ket{\phi} = \begin{bmatrix} \alpha \gamma \\ \alpha \delta \\ \beta \gamma \\ \beta \delta \end{bmatrix} = \alpha \gamma \ket{0} \otimes \ket{0} + \beta \delta \ket{1} \otimes \ket{0}  + \alpha \delta \ket{0} \otimes \ket{1}  + \beta \delta \ket{1} \otimes \ket{1} \]</span> co możemy zapisa jako: <span class="math display">\[ \ket{\psi \phi} = \alpha \gamma \ket{00} + \beta \delta \ket{10}  + \alpha \delta \ket{01}  + \beta \delta \ket{11} \]</span></p>
+</section>
+<section id="stan-splątany-i-separowalny" class="level3">
+<h3 class="anchored" data-anchor-id="stan-splątany-i-separowalny">Stan splątany i separowalny</h3>
 
 
 </section>
