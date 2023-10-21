@@ -282,4 +282,27 @@ $$ \ket{\psi} \otimes \ket{\phi} = \begin{bmatrix} \alpha \gamma \\ \alpha \delt
 co możemy zapisa jako:
 $$ \ket{\psi \phi} = \alpha \gamma \ket{00} + \beta \delta \ket{10}  + \alpha \delta \ket{01}  + \beta \delta \ket{11} $$
 
-### Stan splątany i separowalny
+Po przenumerowaniu stanów możemy napisac:
+$$ \ket{\Phi} = c_0 \ket{0} + c_1 \ket{1}  + c_2 \ket{2}  + c_3 \ket{3} $$
+
+
+### Stan separowalny i splątany
+
+Jeżeli istnieją stany $\ket{\phi_1}$ i $\ket{\phi_2}$ takie, że
+$$\ket{\psi} = \ket{\phi_1} \otimes \ket{\phi_2}$$
+to stan nazywamy **separowalny**.
+
+Zobaczmy, czy istnieje przypadek w którym stan układu dwóch kubitów nie da się zaprezentowac jako iloczynu tensorowego podukładów.
+Aby to sprawdzic zobaczmy czy istnieją takie liczby $c_0, c_1, c_2, c_3$ dla których **nie da się** znaleźc $\alpha, \beta,\gamma, \delta$, które spełniają układ równań:
+$$c_0 = \alpha \gamma , \, c_1 = \alpha \delta , \, c_2 = \beta \gamma , \, c_3 = \beta \delta $$
+
+Rozważmy stan $\ket{bell} = \frac{1}{\sqrt{2}}(\ket{0}+\ket{3}) = \frac{1}{\sqrt{2}}(\ket{00}+\ket{11})$
+dla uproszczenia pominiemy czynnik $\frac{1}{\sqrt(2)}$
+
+Załóżmy, że możemy zapisa stan `bell` w postaci:
+$$ \alpha \gamma \ket{0} + \beta \delta \ket{1}  + \alpha \delta \ket{2}  + \beta \delta \ket{3} $$
+
+Pozwala to otrzymac układ równań:
+$$ \alpha \gamma = 1 \,\, \alpha \delta = 0 \,\, \beta \gamma = 0 \,\,$$
+
+

@@ -143,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#stan" id="toc-stan" class="nav-link" data-scroll-target="#stan">Stan</a></li>
   <li><a href="#kubit" id="toc-kubit" class="nav-link" data-scroll-target="#kubit">Kubit</a></li>
   <li><a href="#dwa-kubity" id="toc-dwa-kubity" class="nav-link" data-scroll-target="#dwa-kubity">Dwa kubity</a></li>
-  <li><a href="#stan-splątany-i-separowalny" id="toc-stan-splątany-i-separowalny" class="nav-link" data-scroll-target="#stan-splątany-i-separowalny">Stan splątany i separowalny</a></li>
+  <li><a href="#stan-separowalny-i-splątany" id="toc-stan-separowalny-i-splątany" class="nav-link" data-scroll-target="#stan-separowalny-i-splątany">Stan separowalny i splątany</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -311,9 +311,15 @@ ul.task-list li input[type="checkbox"] {
 \ket{\phi} = \gamma \ket{0} + \delta \ket{1} = \begin{bmatrix} \gamma \\ \delta \end{bmatrix}
 \]</span></p>
 <p>Stan dwukubitowy: <span class="math display">\[ \ket{\psi} \otimes \ket{\phi} = \begin{bmatrix} \alpha \gamma \\ \alpha \delta \\ \beta \gamma \\ \beta \delta \end{bmatrix} = \alpha \gamma \ket{0} \otimes \ket{0} + \beta \delta \ket{1} \otimes \ket{0}  + \alpha \delta \ket{0} \otimes \ket{1}  + \beta \delta \ket{1} \otimes \ket{1} \]</span> co możemy zapisa jako: <span class="math display">\[ \ket{\psi \phi} = \alpha \gamma \ket{00} + \beta \delta \ket{10}  + \alpha \delta \ket{01}  + \beta \delta \ket{11} \]</span></p>
+<p>Po przenumerowaniu stanów możemy napisac: <span class="math display">\[ \ket{\Phi} = c_0 \ket{0} + c_1 \ket{1}  + c_2 \ket{2}  + c_3 \ket{3} \]</span></p>
 </section>
-<section id="stan-splątany-i-separowalny" class="level3">
-<h3 class="anchored" data-anchor-id="stan-splątany-i-separowalny">Stan splątany i separowalny</h3>
+<section id="stan-separowalny-i-splątany" class="level3">
+<h3 class="anchored" data-anchor-id="stan-separowalny-i-splątany">Stan separowalny i splątany</h3>
+<p>Jeżeli istnieją stany <span class="math inline">\(\ket{\phi_1}\)</span> i <span class="math inline">\(\ket{\phi_2}\)</span> takie, że <span class="math display">\[\ket{\psi} = \ket{\phi_1} \otimes \ket{\phi_2}\]</span> to stan nazywamy <strong>separowalny</strong>.</p>
+<p>Zobaczmy, czy istnieje przypadek w którym stan układu dwóch kubitów nie da się zaprezentowac jako iloczynu tensorowego podukładów. Aby to sprawdzic zobaczmy czy istnieją takie liczby <span class="math inline">\(c_0, c_1, c_2, c_3\)</span> dla których <strong>nie da się</strong> znaleźc <span class="math inline">\(\alpha, \beta,\gamma, \delta\)</span>, które spełniają układ równań: <span class="math display">\[c_0 = \alpha \gamma , \, c_1 = \alpha \delta , \, c_2 = \beta \gamma , \, c_3 = \beta \delta \]</span></p>
+<p>Rozważmy stan <span class="math inline">\(\ket{bell} = \frac{1}{\sqrt{2}}(\ket{0}+\ket{3}) = \frac{1}{\sqrt{2}}(\ket{00}+\ket{11})\)</span> dla uproszczenia pominiemy czynnik <span class="math inline">\(\frac{1}{\sqrt(2)}\)</span></p>
+<p>Załóżmy, że możemy zapisa stan <code>bell</code> w postaci: <span class="math display">\[ \alpha \gamma \ket{0} + \beta \delta \ket{1}  + \alpha \delta \ket{2}  + \beta \delta \ket{3} \]</span></p>
+<p>Pozwala to otrzymac układ równań: <span class="math display">\[ \alpha \gamma = 1 \,\, \alpha \delta = 0 \,\, \beta \gamma = 0 \,\,\]</span></p>
 
 
 </section>
