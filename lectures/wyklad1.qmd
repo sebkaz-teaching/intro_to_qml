@@ -190,6 +190,7 @@ Fizyczna konstrukcja komputera kwantowego, a właściwie qubitu, jest zadaniem n
 #### Kwantowa Złożoność (Quantum Complexity)
    
 Nowy paradygmat wykorzystuje unikalne cechy interferencji, superpozycji i splątania w celu wykonywania obliczeń. Obecnie realizowany jest w trzech modelach:
+
 1. Quantum Circuits (Obwody Kwantowe) - oparty na modelu bramkowym, w tym QAOA, VQA, oraz metody hybrydowe.
 2. Adiabatyczne Obliczenia Kwantowe (D-Wave) - polegające na minimalizacji energii, z wykorzystaniem QUBO i analogii do modelu Isinga.
 3. Topologiczne Komputery Kwantowe - oparte na topologicznych kubitach.
@@ -204,8 +205,7 @@ Kwantowy komputer może być używany do efektywnej symulacji niemal dowolnego p
 Dekoherencja, czyli oddziaływanie z otoczeniem, niszczy stan komputera kwantowego i wprowadza błędy obliczeniowe. 
 Istnieje potrzeba zabezpieczenia przed tym zjawiskiem.
 Obliczenia kwantowe wymagają tzw. korekcji błędów, która pomaga w utrzymaniu integralności obliczeń na komputerach kwantowych.
-Aktualnie mówimy o erze _Noisy Intermediate-Scale Quantum_ (NISQ), co oznacza, że komputery kwantowe wciąż potrzebują rozwoju w zakresie korekcji błędów i stabilności."
-
+Aktualnie mówimy o erze _Noisy Intermediate-Scale Quantum_ (NISQ), co oznacza, że komputery kwantowe wciąż potrzebują rozwoju w zakresie korekcji błędów i stabilności.
 
 ### Realizacja fizyczna komputerów kwantowych
 

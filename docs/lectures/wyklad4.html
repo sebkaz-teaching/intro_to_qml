@@ -60,6 +60,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../style.css">
 </head>
@@ -126,15 +128,16 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#ewolucja-kwantowa" id="toc-ewolucja-kwantowa" class="nav-link active" data-scroll-target="#ewolucja-kwantowa">Ewolucja kwantowa</a></li>
-  <li><a href="#bramki-kwantowe" id="toc-bramki-kwantowe" class="nav-link" data-scroll-target="#bramki-kwantowe">Bramki kwantowe</a>
+  <li><a href="#bramki-jednokubitowe" id="toc-bramki-jednokubitowe" class="nav-link" data-scroll-target="#bramki-jednokubitowe">Bramki jednokubitowe</a>
   <ul class="collapse">
-  <li><a href="#bramki-jednokubitowe" id="toc-bramki-jednokubitowe" class="nav-link" data-scroll-target="#bramki-jednokubitowe">Bramki jednokubitowe</a></li>
-  <li><a href="#bramki-kontrolne" id="toc-bramki-kontrolne" class="nav-link" data-scroll-target="#bramki-kontrolne">Bramki kontrolne</a></li>
-  </ul></li>
-  <li><a href="#układy-kwantowe" id="toc-układy-kwantowe" class="nav-link" data-scroll-target="#układy-kwantowe">Układy kwantowe</a></li>
-  <li><a href="#losowy-bit" id="toc-losowy-bit" class="nav-link" data-scroll-target="#losowy-bit">losowy bit</a></li>
-  <li><a href="#losowy-bajt" id="toc-losowy-bajt" class="nav-link" data-scroll-target="#losowy-bajt">losowy bajt</a></li>
+  <li><a href="#bramka-identycznościowa" id="toc-bramka-identycznościowa" class="nav-link" data-scroll-target="#bramka-identycznościowa">Bramka identycznościowa</a></li>
+  <li><a href="#bramka-negacji-x-not" id="toc-bramka-negacji-x-not" class="nav-link" data-scroll-target="#bramka-negacji-x-not">Bramka negacji X (NOT)</a></li>
+  <li><a href="#bramka-negacji-fazy-y" id="toc-bramka-negacji-fazy-y" class="nav-link" data-scroll-target="#bramka-negacji-fazy-y">Bramka negacji fazy Y</a></li>
+  <li><a href="#bramka-negacji-fazy-i-bitu-z" id="toc-bramka-negacji-fazy-i-bitu-z" class="nav-link" data-scroll-target="#bramka-negacji-fazy-i-bitu-z">Bramka negacji fazy i bitu Z</a></li>
+  <li><a href="#bramka-hadamarda-h" id="toc-bramka-hadamarda-h" class="nav-link" data-scroll-target="#bramka-hadamarda-h">Bramka Hadamarda H</a></li>
+  <li><a href="#losowy-bit" id="toc-losowy-bit" class="nav-link" data-scroll-target="#losowy-bit">Losowy bit</a></li>
   <li><a href="#gra-w-obracanie-monety" id="toc-gra-w-obracanie-monety" class="nav-link" data-scroll-target="#gra-w-obracanie-monety">Gra w obracanie monety</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -160,29 +163,103 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="ewolucja-kwantowa" class="level2">
 <h2 class="anchored" data-anchor-id="ewolucja-kwantowa">Ewolucja kwantowa</h2>
+<p>Zmianę stanu kwantowego w czasie opisuje <strong>Ewolucja kwantowa</strong>.</p>
+<p>Rozważmy stan układu w chwili <span class="math inline">\(t=0\)</span>.</p>
+<p><span class="math display">\[\ket{\psi_{t=0}}\]</span> W chwili <span class="math inline">\(t=1\)</span> otrzymujemy stan <span class="math inline">\(\ket{\psi_{t=1}}\)</span> t. że: <span class="math display">\[\ket{\psi_{t=1}} = \textbf{U} \, \ket{\psi_{t=0}} \]</span> gdzie <span class="math inline">\(\textbf{U}\)</span> jest <strong>macierzą unitarną</strong>.</p>
+<p>Powyższe równanie opisuje zachowanie wszystkich układów kwantowych.</p>
+<p>Rozważmy stany bazowe <span class="math inline">\(\ket{0}\)</span>, <span class="math inline">\(\ket{1}\)</span>, które będziemy chcieli zamienic w ich superpozycję. <span class="math display">\[
+\textbf{U}\ket{0} = a\ket{0} + b\ket{1} = \begin{bmatrix} a \\ b \end{bmatrix}
+\]</span> <span class="math display">\[
+\textbf{U}\ket{1} = c\ket{0} + d\ket{1} = \begin{bmatrix} c \\ d \end{bmatrix}
+\]</span></p>
+<p>Korzystając z tych równań możemy napisac: <span class="math display">\[
+\textbf{U} = \left( \begin{bmatrix} a \\ b \end{bmatrix} \begin{bmatrix} c \\ d \end{bmatrix}\right) = \begin{bmatrix} a \, \, b \\ c \,\, d \end{bmatrix}
+\]</span></p>
+<p>W informatyce macierze unitarne będą realizowały <strong>logiczne bramki kwantowe</strong>.</p>
+<blockquote class="blockquote">
+<p>Dlaczego bramki kwantowe muszą by unitarne?</p>
+</blockquote>
+<p>Norma stanu kwantowego wynosi zawsze 1. Jest to prawdopodobieństwo całkowite sumy stanów bazowych. Prawdopodobieństwo to powinno by zachowane. Co oznacza, że chemy znaleźc taką transformację, która nie zmienia długości (kwadratu) wektora. Taka transformacja realizowana jest przez obroty.</p>
+<p>Warto zwrócic uwagę na jeszcze jeden fakt. Macierz odwrotna do <span class="math inline">\(\textbf{U}\)</span> (oznaczana jako <span class="math inline">\(\textbf{U}^{-1}\)</span>) zawsze istnieje i jest ona równa sprzężeniu Hermitowskiemu macierzu <span class="math inline">\(\textbf{U}=\textbf{U}^{\dagger}\)</span>. Dlatego ewolucja stanów kwantowych zawsze jest odwracalna. A to oznacza, że i bramki muszą by operacjami odwracalnymi. <span class="math display">\[\ket{\psi_{t=0}} = \textbf{U}^{\dagger} \ket{\psi_{t=1}} \]</span></p>
 </section>
-<section id="bramki-kwantowe" class="level2">
-<h2 class="anchored" data-anchor-id="bramki-kwantowe">Bramki kwantowe</h2>
-<section id="bramki-jednokubitowe" class="level3">
-<h3 class="anchored" data-anchor-id="bramki-jednokubitowe">Bramki jednokubitowe</h3>
+<section id="bramki-jednokubitowe" class="level2">
+<h2 class="anchored" data-anchor-id="bramki-jednokubitowe">Bramki jednokubitowe</h2>
+<p>Spośród wszystkich bramek kwantowych istnieje kilka, które mają swoje ustalone nazwy. Są one często wykorzystywane w obliczeniach kwatnowych. Rozważmy stan <span class="math display">\[
+\ket{\psi} = \alpha \ket{0} + \beta \ket{1}
+\]</span></p>
+<section id="bramka-identycznościowa" class="level3">
+<h3 class="anchored" data-anchor-id="bramka-identycznościowa">Bramka identycznościowa</h3>
+<p><span class="math display">\[ \textbf{I} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix} \]</span></p>
+<p>Zobaczmy jak operator ten działa na stany bazowe: <span class="math display">\[ \textbf{I} \ket{0} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \]</span></p>
+<p><span class="math display">\[ \textbf{I} \ket{1} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} \]</span></p>
+<p>Działając na stan <span class="math inline">\(\ket{\psi}\)</span> otrzymujemy: <span class="math display">\[
+\textbf{I} \ket{\psi} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix} \ket{\psi} =  \textbf{I} \left( \alpha \ket{0} + \beta \ket{1} \right) = \alpha \ket{0} + \beta \ket{1}
+\]</span></p>
 </section>
-<section id="bramki-kontrolne" class="level3">
-<h3 class="anchored" data-anchor-id="bramki-kontrolne">Bramki kontrolne</h3>
+<section id="bramka-negacji-x-not" class="level3">
+<h3 class="anchored" data-anchor-id="bramka-negacji-x-not">Bramka negacji X (NOT)</h3>
+<p><span class="math display">\[ \textbf{X} \ket{0} = \begin{bmatrix} 0 \,\, 1 \\ 1\,\, 0 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \ket{1} \]</span></p>
+<p><span class="math display">\[ \textbf{X} \ket{1} = \begin{bmatrix} 0 \,\, 1 \\ 1 \,\, 0 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \ket{0}\]</span></p>
+<p>Działając na stan <span class="math inline">\(\ket{\psi}\)</span> otrzymujemy: <span class="math display">\[
+\textbf{X} \ket{\psi} = \begin{bmatrix} 0 \,\, 1 \\ 1 \,\, 0 \end{bmatrix} \ket{\psi} =  \textbf{X} \left( \alpha \ket{0} + \beta \ket{1} \right) = \alpha \ket{1} + \beta \ket{0}
+\]</span></p>
 </section>
+<section id="bramka-negacji-fazy-y" class="level3">
+<h3 class="anchored" data-anchor-id="bramka-negacji-fazy-y">Bramka negacji fazy Y</h3>
+<p><span class="math display">\[ \textbf{Y} \ket{0} = \begin{bmatrix} 0 \,\, -i \\ i \,\,\,\,\,\,\, 0 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = i \ket{1} \]</span></p>
+<p><span class="math display">\[ \textbf{Y} \ket{1} = \begin{bmatrix} 0 \, -i \\ i \,\,\,\,\,\, 0 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = -i \ket{0}\]</span></p>
+<p>Działając na stan <span class="math inline">\(\ket{\psi}\)</span> otrzymujemy: <span class="math display">\[
+\textbf{Y} \ket{\psi} = \begin{bmatrix} 0 \,\, -i \\ i \,\,\,\,\,\, 0 \end{bmatrix} \ket{\psi} =  \textbf{Y} \left( \alpha \ket{0} + \beta \ket{1} \right) = \alpha i \ket{1} - \beta i \ket{0}
+\]</span></p>
 </section>
-<section id="układy-kwantowe" class="level2">
-<h2 class="anchored" data-anchor-id="układy-kwantowe">Układy kwantowe</h2>
+<section id="bramka-negacji-fazy-i-bitu-z" class="level3">
+<h3 class="anchored" data-anchor-id="bramka-negacji-fazy-i-bitu-z">Bramka negacji fazy i bitu Z</h3>
+<p><span class="math display">\[ \textbf{Z} \ket{0} = \begin{bmatrix} 1\,\,\,\,\,\,\, 0 \\ 0 \, -1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = 1 \ket{0} \]</span></p>
+<p><span class="math display">\[ \textbf{Z} \ket{1} = \begin{bmatrix} 1 \,\,\,\,\,\,\, 0 \\ 0 \, -1 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = -1 \ket{1}\]</span></p>
+<p>Działając na stan <span class="math inline">\(\ket{\psi}\)</span> otrzymujemy: <span class="math display">\[
+\textbf{Z} \ket{\psi} = \begin{bmatrix} 0 \,\,\,\,\,\,\, 1 \\ 0 \, -1 \end{bmatrix} \ket{\psi} =  \textbf{Z} \left( \alpha \ket{0} + \beta \ket{1} \right) = \alpha \ket{0} - \beta \ket{1}
+\]</span></p>
 </section>
-<section id="losowy-bit" class="level2">
-<h2 class="anchored" data-anchor-id="losowy-bit">losowy bit</h2>
+<section id="bramka-hadamarda-h" class="level3">
+<h3 class="anchored" data-anchor-id="bramka-hadamarda-h">Bramka Hadamarda H</h3>
+<p><span class="math display">\[ \textbf{H} \ket{0} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1\,\,\,\,\,\,\, 1 \\ 1 \, -1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \ket{0} + \ket{1} \right) = \ket{+} \]</span></p>
+<p><span class="math display">\[ \textbf{H} \ket{1} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1\,\,\,\,\,\,\, 1 \\ 1 \, -1 \end{bmatrix}  \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \ket{0} - \ket{1} \right) = \ket{-}\]</span></p>
+<!-- dodac opis pozostalych bramek ale tylko juz postac macierzowa
+phase s , t 3.3.2 rozdzial
+ -->
 </section>
-<section id="losowy-bajt" class="level2">
-<h2 class="anchored" data-anchor-id="losowy-bajt">losowy bajt</h2>
+<section id="losowy-bit" class="level3">
+<h3 class="anchored" data-anchor-id="losowy-bit">Losowy bit</h3>
+<p>Stwórzmy pierwszy kwantowy program, który wykona zadanie niemożliwe do zrealizowania na komputerze klasycznym. Jak można zauważyc zdefiniowaliśmy bramkę Hadamarda. Brami tej nie było w klasycznych bramkach realizujących operacje na bitach.</p>
+<p>Na przestrzeni dziejów informatyki bardzo dużo czasu i wysiłku poświęcono opracowaniu systemu generowania liczb pseudolosowych (ang. PRNG - Pseudo Random Number Generator), który znalazł szerokie zastosowanie. Generowane liczby traktujemy jako pseudolosowe - tzn. jeśli znasz zawartośc pamięci komputera i algorytm PRNG możesz (przynajmniej teoretycznie) przewidzie jaka jest następna wartosc wygenerowanej liczby.</p>
+<p>Zgodnie z zasadami fizyki zachwanie kubitu będącego w superpozycji w czasie dokonania pomiaru jest idealne i nieprzewidywalne. Dzięki temu już pojedynczy kubit pozwala wygenerowa najlepszy na świecie generator liczb losowych.</p>
+<p><strong>instrukcja</strong></p>
+<ol type="1">
+<li>Przygotuj kubit w stanie początkowym <span class="math inline">\(\ket{0}\)</span>.</li>
+<li>Zastosuj bramkę Hadamarda tworząc z kubitu stan superpozycji stanów bazowych.</li>
+<li>Wykonaj pomiar</li>
+</ol>
+<p>Właśnie otrzymałeś QRNG - Quantum Random Number Generator. Nie jest to tani sposób na losow rzut monetą. Jednak trzeba miec swiadomośc, że tutaj nie ma wewnętrznego mechanizmu, który generuje losowośc - wynika ona tylko i wyłącznie z praw mechaniki kwantowej.</p>
+<blockquote class="blockquote">
+<p>Czy potrafisz wygenerowac losowy bajt?</p>
+</blockquote>
 </section>
-<section id="gra-w-obracanie-monety" class="level2">
-<h2 class="anchored" data-anchor-id="gra-w-obracanie-monety">Gra w obracanie monety</h2>
+<section id="gra-w-obracanie-monety" class="level3">
+<h3 class="anchored" data-anchor-id="gra-w-obracanie-monety">Gra w obracanie monety</h3>
+<p>Wykorzystując powyżej zdefiniowane bramki możemy zrealizowa następującą grę:</p>
+<blockquote class="blockquote">
+<p>W grze bierze udział dwóch graczy. Gracze dysponują monetą, której nie widzą w trakcie gry (np. jest zamknięta w pudełku). Natomiast wiedzą, że początkowo moneta ułożona jest orłem do góry (w stanie <span class="math inline">\(\ket{0}\)</span>) Gra polega na wykonaniu trzech ruchów na przemian. Każdy ruch polega na odwróceniu monety bądź pozostawieniu jej w takim stanie w jakim była. Gracze nie wiedzą jaki ruch wykonuje przeciwnik. Po ostatnim ruchu pudełko zostaje otwarte i gracze sprawdzają w jakiej pozycji jest moneta. Pierwszy gracz wygrywa jeśli moneta jest w pozycji orła, a drugi jeśli przeciwnie.</p>
+</blockquote>
+<p>Szansa wygranej wynosi dla każdego <span class="math inline">\(50\%\)</span> i jak można sprawdzic nie istnieje strategia wygrywająca.</p>
+<p>Pytanie zasadnicze - a co jeśli zamienimy monetę na kubit?</p>
+<p>Możliwe operacje pozostawienia kubitu w takim samym stanie - bramka I, zmiany stanu na przeciwny bramka X. Czyli pierwszy gracz ustala pierwszą bramkę, drugi drugą i ponownie pierwszy trzecią. Otwarcie pudełka to pomiar stanu kubitu.</p>
+<blockquote class="blockquote">
+<p>Przeanalizuj wynik dla sekwencji I X I</p>
+</blockquote>
+<p>A co jeśli pierwszy gracz wie, że działa na kubicie? &gt; Czy może sprawic on, że wygra zawsze? (skoro wie, że działa na kubicie może użyc innych bramek)</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

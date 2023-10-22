@@ -4,17 +4,156 @@ title: "Kwantowe bramki logiczne w prostych algorytmach i obwodach kwantowych"
 
 ## Ewolucja kwantowa
 
-## Bramki kwantowe
+Zmianę stanu kwantowego w czasie opisuje __Ewolucja kwantowa__. 
 
-### Bramki jednokubitowe
+Rozważmy stan układu w chwili $t=0$.
 
-### Bramki kontrolne
+$$\ket{\psi_{t=0}}$$
+W chwili $t=1$ otrzymujemy stan  $\ket{\psi_{t=1}}$ t. że:
+$$\ket{\psi_{t=1}} = \textbf{U} \, \ket{\psi_{t=0}} $$
+gdzie $\textbf{U}$ jest __macierzą unitarną__.
 
-## Układy kwantowe
+Powyższe równanie opisuje zachowanie wszystkich układów kwantowych.
 
-## losowy bit
+Rozważmy stany bazowe $\ket{0}$, $\ket{1}$, które będziemy chcieli zamienic w ich superpozycję.
+$$
+\textbf{U}\ket{0} = a\ket{0} + b\ket{1} = \begin{bmatrix} a \\ b \end{bmatrix}
+$$
+$$
+\textbf{U}\ket{1} = c\ket{0} + d\ket{1} = \begin{bmatrix} c \\ d \end{bmatrix}
+$$
 
-## losowy bajt
+Korzystając z tych równań możemy napisac:
+$$
+\textbf{U} = \left( \begin{bmatrix} a \\ b \end{bmatrix} \begin{bmatrix} c \\ d \end{bmatrix}\right) = \begin{bmatrix} a \, \, b \\ c \,\, d \end{bmatrix}
+$$
 
-## Gra w obracanie monety
+
+W informatyce macierze unitarne będą realizowały __logiczne bramki kwantowe__.
+
+> Dlaczego bramki kwantowe muszą by unitarne? 
+
+Norma stanu kwantowego wynosi zawsze 1. 
+Jest to prawdopodobieństwo całkowite sumy stanów bazowych. 
+Prawdopodobieństwo to powinno by zachowane. 
+Co oznacza, że chemy znaleźc taką transformację, która nie zmienia długości (kwadratu) wektora. 
+Taka transformacja realizowana jest przez obroty. 
+
+Warto zwrócic uwagę na jeszcze jeden fakt.
+ Macierz odwrotna do $\textbf{U}$   (oznaczana jako $\textbf{U}^{-1}$) zawsze istnieje i jest ona równa sprzężeniu Hermitowskiemu macierzu $\textbf{U}=\textbf{U}^{\dagger}$.
+Dlatego ewolucja stanów kwantowych zawsze jest odwracalna.
+ A to oznacza, że i bramki muszą by operacjami odwracalnymi. 
+ $$\ket{\psi_{t=0}} = \textbf{U}^{\dagger} \ket{\psi_{t=1}} $$
+
+## Bramki jednokubitowe
+
+Spośród wszystkich bramek kwantowych istnieje kilka, które mają swoje ustalone nazwy.
+Są one często wykorzystywane w obliczeniach kwatnowych. 
+Rozważmy stan 
+$$
+\ket{\psi} = \alpha \ket{0} + \beta \ket{1}
+$$
+
+### Bramka identycznościowa 
+$$ \textbf{I} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix} $$
+
+Zobaczmy jak operator ten działa na stany bazowe:
+$$ \textbf{I} \ket{0} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} $$
+
+$$ \textbf{I} \ket{1} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} $$
+
+Działając na stan $\ket{\psi}$ otrzymujemy: 
+$$ 
+\textbf{I} \ket{\psi} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix} \ket{\psi} =  \textbf{I} \left( \alpha \ket{0} + \beta \ket{1} \right) = \alpha \ket{0} + \beta \ket{1}
+$$
+
+### Bramka negacji X (NOT)
+
+$$ \textbf{X} \ket{0} = \begin{bmatrix} 0 \,\, 1 \\ 1\,\, 0 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \ket{1} $$
+
+$$ \textbf{X} \ket{1} = \begin{bmatrix} 0 \,\, 1 \\ 1 \,\, 0 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \ket{0}$$
+
+Działając na stan $\ket{\psi}$ otrzymujemy: 
+$$ 
+\textbf{X} \ket{\psi} = \begin{bmatrix} 0 \,\, 1 \\ 1 \,\, 0 \end{bmatrix} \ket{\psi} =  \textbf{X} \left( \alpha \ket{0} + \beta \ket{1} \right) = \alpha \ket{1} + \beta \ket{0}
+$$
+
+### Bramka negacji fazy Y
+
+$$ \textbf{Y} \ket{0} = \begin{bmatrix} 0 \,\, -i \\ i \,\,\,\,\,\,\, 0 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = i \ket{1} $$
+
+$$ \textbf{Y} \ket{1} = \begin{bmatrix} 0 \, -i \\ i \,\,\,\,\,\, 0 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = -i \ket{0}$$
+
+Działając na stan $\ket{\psi}$ otrzymujemy: 
+$$ 
+\textbf{Y} \ket{\psi} = \begin{bmatrix} 0 \,\, -i \\ i \,\,\,\,\,\, 0 \end{bmatrix} \ket{\psi} =  \textbf{Y} \left( \alpha \ket{0} + \beta \ket{1} \right) = \alpha i \ket{1} - \beta i \ket{0}
+$$
+
+### Bramka negacji fazy i bitu Z
+
+$$ \textbf{Z} \ket{0} = \begin{bmatrix} 1\,\,\,\,\,\,\, 0 \\ 0 \, -1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = 1 \ket{0} $$
+
+$$ \textbf{Z} \ket{1} = \begin{bmatrix} 1 \,\,\,\,\,\,\, 0 \\ 0 \, -1 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = -1 \ket{1}$$
+
+Działając na stan $\ket{\psi}$ otrzymujemy: 
+$$ 
+\textbf{Z} \ket{\psi} = \begin{bmatrix} 0 \,\,\,\,\,\,\, 1 \\ 0 \, -1 \end{bmatrix} \ket{\psi} =  \textbf{Z} \left( \alpha \ket{0} + \beta \ket{1} \right) = \alpha \ket{0} - \beta \ket{1}
+$$
+
+### Bramka Hadamarda H
+
+$$ \textbf{H} \ket{0} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1\,\,\,\,\,\,\, 1 \\ 1 \, -1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \ket{0} + \ket{1} \right) = \ket{+} $$
+
+$$ \textbf{H} \ket{1} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1\,\,\,\,\,\,\, 1 \\ 1 \, -1 \end{bmatrix}  \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \ket{0} - \ket{1} \right) = \ket{-}$$
+
+<!-- dodac opis pozostalych bramek ale tylko juz postac macierzowa
+phase s , t 3.3.2 rozdzial
+ -->
+
+### Losowy bit
+
+Stwórzmy pierwszy kwantowy program, który wykona zadanie niemożliwe do zrealizowania na komputerze klasycznym. Jak można zauważyc zdefiniowaliśmy bramkę Hadamarda. Brami tej nie było w klasycznych bramkach realizujących operacje na bitach. 
+
+Na przestrzeni dziejów informatyki bardzo dużo czasu i wysiłku poświęcono opracowaniu systemu generowania liczb pseudolosowych (ang. PRNG - Pseudo Random Number Generator), który znalazł szerokie zastosowanie.
+Generowane liczby traktujemy jako pseudolosowe - tzn. jeśli znasz zawartośc pamięci komputera i algorytm PRNG możesz (przynajmniej teoretycznie) przewidzie jaka jest następna wartosc wygenerowanej liczby. 
+
+Zgodnie z zasadami fizyki  zachwanie kubitu będącego w superpozycji w czasie dokonania pomiaru jest idealne i nieprzewidywalne. Dzięki temu już pojedynczy kubit pozwala wygenerowa najlepszy na świecie generator liczb losowych. 
+
+**instrukcja**
+
+1. Przygotuj kubit w stanie początkowym $\ket{0}$. 
+2. Zastosuj bramkę Hadamarda tworząc z kubitu stan superpozycji stanów bazowych. 
+3. Wykonaj pomiar
+
+Właśnie otrzymałeś QRNG - Quantum Random Number Generator.
+Nie jest to tani sposób na losow rzut monetą. 
+Jednak trzeba miec swiadomośc, że tutaj nie ma wewnętrznego mechanizmu, który generuje losowośc - wynika ona tylko i wyłącznie z praw mechaniki kwantowej.
+
+> Czy potrafisz wygenerowac losowy bajt?
+
+
+
+### Gra w obracanie monety
+Wykorzystując powyżej zdefiniowane bramki możemy zrealizowa następującą grę:
+
+> W grze bierze udział dwóch graczy. Gracze dysponują monetą, której nie widzą w trakcie gry (np. jest zamknięta w pudełku). Natomiast wiedzą, że początkowo moneta ułożona jest orłem do góry (w stanie $\ket{0}$)
+> Gra polega na wykonaniu trzech ruchów na przemian. Każdy ruch polega na odwróceniu monety bądź pozostawieniu jej w takim stanie w jakim była. Gracze nie wiedzą jaki ruch wykonuje przeciwnik. Po ostatnim ruchu pudełko zostaje otwarte i gracze sprawdzają w jakiej pozycji jest moneta. Pierwszy gracz wygrywa jeśli moneta jest w pozycji orła, a drugi jeśli przeciwnie. 
+
+Szansa wygranej wynosi dla każdego $50\%$ i jak można sprawdzic nie istnieje strategia wygrywająca.
+
+Pytanie zasadnicze - a co jeśli zamienimy monetę na kubit?
+
+Możliwe operacje pozostawienia kubitu w takim samym stanie - bramka I, zmiany stanu na przeciwny bramka X. Czyli pierwszy gracz ustala pierwszą bramkę, drugi drugą i ponownie pierwszy trzecią. Otwarcie pudełka to pomiar stanu kubitu. 
+
+> Przeanalizuj wynik dla sekwencji I X I
+
+A co jeśli pierwszy gracz wie, że działa na kubicie? 
+> Czy może sprawic on, że  wygra zawsze? (skoro wie, że działa na kubicie może użyc innych bramek) 
+
+
+
+
+
+
+
 

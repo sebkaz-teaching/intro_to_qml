@@ -32,43 +32,59 @@ Warto zaznaczyc,że liczby zespolone nie są bardziej abstrakcyjne niż liczby r
 
 Liczba zespolona (we współrzędnych Kartezjańskich)  składa się z (dwóch liczb rzeczywistych) części rzeczywistej i urojonej:
 $$z=x + i y$$
-gdzie częśc rzeczywista $R(z)=x$ i urojona $I(z)=y$ oraz $$i^2=-1 .$$
+gdzie $i^2=-1$. 
+
+Natomiast częśc rzeczywista $R(z)=x$ i częśc urojona $I(z)=y$.
 
 Na przykład:
 $$1+i\sqrt{3}$$
 $R(z)=1$ i $I(z)=\sqrt{3}$. 
 
+Inaczej mówiąc, liczba zespolona jest sumą liczby rzeczywistej i urojonej.
+
+Liczy zespolone, można traktowac jako punkty na płaszczyźnie o współrzędnych $x$ i $y$. 
+
+<img class="center" src="../img/im_liczba.png">
+
 Każdą liczbę zespoloną możemy zapisać w postaci polarnej (współrzędne biegunowe)
-$$ z=r e^{i \theta} , $$  gdzie $r=|z|$ to moduł liczby zespolonej, a $\theta$ to jej argument czyli wyrażony w radianach kąt między osią rzeczywistą a półprostą poprowadzoną od środka ukł. wsp. i przechodzącą przez punkt $z$.
-$$ z = r e^{i \theta} = r (\cos{\theta} + i \sin{\theta})$$
+$$ z=r\, e^{i \phi} , $$  gdzie $r=|z|$ to moduł liczby zespolonej, a $\phi$ to jej argument czyli wyrażony w radianach kąt między osią rzeczywistą a półprostą poprowadzoną od środka ukł. wsp. i przechodzącą przez punkt $z$.
+$$ z = r\, e^{i \, \phi} = r\, (\cos{\phi} + i\, \sin{\phi})$$
 gdzie:
 $$r = |z| = \sqrt{x^2 + y^2}$$
-$$\theta = \arctan{\frac{y}{x}}. $$
+$$\phi = \arctan{\frac{y}{x}}. $$
 Natomiast:
-$$x = r \cos{\theta}$$
-$$y = r \sin{\theta}$$
+$$x = r \cos{\phi}$$
+$$y = r \sin{\phi}$$
 
 Dla naszego przykładu:
 $$1+i\sqrt{3} = 2 e^{i \frac{\pi}{3}} . $$
 
 > Udowodnij samodzielnie, że powyższe równanie jest prawdziwe.
 
-
+Liczby zespolone można dodawa, mnożyc i dzieli zgodnie z zwykłymi regułami arytmetyki.
 Dodawanie liczb zespolonych jest łatwe dla liczb w postaci kartezjańskiej.
 Natomiast mnożenie liczb zespolonych upraszcza się dla postaci biegunowej (następuje zamiana mnożenia na dodawanie fazy).
 
 
-**Liczba sprzężona** do liczby zespolonej $z=x + i y$ to $z^*=x - i y = r*e^{-i \theta}$.
+**Liczba sprzężona** do liczby zespolonej powstaje poprzez zmianę znaku części urojonej 
 
-**Norma** liczby zespolonej $z=x + i y$ to $|z|=\sqrt{x^2 + y^2}=r$.
+$z=x + i\, y\,\,\,\,$ to $\,\,\,z^*=x - i y = r*e^{-i \phi}$.
 
-**Kwadrat normy** liczby zespolonej $z=x + i y$ to $|z|^2=x^2 + y^2=r^2$.
+**Norma** liczby zespolonej $z=x + i y\,\,\,\,$ to $\,\,\,|z|=\sqrt{x^2 + y^2}=r$.
+
+**Kwadrat normy** liczby zespolonej $z=x + i y\,\,\,\,$ to $\,\,\, |z|^2=x^2 + y^2=r^2$. 
+Warto zauważyc, że każdy kwadrat modułu daje w wyniku nieujemną liczbę rzeczywistą.
 
 Można go również zapisać jako $$|z|^2=z z^* = z^* z$$
 
-**Czynnik fazowy** to liczba $z$ dla której $r=1$. 
+**Czynniki fazowe** to szczególna klasa liczb zespolonych $z$ dla której $r=1$. 
 
-Otrzymujemy wtedy: $z=e^{i\theta}$ i $z z^* = 1$.
+Otrzymujemy wtedy: 
+$$
+z=e^{i \phi}=\cos{\phi} + i\, \sin{\phi}$$ 
+$$
+z z^* = 1 
+$$
 
 > Udowodnij w kartezjańskim i polarnym układzie oniesienia.
  
@@ -224,6 +240,8 @@ Iloczyn skalarny $\braket{\psi}{\phi}$ wektorów $\ket{\psi}$ i $\ket{\phi}$ czy
 
 ### Stan 
 
+W fizyce klasycznej znajomoś stan układu oznacza, iż wiemy wszystko co jest potrzebne
+
 Stanem w mechanice kwantowej nazywamy wektor:
 
 $$\ket{\psi} = x_0 \ket{0} + x_1 \ket{1} + \dots x_{n-1} \ket{n-1}$$
@@ -243,7 +261,9 @@ W celu wykonywania obliczeń i opisu stanu kubitu wybierzemy tzw.  bazę oblicze
 $$\ket{0} = \begin{bmatrix} 1 \\ 0  \end{bmatrix} , \ket{1} = \begin{bmatrix} 0 \\ 1  \end{bmatrix}$$
 
 To co wyróżnia kubit w porównaniu do klasycznego bitu dowolny stan $\ket{\psi}$ może być superpozycją stanów bazowych:
-$$\ket{\psi} = \alpha \ket{0} + \beta \ket{1}$$
+$$
+\ket{\psi} = \alpha \ket{0} + \beta \ket{1} = \alpha \begin{bmatrix} 1 \\ 0\end{bmatrix} + \beta \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}
+$$
 dla którego zachodzi warunek normalizacji:
 $$\braket{\psi}{\psi} = |\alpha|^2 + |\beta|^2 = 1$$ gdzie $\alpha, \beta \in \mathbb{C}$.
 
@@ -254,18 +274,30 @@ Ze względu na warunek normalizacji wystarczą 3 liczby rzeczywiste.
 Czwartą liczbę możemy obliczyć z warunku normalizacji. 
 
 Stan kubitu możemy zapisać w postaci:
-$$\ket{\psi} = e^{i \gamma}\left( \cos{\frac{\theta}{2}} \ket{0} + e^{i \phi} \sin{\frac{\theta}{2}} \ket{1} \right)$$
-gdzie $\theta \in [0, \pi]$, $\phi \in [0, 2\pi]$ i $\gamma \in [0, 2\pi]$ są liczbami rzeczywistymi.
+$$\ket{\psi} = e^{i \gamma}\left( \cos{\frac{\phi}{2}} \ket{0} + e^{i \theta} \sin{\frac{\phi}{2}} \ket{1} \right)$$
+gdzie $\phi \in [0, \pi]$, $\theta \in [0, 2\pi]$ i $\gamma \in [0, 2\pi]$ są liczbami rzeczywistymi.
 
 Współczynnik $e^{i \gamma}$ nazywamy _fazą globalną_. Ze względu, iż analizować będziemy kwadraty amplitud prawdopodobieństwa
 to faza globalna nie ma znaczenia. Dlatego możemy napisać: 
-$$\ket{\psi} = \cos{\frac{\theta}{2}} \ket{0} + e^{i \phi} \sin{\frac{\theta}{2}} \ket{1}$$
+$$\ket{\psi} = \cos{\frac{\phi}{2}} \ket{0} + e^{i \theta} \sin{\frac{\phi}{2}} \ket{1}$$
 
 Warto zauważyć, że dwa dowolne stany kubitów 
 $\ket{\psi}$ i $\ket{\phi}$ różnią się o czynnik fazowy $e^{i \gamma}$ to stany te dają identyczne wyniki.
 
-Liczby rzeczywiste $\theta$ i $\phi$ nazywamy _kątami_ kubitu i możemy interpretować je jako współrzędne 
-na **sferze Blocha**. Bardzo często będziemy wykorzystywać ją do wizualizacji stanów kubitów.
+Liczby rzeczywiste $\phi$ i $\theta$ nazywamy _kątami_ kubitu i możemy interpretować je jako współrzędne na **sferze Blocha**. 
+Bardzo często będziemy wykorzystywać ją do wizualizacji stanów kubitów.
+
+Stany, którymi często będziemy operowac:
+$$\ket{+} = \frac{1}{\sqrt{2}}(\ket{0} + \ket{1})$$
+$$\ket{-} = \frac{1}{\sqrt{2}}(\ket{0} - \ket{1})$$
+$$\ket{i} =\frac{1}{\sqrt{2}}(\ket{0} + i \ket{1})$$
+$$\ket{-i} =\frac{1}{\sqrt{2}}(\ket{0} - i \ket{1})$$
+
+Lub:
+$$\frac{1}{\sqrt{2}}(\ket{0} + e^{i\pi/6} \ket{1})$$
+$$\frac{\sqrt{3}}{2}(\ket{0} + \frac{1}{2} \ket{1})$$
+
+> Kubit może by dowolnym punktem na sferze Blocha.
 
 ### Dwa kubity
 
@@ -296,13 +328,64 @@ Zobaczmy, czy istnieje przypadek w którym stan układu dwóch kubitów nie da s
 Aby to sprawdzic zobaczmy czy istnieją takie liczby $c_0, c_1, c_2, c_3$ dla których **nie da się** znaleźc $\alpha, \beta,\gamma, \delta$, które spełniają układ równań:
 $$c_0 = \alpha \gamma , \, c_1 = \alpha \delta , \, c_2 = \beta \gamma , \, c_3 = \beta \delta $$
 
-Rozważmy stan $\ket{bell} = \frac{1}{\sqrt{2}}(\ket{0}+\ket{3}) = \frac{1}{\sqrt{2}}(\ket{00}+\ket{11})$
-dla uproszczenia pominiemy czynnik $\frac{1}{\sqrt(2)}$
+Rozważmy stan $$\ket{bell} = \frac{1}{\sqrt{2}}(\ket{0}+\ket{3}) = \frac{1}{\sqrt{2}}(\ket{00}+\ket{11})$$
+
+
 
 Załóżmy, że możemy zapisa stan `bell` w postaci:
 $$ \alpha \gamma \ket{0} + \beta \delta \ket{1}  + \alpha \delta \ket{2}  + \beta \delta \ket{3} $$
 
-Pozwala to otrzymac układ równań:
-$$ \alpha \gamma = 1 \,\, \alpha \delta = 0 \,\, \beta \gamma = 0 \,\,$$
+Aby stan `bell` był separowalny musi by spełniony układ równań:
+
+\begin{eqnarray}
+ \alpha \gamma = \frac{1}{\sqrt{2}} \\ \alpha \delta = 0 \\ \beta \gamma = 0 \\ \beta \delta =\frac{1}{\sqrt{2}}
+\end{eqnarray}
+
+Z warunku drugiego mamy dwie możliwości: albo $\alpha=0$ lub $\delta=0$. 
+Jeżeli $\alpha=0$ to warunek pierwszy nie może byc spełniony. 
+Jeżeli $\delta=0$ to warunek czwarty nie może byc spełniony. 
+Otrzymujemy sprzecznośc. 
+
+Prowadzi to do wniosu, że stan `bell'a` nie jest stanem separowalnym i jest __stanem splątanym__.
+ Stany te mają bardzo nieintuicyjne własności. Związany jest z nimi słynny paradox EPR oraz tak zwane nierówności Bella. 
+ 
+ > Splątane stany Bell'a, wraz z zasadą superpozycji będą podstawowymi kwantowymi własnościami pozwalającymi zrealizowac przewagę obliczeń kwantowych nad obliczeniami klasycznymi. 
+
+## Pomiar w bazie Z
+
+W opisie kubitów wybraliśmy specyficzą bazę (obliczeniową) wektorów, która rozkłada każdy wektor na kombinację wektora $\ket{0}$ i $\ket{1}$.
+
+Zasady przestrzeni wektorowej i mechaniki kwantowej dopuszczają tworzenie kombinacji liniowej (superpozycji) dla tych dwóch stanów. 
+$$
+\ket{\psi} = \alpha \ket{0} + \beta \ket{1}
+$$
+Po pomiarze kubitu, czyli na końcu procesu obliczeniowego, ze względu na prawa fizyki otrzymujemy tylko i wyłącznie jeden ze stanów bazowych $\ket{0}$ lub $\ket{1}$. Każdy następny pomiar (tej samej obserwabli) będzie kończyc się w tym samym (otrzymanym) stanie.
 
 
+> Pomiar niszczy superpozycję kubitu i sprowadza go do jednego ze stanów bazowych.
+
+Dla kubitu w superpozycji stanów bazowych jedyne co możemy określic to prawdopodobieństwo otrzymania stanu $\ket{0}$ i $\ket{1}$. 
+
+> Prawdopodobieństwo określone jest jako kwadrat (modułu) amplitudy 
+> Dla stanu $\ket{0}$ $P(0) = |\alpha|^2$ oraz dla stanu $\ket{1}$ $P(1)= |\beta|^2$.
+
+Istnieje możliwośc pomiaru kubitów w innych bazach. Jednak w większości przypadków ograniczymy się do pomiaru w bazie obliczeniowej. 
+
+### Przykład
+
+Rozważmy stan $$\ket{\psi} = \frac{\sqrt{3}}{2}\ket{0}+\frac{1}{2}\ket{1}$$
+
+Możliwe wyniki pomiaru w bazie Z $\{ \ket{0},\ket{1} \}$.
+
+$$
+\braket{0}{\psi} = \bra{0}\left( \frac{\sqrt{3}}{2}\ket{0} +\frac{1}{2}\ket{1}\right) = \frac{\sqrt{3}}{2}\braket{0}{0} + \frac{1}{2}\braket{0}{1} = \frac{\sqrt{3}}{2}
+$$ 
+Biorąc kwadrat apmlitudy otrzymujemy kubit w stanie  $\ket{0}$ z prawdopodobieństwem $0.75$.
+$$
+\braket{1}{\psi} = \bra{1}\left( \frac{\sqrt{3}}{2}\ket{0} +\frac{1}{2}\ket{1}\right) = \frac{\sqrt{3}}{2}\braket{1}{0} + \frac{1}{2}\braket{1}{1} = \frac{1}{2}
+$$ 
+Biorąc kwadrat apmlitudy otrzymujemy stan $\ket{1}$ z prawdopodobieństwem $0.25$.
+
+$$\ket{\psi} = \braket{0}{\psi}\ket{0} + \braket{1}{\psi}\ket{1}$$
+
+> oblicz prawdopodobieństwo gdy pomiar dokonywany jest w stanie $\bra{+}$
