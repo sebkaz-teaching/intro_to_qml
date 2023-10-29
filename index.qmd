@@ -47,7 +47,7 @@ Realizacja:
 
 Przestrzenie wektorowe, stany kwantowe, reprezentacja klasycznych i kwantowych bitów
 
-4. 23-10-2023 (poniedziałek) 11:40-13:20 - Wykład 4
+4. 23-10-2023 (poniedziałek) 11:40-13:20 - <del> Wykład 4 </del>
 
 Kwantowe bramki logiczne w prostych algorytmach i obwodach kwantowych
 

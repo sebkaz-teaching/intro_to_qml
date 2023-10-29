@@ -308,16 +308,23 @@ z z^* = 1
 <p>W celu wykonywania obliczeń i opisu stanu kubitu wybierzemy tzw. bazę obliczeniową: <span class="math display">\[\ket{0} = \begin{bmatrix} 1 \\ 0  \end{bmatrix} , \ket{1} = \begin{bmatrix} 0 \\ 1  \end{bmatrix}\]</span></p>
 <p>To co wyróżnia kubit w porównaniu do klasycznego bitu dowolny stan <span class="math inline">\(\ket{\psi}\)</span> może być superpozycją stanów bazowych: <span class="math display">\[
 \ket{\psi} = \alpha \ket{0} + \beta \ket{1} = \alpha \begin{bmatrix} 1 \\ 0\end{bmatrix} + \beta \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}
-\]</span> dla którego zachodzi warunek normalizacji: <span class="math display">\[\braket{\psi}{\psi} = |\alpha|^2 + |\beta|^2 = 1\]</span> gdzie <span class="math inline">\(\alpha, \beta \in \mathbb{C}\)</span>.</p>
+\]</span> dla którego zachodzi warunek normalizacji: <span class="math display">\[
+\braket{\psi}{\psi} = |\alpha|^2 + |\beta|^2 = 1
+\]</span> gdzie <span class="math inline">\(\alpha, \beta \in \mathbb{C}\)</span>.</p>
 <blockquote class="blockquote">
-<p>ZADANIE - oblicz powyższą amplitudę.</p>
+<p>ZADANIE - oblicz <span class="math inline">\(\braket{\psi}{\psi}\)</span>.</p>
 </blockquote>
-<p>Liczby <span class="math inline">\(\alpha\)</span> i <span class="math inline">\(\beta\)</span> są zespolone, zatem potrzeba 4 liczb rzeczywistych aby je opisać. Ze względu na warunek normalizacji wystarczą 3 liczby rzeczywiste. Czwartą liczbę możemy obliczyć z warunku normalizacji.</p>
-<p>Stan kubitu możemy zapisać w postaci: <span class="math display">\[\ket{\psi} = e^{i \gamma}\left( \cos{\frac{\phi}{2}} \ket{0} + e^{i \theta} \sin{\frac{\phi}{2}} \ket{1} \right)\]</span> gdzie <span class="math inline">\(\phi \in [0, \pi]\)</span>, <span class="math inline">\(\theta \in [0, 2\pi]\)</span> i <span class="math inline">\(\gamma \in [0, 2\pi]\)</span> są liczbami rzeczywistymi.</p>
-<p>Współczynnik <span class="math inline">\(e^{i \gamma}\)</span> nazywamy <em>fazą globalną</em>. Ze względu, iż analizować będziemy kwadraty amplitud prawdopodobieństwa to faza globalna nie ma znaczenia. Dlatego możemy napisać: <span class="math display">\[\ket{\psi} = \cos{\frac{\phi}{2}} \ket{0} + e^{i \theta} \sin{\frac{\phi}{2}} \ket{1}\]</span></p>
+<p>Liczby <span class="math inline">\(\alpha\)</span> i <span class="math inline">\(\beta\)</span> nazywamy amplitudami prawdopodobieństwa. Są one reprezentowane przez liczby zespolone. Potrzeba 4 liczb rzeczywistych aby je opisać. Ze względu na warunek normalizacji jedną liczbę można obliczyc co oznacza potrzebę użycia już tylko trzech liczb rzeczywiste.</p>
+<p>Stan kubitu możemy zapisać w postaci: <span class="math display">\[
+\ket{\psi} = e^{i \gamma}\left( \cos{\frac{\phi}{2}} \ket{0} + e^{i \theta} \sin{\frac{\phi}{2}} \ket{1} \right)
+\]</span> gdzie <span class="math inline">\(\phi \in [0, \pi]\)</span>, <span class="math inline">\(\theta \in [0, 2\pi]\)</span> i <span class="math inline">\(\gamma \in [0, 2\pi]\)</span> są liczbami rzeczywistymi.</p>
+<p>Współczynnik <span class="math inline">\(e^{i \gamma}\)</span> nazywamy <em>fazą globalną</em>. Ze względu, iż analizować będziemy kwadraty amplitud prawdopodobieństwa to faza globalna nie ma znaczenia. Dlatego możemy napisać: <span class="math display">\[
+\ket{\psi} = \cos{\frac{\phi}{2}} \ket{0} + e^{i \theta} \sin{\frac{\phi}{2}} \ket{1}
+= \begin{bmatrix} \cos{\frac{\phi}{2}} \\ e^{i \theta} \sin{\frac{\phi}{2}} \end{bmatrix}
+\]</span></p>
 <p>Warto zauważyć, że dwa dowolne stany kubitów <span class="math inline">\(\ket{\psi}\)</span> i <span class="math inline">\(\ket{\phi}\)</span> różnią się o czynnik fazowy <span class="math inline">\(e^{i \gamma}\)</span> to stany te dają identyczne wyniki.</p>
 <p>Liczby rzeczywiste <span class="math inline">\(\phi\)</span> i <span class="math inline">\(\theta\)</span> nazywamy <em>kątami</em> kubitu i możemy interpretować je jako współrzędne na <strong>sferze Blocha</strong>. Bardzo często będziemy wykorzystywać ją do wizualizacji stanów kubitów.</p>
-<p>Stany, którymi często będziemy operowac: <span class="math display">\[\ket{+} = \frac{1}{\sqrt{2}}(\ket{0} + \ket{1})\]</span> <span class="math display">\[\ket{-} = \frac{1}{\sqrt{2}}(\ket{0} - \ket{1})\]</span> <span class="math display">\[\ket{i} =\frac{1}{\sqrt{2}}(\ket{0} + i \ket{1})\]</span> <span class="math display">\[\ket{-i} =\frac{1}{\sqrt{2}}(\ket{0} - i \ket{1})\]</span></p>
+<p>Stany w bazie obliczeniowej, którymi często będziemy operowac: <span class="math display">\[\ket{+} = \frac{1}{\sqrt{2}}(\ket{0} + \ket{1})\]</span> <span class="math display">\[\ket{-} = \frac{1}{\sqrt{2}}(\ket{0} - \ket{1})\]</span> <span class="math display">\[\ket{i} =\frac{1}{\sqrt{2}}(\ket{0} + i \ket{1})\]</span> <span class="math display">\[\ket{-i} =\frac{1}{\sqrt{2}}(\ket{0} - i \ket{1})\]</span></p>
 <p>Lub: <span class="math display">\[\frac{1}{\sqrt{2}}(\ket{0} + e^{i\pi/6} \ket{1})\]</span> <span class="math display">\[\frac{\sqrt{3}}{2}(\ket{0} + \frac{1}{2} \ket{1})\]</span></p>
 <blockquote class="blockquote">
 <p>Kubit może by dowolnym punktem na sferze Blocha.</p>
@@ -327,11 +334,25 @@ z z^* = 1
 <h3 class="anchored" data-anchor-id="dwa-kubity">Dwa kubity</h3>
 <p>Złączenie układu dwóch kubitów realizowane jest przez <em>iloczyn tensorowy</em> (iloczyn Kroneckera).</p>
 <p>Rozważmy dwa stany kubitów <span class="math inline">\(\ket{\psi}\)</span>, <span class="math inline">\(\ket{\phi}\)</span></p>
-<p><span class="math display">\[\ket{\psi} = \alpha \ket{0} + \beta \ket{1} = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}\, ,\,\,
+<p><span class="math display">\[
+\ket{\psi} = \alpha \ket{0} + \beta \ket{1} = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}\, ,\,\,
 \ket{\phi} = \gamma \ket{0} + \delta \ket{1} = \begin{bmatrix} \gamma \\ \delta \end{bmatrix}
 \]</span></p>
-<p>Stan dwukubitowy: <span class="math display">\[ \ket{\psi} \otimes \ket{\phi} = \begin{bmatrix} \alpha \gamma \\ \alpha \delta \\ \beta \gamma \\ \beta \delta \end{bmatrix} = \alpha \gamma \ket{0} \otimes \ket{0} + \beta \delta \ket{1} \otimes \ket{0}  + \alpha \delta \ket{0} \otimes \ket{1}  + \beta \delta \ket{1} \otimes \ket{1} \]</span> co możemy zapisa jako: <span class="math display">\[ \ket{\psi \phi} = \alpha \gamma \ket{00} + \beta \delta \ket{10}  + \alpha \delta \ket{01}  + \beta \delta \ket{11} \]</span></p>
-<p>Po przenumerowaniu stanów możemy napisac: <span class="math display">\[ \ket{\Phi} = c_0 \ket{0} + c_1 \ket{1}  + c_2 \ket{2}  + c_3 \ket{3} \]</span></p>
+<p>Stan dwukubitowy: <span class="math display">\[
+\ket{\psi} \otimes \ket{\phi} = \begin{bmatrix} \alpha \gamma \\ \alpha \delta \\ \beta \gamma \\ \beta \delta \end{bmatrix} = \alpha \gamma \ket{0} \otimes \ket{0} + \beta \delta \ket{1} \otimes \ket{0}  + \alpha \delta \ket{0} \otimes \ket{1}  + \beta \delta \ket{1} \otimes \ket{1}
+\]</span> co możemy zapisa jako: <span class="math display">\[
+\ket{\psi \phi} = \alpha \gamma \ket{00} + \beta \delta \ket{10}  + \alpha \delta \ket{01}  + \beta \delta \ket{11}
+\]</span> gdzie: <span class="math display">\[
+\ket{00} = \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}, \, \,
+\ket{01} = \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}, \, \,
+\ket{10} = \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}, \, \,
+\ket{11} = \begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}
+\]</span></p>
+<p>Po przenumerowaniu stanów możemy napisac: <span class="math display">\[
+\ket{\Phi} = c_0 \ket{0} + c_1 \ket{1}  + c_2 \ket{2}  + c_3 \ket{3}
+\]</span> dla którego: <span class="math display">\[
+|c_0|^2 + |c_1|^2 + |c_2|^2 + |c_3|^2 = 1
+\]</span></p>
 </section>
 <section id="stan-separowalny-i-splątany" class="level3">
 <h3 class="anchored" data-anchor-id="stan-separowalny-i-splątany">Stan separowalny i splątany</h3>
@@ -374,8 +395,15 @@ z z^* = 1
 \braket{1}{\psi} = \bra{1}\left( \frac{\sqrt{3}}{2}\ket{0} +\frac{1}{2}\ket{1}\right) = \frac{\sqrt{3}}{2}\braket{1}{0} + \frac{1}{2}\braket{1}{1} = \frac{1}{2}
 \]</span> Biorąc kwadrat apmlitudy otrzymujemy stan <span class="math inline">\(\ket{1}\)</span> z prawdopodobieństwem <span class="math inline">\(0.25\)</span>.</p>
 <p><span class="math display">\[\ket{\psi} = \braket{0}{\psi}\ket{0} + \braket{1}{\psi}\ket{1}\]</span></p>
+<p>Dowolna para liniowo niezależnych wektorów jednostkowych <span class="math inline">\(\ket{u}\)</span> i <span class="math inline">\(\ket{v}\)</span> pochodząca z dwuwymiarowej przestrzeni wektorowej może tworzyc bazę: <span class="math display">\[
+\alpha \ket{0} +\beta \ket{1} = \alpha' \ket{u} +\beta' \ket{v}
+\]</span> Przykładem może byc tzw Baza Hadamarda <span class="math inline">\(\ket{+}\)</span> i <span class="math inline">\(\ket{-}\)</span> zdefiniowana jako: <span class="math display">\[
+\ket{+} = \frac{1}{\sqrt{2}}(\ket{0}+\ket{1}) = \begin{bmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{bmatrix}
+\]</span> <span class="math display">\[
+\ket{-} = \frac{1}{\sqrt{2}}(\ket{0}-\ket{1}) = \begin{bmatrix} \frac{1}{\sqrt{2}} \\ - \frac{1}{\sqrt{2}} \end{bmatrix}
+\]</span></p>
 <blockquote class="blockquote">
-<p>oblicz prawdopodobieństwo gdy pomiar dokonywany jest w stanie <span class="math inline">\(\bra{+}\)</span></p>
+<p>Bardzo ważnym etapem jest wybór bazy w której dokonujemy pomiaru. np. dla wektora <span class="math inline">\(\ket{+}\)</span> pomiar w bazie standardowej pozwoli otrzymac wyniki stanu <span class="math inline">\(\ket{0}\)</span> i <span class="math inline">\(\ket{1}\)</span> z prawdopodobieństwami <span class="math inline">\(\frac{1}/{2}\)</span>. Natomiast jeśli pomiar dokonywany byłby w bazie Hadamarda to zawsze otrzymamy stan <span class="math inline">\(\ket{+}\)</span> z prawdopodobieństwem 1.</p>
 </blockquote>
 
 

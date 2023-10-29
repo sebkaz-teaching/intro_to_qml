@@ -138,6 +138,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#losowy-bit" id="toc-losowy-bit" class="nav-link" data-scroll-target="#losowy-bit">Losowy bit</a></li>
   <li><a href="#gra-w-obracanie-monety" id="toc-gra-w-obracanie-monety" class="nav-link" data-scroll-target="#gra-w-obracanie-monety">Gra w obracanie monety</a></li>
   </ul></li>
+  <li><a href="#bramki-dwukubitowe" id="toc-bramki-dwukubitowe" class="nav-link" data-scroll-target="#bramki-dwukubitowe">Bramki dwukubitowe</a></li>
   </ul>
 </nav>
     </div>
@@ -179,7 +180,7 @@ ul.task-list li input[type="checkbox"] {
 <blockquote class="blockquote">
 <p>Dlaczego bramki kwantowe muszą by unitarne?</p>
 </blockquote>
-<p>Norma stanu kwantowego wynosi zawsze 1. Jest to prawdopodobieństwo całkowite sumy stanów bazowych. Prawdopodobieństwo to powinno by zachowane. Co oznacza, że chemy znaleźc taką transformację, która nie zmienia długości (kwadratu) wektora. Taka transformacja realizowana jest przez obroty.</p>
+<p>Norma stanu kwantowego wynosi zawsze 1. Jest to prawdopodobieństwo całkowite sumy stanów bazowych. Prawdopodobieństwo to powinno by zachowane. Co oznacza, że chcemy znaleźc taką transformację, która nie zmienia długości (kwadratu) wektora. Taka transformacja realizowana jest przez obroty.</p>
 <p>Warto zwrócic uwagę na jeszcze jeden fakt. Macierz odwrotna do <span class="math inline">\(\textbf{U}\)</span> (oznaczana jako <span class="math inline">\(\textbf{U}^{-1}\)</span>) zawsze istnieje i jest ona równa sprzężeniu Hermitowskiemu macierzu <span class="math inline">\(\textbf{U}=\textbf{U}^{\dagger}\)</span>. Dlatego ewolucja stanów kwantowych zawsze jest odwracalna. A to oznacza, że i bramki muszą by operacjami odwracalnymi. <span class="math display">\[\ket{\psi_{t=0}} = \textbf{U}^{\dagger} \ket{\psi_{t=1}} \]</span></p>
 </section>
 <section id="bramki-jednokubitowe" class="level2">
@@ -189,7 +190,9 @@ ul.task-list li input[type="checkbox"] {
 \]</span></p>
 <section id="bramka-identycznościowa" class="level3">
 <h3 class="anchored" data-anchor-id="bramka-identycznościowa">Bramka identycznościowa</h3>
-<p><span class="math display">\[ \textbf{I} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix} \]</span></p>
+<p><span class="math display">\[
+\textbf{I} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix}
+\]</span></p>
 <p>Zobaczmy jak operator ten działa na stany bazowe: <span class="math display">\[ \textbf{I} \ket{0} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \]</span></p>
 <p><span class="math display">\[ \textbf{I} \ket{1} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} \]</span></p>
 <p>Działając na stan <span class="math inline">\(\ket{\psi}\)</span> otrzymujemy: <span class="math display">\[
@@ -198,22 +201,39 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="bramka-negacji-x-not" class="level3">
 <h3 class="anchored" data-anchor-id="bramka-negacji-x-not">Bramka negacji X (NOT)</h3>
-<p><span class="math display">\[ \textbf{X} \ket{0} = \begin{bmatrix} 0 \,\, 1 \\ 1\,\, 0 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \ket{1} \]</span></p>
-<p><span class="math display">\[ \textbf{X} \ket{1} = \begin{bmatrix} 0 \,\, 1 \\ 1 \,\, 0 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \ket{0}\]</span></p>
+<p><span class="math display">\[
+\textbf{X} = \begin{bmatrix} 0 \,\, 1 \\ 1 \,\, 0 \end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\textbf{X} \ket{0} = \begin{bmatrix} 0 \,\, 1 \\ 1\,\, 0 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \ket{1}
+\]</span></p>
+<p><span class="math display">\[
+\textbf{X} \ket{1} = \begin{bmatrix} 0 \,\, 1 \\ 1 \,\, 0 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \ket{0}
+\]</span></p>
 <p>Działając na stan <span class="math inline">\(\ket{\psi}\)</span> otrzymujemy: <span class="math display">\[
 \textbf{X} \ket{\psi} = \begin{bmatrix} 0 \,\, 1 \\ 1 \,\, 0 \end{bmatrix} \ket{\psi} =  \textbf{X} \left( \alpha \ket{0} + \beta \ket{1} \right) = \alpha \ket{1} + \beta \ket{0}
 \]</span></p>
 </section>
 <section id="bramka-negacji-fazy-y" class="level3">
 <h3 class="anchored" data-anchor-id="bramka-negacji-fazy-y">Bramka negacji fazy Y</h3>
-<p><span class="math display">\[ \textbf{Y} \ket{0} = \begin{bmatrix} 0 \,\, -i \\ i \,\,\,\,\,\,\, 0 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = i \ket{1} \]</span></p>
-<p><span class="math display">\[ \textbf{Y} \ket{1} = \begin{bmatrix} 0 \, -i \\ i \,\,\,\,\,\, 0 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = -i \ket{0}\]</span></p>
+<p><span class="math display">\[
+\textbf{Y} = \begin{bmatrix} 0 \,\, -i \\ i \,\,\,\,\,\,\, 0 \end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\textbf{Y} \ket{0} = \begin{bmatrix} 0 \,\, -i \\ i \,\,\,\,\,\,\, 0 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = i \begin{bmatrix} 0 \\ 1 \end{bmatrix} = i \ket{1}
+\]</span></p>
+<p><span class="math display">\[
+\textbf{Y} \ket{1} = \begin{bmatrix} 0 \, -i \\ i \,\,\,\,\,\, 0 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = -i \begin{bmatrix} 1 \\ 0 \end{bmatrix} = -i \ket{0}
+\]</span></p>
 <p>Działając na stan <span class="math inline">\(\ket{\psi}\)</span> otrzymujemy: <span class="math display">\[
 \textbf{Y} \ket{\psi} = \begin{bmatrix} 0 \,\, -i \\ i \,\,\,\,\,\, 0 \end{bmatrix} \ket{\psi} =  \textbf{Y} \left( \alpha \ket{0} + \beta \ket{1} \right) = \alpha i \ket{1} - \beta i \ket{0}
 \]</span></p>
 </section>
 <section id="bramka-negacji-fazy-i-bitu-z" class="level3">
 <h3 class="anchored" data-anchor-id="bramka-negacji-fazy-i-bitu-z">Bramka negacji fazy i bitu Z</h3>
+<p><span class="math display">\[
+\textbf{Z} = \begin{bmatrix} 1 \,\,\,\,\,\,\,\,\, 0 \\ 0\,\, -1 \end{bmatrix}
+\]</span></p>
 <p><span class="math display">\[ \textbf{Z} \ket{0} = \begin{bmatrix} 1\,\,\,\,\,\,\, 0 \\ 0 \, -1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = 1 \ket{0} \]</span></p>
 <p><span class="math display">\[ \textbf{Z} \ket{1} = \begin{bmatrix} 1 \,\,\,\,\,\,\, 0 \\ 0 \, -1 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = -1 \ket{1}\]</span></p>
 <p>Działając na stan <span class="math inline">\(\ket{\psi}\)</span> otrzymujemy: <span class="math display">\[
@@ -222,8 +242,15 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="bramka-hadamarda-h" class="level3">
 <h3 class="anchored" data-anchor-id="bramka-hadamarda-h">Bramka Hadamarda H</h3>
-<p><span class="math display">\[ \textbf{H} \ket{0} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1\,\,\,\,\,\,\, 1 \\ 1 \, -1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \ket{0} + \ket{1} \right) = \ket{+} \]</span></p>
-<p><span class="math display">\[ \textbf{H} \ket{1} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1\,\,\,\,\,\,\, 1 \\ 1 \, -1 \end{bmatrix}  \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \ket{0} - \ket{1} \right) = \ket{-}\]</span></p>
+<p><span class="math display">\[
+\textbf{H}= \frac{1}{\sqrt{2}}\begin{bmatrix} 1\,\,\,\,\,\,\, 1 \\ 1 \, -1 \end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\textbf{H} \ket{0} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1\,\,\,\,\,\,\, 1 \\ 1 \, -1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \ket{0} + \ket{1} \right) = \ket{+}
+\]</span></p>
+<p><span class="math display">\[
+\textbf{H} \ket{1} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1\,\,\,\,\,\,\, 1 \\ 1 \, -1 \end{bmatrix}  \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \ket{0} - \ket{1} \right) = \ket{-}
+\]</span></p>
 <!-- dodac opis pozostalych bramek ale tylko juz postac macierzowa
 phase s , t 3.3.2 rozdzial
  -->
@@ -256,10 +283,23 @@ phase s , t 3.3.2 rozdzial
 <blockquote class="blockquote">
 <p>Przeanalizuj wynik dla sekwencji I X I</p>
 </blockquote>
-<p>A co jeśli pierwszy gracz wie, że działa na kubicie? &gt; Czy może sprawic on, że wygra zawsze? (skoro wie, że działa na kubicie może użyc innych bramek)</p>
-
-
+<p>A co jeśli pierwszy gracz wie, że działa na kubicie?</p>
+<blockquote class="blockquote">
+<p>Czy może sprawic on, że wygra zawsze? (skoro wie, że działa na kubicie może użyc innych bramek)</p>
+</blockquote>
 </section>
+</section>
+<section id="bramki-dwukubitowe" class="level2">
+<h2 class="anchored" data-anchor-id="bramki-dwukubitowe">Bramki dwukubitowe</h2>
+<p>Analogicznie do bramek jednokubitowych reprezentowanych przez macierze unitarne <span class="math inline">\(2\times 2\)</span> możemy skonstruowac dowolną wielo-kubitową bramkę. Dla n kubitów mamy <span class="math inline">\(2^n \times 2^n\)</span> unitarną macierz reprezentującą taką bramkę. Ponieważ bramki wielo kubiotwe działają na raz na kilka kubitów mogą służyc one do otrzymywania stanów splątanych. Mamy również możliwośc stworzyc bramkę warunkową (kontrolowaną), która zmienia bit docelowy jeśli kontrolny bit jest w stanie <span class="math inline">\(\ket{1}\)</span>.</p>
+<p><span class="math display">\[
+\text{CNOT} = \begin{bmatrix} 1 \, 0 \,0 \, 0 \\ 0\, 1\,0\,0 \\ 0\, 0\,0\,1 \\ 0\, 0\,1\,0 \end{bmatrix}
+\]</span> Bramka ta do drugiego kubitu (targetu) stosuje bramkę X jeśli pierwszy kubit jest w pozycji <span class="math inline">\(\ket{1}\)</span>. W przeciwnym wypadu nie zmienia się nic.</p>
+<p><span class="math display">\[
+\text{CX} \ket{q_1 q_2} = \ket{q_1} \ket{q_1 \otimes q_2}
+\]</span></p>
+
+
 </section>
 
 </main> <!-- /main -->

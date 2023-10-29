@@ -1,0 +1,10 @@
+---
+title: "Kwantowe uczenie maszynowe"
+---
+
+## Parameterized Quantum Circuit
+
+
+
+Podstawowy model obliczeń kwantowych z wykorzystaniem klasycznych danych 
+

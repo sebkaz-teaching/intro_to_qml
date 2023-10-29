@@ -36,7 +36,7 @@ W informatyce macierze unitarne będą realizowały __logiczne bramki kwantowe__
 Norma stanu kwantowego wynosi zawsze 1. 
 Jest to prawdopodobieństwo całkowite sumy stanów bazowych. 
 Prawdopodobieństwo to powinno by zachowane. 
-Co oznacza, że chemy znaleźc taką transformację, która nie zmienia długości (kwadratu) wektora. 
+Co oznacza, że chcemy znaleźc taką transformację, która nie zmienia długości (kwadratu) wektora. 
 Taka transformacja realizowana jest przez obroty. 
 
 Warto zwrócic uwagę na jeszcze jeden fakt.
@@ -55,7 +55,9 @@ $$
 $$
 
 ### Bramka identycznościowa 
-$$ \textbf{I} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix} $$
+$$
+ \textbf{I} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix} 
+ $$
 
 Zobaczmy jak operator ten działa na stany bazowe:
 $$ \textbf{I} \ket{0} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} $$
@@ -69,9 +71,18 @@ $$
 
 ### Bramka negacji X (NOT)
 
-$$ \textbf{X} \ket{0} = \begin{bmatrix} 0 \,\, 1 \\ 1\,\, 0 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \ket{1} $$
 
-$$ \textbf{X} \ket{1} = \begin{bmatrix} 0 \,\, 1 \\ 1 \,\, 0 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \ket{0}$$
+$$
+ \textbf{X} = \begin{bmatrix} 0 \,\, 1 \\ 1 \,\, 0 \end{bmatrix} 
+ $$
+
+$$ 
+\textbf{X} \ket{0} = \begin{bmatrix} 0 \,\, 1 \\ 1\,\, 0 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \ket{1} 
+$$
+
+$$ 
+\textbf{X} \ket{1} = \begin{bmatrix} 0 \,\, 1 \\ 1 \,\, 0 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \ket{0}
+$$
 
 Działając na stan $\ket{\psi}$ otrzymujemy: 
 $$ 
@@ -80,9 +91,17 @@ $$
 
 ### Bramka negacji fazy Y
 
-$$ \textbf{Y} \ket{0} = \begin{bmatrix} 0 \,\, -i \\ i \,\,\,\,\,\,\, 0 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = i \ket{1} $$
+$$
+\textbf{Y} = \begin{bmatrix} 0 \,\, -i \\ i \,\,\,\,\,\,\, 0 \end{bmatrix} 
+$$
 
-$$ \textbf{Y} \ket{1} = \begin{bmatrix} 0 \, -i \\ i \,\,\,\,\,\, 0 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = -i \ket{0}$$
+$$ 
+\textbf{Y} \ket{0} = \begin{bmatrix} 0 \,\, -i \\ i \,\,\,\,\,\,\, 0 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = i \begin{bmatrix} 0 \\ 1 \end{bmatrix} = i \ket{1}
+ $$
+
+$$ 
+\textbf{Y} \ket{1} = \begin{bmatrix} 0 \, -i \\ i \,\,\,\,\,\, 0 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = -i \begin{bmatrix} 1 \\ 0 \end{bmatrix} = -i \ket{0}
+$$
 
 Działając na stan $\ket{\psi}$ otrzymujemy: 
 $$ 
@@ -90,6 +109,10 @@ $$
 $$
 
 ### Bramka negacji fazy i bitu Z
+
+$$
+\textbf{Z} = \begin{bmatrix} 1 \,\,\,\,\,\,\,\,\, 0 \\ 0\,\, -1 \end{bmatrix} 
+$$
 
 $$ \textbf{Z} \ket{0} = \begin{bmatrix} 1\,\,\,\,\,\,\, 0 \\ 0 \, -1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = 1 \ket{0} $$
 
@@ -102,9 +125,17 @@ $$
 
 ### Bramka Hadamarda H
 
-$$ \textbf{H} \ket{0} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1\,\,\,\,\,\,\, 1 \\ 1 \, -1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \ket{0} + \ket{1} \right) = \ket{+} $$
+$$
+\textbf{H}= \frac{1}{\sqrt{2}}\begin{bmatrix} 1\,\,\,\,\,\,\, 1 \\ 1 \, -1 \end{bmatrix} 
+$$
 
-$$ \textbf{H} \ket{1} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1\,\,\,\,\,\,\, 1 \\ 1 \, -1 \end{bmatrix}  \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \ket{0} - \ket{1} \right) = \ket{-}$$
+$$ 
+\textbf{H} \ket{0} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1\,\,\,\,\,\,\, 1 \\ 1 \, -1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \ket{0} + \ket{1} \right) = \ket{+} 
+$$
+
+$$
+ \textbf{H} \ket{1} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1\,\,\,\,\,\,\, 1 \\ 1 \, -1 \end{bmatrix}  \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \ket{0} - \ket{1} \right) = \ket{-}
+ $$
 
 <!-- dodac opis pozostalych bramek ale tylko juz postac macierzowa
 phase s , t 3.3.2 rozdzial
@@ -148,8 +179,23 @@ Możliwe operacje pozostawienia kubitu w takim samym stanie - bramka I, zmiany s
 > Przeanalizuj wynik dla sekwencji I X I
 
 A co jeśli pierwszy gracz wie, że działa na kubicie? 
+
 > Czy może sprawic on, że  wygra zawsze? (skoro wie, że działa na kubicie może użyc innych bramek) 
 
+## Bramki dwukubitowe
+
+Analogicznie do bramek jednokubitowych reprezentowanych przez macierze unitarne $2\times 2$ możemy skonstruowac dowolną wielo-kubitową bramkę. 
+Dla n kubitów mamy $2^n \times 2^n$ unitarną macierz reprezentującą taką bramkę. 
+Ponieważ bramki wielo kubiotwe działają na raz na kilka kubitów mogą służyc one do otrzymywania stanów splątanych. Mamy również możliwośc stworzyc bramkę warunkową (kontrolowaną), która zmienia bit docelowy jeśli kontrolny bit jest w stanie $\ket{1}$.
+
+$$
+\text{CNOT} = \begin{bmatrix} 1 \, 0 \,0 \, 0 \\ 0\, 1\,0\,0 \\ 0\, 0\,0\,1 \\ 0\, 0\,1\,0 \end{bmatrix}
+$$
+Bramka ta do drugiego kubitu (targetu) stosuje bramkę X jeśli pierwszy kubit jest w pozycji $\ket{1}$. W przeciwnym wypadu nie zmienia się nic. 
+
+$$
+\text{CX} \ket{q_1 q_2} = \ket{q_1} \ket{q_1 \otimes q_2} 
+$$
 
 
 

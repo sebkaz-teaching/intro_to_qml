@@ -265,21 +265,29 @@ $$
 \ket{\psi} = \alpha \ket{0} + \beta \ket{1} = \alpha \begin{bmatrix} 1 \\ 0\end{bmatrix} + \beta \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}
 $$
 dla którego zachodzi warunek normalizacji:
-$$\braket{\psi}{\psi} = |\alpha|^2 + |\beta|^2 = 1$$ gdzie $\alpha, \beta \in \mathbb{C}$.
+$$
+\braket{\psi}{\psi} = |\alpha|^2 + |\beta|^2 = 1
+$$ 
+gdzie $\alpha, \beta \in \mathbb{C}$.
 
-> ZADANIE - oblicz powyższą amplitudę.
+> ZADANIE - oblicz $\braket{\psi}{\psi}$.
 
-Liczby $\alpha$ i $\beta$ są zespolone, zatem potrzeba 4 liczb rzeczywistych aby je opisać. 
-Ze względu na warunek normalizacji wystarczą 3 liczby rzeczywiste. 
-Czwartą liczbę możemy obliczyć z warunku normalizacji. 
+
+Liczby $\alpha$ i $\beta$ nazywamy amplitudami prawdopodobieństwa. Są one reprezentowane przez liczby zespolone. Potrzeba 4 liczb rzeczywistych aby je opisać. 
+Ze względu na warunek normalizacji jedną liczbę można obliczyc co oznacza potrzebę użycia już tylko trzech liczb rzeczywiste.  
 
 Stan kubitu możemy zapisać w postaci:
-$$\ket{\psi} = e^{i \gamma}\left( \cos{\frac{\phi}{2}} \ket{0} + e^{i \theta} \sin{\frac{\phi}{2}} \ket{1} \right)$$
+$$
+\ket{\psi} = e^{i \gamma}\left( \cos{\frac{\phi}{2}} \ket{0} + e^{i \theta} \sin{\frac{\phi}{2}} \ket{1} \right)
+$$
 gdzie $\phi \in [0, \pi]$, $\theta \in [0, 2\pi]$ i $\gamma \in [0, 2\pi]$ są liczbami rzeczywistymi.
 
 Współczynnik $e^{i \gamma}$ nazywamy _fazą globalną_. Ze względu, iż analizować będziemy kwadraty amplitud prawdopodobieństwa
 to faza globalna nie ma znaczenia. Dlatego możemy napisać: 
-$$\ket{\psi} = \cos{\frac{\phi}{2}} \ket{0} + e^{i \theta} \sin{\frac{\phi}{2}} \ket{1}$$
+$$
+\ket{\psi} = \cos{\frac{\phi}{2}} \ket{0} + e^{i \theta} \sin{\frac{\phi}{2}} \ket{1}
+= \begin{bmatrix} \cos{\frac{\phi}{2}} \\ e^{i \theta} \sin{\frac{\phi}{2}} \end{bmatrix}
+$$
 
 Warto zauważyć, że dwa dowolne stany kubitów 
 $\ket{\psi}$ i $\ket{\phi}$ różnią się o czynnik fazowy $e^{i \gamma}$ to stany te dają identyczne wyniki.
@@ -287,7 +295,7 @@ $\ket{\psi}$ i $\ket{\phi}$ różnią się o czynnik fazowy $e^{i \gamma}$ to st
 Liczby rzeczywiste $\phi$ i $\theta$ nazywamy _kątami_ kubitu i możemy interpretować je jako współrzędne na **sferze Blocha**. 
 Bardzo często będziemy wykorzystywać ją do wizualizacji stanów kubitów.
 
-Stany, którymi często będziemy operowac:
+Stany w bazie obliczeniowej, którymi często będziemy operowac:
 $$\ket{+} = \frac{1}{\sqrt{2}}(\ket{0} + \ket{1})$$
 $$\ket{-} = \frac{1}{\sqrt{2}}(\ket{0} - \ket{1})$$
 $$\ket{i} =\frac{1}{\sqrt{2}}(\ket{0} + i \ket{1})$$
@@ -305,18 +313,35 @@ Złączenie układu dwóch kubitów realizowane jest przez _iloczyn tensorowy_ (
 
 Rozważmy dwa stany kubitów $\ket{\psi}$, $\ket{\phi}$
 
-$$\ket{\psi} = \alpha \ket{0} + \beta \ket{1} = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}\, ,\,\,
+$$
+\ket{\psi} = \alpha \ket{0} + \beta \ket{1} = \begin{bmatrix} \alpha \\ \beta \end{bmatrix}\, ,\,\,
 \ket{\phi} = \gamma \ket{0} + \delta \ket{1} = \begin{bmatrix} \gamma \\ \delta \end{bmatrix}
 $$
 
 Stan dwukubitowy:
-$$ \ket{\psi} \otimes \ket{\phi} = \begin{bmatrix} \alpha \gamma \\ \alpha \delta \\ \beta \gamma \\ \beta \delta \end{bmatrix} = \alpha \gamma \ket{0} \otimes \ket{0} + \beta \delta \ket{1} \otimes \ket{0}  + \alpha \delta \ket{0} \otimes \ket{1}  + \beta \delta \ket{1} \otimes \ket{1} $$
+$$ 
+\ket{\psi} \otimes \ket{\phi} = \begin{bmatrix} \alpha \gamma \\ \alpha \delta \\ \beta \gamma \\ \beta \delta \end{bmatrix} = \alpha \gamma \ket{0} \otimes \ket{0} + \beta \delta \ket{1} \otimes \ket{0}  + \alpha \delta \ket{0} \otimes \ket{1}  + \beta \delta \ket{1} \otimes \ket{1} 
+$$
 co możemy zapisa jako:
-$$ \ket{\psi \phi} = \alpha \gamma \ket{00} + \beta \delta \ket{10}  + \alpha \delta \ket{01}  + \beta \delta \ket{11} $$
+$$ 
+\ket{\psi \phi} = \alpha \gamma \ket{00} + \beta \delta \ket{10}  + \alpha \delta \ket{01}  + \beta \delta \ket{11} 
+$$
+gdzie:
+$$
+\ket{00} = \begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}, \, \, 
+\ket{01} = \begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}, \, \,
+\ket{10} = \begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}, \, \,
+\ket{11} = \begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}
+$$
 
 Po przenumerowaniu stanów możemy napisac:
-$$ \ket{\Phi} = c_0 \ket{0} + c_1 \ket{1}  + c_2 \ket{2}  + c_3 \ket{3} $$
-
+$$ 
+\ket{\Phi} = c_0 \ket{0} + c_1 \ket{1}  + c_2 \ket{2}  + c_3 \ket{3}
+ $$
+dla którego:
+$$
+|c_0|^2 + |c_1|^2 + |c_2|^2 + |c_3|^2 = 1
+$$
 
 ### Stan separowalny i splątany
 
@@ -359,8 +384,8 @@ Zasady przestrzeni wektorowej i mechaniki kwantowej dopuszczają tworzenie kombi
 $$
 \ket{\psi} = \alpha \ket{0} + \beta \ket{1}
 $$
-Po pomiarze kubitu, czyli na końcu procesu obliczeniowego, ze względu na prawa fizyki otrzymujemy tylko i wyłącznie jeden ze stanów bazowych $\ket{0}$ lub $\ket{1}$. Każdy następny pomiar (tej samej obserwabli) będzie kończyc się w tym samym (otrzymanym) stanie.
-
+Po pomiarze kubitu, czyli na końcu procesu obliczeniowego, ze względu na prawa fizyki otrzymujemy tylko i wyłącznie jeden ze stanów bazowych $\ket{0}$ lub $\ket{1}$. 
+Każdy następny pomiar (tej samej obserwabli) będzie kończyc się w tym samym (otrzymanym) stanie.
 
 > Pomiar niszczy superpozycję kubitu i sprowadza go do jednego ze stanów bazowych.
 
@@ -369,7 +394,8 @@ Dla kubitu w superpozycji stanów bazowych jedyne co możemy określic to prawdo
 > Prawdopodobieństwo określone jest jako kwadrat (modułu) amplitudy 
 > Dla stanu $\ket{0}$ $P(0) = |\alpha|^2$ oraz dla stanu $\ket{1}$ $P(1)= |\beta|^2$.
 
-Istnieje możliwośc pomiaru kubitów w innych bazach. Jednak w większości przypadków ograniczymy się do pomiaru w bazie obliczeniowej. 
+Istnieje możliwośc pomiaru kubitów w innych bazach. 
+Jednak w większości przypadków ograniczymy się do pomiaru w bazie obliczeniowej. 
 
 ### Przykład
 
@@ -388,4 +414,18 @@ Biorąc kwadrat apmlitudy otrzymujemy stan $\ket{1}$ z prawdopodobieństwem $0.2
 
 $$\ket{\psi} = \braket{0}{\psi}\ket{0} + \braket{1}{\psi}\ket{1}$$
 
-> oblicz prawdopodobieństwo gdy pomiar dokonywany jest w stanie $\bra{+}$
+
+Dowolna para liniowo niezależnych wektorów jednostkowych $\ket{u}$ i $\ket{v}$ pochodząca z dwuwymiarowej przestrzeni wektorowej może tworzyc bazę:
+$$
+\alpha \ket{0} +\beta \ket{1} = \alpha' \ket{u} +\beta' \ket{v}
+$$
+Przykładem może byc tzw Baza Hadamarda $\ket{+}$ i $\ket{-}$ zdefiniowana jako:
+$$
+\ket{+} = \frac{1}{\sqrt{2}}(\ket{0}+\ket{1}) = \begin{bmatrix} \frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}} \end{bmatrix} 
+$$
+$$
+\ket{-} = \frac{1}{\sqrt{2}}(\ket{0}-\ket{1}) = \begin{bmatrix} \frac{1}{\sqrt{2}} \\ - \frac{1}{\sqrt{2}} \end{bmatrix} 
+$$
+
+> Bardzo ważnym etapem jest wybór bazy w której dokonujemy pomiaru. 
+> np. dla wektora $\ket{+}$ pomiar w bazie standardowej pozwoli otrzymac wyniki stanu $\ket{0}$ i $\ket{1}$ z prawdopodobieństwami $\frac{1}/{2}$. Natomiast jeśli pomiar dokonywany byłby w bazie Hadamarda to zawsze otrzymamy stan $\ket{+}$ z prawdopodobieństwem 1. 
