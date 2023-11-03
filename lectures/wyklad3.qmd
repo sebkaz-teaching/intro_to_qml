@@ -428,4 +428,4 @@ $$
 $$
 
 > Bardzo ważnym etapem jest wybór bazy w której dokonujemy pomiaru. 
-> np. dla wektora $\ket{+}$ pomiar w bazie standardowej pozwoli otrzymac wyniki stanu $\ket{0}$ i $\ket{1}$ z prawdopodobieństwami $\frac{1}/{2}$. Natomiast jeśli pomiar dokonywany byłby w bazie Hadamarda to zawsze otrzymamy stan $\ket{+}$ z prawdopodobieństwem 1. 
+> np. dla wektora $\ket{+}$ pomiar w bazie standardowej pozwoli otrzymac wyniki stanu $\ket{0}$ i $\ket{1}$ z prawdopodobieństwami $\frac{1}{2}$. Natomiast jeśli pomiar dokonywany byłby w bazie Hadamarda to zawsze otrzymamy stan $\ket{+}$ z prawdopodobieństwem 1. 

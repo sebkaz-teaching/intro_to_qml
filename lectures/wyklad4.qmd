@@ -188,16 +188,51 @@ Analogicznie do bramek jednokubitowych reprezentowanych przez macierze unitarne 
 Dla n kubitów mamy $2^n \times 2^n$ unitarną macierz reprezentującą taką bramkę. 
 Ponieważ bramki wielo kubiotwe działają na raz na kilka kubitów mogą służyc one do otrzymywania stanów splątanych. Mamy również możliwośc stworzyc bramkę warunkową (kontrolowaną), która zmienia bit docelowy jeśli kontrolny bit jest w stanie $\ket{1}$.
 
+W ogólności taka bramka może zostac zapisana jako: 
 $$
-\text{CNOT} = \begin{bmatrix} 1 \, 0 \,0 \, 0 \\ 0\, 1\,0\,0 \\ 0\, 0\,0\,1 \\ 0\, 0\,1\,0 \end{bmatrix}
-$$
-Bramka ta do drugiego kubitu (targetu) stosuje bramkę X jeśli pierwszy kubit jest w pozycji $\ket{1}$. W przeciwnym wypadu nie zmienia się nic. 
-
-$$
-\text{CX} \ket{q_1 q_2} = \ket{q_1} \ket{q_1 \otimes q_2} 
+\textbf{CU}= \ket{0}\bra{0} \otimes \textbf{I} + \ket{1}\bra{1} \otimes \textbf{\textbf{U}}
 $$
 
+Dowolna bramka działajaca na 1 kubit może byc przedstawiona jako mecierz
+$$
+\textbf{U} = \begin{bmatrix} u_{00} \, u_{01} \\ u_{10}\, u_{11} \end{bmatrix}
+$$
 
+dlatego: 
+
+$$
+\textbf{CU}=  \begin{bmatrix} 1 \,\, \,\,\, 0 \,\,\,\,\, 0 \,\,\,\,\, 0 \\ 
+0\,\, \,\,\, 1 \,\,\,\,\, 0 \,\,\,\,\, 0 \\
+0\,\,\,\, 0\,\,\,  u_{00} \,\, u_{01} \\ 0\,\,\,\, 0\,\,\, u_{10}\, \, u_{11} \end{bmatrix}
+$$
+
+Szczegółowe działanie bramki można zapisac jako: 
+
+\begin{align*}
+\textbf{CU} \ket{0} \otimes \ket{0} &=&  \ket{0} \otimes \ket{0} \\
+\textbf{CU} \ket{0} \otimes \ket{1} &=& \ket{0}\otimes \ket{1} \\
+\textbf{CU} \ket{1}\otimes \ket{0} &=& \ket{1}\otimes \textbf{U} \ket{0} \\
+\textbf{CU} \ket{1}\otimes \ket{1} &=& \ket{1}\otimes \textbf{U} \ket{1} \\
+\end{align*}
+
+Dla kwantowej bramki NOT $\textbf{U}= X$
+$$
+\text{CNOT} = \begin{bmatrix} 1 \,\, \,\,\, 0 \,\,\,\,\, 0 \,\,\,\,\, 0 \\ 
+0\,\, \,\,\, 1 \,\,\,\,\, 0 \,\,\,\,\, 0 \\
+0\,\,\,\,\, 0\,\,\,\,\,  0 \,\,\,\,\, 1 \\ 0\,\,\,\,\, 0\,\,\,\,\, 1\,\,\,\,\, 0 \end{bmatrix}
+$$
+Bramka ta do drugiego kubitu (targetu) stosuje bramkę X jeśli pierwszy kubit jest w pozycji $\ket{1}$. W przeciwnym wypadku nie zmienia się nic. 
+
+
+\begin{align*}
+\textbf{CNOT} \ket{0} \otimes \ket{0} &=&  \ket{0} \otimes \ket{0} \\
+\textbf{CNOT} \ket{0} \otimes \ket{1} &=& \ket{0}\otimes \ket{1} \\
+\textbf{CNOT} \ket{1}\otimes \ket{0} &=& \ket{1}\otimes \ket{1} \\
+\textbf{CNOT} \ket{1}\otimes \ket{1} &=& \ket{1}\otimes \ket{0} \\
+\end{align*}
+
+
+> Rozpoczynajac od stanu $\ket{0} \otimes \ket{0}$ zadziałaj na pierwszy kubit bramka Hadamarda a na tak otrzymany stan zadziałaj CNOT. Jaki stan uzyskujemy? 
 
 
 

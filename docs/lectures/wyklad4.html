@@ -292,12 +292,36 @@ phase s , t 3.3.2 rozdzial
 <section id="bramki-dwukubitowe" class="level2">
 <h2 class="anchored" data-anchor-id="bramki-dwukubitowe">Bramki dwukubitowe</h2>
 <p>Analogicznie do bramek jednokubitowych reprezentowanych przez macierze unitarne <span class="math inline">\(2\times 2\)</span> możemy skonstruowac dowolną wielo-kubitową bramkę. Dla n kubitów mamy <span class="math inline">\(2^n \times 2^n\)</span> unitarną macierz reprezentującą taką bramkę. Ponieważ bramki wielo kubiotwe działają na raz na kilka kubitów mogą służyc one do otrzymywania stanów splątanych. Mamy również możliwośc stworzyc bramkę warunkową (kontrolowaną), która zmienia bit docelowy jeśli kontrolny bit jest w stanie <span class="math inline">\(\ket{1}\)</span>.</p>
-<p><span class="math display">\[
-\text{CNOT} = \begin{bmatrix} 1 \, 0 \,0 \, 0 \\ 0\, 1\,0\,0 \\ 0\, 0\,0\,1 \\ 0\, 0\,1\,0 \end{bmatrix}
-\]</span> Bramka ta do drugiego kubitu (targetu) stosuje bramkę X jeśli pierwszy kubit jest w pozycji <span class="math inline">\(\ket{1}\)</span>. W przeciwnym wypadu nie zmienia się nic.</p>
-<p><span class="math display">\[
-\text{CX} \ket{q_1 q_2} = \ket{q_1} \ket{q_1 \otimes q_2}
+<p>W ogólności taka bramka może zostac zapisana jako: <span class="math display">\[
+\textbf{CU}= \ket{0}\bra{0} \otimes \textbf{I} + \ket{1}\bra{1} \otimes \textbf{\textbf{U}}
 \]</span></p>
+<p>Dowolna bramka działajaca na 1 kubit może byc przedstawiona jako mecierz <span class="math display">\[
+\textbf{U} = \begin{bmatrix} u_{00} \, u_{01} \\ u_{10}\, u_{11} \end{bmatrix}
+\]</span></p>
+<p>dlatego:</p>
+<p><span class="math display">\[
+\textbf{CU}=  \begin{bmatrix} 1 \,\, \,\,\, 0 \,\,\,\,\, 0 \,\,\,\,\, 0 \\
+0\,\, \,\,\, 1 \,\,\,\,\, 0 \,\,\,\,\, 0 \\
+0\,\,\,\, 0\,\,\,  u_{00} \,\, u_{01} \\ 0\,\,\,\, 0\,\,\, u_{10}\, \, u_{11} \end{bmatrix}
+\]</span></p>
+<p>Szczegółowe działanie bramki można zapisac jako:</p>
+<p><span class="math display">\[\begin{align*}
+\textbf{CU} \ket{0} \otimes \ket{0} &amp;=&amp;  \ket{0} \otimes \ket{0} \\
+\textbf{CU} \ket{0} \otimes \ket{1} &amp;=&amp; \ket{0}\otimes \ket{1} \\
+\textbf{CU} \ket{1}\otimes \ket{0} &amp;=&amp; \ket{1}\otimes \textbf{U} \ket{0} \\
+\textbf{CU} \ket{1}\otimes \ket{1} &amp;=&amp; \ket{1}\otimes \textbf{U} \ket{1} \\
+\end{align*}\]</span></p>
+<p>Dla kwantowej bramki NOT <span class="math inline">\(\textbf{U}= X\)</span> <span class="math display">\[
+\text{CNOT} = \begin{bmatrix} 1 \,\, \,\,\, 0 \,\,\,\,\, 0 \,\,\,\,\, 0 \\
+0\,\, \,\,\, 1 \,\,\,\,\, 0 \,\,\,\,\, 0 \\
+0\,\,\,\,\, 0\,\,\,\,\,  0 \,\,\,\,\, 1 \\ 0\,\,\,\,\, 0\,\,\,\,\, 1\,\,\,\,\, 0 \end{bmatrix}
+\]</span> Bramka ta do drugiego kubitu (targetu) stosuje bramkę X jeśli pierwszy kubit jest w pozycji <span class="math inline">\(\ket{1}\)</span>. W przeciwnym wypadku nie zmienia się nic.</p>
+<p><span class="math display">\[\begin{align*}
+\textbf{CNOT} \ket{0} \otimes \ket{0} &amp;=&amp;  \ket{0} \otimes \ket{0} \\
+\textbf{CNOT} \ket{0} \otimes \ket{1} &amp;=&amp; \ket{0}\otimes \ket{1} \\
+\textbf{CNOT} \ket{1}\otimes \ket{0} &amp;=&amp; \ket{1}\otimes \ket{1} \\
+\textbf{CNOT} \ket{1}\otimes \ket{1} &amp;=&amp; \ket{1}\otimes \ket{0} \\
+\end{align*}\]</span></p>
 
 
 </section>
