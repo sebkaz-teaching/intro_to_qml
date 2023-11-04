@@ -16,10 +16,10 @@ website:
             text: Wykład 3
           - href: lectures/wyklad4.qmd
             text: Wykład 4
+          - href: cwiczenia/cw1.ipynb
+            text: Ćwiczenia 1
           - href: sylabus.qmd
             text: Sylabus
-          # - href: info.qmd
-          #   text: Narzędzia
           - href: ksiazki.qmd
             text: Książki
           

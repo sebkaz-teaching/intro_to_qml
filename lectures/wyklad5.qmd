@@ -4,7 +4,37 @@ title: "Kwantowe uczenie maszynowe"
 
 ## Parameterized Quantum Circuit
 
+Parametryzowany Obwód Kwantowy (PQC) to typ obwodu kwantowego, który wykorzystuje parametry klasyczne.
+Te obwody są kluczowym elementem _wariacyjnych algorytmów kwantowych_, które są klasą algorytmów kwantowych wykorzystujących klasyczne techniki optymalizacji do znalezienia optymalnych parametrów dla obwodu kwantowego.
 
+Struktura PQC jest zazwyczaj stała i składa się z serii bramek kwantowych. 
+Parametry tych bramek, jednak, mogą być dostosowane. 
+Pozwala to na dostrojenie obwodu do rozwiązania konkretnego problemu. 
+Parametry są zazwyczaj optymalizowane za pomocą klasycznego algorytmu optymalizacji, z celem znalezienia zestawu parametrów, które minimalizują pewną funkcję kosztu.
 
-Podstawowy model obliczeń kwantowych z wykorzystaniem klasycznych danych 
+PQC są szczególnie przydatne w kwantowym uczeniu maszynowym, gdzie mogą być używane do konstrukcji _kwantowych sieci neuronowych_. 
+Te sieci mogą być trenowane w podobny sposób do klasycznych sieci neuronowych, poprzez dostosowywanie parametrów bramek kwantowych do minimalizacji funkcji kosztu.
+
+Podsumowując, Parametryzowane Obwody Kwantowe są potężnym narzędziem w dziedzinie informatyki kwantowej, umożliwiając integrację klasycznych technik optymalizacji z obliczeniami kwantowymi. 
+Są kluczowym elementem wielu algorytmów kwantowych i mają szeroki zakres zastosowań, od kwantowego uczenia maszynowego po chemię kwantową.
+
+Oto prosty przykład PQC w Pythonie za pomocą biblioteki Qiskit:
+```python
+from qiskit import QuantumCircuit
+
+# Utwórz Parametryzowany Obwód Kwantowy z 2 kubitami
+qc = QuantumCircuit(2)
+
+# Dodaj parametryzowaną bramkę
+from qiskit.circuit import Parameter
+theta = Parameter('θ')
+qc.rx(theta, 0)
+
+# Wyświetl obwód
+print(qc)
+
+```
+W tym przykładzie tworzymy obwód kwantowy z dwoma kubitami i dodajemy parametryzowaną bramkę RX do pierwszego kubitu. Parametr 'θ' może być dostosowany do zmiany zachowania obwodu.
+
+//TODO dodac info o VQE
 

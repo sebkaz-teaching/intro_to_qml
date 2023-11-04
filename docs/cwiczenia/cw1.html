@@ -141,6 +141,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Wykład 4</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link active" href="../cwiczenia/cw1.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Ćwiczenia 1</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../sylabus.html" rel="" target="">
  <span class="menu-text">Sylabus</span></a>
   </li>  
@@ -164,8 +168,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#workflow-projektów-qiskit" id="toc-workflow-projektów-qiskit" class="nav-link active" data-scroll-target="#workflow-projektów-qiskit">workflow projektów Qiskit</a></li>
-  <li><a href="#uruchomienie-kodu-na-prawdziwym-komputerze-kwantowym-ibm-q" id="toc-uruchomienie-kodu-na-prawdziwym-komputerze-kwantowym-ibm-q" class="nav-link" data-scroll-target="#uruchomienie-kodu-na-prawdziwym-komputerze-kwantowym-ibm-q">Uruchomienie kodu na prawdziwym komputerze kwantowym (IBM Q)</a></li>
+  <li><a href="#tworzenie-stanu-jednokubitowego" id="toc-tworzenie-stanu-jednokubitowego" class="nav-link active" data-scroll-target="#tworzenie-stanu-jednokubitowego">Tworzenie stanu jednokubitowego</a>
+  <ul class="collapse">
+  <li><a href="#x-gate" id="toc-x-gate" class="nav-link" data-scroll-target="#x-gate">X gate</a></li>
+  <li><a href="#sx-gate" id="toc-sx-gate" class="nav-link" data-scroll-target="#sx-gate">SX gate</a></li>
+  <li><a href="#rz-gate" id="toc-rz-gate" class="nav-link" data-scroll-target="#rz-gate">RZ gate</a></li>
+  <li><a href="#hadamard-gate" id="toc-hadamard-gate" class="nav-link" data-scroll-target="#hadamard-gate">Hadamard gate</a></li>
+  <li><a href="#cx-gate-cnot-gate" id="toc-cx-gate-cnot-gate" class="nav-link" data-scroll-target="#cx-gate-cnot-gate">CX gate (CNOT gate)</a></li>
+  <li><a href="#ccx-gate-toffoli-gate" id="toc-ccx-gate-toffoli-gate" class="nav-link" data-scroll-target="#ccx-gate-toffoli-gate">CCX gate (Toffoli gate)</a></li>
+  <li><a href="#running-cicuits" id="toc-running-cicuits" class="nav-link" data-scroll-target="#running-cicuits">Running cicuits</a></li>
+  <li><a href="#create-logical-gates-with-the-help-of-quantum-gates" id="toc-create-logical-gates-with-the-help-of-quantum-gates" class="nav-link" data-scroll-target="#create-logical-gates-with-the-help-of-quantum-gates">Create logical gates with the help of quantum gates</a>
+  <ul class="collapse">
+  <li><a href="#not-gate" id="toc-not-gate" class="nav-link" data-scroll-target="#not-gate">NOT gate</a></li>
+  <li><a href="#and-gate" id="toc-and-gate" class="nav-link" data-scroll-target="#and-gate">AND gate</a></li>
+  <li><a href="#or-gate" id="toc-or-gate" class="nav-link" data-scroll-target="#or-gate">OR gate</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -191,41 +209,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv venv</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> venv/bin/activate</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Scripts\Activate.ps1</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Scripts\Activate</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install qiskit</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install qiskit==0.44.1</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install qiskit<span class="pp">[</span><span class="ss">visualization</span><span class="pp">]</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install 'qiskit[visualization]'</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install qiskit_aer</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install qiskit_machine_learning</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install qiskit_aer==0.12.2</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install qiskit_machine_learning==0.6.1</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install qiskit-finance==0.3.4</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install qiskit-ibmq-provider==0.20.2</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install qiskit-ignis==0.7.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> qiskit.tools.jupyter</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>qiskit_version_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span>  __qiskit_version__</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(__qiskit_version__)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> qiskit.tools.jupyter</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>qiskit_version_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> qiskit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-tags="[]" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumRegister, ClassicalRegister, QuantumCircuit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumRegister, ClassicalRegister, QuantumCircuit</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># do przechowywania inforamacji o kubitach przygotowujemy obiekt QuantumRegister</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># podajemy ilość kubitów - jako parametr</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>qreq <span class="op">=</span> QuantumRegister(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>qreq <span class="op">=</span> QuantumRegister(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># do przechowywania informacji o stanie kubitu po pomiarze potrzebujemy obiektu ClassicalRegister</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># przechowujemy w nim już tylko klasyczne bity</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>creg <span class="op">=</span> ClassicalRegister(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>creg <span class="op">=</span> ClassicalRegister(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tworzenie Quantum Circuit - obiektu reprezentującego obliczenia kwantowe</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># składa się z obiektów QuantumRegister i ClassicalRegister</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>circuit <span class="op">=</span> QuantumCircuit(qreq, creg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>circuit <span class="op">=</span> QuantumCircuit(qreq, creg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>circuit.draw()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre style="word-wrap: normal;white-space: pre;background: #fff0;line-height: 1.1;font-family: &quot;Courier New&quot;,Courier,monospace">      
 q0_0: 
       
@@ -239,126 +255,432 @@ c0: 4/
       </pre>
 </div>
 </div>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># zdefiniujmy jeszcze inny rejest kubitów</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>output <span class="op">=</span> QuantumRegister(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>circuit2 <span class="op">=</span> QuantumCircuit(qreq, output, creg)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># jesli nie przewidujemy zadnych pomiarów </span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>circuit3 <span class="op">=</span> QuantumCircuit(qreq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>output <span class="op">=</span> QuantumRegister(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="workflow-projektów-qiskit" class="level2">
-<h2 class="anchored" data-anchor-id="workflow-projektów-qiskit">workflow projektów Qiskit</h2>
-<ol type="1">
-<li>Build - stworzenie obwodu kwantowego dla reprezentacji analizowanego problemu</li>
-<li>Compile - kompilacja obwodu na symulatorze lub komputerze kwantowym</li>
-<li>Run - uruchomienie obwodu na symulatorze lub komputerze kwantowym</li>
-<li>Analyze - analiza wyników</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1 Import pakietów </span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># QuantumCircuit - obiekt reprezentujący obliczenia kwantowe</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumCircuit, transpile</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># AerSimulator - symulator kwantowy</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit_aer <span class="im">import</span> AerSimulator</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># plot_histogram - funkcja do rysowania histogramów</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.visualization <span class="im">import</span> plot_histogram</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>circuit2 <span class="op">=</span> QuantumCircuit(qreq, output, creg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>circuit2.draw()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre style="word-wrap: normal;white-space: pre;background: #fff0;line-height: 1.1;font-family: &quot;Courier New&quot;,Courier,monospace">      
+q0_0: 
+      
+q0_1: 
+      
+q0_2: 
+      
+q0_3: 
+      
+  q1: 
+      
+c0: 4/
+      </pre>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>circuit3 <span class="op">=</span> QuantumCircuit(qreq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>circuit3.draw()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre style="word-wrap: normal;white-space: pre;background: #fff0;line-height: 1.1;font-family: &quot;Courier New&quot;,Courier,monospace">      
+q0_0: 
+      
+q0_1: 
+      
+q0_2: 
+      
+q0_3: 
+      </pre>
+</div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>circuit4 <span class="op">=</span> QuantumCircuit(<span class="dv">3</span>,<span class="dv">3</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>circuit4.draw()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre style="word-wrap: normal;white-space: pre;background: #fff0;line-height: 1.1;font-family: &quot;Courier New&quot;,Courier,monospace">     
+q_0: 
+     
+q_1: 
+     
+q_2: 
+     
+c: 3/
+     </pre>
+</div>
+</div>
+<section id="tworzenie-stanu-jednokubitowego" class="level1">
+<h1>Tworzenie stanu jednokubitowego</h1>
+<p><span class="math display">\[\ket{\psi}=\ket{0}\]</span></p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumRegister, ClassicalRegister, QuantumCircuit, Aer, execute</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>qr <span class="op">=</span> QuantumRegister(<span class="dv">1</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(qr)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># klasyczny symulator pozwala zobaczyc stan</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>backend <span class="op">=</span> Aer.get_backend(<span class="st">'statevector_simulator'</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>job<span class="op">=</span>execute(qc, backend)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> job.result()</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>result.get_statevector()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Statevector([1.+0.j, 0.+0.j],
+            dims=(2,))</code></pre>
+</div>
+</div>
+<p><span class="math display">\[\ket{000}, \ket{001}, \ket{010}, \ket{011}, \ket{100}, \ket{101}, \ket{110}, \ket{111}\]</span></p>
+<div class="cell" data-tags="[]" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>qr <span class="op">=</span> QuantumRegister(<span class="dv">3</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(qr)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># qc.x(qr[0]) </span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># qc.x(qr[1])</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># klasyczny symulator pozwala zobaczyc stan</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>backend <span class="op">=</span> Aer.get_backend(<span class="st">'statevector_simulator'</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>job<span class="op">=</span>execute(qc, backend)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> job.result()</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>result.get_statevector()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Statevector([1.+0.j, 0.+0.j, 0.+0.j, 0.+0.j, 0.+0.j, 0.+0.j, 0.+0.j,
+             0.+0.j],
+            dims=(2, 2, 2))</code></pre>
+</div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2 Inicjalizacja zmiennych </span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Quantum Circuit acting on the q register</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>circuit <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><span class="math display">\[
-\ket{\psi} = \frac{1}{\sqrt{2}}(\ket{00}+\ket{11})
-\]</span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3 Dodanie bramek</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a H gate on qubit 0</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>circuit.h(<span class="dv">0</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a CX (CNOT) gate on control qubit 0 and target qubit 1</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>circuit.cx(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Map the quantum measurement to the classical bits</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>circuit.measure([<span class="dv">0</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Aer.backends()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Wizualizacja obwodu</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>circuit.draw(<span class="st">"mpl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># operacje na kubitach - Bramki</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 5 Symulacja obliczeń kwantowych</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Use Aer's AerSimulator</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>simulator <span class="op">=</span> AerSimulator()</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Compile the circuit for the support instruction set (basis_gates)</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># and topology (coupling_map) of the backend</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>compiled_circuit <span class="op">=</span> transpile(circuit, simulator)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute the circuit on the aer simulator</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>job <span class="op">=</span> simulator.run(compiled_circuit, shots<span class="op">=</span><span class="dv">1000</span>)</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Grab results from the job</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> job.result()</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Returns counts</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>counts <span class="op">=</span> result.get_counts(compiled_circuit)</span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Total count for 00 and 11 are:"</span>, counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-tags="[]" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumCircuit, execute, Aer, QuantumRegister, ClassicalRegister</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.visualization <span class="im">import</span> plot_histogram, plot_bloch_multivector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 6: Wizualizacja wyników</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot a histogram</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>plot_histogram(counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="x-gate" class="level3">
+<h3 class="anchored" data-anchor-id="x-gate">X gate</h3>
+<p>The X-gate is represented by the Pauli-X matrix:</p>
+<p><span class="math inline">\(X = \begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 0 \\ \end{pmatrix}\)</span></p>
+<p>An X gate equates to a rotation around the X-axis of the Bloch sphere by <span class="math inline">\(\pi\)</span> radians. It maps <span class="math inline">\(|0\rangle\)</span> to <span class="math inline">\(|1\rangle\)</span> and <span class="math inline">\(|1\rangle\)</span> to <span class="math inline">\(|0\rangle\)</span>. It is the quantum equivalent of the NOT gate for classical computers and is sometimes called a bit-flip.</p>
+<div class="cell" data-tags="[]" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>x_gate<span class="op">=</span>QuantumCircuit(<span class="dv">1</span>) <span class="co"># Create a quantum circuit with 1 qubit</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>x_gate.x(<span class="dv">0</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>x_gate.draw(output<span class="op">=</span><span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<p><img src="cw1_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>backend <span class="op">=</span> Aer.get_backend(<span class="st">'statevector_simulator'</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> execute(x_gate, backend).result().get_statevector()</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>plot_bloch_multivector(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<p><img src="cw1_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+</div>
 </div>
 </section>
-<section id="uruchomienie-kodu-na-prawdziwym-komputerze-kwantowym-ibm-q" class="level2">
-<h2 class="anchored" data-anchor-id="uruchomienie-kodu-na-prawdziwym-komputerze-kwantowym-ibm-q">Uruchomienie kodu na prawdziwym komputerze kwantowym (IBM Q)</h2>
-<p>Token ibm quantum</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># simple circuit</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> (QuantumCircuit, QuantumRegister, ClassicalRegister, </span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                    IBMQ, execute, transpile, Aer, assemble)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.tools.monitor <span class="im">import</span> job_monitor</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Suppress warnings</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>qr <span class="op">=</span> QuantumRegister(<span class="dv">5</span>)</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>cr <span class="op">=</span> ClassicalRegister(<span class="dv">5</span>)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>circuit <span class="op">=</span> QuantumCircuit(qr, cr)</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>circuit.x(qr[<span class="dv">0</span>])</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>circuit.x(qr[<span class="dv">1</span>])</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>circuit.ccx(qr[<span class="dv">0</span>], qr[<span class="dv">1</span>], qr[<span class="dv">2</span>])</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>circuit.cx(qr[<span class="dv">0</span>], qr[<span class="dv">1</span>])</span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>circuit.measure(qr, cr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="sx-gate" class="level3">
+<h3 class="anchored" data-anchor-id="sx-gate">SX gate</h3>
+<p>The SX gate equates to a rotation around the X-axis of the Bloch sphere by <span class="math inline">\(\pi/2\)</span>. It is called SX gate to indicate that it is the square-root of the X gate. Applying this gate twice produces the standard Pauli-X gate. The opposite of the SX is the SX dagger, which is a rotation by <span class="math inline">\(\pi/2\)</span> in the opposite direction.</p>
+<p><span class="math inline">\(SX = \frac{1}{2}\begin{pmatrix} 1+i &amp; 1-i \\ 1-i &amp; 1+i \\ \end{pmatrix}\)</span></p>
+<div class="cell" data-tags="[]" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sx_gate <span class="op">=</span> QuantumCircuit(<span class="dv">1</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>sx_gate.sx(<span class="dv">0</span>)  </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>sx_gate.draw(output<span class="op">=</span><span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<p><img src="cw1_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># replace TOKEN with your API token string (https://quantum-computing.ibm.com/lab/docs/iql/manage/account/ibmq)</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>IBMQ.save_account(<span class="st">"TOKEN"</span>, overwrite<span class="op">=</span><span class="va">True</span>) </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>provider <span class="op">=</span> IBMQ.load_account()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get backend for experiment</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>provider <span class="op">=</span> IBMQ.get_provider(hub<span class="op">=</span><span class="st">'ibm-q'</span>, group<span class="op">=</span><span class="st">'open'</span>, project<span class="op">=</span><span class="st">'main'</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>backend <span class="op">=</span> provider.get_backend(<span class="st">'ibmq_quito'</span>)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># prepare the circuit for the backend</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>mapped_circuit <span class="op">=</span> transpile(circuit, backend<span class="op">=</span>backend)</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>qobj <span class="op">=</span> assemble(mapped_circuit, backend<span class="op">=</span>backend, shots<span class="op">=</span><span class="dv">1024</span>)</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># execute the circuit</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>job <span class="op">=</span> backend.run(qobj)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-tags="[]" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>backend <span class="op">=</span> Aer.get_backend(<span class="st">'statevector_simulator'</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> execute(sx_gate, backend).result().get_statevector()</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>plot_bloch_multivector(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<p><img src="cw1_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="rz-gate" class="level3">
+<h3 class="anchored" data-anchor-id="rz-gate">RZ gate</h3>
+<p>The Rz gate performs a rotation of <span class="math inline">\(\phi\)</span> around the Z-axis direction (Where <span class="math inline">\(\phi\)</span> is a real number). It has the matrix below:</p>
+<p><span class="math inline">\(RZ = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; e ^{i \phi } \\ \end{pmatrix}\)</span></p>
+<div class="cell" data-tags="[]" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>pi <span class="op">=</span> np.pi</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>rz_gate <span class="op">=</span> QuantumCircuit(<span class="dv">1</span>)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>rz_gate.rz(pi<span class="op">/</span><span class="dv">2</span>, <span class="dv">0</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>rz_gate.draw(output<span class="op">=</span><span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<p><img src="cw1_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>backend <span class="op">=</span> Aer.get_backend(<span class="st">'statevector_simulator'</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> execute(rz_gate, backend).result().get_statevector()</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>plot_bloch_multivector(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<p><img src="cw1_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>rz_gate.sx(<span class="dv">0</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>rz_gate.rz(pi<span class="op">/</span><span class="dv">2</span>, <span class="dv">0</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>rz_gate.draw(output<span class="op">=</span><span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<p><img src="cw1_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>backend <span class="op">=</span> Aer.get_backend(<span class="st">'statevector_simulator'</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> execute(rz_gate, backend).result().get_statevector()</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>plot_bloch_multivector(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<p><img src="cw1_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="hadamard-gate" class="level3">
+<h3 class="anchored" data-anchor-id="hadamard-gate">Hadamard gate</h3>
+<p>A Hadamard gate represents a rotation of <span class="math inline">\(\pi\)</span> about the axis that is in the middle of the X-axis and Z-axis. It maps the basis state <span class="math inline">\(|0\rangle\)</span> to <span class="math inline">\(\frac{|0\rangle + |1\rangle}{\sqrt{2}}\)</span>, which means that a measurement will have equal probabilities of being <code>1</code> or <code>0</code>, creating a ‘superposition’ of states. This state is also written as <span class="math inline">\(|+\rangle\)</span>. What the Hadamard does is to transform between the <span class="math inline">\(|0\rangle\)</span> <span class="math inline">\(|1\rangle\)</span> and the <span class="math inline">\(|+\rangle\)</span> <span class="math inline">\(|-\rangle\)</span> base.</p>
+<p><span class="math inline">\(H = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 &amp; 1 \\ 1 &amp; -1 \\ \end{pmatrix}\)</span></p>
+<div class="cell" data-tags="[]" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>h_gate <span class="op">=</span> QuantumCircuit(<span class="dv">1</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>h_gate.h(<span class="dv">0</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>h_gate.draw(output<span class="op">=</span><span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<p><img src="cw1_files/figure-html/cell-28-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's see the result</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>backend <span class="op">=</span> Aer.get_backend(<span class="st">'statevector_simulator'</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> execute(h_gate, backend).result().get_statevector()</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>plot_bloch_multivector(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<p><img src="cw1_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="cx-gate-cnot-gate" class="level3">
+<h3 class="anchored" data-anchor-id="cx-gate-cnot-gate">CX gate (CNOT gate)</h3>
+<p>The controlled NOT (or CNOT or CX) gate acts on two qubits. It performs the NOT operation (equivalent to applying an X gate) on the second qubit only when the first qubit is <span class="math inline">\(|1\rangle\)</span> and otherwise leaves it unchanged.</p>
+<p>Note: Qiskit numbers the bits in a string from right to left.</p>
+<p><span class="math inline">\(CX = \begin{pmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ \end{pmatrix}\)</span></p>
+<div class="cell" data-tags="[]" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>cx_gate <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>cx_gate.cx(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>cx_gate.draw(output<span class="op">=</span><span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<p><img src="cw1_files/figure-html/cell-30-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="ccx-gate-toffoli-gate" class="level3">
+<h3 class="anchored" data-anchor-id="ccx-gate-toffoli-gate">CCX gate (Toffoli gate)</h3>
+<p>The CCX gate (controlled controlled X Gate) is also called a Toffoli gate. The CCX gate is a three-bit gate, with two controls and one target as their input and output. If the first two bits are in the state <span class="math inline">\(|1\rangle\)</span>, it applies a Pauli-X (or NOT) on the third bit. Otherwise, it does nothing.</p>
+<p>Note: Qiskit numbers the bits in a string from right to left.</p>
+<p><span class="math inline">\(CCX = \begin{pmatrix} 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\ \end{pmatrix}\)</span></p>
+<div class="cell" data-tags="[]" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>ccx_gate <span class="op">=</span> QuantumCircuit(<span class="dv">3</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>ccx_gate.ccx(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>ccx_gate.draw(output<span class="op">=</span><span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<p><img src="cw1_files/figure-html/cell-31-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Zadanie - zbuduj obwod kwantowy złożony z 10 kubitów, zastosuj bramkę H do kubitu 0 i 9 bramek CNOT gdzie kubitem kontrolnym jest kubit 0 a targety to kubity od 1 do 9</p>
+</blockquote>
+<p>Przydatne dla obwodów</p>
+<div class="cell" data-tags="[]" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> QuantumRegister(<span class="dv">10</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> ClassicalRegister(<span class="dv">10</span>)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>ci <span class="op">=</span> QuantumCircuit(q,c)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>ci.h(q)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>ci.draw()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<p><img src="cw1_files/figure-html/cell-32-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CCCH gate</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library.standard_gates <span class="im">import</span> HGate</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>CCCH <span class="op">=</span> HGate().control(<span class="dv">3</span>)</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>ci.append(CCCH, [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>])</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>ci.draw()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<p><img src="cw1_files/figure-html/cell-33-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="running-cicuits" class="level2">
+<h2 class="anchored" data-anchor-id="running-cicuits">Running cicuits</h2>
+<div class="cell" data-tags="[]" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumRegister, ClassicalRegister, QuantumCircuit</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>qreg <span class="op">=</span> QuantumRegister(<span class="dv">2</span>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>creg <span class="op">=</span> ClassicalRegister(<span class="dv">2</span>)</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>circuit <span class="op">=</span> QuantumCircuit(qreg, creg)</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>circuit.h(qreg[<span class="dv">0</span>])</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>circuit.measure(qreg, creg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>&lt;qiskit.circuit.instructionset.InstructionSet at 0x7ff05b8898d0&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> execute, Aer</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>simulator <span class="op">=</span> Aer.get_backend(<span class="st">'qasm_simulator'</span>)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>job <span class="op">=</span> execute(circuit, simulator, shots <span class="op">=</span> <span class="dv">1000</span>)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>counts <span class="op">=</span> job.result().get_counts(circuit)</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'00': 504, '01': 496}</code></pre>
+</div>
+</div>
+<div class="cell" data-tags="[]" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>plot_histogram(counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<p><img src="cw1_files/figure-html/cell-36-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="create-logical-gates-with-the-help-of-quantum-gates" class="level2">
+<h2 class="anchored" data-anchor-id="create-logical-gates-with-the-help-of-quantum-gates">Create logical gates with the help of quantum gates</h2>
+<section id="not-gate" class="level3">
+<h3 class="anchored" data-anchor-id="not-gate">NOT gate</h3>
+<p>The NOT gate flips the value of a bit and, as was mentioned before, an X gate can be considered a NOT gate. The truth table for a NOT gate looks like this:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<div class="cell" data-tags="[]" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>not_gate<span class="op">=</span>QuantumCircuit(<span class="dv">1</span>,<span class="dv">1</span>) <span class="co"># Create a quantum circuit with 1 qubit and 1 classical bit</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>not_gate.x(<span class="dv">0</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>not_gate.measure(<span class="dv">0</span>,<span class="dv">0</span>)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>not_gate.draw(output<span class="op">=</span><span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<p><img src="cw1_files/figure-html/cell-39-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="and-gate" class="level3">
+<h3 class="anchored" data-anchor-id="and-gate">AND gate</h3>
+<p>The output of an AND is true if and only if both inputs are true. The truth table for an AND Gate looks like this:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>A (Input)</th>
+<th>B (Input)</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>With a Toffoli gate, we can get the result of an AND gate by interpreting the two control bits as the input bits and the target bit as the output bit.</p>
+<div class="cell" data-tags="[]" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>and_gate<span class="op">=</span>QuantumCircuit(<span class="dv">3</span>,<span class="dv">1</span>) <span class="co"># Create a quantum circuit with 3 qubits and 1 classical bit</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>and_gate.ccx(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>and_gate.measure(<span class="dv">2</span>,<span class="dv">0</span>)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>and_gate.draw(output<span class="op">=</span><span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<p><img src="cw1_files/figure-html/cell-40-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="or-gate" class="level3">
+<h3 class="anchored" data-anchor-id="or-gate">OR gate</h3>
+<p>An OR gate returns true if at least one of the input gates is true. The truth table for an OR Gate looks like this:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>A (Input)</th>
+<th>B (Input)</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<div class="cell" data-tags="[]" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>or_gate<span class="op">=</span>QuantumCircuit(<span class="dv">3</span>,<span class="dv">1</span>) <span class="co"># Create a quantum circuit with 3 qubits and 1 classical bit</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>or_gate.cx(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>or_gate.cx(<span class="dv">0</span>,<span class="dv">2</span>)</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>or_gate.ccx(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>or_gate.measure(<span class="dv">2</span>,<span class="dv">0</span>)</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>or_gate.draw(output<span class="op">=</span><span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<p><img src="cw1_files/figure-html/cell-41-output-1.png" class="img-fluid"></p>
+</div>
 </div>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
