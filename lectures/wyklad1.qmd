@@ -139,8 +139,8 @@ Niemniej jednak, fizycy często starają się oddzielać te dwie dziedziny i sto
 Na przykład, w konstrukcji mostów korzysta się z fizyki klasycznej, a nie MK.
 
 Warto zaznaczyć, że wyniki MK są probabilistyczne, co często prowadzi do błędnego przekonania, że MK jest teorią statystyczną.
- Niemniej jednak, nie jest to prawda. 
- Mechanikę Kwantową można raczej uznać za uogólnienie klasycznej definicji prawdopodobieństwa.
+Niemniej jednak, nie jest to prawda. 
+Mechanikę Kwantową można raczej uznać za uogólnienie klasycznej definicji prawdopodobieństwa.
 
 
 ### Historia MK
@@ -157,7 +157,7 @@ Pozostałe informacje możesz znaleźć w [artykule o obliczeniach kwantowych](h
 
 
 ### Historia obliczeń kwantowych
- 
+
 - 1936 Alan Turing opublikował pracę [On Computable Numbers](https://www.cs.virginia.edu/~robins/Turing_Paper_1936.pdf), która stanowiła istotny krok w kierunku teoretycznych podstaw obliczeń (Hilbert Problems) - universal computing machine [local](/pubs/Turing_Paper_1936.pdf)
 - 1976 Roman S. Ingarden - [Quantum Information Theory](https://www.sciencedirect.com/science/article/abs/pii/0034487776900057?via%3Dihub) Roman S. Ingarden wprowadził pojęcie teorii informacji kwantowej, co miało kluczowe znaczenie dla rozwoju komputerów kwantowych.
 - 1980 Paul Benioff - Paul Benioff przedstawił teoretyczną koncepcję komputerów kwantowych jako fizycznych systemów, otwierając drzwi do praktycznych implementacji.
@@ -188,17 +188,42 @@ Fizyczna konstrukcja komputera kwantowego, a właściwie qubitu, jest zadaniem n
 ### Dlaczego chcemy używać komputerów kwantowych?
 
 #### Kwantowa Złożoność (Quantum Complexity)
-   
+
 Nowy paradygmat wykorzystuje unikalne cechy interferencji, superpozycji i splątania w celu wykonywania obliczeń. Obecnie realizowany jest w trzech modelach:
 
 1. Quantum Circuits (Obwody Kwantowe) - oparty na modelu bramkowym, w tym QAOA, VQA, oraz metody hybrydowe.
 2. Adiabatyczne Obliczenia Kwantowe (D-Wave) - polegające na minimalizacji energii, z wykorzystaniem QUBO i analogii do modelu Isinga.
 3. Topologiczne Komputery Kwantowe - oparte na topologicznych kubitach.
-   
-Problemy, które uważamy za trudne do rozwiązania klasycznie, takie jak optymalizacja, stają się łatwiejsze dla komputerów kwantowych. Przykładem jest faktoryzacja liczb.
-Klasyczne komputery nie są w stanie efektywnie symulować działania kwantowych komputerów. Koszt najlepszych symulatorów rośnie wykładniczo wraz z liczbą kubitów.
+
+
+Problemy, które uważamy za trudne do rozwiązania klasycznie, takie jak optymalizacja, stają się łatwiejsze dla komputerów kwantowych.
+Przykładem jest faktoryzacja liczb.
+Klasyczne komputery nie są w stanie efektywnie symulować działania kwantowych komputerów. 
+Koszt najlepszych symulatorów rośnie wykładniczo wraz z liczbą kubitów.
 Możliwości komputerów kwantowych są potencjalnie ogromne, ale obecnie istnieją pewne ograniczenia [link](https://medium.com/qiskit/what-can-a-quantum-computer-actually-do-4daed0691f6b).
 Kwantowy komputer może być używany do efektywnej symulacji niemal dowolnego procesu fizycznego zachodzącego w przyrodzie, choć nie zawsze jesteśmy pewni, czy taka symulacja jest możliwa.
+
+Podstawowym faktem przewagi komputerów kwantowych nad klasycznymi jest tzw. **parallelizm**. 
+Ze względu, iż kubity moga znajdowac się w superpozycji stanów, komputer kwantowy może przeprowadzic obliczenia jednocześnie na wszystkich stanach. 
+Co dokładnie to oznacza, poznamy w dalszej czesci wykładu. 
+Rozważmy sytuację w której chcemy poznac działanie funkcji $f(x)$ dla pewnego argumentu $x$ (dla pewnej liczby). 
+Aby znaleźc wynik dla dwóch liczb (np. $x=0$ i $x=1$) klasyczny komputer musi wykonac dwie operacje. 
+Komputer kwantowy może uzuskac ten wynik przeprowadzajac obliczenia jednocześnie dla obu warości. 
+Do wykonania takiej operacji wystarczy jeden kubit. 
+Następnie jeżeli będziemy chcieli obliczyc nasza funkcję dla kolejnych liczb $x=2$ (która binarnie reprezentowana jest jako $10$) oraz liczby $x=3$ (binarnie $11$) musimy dodac kolejny (jeden!) kubit. 
+Dwa kubity moga posłużyc do realizacji czterech równoległych operacji. 
+Jeśli rozważymy 3 kubity znowu mozemy podwoic ilośc operacji (3 kubity maja 8 stanów bazowych). 
+Dodanie kubitu do komputera kwantowego pozwala podwoic liczbę obliczeń. 
+W przypadku klasycznego komputera aby uzyskac taki efekt, potrzeba podwoic rownież liczbę bitów. 
+n-kubitów moze realizowac $2^n$ równoległych obliczeń. 
+
+Druga istotna koncepcja jest **pamięc**. 
+Klasyczne komputery (np. 64-bitowy laptop) każda liczbę moga zareprezentowac w 64-biotwej reprezentacji (rozszerzenie reprezentacji 8 bitowej). Jeśli chcemy otrzymac 4 liczby w takiej reprezentacji potrzebujemy $4\times 64=256$ bitów pamięci na twardym dysku. 
+Dla $M$ liczb potrzebujemy zatem $M \times 64$ bitów pamięci. W przypadku komputera kwantowego operujacego na n-kubitach możemy przechowac $2^n$ różnych współczynników traktujac taki stan jako pamięc. 
+W odróżnieniu od klasycznej pamięci, gdzie ilośc bitów pamięci jest liniowa w stosunku do ilości liczb, pamięc realizowana na kubitach jest funkcja logarytmiczna od ilości liczb. 
+
+Dzisiejsze Klasyczne komputery to zaawansowane maszyny zwieraja dziesiatki terabajtów pamięci i moga symulowac niewielki układy kwantowe. Obecnie najwieksze komputery potrafia symulowac ok 46 kubitów. Dla porównania obecnie IBM pozwala użytkowac komputer kwantowy oparty o 127 kubitów (a nawet 1000).
+
 
 #### Kwantowa Korekcja Błędów (Quantum Error Correction)
 
