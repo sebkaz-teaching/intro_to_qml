@@ -287,6 +287,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="qiskit-podstawy" class="level2">
 <h2 class="anchored" data-anchor-id="qiskit-podstawy">Qiskit podstawy</h2>
+<p>Tworzenie rejestrów: kwantowego i klasycznego</p>
 <div class="cell" data-tags="[]" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumRegister, ClassicalRegister, QuantumCircuit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -336,7 +337,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="tworzenie-stanu-jednokubitowego" class="level2">
 <h2 class="anchored" data-anchor-id="tworzenie-stanu-jednokubitowego">Tworzenie stanu jednokubitowego</h2>
-<p><span class="math display">\[\ket{\psi}=\ket{0}\]</span></p>
+<p><span class="math display">\[
+\ket{\psi}=\ket{0}
+\]</span></p>
 <div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumRegister, QuantumCircuit, Aer, execute</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -391,7 +394,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="tworzenie-stanu-dwukubitowego" class="level2">
 <h2 class="anchored" data-anchor-id="tworzenie-stanu-dwukubitowego">Tworzenie stanu dwukubitowego</h2>
-<p><span class="math display">\[\ket{00}, \ket{01}, \ket{10}, \ket{11}\]</span></p>
+<p><span class="math display">\[
+\ket{00}, \ket{01}, \ket{10}, \ket{11}
+\]</span></p>
 <div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>qr <span class="op">=</span> QuantumRegister(<span class="dv">2</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(qr)</span>
@@ -446,7 +451,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="tworzenie-stanu-trzy-kubitowego" class="level2">
 <h2 class="anchored" data-anchor-id="tworzenie-stanu-trzy-kubitowego">Tworzenie stanu trzy-kubitowego</h2>
-<p><span class="math display">\[\ket{000}, \ket{001}, \ket{010}, \ket{011}, \ket{100}, \ket{101}, \ket{110}, \ket{111}\]</span></p>
+<p><span class="math display">\[
+\ket{000}, \ket{001}, \ket{010}, \ket{011}, \ket{100}, \ket{101}, \ket{110}, \ket{111}\]</span></p>
 <div class="cell" data-tags="[]" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>qr <span class="op">=</span> QuantumRegister(<span class="dv">3</span>)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(qr)</span>
