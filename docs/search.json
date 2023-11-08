@@ -81,7 +81,7 @@
     "href": "lectures/wyklad2.html#kody---rozwiązania-zadań",
     "title": "Klasyczne bramki logiczne - Algebra Boola",
     "section": "kody - rozwiązania zadań",
-    "text": "kody - rozwiązania zadań\n\nfrom random import randrange\n# randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)\nfor experiment in [100,1000,10000,100000]:\n    heads = tails = 0\n    for i in range(experiment):\n        if randrange(2) == 0: heads = heads + 1\n        else: tails = tails + 1\n    print(\"experiment:\",experiment)\n    print(\"heads =\",heads,\"  tails = \",tails)\n    print(\"the ratio of #heads/#tails is\",(round(heads/tails,4)))\n    print() # empty line\n\nexperiment: 100\nheads = 57   tails =  43\nthe ratio of #heads/#tails is 1.3256\n\nexperiment: 1000\nheads = 491   tails =  509\nthe ratio of #heads/#tails is 0.9646\n\nexperiment: 10000\nheads = 5105   tails =  4895\nthe ratio of #heads/#tails is 1.0429\n\nexperiment: 100000\nheads = 50046   tails =  49954\nthe ratio of #heads/#tails is 1.0018\n\n\n\n\nfrom random import randrange\n\n# let's pick a random number between {0,1,...,99}\n# it is expected to be less than 60 with probability 0.6\n#     and greater than or equal to 60 with probability 0.4\n# ten sam przypadek możesz zrealizować dla losowania wartosci rzeczywistej\n# pomiędzy 0 i 1.\n\nfor experiment in [100,1000,10000,100000]:\n    heads = tails = 0\n    for i in range(experiment):\n        if randrange(100) &lt;60: heads = heads + 1 # with probability 0.6\n        else: tails = tails + 1 # with probability 0.4\n    print(\"experiment:\",experiment)\n    print(\"heads =\",heads,\"  tails = \",tails)\n    print(\"the ratio of #heads/#tails is\",(round(heads/tails,4)))\n    print() # empty line\n\nexperiment: 100\nheads = 66   tails =  34\nthe ratio of #heads/#tails is 1.9412\n\nexperiment: 1000\nheads = 602   tails =  398\nthe ratio of #heads/#tails is 1.5126\n\nexperiment: 10000\nheads = 5921   tails =  4079\nthe ratio of #heads/#tails is 1.4516\n\nexperiment: 100000\nheads = 60047   tails =  39953\nthe ratio of #heads/#tails is 1.5029"
+    "text": "kody - rozwiązania zadań\n\nfrom random import randrange\n# randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)\nfor experiment in [100,1000,10000,100000]:\n    heads = tails = 0\n    for i in range(experiment):\n        if randrange(2) == 0: heads = heads + 1\n        else: tails = tails + 1\n    print(\"experiment:\",experiment)\n    print(\"heads =\",heads,\"  tails = \",tails)\n    print(\"the ratio of #heads/#tails is\",(round(heads/tails,4)))\n    print() # empty line\n\nexperiment: 100\nheads = 47   tails =  53\nthe ratio of #heads/#tails is 0.8868\n\nexperiment: 1000\nheads = 518   tails =  482\nthe ratio of #heads/#tails is 1.0747\n\nexperiment: 10000\nheads = 5029   tails =  4971\nthe ratio of #heads/#tails is 1.0117\n\nexperiment: 100000\nheads = 49770   tails =  50230\nthe ratio of #heads/#tails is 0.9908\n\n\n\n\nfrom random import randrange\n\n# let's pick a random number between {0,1,...,99}\n# it is expected to be less than 60 with probability 0.6\n#     and greater than or equal to 60 with probability 0.4\n# ten sam przypadek możesz zrealizować dla losowania wartosci rzeczywistej\n# pomiędzy 0 i 1.\n\nfor experiment in [100,1000,10000,100000]:\n    heads = tails = 0\n    for i in range(experiment):\n        if randrange(100) &lt;60: heads = heads + 1 # with probability 0.6\n        else: tails = tails + 1 # with probability 0.4\n    print(\"experiment:\",experiment)\n    print(\"heads =\",heads,\"  tails = \",tails)\n    print(\"the ratio of #heads/#tails is\",(round(heads/tails,4)))\n    print() # empty line\n\nexperiment: 100\nheads = 58   tails =  42\nthe ratio of #heads/#tails is 1.381\n\nexperiment: 1000\nheads = 613   tails =  387\nthe ratio of #heads/#tails is 1.584\n\nexperiment: 10000\nheads = 5950   tails =  4050\nthe ratio of #heads/#tails is 1.4691\n\nexperiment: 100000\nheads = 60198   tails =  39802\nthe ratio of #heads/#tails is 1.5124"
   },
   {
     "objectID": "cwiczenia/cw1.html",
@@ -98,11 +98,39 @@
     "text": "Qiskit podstawy\n\nfrom qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit\n\n\nqreq = QuantumRegister(4)\n\n\ncreg = ClassicalRegister(4)\n\n\ncircuit = QuantumCircuit(qreq, creg)\n\n\ncircuit.draw('mpl')\n\n\n\n\n\noutput = QuantumRegister(1)\n\n\ncircuit2 = QuantumCircuit(qreq, output, creg)\n\n\ncircuit2.draw(\"mpl\")\n\n\n\n\n\ncircuit3 = QuantumCircuit(qreq)\n\n\ncircuit3.draw('mpl')\n\n\n\n\n\ncircuit4 = QuantumCircuit(3,3)\ncircuit4.draw(\"mpl\")"
   },
   {
-    "objectID": "cwiczenia/cw1.html#running-cicuits",
-    "href": "cwiczenia/cw1.html#running-cicuits",
+    "objectID": "cwiczenia/cw1.html#tworzenie-stanu-jednokubitowego",
+    "href": "cwiczenia/cw1.html#tworzenie-stanu-jednokubitowego",
     "title": "Środowisko Python dla obliczeń kwatnowych - biblioteka Qiskit",
-    "section": "Running cicuits",
-    "text": "Running cicuits\n\nfrom qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit\n\nqreg = QuantumRegister(2)\ncreg = ClassicalRegister(2)\n\ncircuit = QuantumCircuit(qreg, creg)\n\ncircuit.h(qreg[0])\n\ncircuit.measure(qreg, creg)\n\n&lt;qiskit.circuit.instructionset.InstructionSet at 0x2835ece50&gt;\n\n\n\nfrom qiskit import execute, Aer\nfrom qiskit.visualization import plot_histogram\n\nsimulator = Aer.get_backend('qasm_simulator')\n\njob = execute(circuit, simulator, shots = 1000)\n\ncounts = job.result().get_counts(circuit)\nprint(counts)\n\n{'00': 518, '01': 482}\n\n\n\nplot_histogram(counts)"
+    "section": "Tworzenie stanu jednokubitowego",
+    "text": "Tworzenie stanu jednokubitowego\n\\[\\ket{\\psi}=\\ket{0}\\]\n\nfrom qiskit import QuantumRegister, QuantumCircuit, Aer, execute\n\n\nqr = QuantumRegister(1)\nqc = QuantumCircuit(qr)\n\n# klasyczny symulator pozwala zobaczyc stan\nbackend = Aer.get_backend('statevector_simulator')\njob=execute(qc, backend)\nresult = job.result()\nstate = result.get_statevector()\nprint(state)\n\nStatevector([1.+0.j, 0.+0.j],\n            dims=(2,))\n\n\n\nstate.draw('latex')\n\n\\[ |0\\rangle\\]\n\n\n\nfrom qiskit.visualization import plot_bloch_multivector\nplot_bloch_multivector(result.get_statevector())\n\n\n\n\n\nqr = QuantumRegister(1)\nqc = QuantumCircuit(qr)\nqc.h(qr[0])\nbackend = Aer.get_backend('statevector_simulator')\njob = execute(qc, backend)\nresult = job.result()\nstate = result.get_statevector()\nstate.draw('latex')\n\n\\[\\frac{\\sqrt{2}}{2} |0\\rangle+\\frac{\\sqrt{2}}{2} |1\\rangle\\]\n\n\n\nfrom qiskit.visualization import plot_bloch_multivector\nplot_bloch_multivector(result.get_statevector())"
+  },
+  {
+    "objectID": "cwiczenia/cw1.html#tworzenie-stanu-dwukubitowego",
+    "href": "cwiczenia/cw1.html#tworzenie-stanu-dwukubitowego",
+    "title": "Środowisko Python dla obliczeń kwatnowych - biblioteka Qiskit",
+    "section": "Tworzenie stanu dwukubitowego",
+    "text": "Tworzenie stanu dwukubitowego\n\\[\\ket{00}, \\ket{01}, \\ket{10}, \\ket{11}\\]\n\nqr = QuantumRegister(2)\nqc = QuantumCircuit(qr)\nqc.h(qr[0])\nqc.h(qr[1])\nbackend = Aer.get_backend('statevector_simulator')\njob = execute(qc, backend)\nresult = job.result()\nstate = result.get_statevector()\nstate.draw('latex')\n\n\\[\\frac{1}{2} |00\\rangle+\\frac{1}{2} |01\\rangle+\\frac{1}{2} |10\\rangle+\\frac{1}{2} |11\\rangle\\]\n\n\n\nfrom qiskit.visualization import plot_bloch_multivector\nplot_bloch_multivector(result.get_statevector())\n\n\n\n\n\nqr = QuantumRegister(2)\nqc = QuantumCircuit(qr)\nqc.h(qr[0])\nqc.cx(0,1)\n\nbackend = Aer.get_backend('statevector_simulator')\njob = execute(qc, backend)\nresult = job.result()\nstate = result.get_statevector()\n\n\nqc.draw('mpl')\n\n\n\n\n\nstate.draw('latex')\n\n\\[\\frac{\\sqrt{2}}{2} |00\\rangle+\\frac{\\sqrt{2}}{2} |11\\rangle\\]\n\n\n\nfrom qiskit.visualization import plot_bloch_multivector\nplot_bloch_multivector(result.get_statevector())"
+  },
+  {
+    "objectID": "cwiczenia/cw1.html#tworzenie-stanu-trzy-kubitowego",
+    "href": "cwiczenia/cw1.html#tworzenie-stanu-trzy-kubitowego",
+    "title": "Środowisko Python dla obliczeń kwatnowych - biblioteka Qiskit",
+    "section": "Tworzenie stanu trzy-kubitowego",
+    "text": "Tworzenie stanu trzy-kubitowego\n\\[\\ket{000}, \\ket{001}, \\ket{010}, \\ket{011}, \\ket{100}, \\ket{101}, \\ket{110}, \\ket{111}\\]\n\nqr = QuantumRegister(3)\nqc = QuantumCircuit(qr)\n# qc.x(qr[0]) \n# qc.x(qr[1])\n\n# klasyczny symulator pozwala zobaczyc stan\nbackend = Aer.get_backend('statevector_simulator')\njob=execute(qc, backend)\nresult = job.result()\nstate = result.get_statevector()\n\nUruchom powyższy kod usuwajac poszczegolne komentarze i sprawdz wynik."
+  },
+  {
+    "objectID": "cwiczenia/cw1.html#dostępne-symulatory",
+    "href": "cwiczenia/cw1.html#dostępne-symulatory",
+    "title": "Środowisko Python dla obliczeń kwatnowych - biblioteka Qiskit",
+    "section": "Dostępne symulatory",
+    "text": "Dostępne symulatory\n\nAer.backends()\n\n[AerSimulator('aer_simulator'),\n AerSimulator('aer_simulator_statevector'),\n AerSimulator('aer_simulator_density_matrix'),\n AerSimulator('aer_simulator_stabilizer'),\n AerSimulator('aer_simulator_matrix_product_state'),\n AerSimulator('aer_simulator_extended_stabilizer'),\n AerSimulator('aer_simulator_unitary'),\n AerSimulator('aer_simulator_superop'),\n QasmSimulator('qasm_simulator'),\n StatevectorSimulator('statevector_simulator'),\n UnitarySimulator('unitary_simulator'),\n PulseSimulator('pulse_simulator')]"
+  },
+  {
+    "objectID": "cwiczenia/cw1.html#pomiar-w-obwodzie-i-wielokrotne-uruchamianie-układu",
+    "href": "cwiczenia/cw1.html#pomiar-w-obwodzie-i-wielokrotne-uruchamianie-układu",
+    "title": "Środowisko Python dla obliczeń kwatnowych - biblioteka Qiskit",
+    "section": "Pomiar w obwodzie i wielokrotne uruchamianie układu",
+    "text": "Pomiar w obwodzie i wielokrotne uruchamianie układu\n\nfrom qiskit import QuantumRegister, ClassicalRegister, QuantumCircuit\n\nqreg = QuantumRegister(2)\ncreg = ClassicalRegister(2)\n\ncircuit = QuantumCircuit(qreg, creg)\ncircuit.h(qreg[0])\ncircuit.measure(qreg, creg)\n\n&lt;qiskit.circuit.instructionset.InstructionSet at 0x2835ece50&gt;\n\n\n\nfrom qiskit import execute, Aer\nfrom qiskit.visualization import plot_histogram\n\nsimulator = Aer.get_backend('qasm_simulator')\n\njob = execute(circuit, simulator, shots = 1000)\n\ncounts = job.result().get_counts(circuit)\nprint(counts)\n\n{'00': 518, '01': 482}\n\n\n\nplot_histogram(counts)"
   },
   {
     "objectID": "cwiczenia/cw2.html",

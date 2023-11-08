@@ -169,10 +169,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#qiskit-podstawy" id="toc-qiskit-podstawy" class="nav-link active" data-scroll-target="#qiskit-podstawy">Qiskit podstawy</a></li>
-  <li><a href="#tworzenie-stanu-jednokubitowego" id="toc-tworzenie-stanu-jednokubitowego" class="nav-link" data-scroll-target="#tworzenie-stanu-jednokubitowego">Tworzenie stanu jednokubitowego</a>
-  <ul class="collapse">
-  <li><a href="#running-cicuits" id="toc-running-cicuits" class="nav-link" data-scroll-target="#running-cicuits">Running cicuits</a></li>
-  </ul></li>
+  <li><a href="#tworzenie-stanu-jednokubitowego" id="toc-tworzenie-stanu-jednokubitowego" class="nav-link" data-scroll-target="#tworzenie-stanu-jednokubitowego">Tworzenie stanu jednokubitowego</a></li>
+  <li><a href="#tworzenie-stanu-dwukubitowego" id="toc-tworzenie-stanu-dwukubitowego" class="nav-link" data-scroll-target="#tworzenie-stanu-dwukubitowego">Tworzenie stanu dwukubitowego</a></li>
+  <li><a href="#tworzenie-stanu-trzy-kubitowego" id="toc-tworzenie-stanu-trzy-kubitowego" class="nav-link" data-scroll-target="#tworzenie-stanu-trzy-kubitowego">Tworzenie stanu trzy-kubitowego</a></li>
+  <li><a href="#dostępne-symulatory" id="toc-dostępne-symulatory" class="nav-link" data-scroll-target="#dostępne-symulatory">Dostępne symulatory</a></li>
+  <li><a href="#pomiar-w-obwodzie-i-wielokrotne-uruchamianie-układu" id="toc-pomiar-w-obwodzie-i-wielokrotne-uruchamianie-układu" class="nav-link" data-scroll-target="#pomiar-w-obwodzie-i-wielokrotne-uruchamianie-układu">Pomiar w obwodzie i wielokrotne uruchamianie układu</a></li>
   </ul>
 </nav>
     </div>
@@ -333,8 +334,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="tworzenie-stanu-jednokubitowego" class="level1">
-<h1>Tworzenie stanu jednokubitowego</h1>
+<section id="tworzenie-stanu-jednokubitowego" class="level2">
+<h2 class="anchored" data-anchor-id="tworzenie-stanu-jednokubitowego">Tworzenie stanu jednokubitowego</h2>
 <p><span class="math display">\[\ket{\psi}=\ket{0}\]</span></p>
 <div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumRegister, QuantumCircuit, Aer, execute</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -387,6 +388,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="cw1_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
 </div>
 </div>
+</section>
+<section id="tworzenie-stanu-dwukubitowego" class="level2">
+<h2 class="anchored" data-anchor-id="tworzenie-stanu-dwukubitowego">Tworzenie stanu dwukubitowego</h2>
 <p><span class="math display">\[\ket{00}, \ket{01}, \ket{10}, \ket{11}\]</span></p>
 <div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>qr <span class="op">=</span> QuantumRegister(<span class="dv">2</span>)</span>
@@ -439,6 +443,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="cw1_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
 </div>
 </div>
+</section>
+<section id="tworzenie-stanu-trzy-kubitowego" class="level2">
+<h2 class="anchored" data-anchor-id="tworzenie-stanu-trzy-kubitowego">Tworzenie stanu trzy-kubitowego</h2>
 <p><span class="math display">\[\ket{000}, \ket{001}, \ket{010}, \ket{011}, \ket{100}, \ket{101}, \ket{110}, \ket{111}\]</span></p>
 <div class="cell" data-tags="[]" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>qr <span class="op">=</span> QuantumRegister(<span class="dv">3</span>)</span>
@@ -453,6 +460,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>state <span class="op">=</span> result.get_statevector()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Uruchom powyższy kod usuwajac poszczegolne komentarze i sprawdz wynik.</p>
+</section>
+<section id="dostępne-symulatory" class="level2">
+<h2 class="anchored" data-anchor-id="dostępne-symulatory">Dostępne symulatory</h2>
 <div class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>Aer.backends()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
@@ -470,8 +480,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  PulseSimulator('pulse_simulator')]</code></pre>
 </div>
 </div>
-<section id="running-cicuits" class="level2">
-<h2 class="anchored" data-anchor-id="running-cicuits">Running cicuits</h2>
+</section>
+<section id="pomiar-w-obwodzie-i-wielokrotne-uruchamianie-układu" class="level2">
+<h2 class="anchored" data-anchor-id="pomiar-w-obwodzie-i-wielokrotne-uruchamianie-układu">Pomiar w obwodzie i wielokrotne uruchamianie układu</h2>
 <div class="cell" data-tags="[]" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumRegister, ClassicalRegister, QuantumCircuit</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -479,10 +490,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>creg <span class="op">=</span> ClassicalRegister(<span class="dv">2</span>)</span>
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>circuit <span class="op">=</span> QuantumCircuit(qreg, creg)</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>circuit.h(qreg[<span class="dv">0</span>])</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>circuit.measure(qreg, creg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>circuit.h(qreg[<span class="dv">0</span>])</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>circuit.measure(qreg, creg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>&lt;qiskit.circuit.instructionset.InstructionSet at 0x2835ece50&gt;</code></pre>
 </div>
@@ -509,7 +518,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
