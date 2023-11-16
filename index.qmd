@@ -65,15 +65,15 @@ Kwantowy Machine Learning w biznesie - metody i implementacje
 
 Wszystkie laboratoria odbywają się w sali C5D.
 
-1. 06-11-2023 (poniedziałek) 11:40-13:20 - Lab1
+1. 06-11-2023 (poniedziałek) 11:40-13:20 - <del>Lab1</del>
 
 Przygotowanie środowiska programistycznego python z wykorzystaniem narzędzia Docker
 
-2. 13-11-2023 (poniedziałek) 11:40-13:20 - Lab2
+2. 13-11-2023 (poniedziałek) 11:40-13:20 - <del>Lab2</del>
 
 Kwantowe bity z wykorzystaniem biblioteki IBM Qiskit i Pennylane
 
-3. 20-11-2023 (poniedziałek) 11:40-13:20 - Lab3
+3. 20-11-2023 (poniedziałek) 11:40-13:20 - <del>Lab3</del>
 
 Jedno - kubitowe bramki logiczne
 

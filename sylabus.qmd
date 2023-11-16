@@ -2,11 +2,11 @@
 title: Sylabus
 ---
 
-> Nazwa przedmiotu: Wstęp do kwantowego uczenia maszynowego
+> Nazwa przedmiotu: {{< var main.nazwa >}}
 > 
-> Jednostka: SGH w Warszawie
+> Jednostka: {{< var main.uczelnia >}}
 > 
-> Kod przedmiotu: 232530-D, 232530-S
+> Kod przedmiotu: {{< var main.kod >}}, 232530-S
 >
 > Punkty ECTS: 3
 >

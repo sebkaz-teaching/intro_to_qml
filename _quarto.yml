@@ -4,20 +4,22 @@ project:
 
 website: 
   title: Wstęp do kwantowego uczenia maszynowego
+  sidebar:
+    style: "docked" 
+    contents:
+      - index.qmd
+      - section : "Wykłady"
+        contents:
+          - lectures/wyklad1.qmd
+          - lectures/wyklad2.qmd
+          - lectures/wyklad3.qmd
+          - lectures/wyklad4.qmd
+      - section: "Ćwiczenia"
+        contents:
+          - cwiczenia/cw1.ipynb
+          - cwiczenia/cw2.ipynb
   navbar:
-    left: 
-          - href: index.qmd
-            text: 232530-D
-          - href: lectures/wyklad1.qmd
-            text: Wykład 1
-          - href: lectures/wyklad2.qmd
-            text: Wykład 2
-          - href: lectures/wyklad3.qmd
-            text: Wykład 3
-          - href: lectures/wyklad4.qmd
-            text: Wykład 4
-          - href: cwiczenia/cw1.ipynb
-            text: Ćwiczenia 1
+    left:
           - href: sylabus.qmd
             text: Sylabus
           - href: ksiazki.qmd

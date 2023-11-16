@@ -1,5 +1,5 @@
 ---
-title: "Komputery klasyczne i kwantowe."
+title: "Komputery klasyczne i kwantowe"
 ---
 
 > Nature isn’t classical, dammit, and if you want to make a simulation of Nature, you’d better make it quantum mechanical, and by golly it’s a wonderful problem because it doesn’t look so easy.
