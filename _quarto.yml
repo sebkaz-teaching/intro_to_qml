@@ -18,6 +18,7 @@ website:
         contents:
           - cwiczenia/cw1.ipynb
           - cwiczenia/cw2.ipynb
+          - cwiczenia/cw3.ipynb
   navbar:
     left:
           - href: sylabus.qmd
