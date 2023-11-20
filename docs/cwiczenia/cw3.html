@@ -261,7 +261,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> (QuantumCircuit, QuantumRegister, ClassicalRegister, </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                    execute, Aer, __qiskit_version__)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.visualization <span class="im">import</span> plot_bloch_multivector</span>
@@ -270,7 +270,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> obwod(strategia):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    qc <span class="op">=</span> QuantumCircuit(QuantumRegister(<span class="dv">1</span>, name<span class="op">=</span><span class="st">'qGra'</span>))</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> bramka <span class="kw">in</span> strategia:</span>
@@ -305,7 +305,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        display(plot_bloch_multivector(stan))</span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>strategia <span class="op">=</span> <span class="st">'XXX'</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>display(obwod(strategia).draw(<span class="st">'mpl'</span>))</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>animacja(strategia)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -333,7 +333,7 @@ stan po bramce X</code></pre>
 <p><img src="cw3_files/figure-html/cell-4-output-6.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sedzia(obwod):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    qr <span class="op">=</span> QuantumRegister(<span class="dv">1</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    cr <span class="op">=</span> ClassicalRegister(<span class="dv">1</span>)</span>
@@ -342,7 +342,7 @@ stan po bramce X</code></pre>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    ob.measure(<span class="dv">0</span>, <span class="dv">0</span>)</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>  execute(ob, backend<span class="op">=</span>Aer.get_backend(<span class="st">'qasm_simulator'</span>), shots<span class="op">=</span><span class="dv">1000</span>).result()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>strategia <span class="op">=</span> <span class="st">'XXX'</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>stats <span class="op">=</span> sedzia(obwod(strategia)).get_counts()</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -350,7 +350,7 @@ stan po bramce X</code></pre>
 <pre><code>{'1': 1000}</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>strategia <span class="op">=</span> <span class="st">'HXH'</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>stats <span class="op">=</span> sedzia(obwod(strategia)).get_counts()</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -358,7 +358,7 @@ stan po bramce X</code></pre>
 <pre><code>{'0': 1000}</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> klasycze_strategie():</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    wyniki <span class="op">=</span> []</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ruch_1 <span class="kw">in</span> [<span class="st">'I'</span>,<span class="st">'X'</span>]:</span>
@@ -373,7 +373,7 @@ stan po bramce X</code></pre>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">"statystyka"</span>, stats)</span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>                wyniki.append((strategia, stats))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>klasycze_strategie()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>strategia III
@@ -418,7 +418,7 @@ statystyka {'1': 1000}</code></pre>
 <p><img src="cw3_files/figure-html/cell-9-output-9.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> kwantowe_strategie():</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    wyniki <span class="op">=</span> []</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ruch_1 <span class="kw">in</span> [<span class="st">'H'</span>]:</span>
@@ -433,7 +433,7 @@ statystyka {'1': 1000}</code></pre>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">"statystyka"</span>, stats)</span>
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>                wyniki.append((strategia, stats))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="13">
+<div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>kwantowe_strategie()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>strategia HIH
@@ -451,48 +451,48 @@ statystyka {'0': 1000}</code></pre>
 <section id="proste-obwody-kwantowe" class="level1">
 <h1>Proste obwody kwantowe</h1>
 <p><code>Barriers</code> - służą do oddzielenia logicznych części obwodu. Nie mają wpływu na działanie obwodu, ale mogą pomóc w jego czytelności.</p>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumCircuit</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>,<span class="dv">4</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>qc.h(<span class="dv">0</span>)</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>qc.measure([<span class="dv">1</span>,<span class="dv">0</span>],[<span class="dv">2</span>,<span class="dv">3</span>])</span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>qc.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <p><img src="cw3_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumCircuit</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>,<span class="dv">4</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>qc.h(<span class="dv">0</span>)</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>qc.barrier()</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>qc.measure([<span class="dv">1</span>,<span class="dv">0</span>],[<span class="dv">2</span>,<span class="dv">3</span>])</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>qc.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <p><img src="cw3_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <section id="losowy-bajt" class="level2">
 <h2 class="anchored" data-anchor-id="losowy-bajt">Losowy bajt</h2>
-<div class="cell" data-execution_count="6">
+<div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generator liczb losowych</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(randrange(<span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>9
+<pre><code>1
+1
+4
+9
 7
 3
+3
+2
 5
-9
-3
-7
-9
-9
-3</code></pre>
+2</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="7">
+<div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># LOSOWY BAJT </span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumCircuit, QuantumRegister, ClassicalRegister, execute, Aer</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> QuantumRegister(<span class="dv">8</span>)</span>
@@ -510,49 +510,49 @@ statystyka {'0': 1000}</code></pre>
 <span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>qc.barrier()</span>
 <span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>qc.measure(q,c)</span>
 <span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>qc.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="14">
 <p><img src="cw3_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>job <span class="op">=</span> execute(qc, Aer.get_backend(<span class="st">'qasm_simulator'</span>), shots<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>counts <span class="op">=</span> job.result().get_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>{'00000000': 1,
- '10101010': 1,
- '11111100': 1,
- '01100001': 1,
- '00101010': 1,
- '11011001': 1,
- '11000101': 1,
- '01001001': 1,
- '10100100': 1,
- '01111011': 1}</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>{'00110010': 1,
+ '01101000': 1,
+ '11010001': 1,
+ '00001110': 1,
+ '01010100': 1,
+ '01001100': 1,
+ '10001010': 1,
+ '01001111': 1,
+ '01000001': 1,
+ '10010110': 1}</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="10">
+<div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> el <span class="kw">in</span> counts:</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">int</span>(el,<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0
-170
-252
-97
-42
-217
-197
-73
-164
-123</code></pre>
+<pre><code>50
+104
+209
+14
+84
+76
+138
+79
+65
+150</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="11">
+<div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">list</span>(counts)[<span class="dv">0</span>], <span class="st">"wynosi: "</span>, <span class="bu">int</span>(<span class="bu">list</span>(counts)[<span class="dv">0</span>],<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>00000000 wynosi:  0</code></pre>
+<pre><code>00110010 wynosi:  50</code></pre>
 </div>
 </div>
 </section>
@@ -561,27 +561,27 @@ statystyka {'0': 1000}</code></pre>
 <p><span class="math display">\[
 \text{SWAP}\ket{01} = \ket{10}
 \]</span></p>
-<div class="cell" data-execution_count="12">
+<div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>)</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>qc.x(<span class="dv">0</span>)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>qc.swap(<span class="dv">0</span>,<span class="dv">1</span>)</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>qc.measure_all()</span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>qc.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="19">
 <p><img src="cw3_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="14">
+<div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>counts <span class="op">=</span> execute(qc, Aer.get_backend(<span class="st">'qasm_simulator'</span>), shots<span class="op">=</span><span class="dv">1</span>).result()</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>counts.get_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>{'10': 1}</code></pre>
 </div>
 </div>
 </section>
 <section id="stany-splątane" class="level2">
 <h2 class="anchored" data-anchor-id="stany-splątane">Stany splątane</h2>
-<div class="cell" data-execution_count="15">
+<div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>qr <span class="op">=</span> QuantumRegister(<span class="dv">2</span>)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(qr)</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>qc.h(qr[<span class="dv">0</span>])</span>
@@ -591,17 +591,17 @@ statystyka {'0': 1000}</code></pre>
 <span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> job.result()</span>
 <span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>state <span class="op">=</span> result.get_statevector()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="17">
+<div class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>display(qc.draw(<span class="st">'mpl'</span>))</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>state.draw(<span class="st">'latex'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="cw3_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="22">
 <p><span class="math display">\[\frac{\sqrt{2}}{2} |00\rangle+\frac{\sqrt{2}}{2} |11\rangle\]</span></p>
 </div>
 </div>
-<div class="cell" data-execution_count="18">
+<div class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>qr <span class="op">=</span> QuantumRegister(<span class="dv">2</span>)</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(qr)</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>qc.h(qr[<span class="dv">0</span>])</span>
@@ -616,11 +616,11 @@ statystyka {'0': 1000}</code></pre>
 <div class="cell-output cell-output-display">
 <p><img src="cw3_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <p><span class="math display">\[\frac{\sqrt{2}}{2} |01\rangle+\frac{\sqrt{2}}{2} |10\rangle\]</span></p>
 </div>
 </div>
-<div class="cell" data-execution_count="19">
+<div class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>qr <span class="op">=</span> QuantumRegister(<span class="dv">2</span>)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(qr)</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>qc.h(qr[<span class="dv">0</span>])</span>
@@ -635,11 +635,11 @@ statystyka {'0': 1000}</code></pre>
 <div class="cell-output cell-output-display">
 <p><img src="cw3_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="19">
+<div class="cell-output cell-output-display" data-execution_count="24">
 <p><span class="math display">\[\frac{\sqrt{2}}{2} |00\rangle- \frac{\sqrt{2}}{2} |11\rangle\]</span></p>
 </div>
 </div>
-<div class="cell" data-execution_count="20">
+<div class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>qr <span class="op">=</span> QuantumRegister(<span class="dv">2</span>)</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(qr)</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>qc.h(qr[<span class="dv">0</span>])</span>
@@ -655,7 +655,7 @@ statystyka {'0': 1000}</code></pre>
 <div class="cell-output cell-output-display">
 <p><img src="cw3_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div class="cell-output cell-output-display" data-execution_count="25">
 <p><span class="math display">\[\frac{\sqrt{2}}{2} |01\rangle- \frac{\sqrt{2}}{2} |10\rangle\]</span></p>
 </div>
 </div>
@@ -671,15 +671,15 @@ statystyka {'0': 1000}</code></pre>
 1+1 = 10 \\
 \]</span></p>
 <p>zauwaz, ze mamy dwa typy rozwiązań: dwa bity takie same i dwa bity rozne. Aby napisać prawidłowe rozwiązanie musimy stworzyć bramki, które będą rozpoznawać czy dwa kubity są takie same czy tez rózne. Dla przypomnienia - klasycznie rolę taką pełni bramka <code>XOR</code>.</p>
-<div class="cell" data-execution_count="21">
+<div class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>qc  <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>)</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>qc.cx(<span class="dv">0</span>,<span class="dv">1</span>)</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>qc.draw(output<span class="op">=</span><span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <p><img src="cw3_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="22">
+<div class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(<span class="dv">4</span>,<span class="dv">2</span>)</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># zakodowanie danych wejściowych do kubitu 1 i 2 </span></span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>qc.x(<span class="dv">0</span>) </span>
@@ -690,12 +690,12 @@ statystyka {'0': 1000}</code></pre>
 <span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>qc.measure(<span class="dv">2</span>,<span class="dv">0</span>) <span class="co"># wydobycie wyniku XOR</span></span>
 <span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>qc.measure(<span class="dv">3</span>,<span class="dv">1</span>) <span class="co"># wydobycie wyniku AND</span></span>
 <span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>qc.draw(output<span class="op">=</span><span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div class="cell-output cell-output-display" data-execution_count="28">
 <p><img src="cw3_files/figure-html/cell-28-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Co z bitem otrzymywanym z <code>q3</code> ? - jego wartość dla pierwszych trzech równań zawsze wynosi 0. Jednak dla równania 1+1 powinniśmy otrzymać 1. Do rozwiązania tego problemu mozna wykorzystać bramkę operującą na 3 kubitach. Bramka ta to bramka <code>Toffoli</code>.</p>
-<div class="cell" data-execution_count="23">
+<div class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(<span class="dv">4</span>,<span class="dv">2</span>)</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># zakodowanie danych wejściowych do kubitu 1 i 2 </span></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>qc.x(<span class="dv">0</span>) </span>
@@ -707,27 +707,27 @@ statystyka {'0': 1000}</code></pre>
 <span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>qc.measure(<span class="dv">2</span>,<span class="dv">0</span>) <span class="co"># wydobycie wyniku XOR</span></span>
 <span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>qc.measure(<span class="dv">3</span>,<span class="dv">1</span>) <span class="co"># wydobycie wyniku AND</span></span>
 <span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>qc.draw(output<span class="op">=</span><span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div class="cell-output cell-output-display" data-execution_count="29">
 <p><img src="cw3_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="25">
+<div class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.visualization <span class="im">import</span> plot_histogram</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>counts <span class="op">=</span> execute(qc,Aer.get_backend(<span class="st">'qasm_simulator'</span>),shots<span class="op">=</span><span class="dv">1</span>).result().get_counts()</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>plot_histogram(counts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="30">
 <p><img src="cw3_files/figure-html/cell-30-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Dla przypomnienia:</p>
-<div class="cell" data-execution_count="26">
+<div class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"wynik 1+1 ="</span>,<span class="bu">int</span>(<span class="st">'10'</span>,<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>wynik 1+1 = 2</code></pre>
 </div>
 </div>
 <p>sprawdźmy wszystkie mozliwe wyniki</p>
-<div class="cell" data-execution_count="27">
+<div class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="bu">input</span> <span class="kw">in</span> [<span class="st">'00'</span>,<span class="st">'01'</span>,<span class="st">'10'</span>,<span class="st">'11'</span>]:</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    mycircuit1 <span class="op">=</span> QuantumCircuit(<span class="dv">4</span>,<span class="dv">2</span>)</span>
