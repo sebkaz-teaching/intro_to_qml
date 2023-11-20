@@ -213,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cwiczenia/cw3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">cw3.html</span></a>
+ <span class="menu-text">Bramki wielokubitowe</span></a>
   </div>
 </li>
       </ul>
@@ -494,9 +494,16 @@ R(\alpha) = \begin{pmatrix}
 </section>
 <section id="cx-gate-cnot-gate" class="level3">
 <h3 class="anchored" data-anchor-id="cx-gate-cnot-gate">CX gate (CNOT gate)</h3>
-<p>The controlled NOT (or CNOT or CX) gate acts on two qubits. It performs the NOT operation (equivalent to applying an X gate) on the second qubit only when the first qubit is <span class="math inline">\(|1\rangle\)</span> and otherwise leaves it unchanged.</p>
+<p>The controlled NOT (or CNOT or CX) gate acts on two qubits. It performs the NOT operation (equivalent to applying an X gate) on the second qubit only when the first qubit is <span class="math inline">\(\ket{1}\)</span> and otherwise leaves it unchanged.</p>
 <p>Note: Qiskit numbers the bits in a string from right to left.</p>
-<p><span class="math inline">\(CX = \begin{pmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ \end{pmatrix}\)</span></p>
+<p><span class="math display">\[
+CX = \begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0  \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+\end{pmatrix}
+\]</span></p>
 <div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>cx_gate <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>cx_gate.cx(<span class="dv">0</span>,<span class="dv">1</span>)</span>
@@ -506,11 +513,11 @@ R(\alpha) = \begin{pmatrix}
 </div>
 </div>
 <blockquote class="blockquote">
-<p>Zadanie 1 - Sprawdź działanie bramki - CZ a następnie drugi obwód złożony z bramek: H(1) (na drugim kubicie) CX(0,1) i H(1) - co możesz zaobserwować?</p>
-<p>Zadanie 2 - zbuduj obwod kwantowy złożony z 10 kubitów, zastosuj bramkę H do kubitu 0 i 9 bramek CNOT gdzie kubitem kontrolnym jest kubit 0 a targety to kubity od 1 do 9</p>
-<p>Zadanie 3 - zbuduj obwod kwantowy złożony z 10 kubitów, zastosuj bramkę H do kubitu 0 i 9 bramek CNOT gdzie kubitami kontrolnymi sa kubity 1-9 a target to kubit 0 następnie dodaj bramkę H do każdego kubitu.</p>
+<p>Zadanie 1 - Sprawdź działanie bramki - CZ na dwukubitowym układzie. Następnie zbuduj drugi obwód złożony z bramek: H(1) (na drugim kubicie) CX(0,1) i H(1) - co możesz zaobserwować?</p>
+<p>Zadanie 2 - zbuduj obwod kwantowy złożony z 10 kubitów, zastosuj bramkę H(0) do kubitu 0 i 9 bramek CNOT gdzie kubitem kontrolnym jest kubit 0 a targety to kubity od 1 do 9. Mozesz uzyć do pętli albo listy.</p>
+<p>Zadanie 3 - zbuduj obwod kwantowy złożony z 10 kubitów. Zastosuj bramkę H do całego rejestru kwantowego.Następnie dodaj bramkę CNOT gdzie kubitami kontrolnymi sa kubity 1-9 a target to kubit 0. Następnie dodaj bramkę H do każdego kubitu.</p>
 </blockquote>
-<p>Przydatne dla obwodów</p>
+<p>Przydatne definicje dla obwodów</p>
 <div class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumRegister, ClassicalRegister, QuantumCircuit</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
