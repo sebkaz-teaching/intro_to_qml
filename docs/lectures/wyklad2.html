@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Wstęp do kwantowego uczenia maszynowego - Klasyczne bramki logiczne - Algebra Boola</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Wstęp do kwantowego uczenia maszynowego</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../sylabus.html" rel="" target="">
+ <span class="menu-text">Sylabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../ksiazki.html" rel="" target="">
+ <span class="menu-text">Książki</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/wyklad1.html">Wykłady</a></li><li class="breadcrumb-item"><a href="../lectures/wyklad2.html">Klasyczne bramki logiczne - Algebra Boola</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Informacje ogólne</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Wykłady</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/wyklad1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Komputery klasyczne i kwantowe</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/wyklad2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Klasyczne bramki logiczne - Algebra Boola</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/wyklad3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Przestrzenie wektorowe, stany kwantowe, reprezentacja klasycznych i kwantowych bitów</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/wyklad4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kwantowe bramki logiczne w prostych algorytmach i obwodach kwantowych</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Ćwiczenia</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cwiczenia/cw1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Biblioteka Qiskit wprowadzenie</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cwiczenia/cw2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bramki jednokubitowe</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cwiczenia/cw3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bramki wielokubitowe</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cwiczenia/cw4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algorytmy kwantowe - przegląd</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#monety" id="toc-monety" class="nav-link active" data-scroll-target="#monety">Monety</a></li>
+  <li><a href="#kości-do-gry" id="toc-kości-do-gry" class="nav-link" data-scroll-target="#kości-do-gry">Kości do gry</a></li>
+  <li><a href="#kodowanie-informacji" id="toc-kodowanie-informacji" class="nav-link" data-scroll-target="#kodowanie-informacji">Kodowanie informacji</a></li>
+  <li><a href="#fizyczna-realizacja-klasycznych-bitów" id="toc-fizyczna-realizacja-klasycznych-bitów" class="nav-link" data-scroll-target="#fizyczna-realizacja-klasycznych-bitów">Fizyczna realizacja klasycznych bitów</a></li>
+  <li><a href="#reprezentacja-binarna" id="toc-reprezentacja-binarna" class="nav-link" data-scroll-target="#reprezentacja-binarna">Reprezentacja binarna</a></li>
+  <li><a href="#ascii-american-standard-code-for-information-interchange" id="toc-ascii-american-standard-code-for-information-interchange" class="nav-link" data-scroll-target="#ascii-american-standard-code-for-information-interchange">ASCII American Standard Code for Information Interchange</a></li>
+  <li><a href="#bramki-logiczne" id="toc-bramki-logiczne" class="nav-link" data-scroll-target="#bramki-logiczne">Bramki logiczne</a>
+  <ul class="collapse">
+  <li><a href="#bramki-logiczne-dla-jednego-bitu" id="toc-bramki-logiczne-dla-jednego-bitu" class="nav-link" data-scroll-target="#bramki-logiczne-dla-jednego-bitu">Bramki logiczne dla jednego bitu</a></li>
+  <li><a href="#inne-bramki-i-operacje-logiczne" id="toc-inne-bramki-i-operacje-logiczne" class="nav-link" data-scroll-target="#inne-bramki-i-operacje-logiczne">Inne bramki i operacje logiczne</a></li>
+  <li><a href="#uniweralne-bramki-logiczne---nand" id="toc-uniweralne-bramki-logiczne---nand" class="nav-link" data-scroll-target="#uniweralne-bramki-logiczne---nand">Uniweralne bramki logiczne - NAND</a></li>
+  </ul></li>
+  <li><a href="#kody-python" id="toc-kody-python" class="nav-link" data-scroll-target="#kody-python">Kody python</a></li>
+  <li><a href="#szyfrowanie-z-wykorzystaniem-bramki-xor" id="toc-szyfrowanie-z-wykorzystaniem-bramki-xor" class="nav-link" data-scroll-target="#szyfrowanie-z-wykorzystaniem-bramki-xor">Szyfrowanie z wykorzystaniem bramki XOR</a>
+  <ul class="collapse">
+  <li><a href="#decyrpting-message" id="toc-decyrpting-message" class="nav-link" data-scroll-target="#decyrpting-message">decyrpting message</a></li>
+  </ul></li>
+  <li><a href="#kody---rozwiązania-zadań" id="toc-kody---rozwiązania-zadań" class="nav-link" data-scroll-target="#kody---rozwiązania-zadań">kody - rozwiązania zadań</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Klasyczne bramki logiczne - Algebra Boola</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><span class="math display">\[
+\newcommand{\bra}[1]{\left \langle #1 \right \rvert}
+\newcommand{\ket}[1]{\left \rvert #1 \right \rangle}
+\newcommand{\braket}[2]{\left \langle #1 \middle \rvert #2 \right \rangle}
+\]</span></p>
+<p>Obliczenia (przetwarzanie) wykonywane przez komputer możemy zdefiniować jako transformacje jednego stanu pamięci na inny. Z matematycznego punktu widzenia oznacza to, że obliczenia to <em>funkcje</em>, które przekształcają informacje.</p>
+<p>W przypadku klasycznych komputerów podstawową jednostką pamięci jest <strong>bit</strong> (ang. <em>binary digit</em>). Funkcje, które operują na bitach nazywamy <strong>bramkami logicznymi</strong> (ang. <em>logic gates</em>).</p>
+<section id="monety" class="level3">
+<h3 class="anchored" data-anchor-id="monety">Monety</h3>
+<p>Rozważmy monetę. Posiada ona dwie strony (odróżnialne od siebie). Kładąc monetę na podłożu możemy określić dostępne stany jako: <span class="math inline">\(\ket{O}\)</span>, <span class="math inline">\(\ket{R}\)</span>.</p>
+<p>Posiadając dwie takie monety możemy określić cztery możliwe stany: <span class="math display">\[\ket{OO}, \ket{OR}, \ket{RO}, \ket{RR}\]</span></p>
+<p>Ponieważ pierwsza moneta ma dwa możliwe stany i druga moneta również ma dwie możliwości istnieją <span class="math inline">\(2\times 2= 2^{2} =4\)</span> możliwe stany dla dwóch monet.</p>
+<p>W przypadku trzech monet możemy określić osiem możliwych stanów: <span class="math display">\[\ket{OOO}, \ket{OOR}, \ket{ORO}, \ket{ORR}, \ket{ROO}, \ket{ROR}, \ket{RRO}, \ket{RRR}\]</span> Co daje nam <span class="math inline">\(2 \times 2 \times 2 = 2^{3}=8\)</span> możliwych stanów.</p>
+<p>dla <span class="math inline">\(n\)</span> monet możemy określić <span class="math inline">\(2^{n}\)</span> możliwych stanów.</p>
+</section>
+<section id="kości-do-gry" class="level3">
+<h3 class="anchored" data-anchor-id="kości-do-gry">Kości do gry</h3>
+<p>Kości do gry posiadają sześć stron. Każdej możemy przypisać liczbę od 1 do 6. Dwie kości do gry posiadają <span class="math inline">\(6 \times 6 = 36\)</span> możliwych stanów. Idąc dalej, dla trzech kości do gry mamy <span class="math inline">\(6 \times 6 \times 6 = 6^{3} = 216\)</span> możliwych stanów. Dla n kości do gry mamy <span class="math inline">\(6^{n}\)</span> możliwych stanów.</p>
+</section>
+<section id="kodowanie-informacji" class="level3">
+<h3 class="anchored" data-anchor-id="kodowanie-informacji">Kodowanie informacji</h3>
+<blockquote class="blockquote">
+<p>Ile informacji możemy zakodować za pomocą monet i kości do gry?</p>
+</blockquote>
+<p>Załóżmy, że chcemy przekazać informacje o jednym kolorze tęczy. Dla przypomnienia mamy 7 kolorów (czerwony, pomarańczowy, żółty, zielony, niebieski, indygo, fioletowy). Te 7 kolorów można <em>zakodować</em> (albo zareprezetować) poprzez różne konfiguracje monet i kości.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>kolor</th>
+<th>monety</th>
+<th>kości</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>czerwony</td>
+<td>OOO</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>pomarańczowy</td>
+<td>OOR</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>żółty</td>
+<td>ORO</td>
+<td>13</td>
+</tr>
+<tr class="even">
+<td>zielony</td>
+<td>ORR</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td>niebieski</td>
+<td>ROO</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>indygo</td>
+<td>ROR</td>
+<td>16</td>
+</tr>
+<tr class="odd">
+<td>fioletowy</td>
+<td>RRO</td>
+<td>21</td>
+</tr>
+</tbody>
+</table>
+<p>Pozostałe konfiguracje nie są używane (albo można w nich powtórzyć elementy do zakodowania).</p>
+<blockquote class="blockquote">
+<p>Monety niosą mniej informacji niż kości do gry. Co prowadzi do ważnego wniosku: <strong>obiekt o dwóch stanach niesie najmniejszą (możliwą) ilość informacji</strong>. A co za tym idzie bit jest najmniejszą jednostką klasycznej informacji.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Zadanie: Angielski alfabet posiada 26 liter. Ile monet i kości potrzeba aby zakodować informacje o jednej literze?</p>
+</blockquote>
+</section>
+<section id="fizyczna-realizacja-klasycznych-bitów" class="level3">
+<h3 class="anchored" data-anchor-id="fizyczna-realizacja-klasycznych-bitów">Fizyczna realizacja klasycznych bitów</h3>
+<p>Obiekty fizyczne, które mogą przyjmować dwa stany:</p>
+<ul>
+<li>przełącznik włączony/wyłączony</li>
+<li>moneta</li>
+<li>Płyty CD, DVD (ang. pits - wypalone laserem dziury, lands - nie wypalone dziury)</li>
+<li>obwód elektryczny - może mieć dowolny prąd - ale wybieramy np. 0 lub 5V.</li>
+</ul>
+<blockquote class="blockquote">
+<p>jak sprowadzić klasyfikację dla wielu klas do 2 klasowej?</p>
+</blockquote>
+<p>Zazwyczaj oznaczamy te stany jako <span class="math inline">\(0\)</span> i <span class="math inline">\(1\)</span>.</p>
+<p>Zastosujmy nowe oznaczenia dla tych stanów: <span class="math display">\[0 = \ket{0} \]</span> oraz <span class="math display">\[1 = \ket{1}\]</span></p>
+</section>
+<section id="reprezentacja-binarna" class="level3">
+<h3 class="anchored" data-anchor-id="reprezentacja-binarna">Reprezentacja binarna</h3>
+<p>W przypadku trzech monet mieliśmy następujące stany: <span class="math display">\[OOO, OOR, ORO, ORR, ROO, ROR, RRO, RRR.\]</span></p>
+<p>Możemy je zapisać w postaci binarnej jako: <span class="math display">\[000, 001, 010, 011, 100, 101, 110, 111\]</span> Dla przyzwyczajenia z zapisem możemy napisać również: <span class="math display">\[\ket{000}, \ket{001}, \ket{010}, \ket{011}, \ket{100}, \ket{101}, \ket{110}, \ket{111}\]</span></p>
+<p>Co oznacza, że możemy te stany zapisać matematycznie - łatwo nam nimi operować.</p>
+<blockquote class="blockquote">
+<p><strong>liczby tego typu nazywamy liczbami binarnymi, albo liczbami o podstawie 2</strong>.</p>
+</blockquote>
+<p>Jak zapisujemy liczby w systemie dziesiętnym? i dlaczego nazywa się on dziesiętnym?</p>
+<p><span class="math display">\[6174 = 6*1000 + 1*100 + 7*10 + 4*1 = 6*10^{3} + 1*10^{2} + 7*10^{1} +4*10^{0}\]</span></p>
+<p>Natomiast: <span class="math display">\[11010_{2} = 1*2^{4} + 1*2^{3} + 0*2^{2} + 1*2^{1} + 0*2^{0} \]</span> co w systemie dziesiętnym daje nam: <span class="math inline">\(26\)</span>.</p>
+<blockquote class="blockquote">
+<p>Zadanie: <span class="math inline">\(10111_{2}= ?_{10}\)</span></p>
+<p>Zadanie: <span class="math inline">\(42= ?_{2}\)</span></p>
+</blockquote>
+<p>Istnieje jeszcze wygodny system 16-tkowy (szesnastkowy) - gdzie współczynniki zapisujemy jako <span class="math inline">\(0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F\)</span>.</p>
+<blockquote class="blockquote">
+<p>Zadanie: <span class="math inline">\(F2A_{16}= ?_{10}\)</span></p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Jak zliczamy liczby w systemie dziesiętnym? a jak w dwójkowym?</strong></p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Jak zapisać liczby ujemne i zmiennoprzecinkowe binarnie?</p>
+</blockquote>
+</section>
+<section id="ascii-american-standard-code-for-information-interchange" class="level3">
+<h3 class="anchored" data-anchor-id="ascii-american-standard-code-for-information-interchange">ASCII American Standard Code for Information Interchange</h3>
+<p>Komputer przechowuje informacje jako bity, jednak w naszym świecie używamy tekstu złożonego z liter. System ASCII przechowuje informacje o literach w postaci 7 bitowych liczb binarnych. W ten sposób możemy zapisać 128 znaków (liter, cyfr, znaków specjalnych) <span class="math inline">\(0000000\)</span> do <span class="math inline">\(1111111\)</span>.</p>
+<blockquote class="blockquote">
+<p>Znajdź w internecie tablicę ASCII i zapisz w kodzie ASCII swoje imię.</p>
+</blockquote>
+<p>Standard UTF-8 (Unicode Transformation Format) przechowuje informacje o literach w postaci liczb binarnych do 32 bitów. co daje nam możliwość zapisania <span class="math inline">\(2^{32}=4294967296\)</span> stanów. 128 pierwszych bitowych napisów w UTF-8 to kod ASCII.</p>
+</section>
+<section id="bramki-logiczne" class="level2">
+<h2 class="anchored" data-anchor-id="bramki-logiczne">Bramki logiczne</h2>
+<p>Bramki logiczne to <a href="https://esezam.okno.pw.edu.pl/mod/book/view.php?id=38&amp;chapterid=775">funkcje Boolowskie</a>, które możemy składać w bardziej złożone układy (ang. <em>circuits</em>). Stworzone przez <em>George’a Boole’a</em> w 1854 roku, algebra boola jest matematyczną strukturą, która opisuje zachowanie się obiektów, które mogą przyjmować tylko jedną z dwóch wartości: prawda lub fałsz. Zdolne są one do wykonywania np. dodawania, mnożenia czy też innych bardziej skomplikowanych operacji.</p>
+<p>W latach trzydziestych XX wieku <em>Claude Shannon</em> zastosował algebrę boola do analizy i projektowania układów elektrycznych. Co oznacza, że zareprezentował on funkcje boolowskie za pomocą przełączników elektrycznych. Dlatego też komponenty elektroniczne odpowiadające funkcjom boolowskim nazywamy <strong>bramkami logicznymi</strong>.</p>
+<blockquote class="blockquote">
+<p>Ciekawostka. Richard Feynman wykładał teorię obliczeń na Kalifornijskim Instytucie Technologii. Wykład ten prezentowany jest obecnie jako <em>Feynmana wykłady o obliczeniach</em> (ang. <em>Feynman Lectures on Computation</em>).</p>
+</blockquote>
+<!-- Istotnym aspektem klasyczych bramek logicznych jest również to, że liczba bitów wejściowych nie musi być taka sama jak liczba bitów wyjściowych. -->
+<p>Z pozoru obliczenia przedstawione w ten sposób wyglądają jako abstrakcjny matematyczny koncept. Jednak jego realizacja zawsze wymaga jakiegoś układu fizycznego realizującego wykonywanie funkcji. Nie ma znaczenia jak ten układ zostanie zrealizowany: kule bilardowe, przełączniki elektroniczne, tranzystory, czy cokolwiek innego.</p>
+<blockquote class="blockquote">
+<p><strong>Logika obliczeń jest niezależna od realizacji bramek logicznych.</strong></p>
+</blockquote>
+<p>Z punktu widzenia realizacji zawsze chodzi nam o <em>kontrolowany</em> sposób zmiany stanu układu.</p>
+<p>Na wykładzie postaramy się wskazać jak i kiedy logika klasycznych obliczeń może być uogólniona przez logikę obliczeń kwantowych. Jasne jest, że przypadek klasyczny powinien być szczególnym przypadkiem kwantowego.</p>
+<p><a href="https://www.circuit-diagram.org">obwody klasyczne</a></p>
+<p>Zobaczmy jakie bramki możemy określić dla jednego bitu.</p>
+<section id="bramki-logiczne-dla-jednego-bitu" class="level3">
+<h3 class="anchored" data-anchor-id="bramki-logiczne-dla-jednego-bitu">Bramki logiczne dla jednego bitu</h3>
+<p>Ile bramek mamy gdy input = 1 bit, output = 1 bit? Ile funkcji możemy zdefiniować dla odwzorowania jednego bitu w jeden bit?</p>
+<p>Wszystkie cztery operatory działające na jednym bicie możemy określić jako:</p>
+<ol type="1">
+<li>Identyczność (ang. <em>identity</em>) - <span class="math inline">\(I(0)=0\)</span>, <span class="math inline">\(I(1)=1\)</span></li>
+<li>Negacja (ang. <em>negation</em>, <em>NOT</em>, <em>filps</em>) - <span class="math inline">\(NOT(0)=1\)</span>, <span class="math inline">\(NOT(1)=0\)</span></li>
+<li>Stałe zero <span class="math inline">\(ZERO(0)=0\)</span>, <span class="math inline">\(ZERO(1)=0\)</span></li>
+<li>Stałe jeden <span class="math inline">\(ONE(0)=1\)</span>, <span class="math inline">\(ONE(1)=1\)</span></li>
+</ol>
+<p>Po zastosowaniu operatora <span class="math inline">\(I\)</span> oraz <span class="math inline">\(NOT\)</span>, z otrzymanego wyniku możemy wyznaczyc wartości początkowe. Jednak po zastosowaniu dwóch pozostałych operacji <span class="math inline">\(ZERO\)</span> i <span class="math inline">\(ONE\)</span> nie jesteśmy w stanie określic jaki był stan początkowy, który wygenerował określony wynik.</p>
+<p>Te dwie własności pozwalają nam sklasyfikowac operatory jako:</p>
+<ol type="1">
+<li>Odwracalne - możemy odtworzyc wartośc początkową z wartości końcowej</li>
+<li>Nieodwracalne - NIE możemy odtworzyc wartości początkowej z wartości końcowej.</li>
+</ol>
+<p>Jak pokażemy później, wszystkie operatory reprezentujące kwantowe bramki będą odwracalne.</p>
+</section>
+<section id="inne-bramki-i-operacje-logiczne" class="level3">
+<h3 class="anchored" data-anchor-id="inne-bramki-i-operacje-logiczne">Inne bramki i operacje logiczne</h3>
+<p><img class="center" src="../img/bramki.png"></p>
+<p>Zróbmy krótkie przedstawienie niektórych, klasycznych bramek logicznych.</p>
+<p><strong>Bramka logiczna</strong> jest implementacją funkcji boolowskiej. Operacją logiczną przeprowadzaną na jednym lub kilku binarnych wejściach produkującą jedną binarną wartość wyjściową. <span class="math display">\[f: \{0,1\}^{n} \to \{0,1\} \]</span></p>
+<p>Każdy element algebry boola (Boolean Statements) musi być określony jako <strong>prawda</strong> albo <strong>fałsz</strong>.</p>
+<p>Bramki logiczne możemy wyrazić za pomocą <strong>tablicy prawdy</strong> (ang. <em>truth table</em>). Tablica ta posiada jedną kolumnę dla każdej zmiennej wejściowej oraz jedną kolumnę dla zmiennej wyjściowej. Kolumna wyjściowa przedstawia wszystkie możliwe wyniki przedstawianej logicznej operacji reprezentowanej przez tablicę. Każdy wiersz tablicy prawdy reprezentuje jedną możliwą kombinację (konfiguracje) danych wejściowych oraz wyniku.</p>
+<p>Podstawowe bramki, które znasz to:</p>
+<ol type="1">
+<li><strong>AND</strong> - koniunkcja</li>
+<li><strong>OR</strong> - alternatywa</li>
+<li><strong>NOT</strong> - negacja</li>
+<li><strong>NAND</strong> - not and</li>
+<li><strong>XOR</strong> - alternatywa wykluczająca (Exclusive OR) - dodawanie modulo 2</li>
+</ol>
+<blockquote class="blockquote">
+<p>Zadanie: zapisz tablicę prawdy dla każdej bramki.</p>
+</blockquote>
+<section id="not-gate" class="level4">
+<h4 class="anchored" data-anchor-id="not-gate">NOT gate</h4>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">not A</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="and-gate" class="level4">
+<h4 class="anchored" data-anchor-id="and-gate">AND gate</h4>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="or-gate" class="level4">
+<h4 class="anchored" data-anchor-id="or-gate">OR gate</h4>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">A</th>
+<th style="text-align: center;">B</th>
+<th style="text-align: center;">C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="nand" class="level4">
+<h4 class="anchored" data-anchor-id="nand">NAND</h4>
+<table class="table">
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="xor" class="level4">
+<h4 class="anchored" data-anchor-id="xor">XOR</h4>
+<table class="table">
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>C</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Powyższe bramki pozwalają łączyć poszczególne elementy algebry boola ze sobą.</p>
+<blockquote class="blockquote">
+<p>Zadanie: Porównaj <code>AND</code> oraz <code>OR</code> z potocznym znaczeniem tych słów.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Zadanie: Dlaczego Algebra boola nazywana jest algebrą zbiorów?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Zadanie: Czy składanie podzbiorów zbioru również generuje algebrę boola ?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Zadanie: ile bramek logicznych możemy stworzyć dla jednego bitu, dwóch bitów, trzech bitów?</p>
+</blockquote>
+</section>
+</section>
+<section id="uniweralne-bramki-logiczne---nand" class="level3">
+<h3 class="anchored" data-anchor-id="uniweralne-bramki-logiczne---nand">Uniweralne bramki logiczne - NAND</h3>
+<p>Tak jak widzieliśmy dla 1-bitu informacji mieliśmy 4 bramki logiczne. Dla 2-bitów mieliśmy 16 bramek logicznych. Dla 3-bitów mamy już 256 możliwości.</p>
+<p>W przypadku 2-bitów nie wypisaliśmy wszystkich bramek, dlaczego?</p>
+<p>Czy musimy realizować wszystkie?</p>
+<blockquote class="blockquote">
+<p>Na szczęście odpowiedź jest negatywna.</p>
+</blockquote>
+<p>Istnieją tzw. <em>zbiory bramek uniwersalnych</em> dzięki którym możemy zrealizować dowolną funkcję boolowską.</p>
+<ul>
+<li><strong>NOT, AND, OR</strong></li>
+<li><strong>NAND, AND</strong></li>
+<li><strong>NAND</strong></li>
+<li><strong>NOT, OR</strong></li>
+<li><strong>NOR</strong></li>
+</ul>
+<!-- 
+## Fizyczna realizacja klasycznych  bramek logicznych
+
+Bramka NAND jest bramką uniwersalną, co oznacza, że każdą funkcję boolowską można zrealizować za pomocą układu bramek NAND.
+Dlatego ważne dla komputerów klasycznych jest, aby znaleźć praktyczną realizację i jej implementację w układach. 
+
+Istnieje wiele fizycznych realizacji [bramki NAND](https://en.wikipedia.org/wiki/NAND_gate).
+
+### Implementacja komórki pamięci RAM 
+
+Random Access Memory (RAM) uzywany jest do przechowywania instrukcji i danych aktualnie używanych przez CPU. 
+Stan pamięci RAM jest tracony gdy urządzenie zostanie odłączone od zasilania.
+Pamięć RAM jest zorganizowana w komórki, które mogą przechowywać pojedynczy bit informacji.
+Do implementacji pamięci RAM wykorzystuje się zbiór bramek logicznych (NAND) oraz tranzystorów. -->
+</section>
+</section>
+<section id="kody-python" class="level2">
+<h2 class="anchored" data-anchor-id="kody-python">Kody python</h2>
+<blockquote class="blockquote">
+<p>Zadanie 1: Napisz kod symuljący wyrzucenie symetrycznej monety <span class="math inline">\(100\)</span>, <span class="math inline">\(1000\)</span>, <span class="math inline">\(10000\)</span> i <span class="math inline">\(100000\)</span> razy</p>
+</blockquote>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Twoje rozwiązanie </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>Zadanie 2: Napisz kod symulujący wyrzucenie niesymetrycznej monety gdzie prawdopodobieństwo wyrzucenia orła będzie wynosiło <span class="math inline">\(60\%\)</span>.</p>
+</blockquote>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Twoje rozwiązanie </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="szyfrowanie-z-wykorzystaniem-bramki-xor" class="level2">
+<h2 class="anchored" data-anchor-id="szyfrowanie-z-wykorzystaniem-bramki-xor">Szyfrowanie z wykorzystaniem bramki XOR</h2>
+<p>Weźmy dwie sekwencje bitów:</p>
+<p>sekwencja A - przedstawiająca naszą zakodowaną wiadomośc: <span class="math display">\[1 0 1 1 0 1 1 1 0 0 0\]</span></p>
+<p>losowa sekwencja B: <span class="math display">\[0 1 1 0 1 1 0 1 1 0 1\]</span></p>
+<p>i obliczmy <code>XOR</code> między dwoma sekwencjami (dla poszczególnych kolumn) <span class="math inline">\(A\)</span> XOR <span class="math inline">\(B\)</span>.</p>
+<p>Zgodnie z tablicą prawdy dla XOR otrzymujemy: <span class="math display">\[1 1 0 1 1 0 1 0 1 0 1\]</span></p>
+<p>Na otrzymanym wyniku jeszcze raz zastosuj bramkę XOR.</p>
+<p>Co możesz zauważyć?</p>
+<blockquote class="blockquote">
+<p>Oblicz A XOR B XOR B.</p>
+</blockquote>
+<p>Zamień wiadomość, którą chcesz zaszyfrować na binarną postać (czyli jako sekwencję zer i jedynek).</p>
+<p>Weź losową sekwencję bitów (klucz szyfrujący), którą zna tylko nadawca i odbiorca.</p>
+<p><span class="math inline">\(1001011010...\)</span> - wiadomość</p>
+<p><span class="math inline">\(0110101010...\)</span> - klucz szyfrujący, czyli losowa sekwencja bitów</p>
+<p>Zaszyfruj wiadomość wykonując operację XOR na każdym bicie wiadomości i klucza szyfrującego. Tak otrzymaną wiadomość (zaszyfrowaną) wyślij do odbiorcy.</p>
+<section id="decyrpting-message" class="level3">
+<h3 class="anchored" data-anchor-id="decyrpting-message">decyrpting message</h3>
+<p>Odbiorca otrzymuje zaszyfrowaną wiadomość (posiada klucz szyfrujący).</p>
+<p>Message XOR SecretSequence = EncryptedMessage</p>
+<p>Message XOR SecretSequence XOR SecretSequence = Message</p>
+<p>Nie powinniśmy używać SecretSequence więcej niż raz. Jeśli użyjemy jej więcej niż raz, to łatwo jest złamać szyfrowanie.</p>
+<blockquote class="blockquote">
+<p>Dlaczego nie powinno się używać szyfru więcej niż jeden raz? Podpowiedź: Zakodowana wiadomość przestaje być losowa.</p>
+</blockquote>
+</section>
+</section>
+<section id="kody---rozwiązania-zadań" class="level2">
+<h2 class="anchored" data-anchor-id="kody---rozwiązania-zadań">kody - rozwiązania zadań</h2>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> experiment <span class="kw">in</span> [<span class="dv">100</span>,<span class="dv">1000</span>,<span class="dv">10000</span>,<span class="dv">100000</span>]:</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    heads <span class="op">=</span> tails <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(experiment):</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> randrange(<span class="dv">2</span>) <span class="op">==</span> <span class="dv">0</span>: heads <span class="op">=</span> heads <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: tails <span class="op">=</span> tails <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"experiment:"</span>,experiment)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"heads ="</span>,heads,<span class="st">"  tails = "</span>,tails)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"the ratio of #heads/#tails is"</span>,(<span class="bu">round</span>(heads<span class="op">/</span>tails,<span class="dv">4</span>)))</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>() <span class="co"># empty line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>experiment: 100
+heads = 54   tails =  46
+the ratio of #heads/#tails is 1.1739
+
+experiment: 1000
+heads = 485   tails =  515
+the ratio of #heads/#tails is 0.9417
+
+experiment: 10000
+heads = 5033   tails =  4967
+the ratio of #heads/#tails is 1.0133
+
+experiment: 100000
+heads = 50266   tails =  49734
+the ratio of #heads/#tails is 1.0107
+</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># let's pick a random number between {0,1,...,99}</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># it is expected to be less than 60 with probability 0.6</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     and greater than or equal to 60 with probability 0.4</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ten sam przypadek możesz zrealizować dla losowania wartosci rzeczywistej</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># pomiędzy 0 i 1.</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> experiment <span class="kw">in</span> [<span class="dv">100</span>,<span class="dv">1000</span>,<span class="dv">10000</span>,<span class="dv">100000</span>]:</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    heads <span class="op">=</span> tails <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(experiment):</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> randrange(<span class="dv">100</span>) <span class="op">&lt;</span><span class="dv">60</span>: heads <span class="op">=</span> heads <span class="op">+</span> <span class="dv">1</span> <span class="co"># with probability 0.6</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: tails <span class="op">=</span> tails <span class="op">+</span> <span class="dv">1</span> <span class="co"># with probability 0.4</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"experiment:"</span>,experiment)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"heads ="</span>,heads,<span class="st">"  tails = "</span>,tails)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"the ratio of #heads/#tails is"</span>,(<span class="bu">round</span>(heads<span class="op">/</span>tails,<span class="dv">4</span>)))</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>() <span class="co"># empty line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>experiment: 100
+heads = 59   tails =  41
+the ratio of #heads/#tails is 1.439
+
+experiment: 1000
+heads = 563   tails =  437
+the ratio of #heads/#tails is 1.2883
+
+experiment: 10000
+heads = 6061   tails =  3939
+the ratio of #heads/#tails is 1.5387
+
+experiment: 100000
+heads = 59902   tails =  40098
+the ratio of #heads/#tails is 1.4939
+</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

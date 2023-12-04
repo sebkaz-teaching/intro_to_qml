@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Wstęp do kwantowego uczenia maszynowego - Parameterized Quantum Circuit</title>
+<title>Wstęp do kwantowego uczenia maszynowego - Kwantowe bramki logiczne w prostych algorytmach i obwodach kwantowych</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -136,7 +102,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Parameterized Quantum Circuit</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/wyklad1.html">Wykłady</a></li><li class="breadcrumb-item"><a href="../lectures/wyklad4.html">Kwantowe bramki logiczne w prostych algorytmach i obwodach kwantowych</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -183,7 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../lectures/wyklad4.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad4.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Kwantowe bramki logiczne w prostych algorytmach i obwodach kwantowych</span></a>
   </div>
 </li>
@@ -234,8 +200,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exploring-expressibility" id="toc-exploring-expressibility" class="nav-link active" data-scroll-target="#exploring-expressibility">Exploring expressibility</a></li>
-  <li><a href="#entangling-capability" id="toc-entangling-capability" class="nav-link" data-scroll-target="#entangling-capability">Entangling capability</a></li>
+  <li><a href="#ewolucja-kwantowa" id="toc-ewolucja-kwantowa" class="nav-link active" data-scroll-target="#ewolucja-kwantowa">Ewolucja kwantowa</a></li>
+  <li><a href="#bramki-jednokubitowe" id="toc-bramki-jednokubitowe" class="nav-link" data-scroll-target="#bramki-jednokubitowe">Bramki jednokubitowe</a>
+  <ul class="collapse">
+  <li><a href="#bramka-identycznościowa" id="toc-bramka-identycznościowa" class="nav-link" data-scroll-target="#bramka-identycznościowa">Bramka identycznościowa</a></li>
+  <li><a href="#bramka-negacji-x-not" id="toc-bramka-negacji-x-not" class="nav-link" data-scroll-target="#bramka-negacji-x-not">Bramka negacji X (NOT)</a></li>
+  <li><a href="#bramka-negacji-fazy-y" id="toc-bramka-negacji-fazy-y" class="nav-link" data-scroll-target="#bramka-negacji-fazy-y">Bramka negacji fazy Y</a></li>
+  <li><a href="#bramka-negacji-fazy-i-bitu-z" id="toc-bramka-negacji-fazy-i-bitu-z" class="nav-link" data-scroll-target="#bramka-negacji-fazy-i-bitu-z">Bramka negacji fazy i bitu Z</a></li>
+  <li><a href="#bramka-hadamarda-h" id="toc-bramka-hadamarda-h" class="nav-link" data-scroll-target="#bramka-hadamarda-h">Bramka Hadamarda H</a></li>
+  <li><a href="#losowy-bit" id="toc-losowy-bit" class="nav-link" data-scroll-target="#losowy-bit">Losowy bit</a></li>
+  <li><a href="#gra-w-obracanie-monety" id="toc-gra-w-obracanie-monety" class="nav-link" data-scroll-target="#gra-w-obracanie-monety">Gra w obracanie monety</a></li>
+  </ul></li>
+  <li><a href="#bramki-dwukubitowe" id="toc-bramki-dwukubitowe" class="nav-link" data-scroll-target="#bramki-dwukubitowe">Bramki dwukubitowe</a></li>
   </ul>
 </nav>
     </div>
@@ -244,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Parameterized Quantum Circuit</h1>
+<h1 class="title">Kwantowe bramki logiczne w prostych algorytmach i obwodach kwantowych</h1>
 </div>
 
 
@@ -259,115 +235,169 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumCircuit, execute, Aer, QuantumRegister, ClassicalRegister</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.visualization <span class="im">import</span> plot_histogram, plot_bloch_multivector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Parametryzowane algorytmy kwantowe, czyli takie w których realizujemy obwody przez bramki parametryzowane (liczbami) są podstawowym budulcem algorytmów kwantowego uczenia maszynowego. Bardzo często mozna się spotkać z innymi nazwami: <code>parameterized trial states</code>, <code>variational forms</code>, lub <code>ansatzes</code>.</p>
-<p>Ponizszy przykład przedstawia obwód z dwoma bramkami parametryzowanymi jedną liczbą <span class="math inline">\(\theta\)</span>. Do oznaczenia parametru wykorzystano obiekt <code>Parameter</code>.</p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit <span class="im">import</span> QuantumCircuit, Parameter</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> Parameter(<span class="st">'θ'</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>qc.rz(theta, <span class="dv">0</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>qc.crz(theta, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>qc.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<p><img src="parametrized_q_c_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p>Jezeli chcemy zastosować wiele parametrów dla róznych bramek mozemy uzyc klasy kilku obiektów na podstawie klasy <code>Parameters</code> lub zastosować klasę <code>ParameterVector</code>.</p>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit <span class="im">import</span> ParameterVector</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>theta_list <span class="op">=</span> ParameterVector(<span class="st">'theta'</span>, length<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>qc.rz(theta_list[<span class="dv">0</span>], <span class="dv">0</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>qc.crz(theta_list[<span class="dv">1</span>], <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>qc.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
-<p><img src="parametrized_q_c_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p>Skąd wziąć informacje jak powinny wyglądać obwody w zagadnieniach kwantowego uczenia maszynowego?</p>
-<p>W ogólności realizowane jest to w formie testowej <a href="https://arxiv.org/abs/1905.10876">sprwadz publikację</a>.</p>
-<p>Przetestujmy dwa parametryczne obwody i zobaczmy jakie mozliwosci kodowania stanów one reprezentują.</p>
-<section id="exploring-expressibility" class="level3">
-<h3 class="anchored" data-anchor-id="exploring-expressibility">Exploring expressibility</h3>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># First, we need to define the circuits:</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>theta_param <span class="op">=</span> Parameter(<span class="st">'θ'</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>phi_param <span class="op">=</span> Parameter(<span class="st">'Φ'</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Circuit A</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>qc_A <span class="op">=</span> QuantumCircuit(<span class="dv">1</span>)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>qc_A.h(<span class="dv">0</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>qc_A.rz(theta_param, <span class="dv">0</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>display(qc_A.draw(<span class="st">'mpl'</span>))</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Circuit B</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>qc_B <span class="op">=</span> QuantumCircuit(<span class="dv">1</span>)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>qc_B.h(<span class="dv">0</span>)</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>qc_B.rz(theta_param, <span class="dv">0</span>)</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>qc_B.rx(phi_param, <span class="dv">0</span>)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>display(qc_B.draw(<span class="st">'mpl'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="parametrized_q_c_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="parametrized_q_c_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Next we uniformly sample the parameter space for the two parameters theta and phi</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">0</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>num_param <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> [<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>np.random.uniform() <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_param)]</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>phi <span class="op">=</span> [<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>np.random.uniform() <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_param)]</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Then we take the parameter value lists, build the state vectors corresponding</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># to each circuit, and plot them on the Bloch sphere:</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.visualization.bloch <span class="im">import</span> Bloch</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.quantum_info <span class="im">import</span> Statevector</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> state_to_bloch(state_vec):</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Converts state vectors to points on the Bloch sphere</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    phi <span class="op">=</span> np.angle(state_vec.data[<span class="dv">1</span>])<span class="op">-</span>np.angle(state_vec.data[<span class="dv">0</span>])</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    theta <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>np.arccos(np.<span class="bu">abs</span>(state_vec.data[<span class="dv">0</span>]))</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [np.sin(theta)<span class="op">*</span>np.cos(phi),np.sin(theta)<span class="op">*</span>np.sin(phi),np.cos(theta)]</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Bloch sphere plot formatting</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>width, height <span class="op">=</span> plt.figaspect(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>fig<span class="op">=</span>plt.figure(figsize<span class="op">=</span>(width, height))</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>ax1, ax2 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, projection<span class="op">=</span><span class="st">'3d'</span>), fig.add_subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, projection<span class="op">=</span><span class="st">'3d'</span>)</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>b1,b2 <span class="op">=</span> Bloch(axes<span class="op">=</span>ax1), Bloch(axes<span class="op">=</span>ax2)</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>b1.point_color, b2.point_color <span class="op">=</span> [<span class="st">'tab:blue'</span>],[<span class="st">'tab:blue'</span>]</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>b1.point_marker, b2.point_marker<span class="op">=</span> [<span class="st">'o'</span>],[<span class="st">'o'</span>]</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>b1.point_size, b2.point_size<span class="op">=</span>[<span class="dv">2</span>],[<span class="dv">2</span>]</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate state vectors for circuit A and circuit B for each set of sampled parameters</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co"># and add to their respective Bloch sphere</span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_param):    </span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    state_1<span class="op">=</span>Statevector.from_instruction(qc_A.bind_parameters({theta_param:theta[i]}))</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    state_2<span class="op">=</span>Statevector.from_instruction(qc_B.bind_parameters({theta_param:theta[i], phi_param:phi[i]}))</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    b1.add_points(state_to_bloch(state_1))</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    b2.add_points(state_to_bloch(state_2))</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>b1.show()</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>b2.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="parametrized_q_c_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p>Biorąc pod uwagę otrzymane wyniki widać, ze pierwszy obwód ma małe expressibility natomiast drugi duze (w drugim przypadku jednak rozkład nie jest jednorodny).</p>
+<section id="ewolucja-kwantowa" class="level2">
+<h2 class="anchored" data-anchor-id="ewolucja-kwantowa">Ewolucja kwantowa</h2>
+<p>Zmianę stanu kwantowego w czasie opisuje <strong>Ewolucja kwantowa</strong>.</p>
+<p>Rozważmy stan układu w chwili <span class="math inline">\(t=0\)</span>.</p>
+<p><span class="math display">\[\ket{\psi_{t=0}}\]</span> W chwili <span class="math inline">\(t=1\)</span> otrzymujemy stan <span class="math inline">\(\ket{\psi_{t=1}}\)</span> t. że: <span class="math display">\[\ket{\psi_{t=1}} = \textbf{U} \, \ket{\psi_{t=0}} \]</span> gdzie <span class="math inline">\(\textbf{U}\)</span> jest <strong>macierzą unitarną</strong>.</p>
+<p>Powyższe równanie opisuje zachowanie wszystkich układów kwantowych.</p>
+<p>Rozważmy stany bazowe <span class="math inline">\(\ket{0}\)</span>, <span class="math inline">\(\ket{1}\)</span>, które będziemy chcieli zamienic w ich superpozycję. <span class="math display">\[
+\textbf{U}\ket{0} = a\ket{0} + b\ket{1} = \begin{bmatrix} a \\ b \end{bmatrix}
+\]</span> <span class="math display">\[
+\textbf{U}\ket{1} = c\ket{0} + d\ket{1} = \begin{bmatrix} c \\ d \end{bmatrix}
+\]</span></p>
+<p>Korzystając z tych równań możemy napisac: <span class="math display">\[
+\textbf{U} = \left( \begin{bmatrix} a \\ b \end{bmatrix} \begin{bmatrix} c \\ d \end{bmatrix}\right) = \begin{bmatrix} a \, \, b \\ c \,\, d \end{bmatrix}
+\]</span></p>
+<p>W informatyce macierze unitarne będą realizowały <strong>logiczne bramki kwantowe</strong>.</p>
+<blockquote class="blockquote">
+<p>Dlaczego bramki kwantowe muszą by unitarne?</p>
+</blockquote>
+<p>Norma stanu kwantowego wynosi zawsze 1. Jest to prawdopodobieństwo całkowite sumy stanów bazowych. Prawdopodobieństwo to powinno by zachowane. Co oznacza, że chcemy znaleźc taką transformację, która nie zmienia długości (kwadratu) wektora. Taka transformacja realizowana jest przez obroty.</p>
+<p>Warto zwrócic uwagę na jeszcze jeden fakt. Macierz odwrotna do <span class="math inline">\(\textbf{U}\)</span> (oznaczana jako <span class="math inline">\(\textbf{U}^{-1}\)</span>) zawsze istnieje i jest ona równa sprzężeniu Hermitowskiemu macierzu <span class="math inline">\(\textbf{U}=\textbf{U}^{\dagger}\)</span>. Dlatego ewolucja stanów kwantowych zawsze jest odwracalna. A to oznacza, że i bramki muszą by operacjami odwracalnymi. <span class="math display">\[\ket{\psi_{t=0}} = \textbf{U}^{\dagger} \ket{\psi_{t=1}} \]</span></p>
 </section>
-<section id="entangling-capability" class="level2">
-<h2 class="anchored" data-anchor-id="entangling-capability">Entangling capability</h2>
-<p>Drugą, wazną cechą obwodów jest mozliwosc wykorzystania splątania.</p>
+<section id="bramki-jednokubitowe" class="level2">
+<h2 class="anchored" data-anchor-id="bramki-jednokubitowe">Bramki jednokubitowe</h2>
+<p>Spośród wszystkich bramek kwantowych istnieje kilka, które mają swoje ustalone nazwy. Są one często wykorzystywane w obliczeniach kwatnowych. Rozważmy stan <span class="math display">\[
+\ket{\psi} = \alpha \ket{0} + \beta \ket{1}
+\]</span></p>
+<section id="bramka-identycznościowa" class="level3">
+<h3 class="anchored" data-anchor-id="bramka-identycznościowa">Bramka identycznościowa</h3>
+<p><span class="math display">\[
+\textbf{I} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix}
+\]</span></p>
+<p>Zobaczmy jak operator ten działa na stany bazowe: <span class="math display">\[ \textbf{I} \ket{0} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} \]</span></p>
+<p><span class="math display">\[ \textbf{I} \ket{1} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} \]</span></p>
+<p>Działając na stan <span class="math inline">\(\ket{\psi}\)</span> otrzymujemy: <span class="math display">\[
+\textbf{I} \ket{\psi} = \begin{bmatrix} 1 \,\, 0 \\ 0 \,\, 1 \end{bmatrix} \ket{\psi} =  \textbf{I} \left( \alpha \ket{0} + \beta \ket{1} \right) = \alpha \ket{0} + \beta \ket{1}
+\]</span></p>
+</section>
+<section id="bramka-negacji-x-not" class="level3">
+<h3 class="anchored" data-anchor-id="bramka-negacji-x-not">Bramka negacji X (NOT)</h3>
+<p><span class="math display">\[
+\textbf{X} = \begin{bmatrix} 0 \,\, 1 \\ 1 \,\, 0 \end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\textbf{X} \ket{0} = \begin{bmatrix} 0 \,\, 1 \\ 1\,\, 0 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \ket{1}
+\]</span></p>
+<p><span class="math display">\[
+\textbf{X} \ket{1} = \begin{bmatrix} 0 \,\, 1 \\ 1 \,\, 0 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \ket{0}
+\]</span></p>
+<p>Działając na stan <span class="math inline">\(\ket{\psi}\)</span> otrzymujemy: <span class="math display">\[
+\textbf{X} \ket{\psi} = \begin{bmatrix} 0 \,\, 1 \\ 1 \,\, 0 \end{bmatrix} \ket{\psi} =  \textbf{X} \left( \alpha \ket{0} + \beta \ket{1} \right) = \alpha \ket{1} + \beta \ket{0}
+\]</span></p>
+</section>
+<section id="bramka-negacji-fazy-y" class="level3">
+<h3 class="anchored" data-anchor-id="bramka-negacji-fazy-y">Bramka negacji fazy Y</h3>
+<p><span class="math display">\[
+\textbf{Y} = \begin{bmatrix} 0 \,\, -i \\ i \,\,\,\,\,\,\, 0 \end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\textbf{Y} \ket{0} = \begin{bmatrix} 0 \,\, -i \\ i \,\,\,\,\,\,\, 0 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = i \begin{bmatrix} 0 \\ 1 \end{bmatrix} = i \ket{1}
+\]</span></p>
+<p><span class="math display">\[
+\textbf{Y} \ket{1} = \begin{bmatrix} 0 \, -i \\ i \,\,\,\,\,\, 0 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = -i \begin{bmatrix} 1 \\ 0 \end{bmatrix} = -i \ket{0}
+\]</span></p>
+<p>Działając na stan <span class="math inline">\(\ket{\psi}\)</span> otrzymujemy: <span class="math display">\[
+\textbf{Y} \ket{\psi} = \begin{bmatrix} 0 \,\, -i \\ i \,\,\,\,\,\, 0 \end{bmatrix} \ket{\psi} =  \textbf{Y} \left( \alpha \ket{0} + \beta \ket{1} \right) = \alpha i \ket{1} - \beta i \ket{0}
+\]</span></p>
+</section>
+<section id="bramka-negacji-fazy-i-bitu-z" class="level3">
+<h3 class="anchored" data-anchor-id="bramka-negacji-fazy-i-bitu-z">Bramka negacji fazy i bitu Z</h3>
+<p><span class="math display">\[
+\textbf{Z} = \begin{bmatrix} 1 \,\,\,\,\,\,\,\,\, 0 \\ 0\,\, -1 \end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[ \textbf{Z} \ket{0} = \begin{bmatrix} 1\,\,\,\,\,\,\, 0 \\ 0 \, -1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 1 \\ 0 \end{bmatrix} = 1 \ket{0} \]</span></p>
+<p><span class="math display">\[ \textbf{Z} \ket{1} = \begin{bmatrix} 1 \,\,\,\,\,\,\, 0 \\ 0 \, -1 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = -1 \ket{1}\]</span></p>
+<p>Działając na stan <span class="math inline">\(\ket{\psi}\)</span> otrzymujemy: <span class="math display">\[
+\textbf{Z} \ket{\psi} = \begin{bmatrix} 0 \,\,\,\,\,\,\, 1 \\ 0 \, -1 \end{bmatrix} \ket{\psi} =  \textbf{Z} \left( \alpha \ket{0} + \beta \ket{1} \right) = \alpha \ket{0} - \beta \ket{1}
+\]</span></p>
+</section>
+<section id="bramka-hadamarda-h" class="level3">
+<h3 class="anchored" data-anchor-id="bramka-hadamarda-h">Bramka Hadamarda H</h3>
+<p><span class="math display">\[
+\textbf{H}= \frac{1}{\sqrt{2}}\begin{bmatrix} 1\,\,\,\,\,\,\, 1 \\ 1 \, -1 \end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\textbf{H} \ket{0} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1\,\,\,\,\,\,\, 1 \\ 1 \, -1 \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \ket{0} + \ket{1} \right) = \ket{+}
+\]</span></p>
+<p><span class="math display">\[
+\textbf{H} \ket{1} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1\,\,\,\,\,\,\, 1 \\ 1 \, -1 \end{bmatrix}  \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \ket{0} - \ket{1} \right) = \ket{-}
+\]</span></p>
+<!-- dodac opis pozostalych bramek ale tylko juz postac macierzowa
+phase s , t 3.3.2 rozdzial
+ -->
+</section>
+<section id="losowy-bit" class="level3">
+<h3 class="anchored" data-anchor-id="losowy-bit">Losowy bit</h3>
+<p>Stwórzmy pierwszy kwantowy program, który wykona zadanie niemożliwe do zrealizowania na komputerze klasycznym. Jak można zauważyc zdefiniowaliśmy bramkę Hadamarda. Brami tej nie było w klasycznych bramkach realizujących operacje na bitach.</p>
+<p>Na przestrzeni dziejów informatyki bardzo dużo czasu i wysiłku poświęcono opracowaniu systemu generowania liczb pseudolosowych (ang. PRNG - Pseudo Random Number Generator), który znalazł szerokie zastosowanie. Generowane liczby traktujemy jako pseudolosowe - tzn. jeśli znasz zawartośc pamięci komputera i algorytm PRNG możesz (przynajmniej teoretycznie) przewidzie jaka jest następna wartosc wygenerowanej liczby.</p>
+<p>Zgodnie z zasadami fizyki zachwanie kubitu będącego w superpozycji w czasie dokonania pomiaru jest idealne i nieprzewidywalne. Dzięki temu już pojedynczy kubit pozwala wygenerowa najlepszy na świecie generator liczb losowych.</p>
+<p><strong>instrukcja</strong></p>
+<ol type="1">
+<li>Przygotuj kubit w stanie początkowym <span class="math inline">\(\ket{0}\)</span>.</li>
+<li>Zastosuj bramkę Hadamarda tworząc z kubitu stan superpozycji stanów bazowych.</li>
+<li>Wykonaj pomiar</li>
+</ol>
+<p>Właśnie otrzymałeś QRNG - Quantum Random Number Generator. Nie jest to tani sposób na losow rzut monetą. Jednak trzeba miec swiadomośc, że tutaj nie ma wewnętrznego mechanizmu, który generuje losowośc - wynika ona tylko i wyłącznie z praw mechaniki kwantowej.</p>
+<blockquote class="blockquote">
+<p>Czy potrafisz wygenerowac losowy bajt?</p>
+</blockquote>
+</section>
+<section id="gra-w-obracanie-monety" class="level3">
+<h3 class="anchored" data-anchor-id="gra-w-obracanie-monety">Gra w obracanie monety</h3>
+<p>Wykorzystując powyżej zdefiniowane bramki możemy zrealizowa następującą grę:</p>
+<blockquote class="blockquote">
+<p>W grze bierze udział dwóch graczy. Gracze dysponują monetą, której nie widzą w trakcie gry (np. jest zamknięta w pudełku). Natomiast wiedzą, że początkowo moneta ułożona jest orłem do góry (w stanie <span class="math inline">\(\ket{0}\)</span>) Gra polega na wykonaniu trzech ruchów na przemian. Każdy ruch polega na odwróceniu monety bądź pozostawieniu jej w takim stanie w jakim była. Gracze nie wiedzą jaki ruch wykonuje przeciwnik. Po ostatnim ruchu pudełko zostaje otwarte i gracze sprawdzają w jakiej pozycji jest moneta. Pierwszy gracz wygrywa jeśli moneta jest w pozycji orła, a drugi jeśli przeciwnie.</p>
+</blockquote>
+<p>Szansa wygranej wynosi dla każdego <span class="math inline">\(50\%\)</span> i jak można sprawdzic nie istnieje strategia wygrywająca.</p>
+<p>Pytanie zasadnicze - a co jeśli zamienimy monetę na kubit?</p>
+<p>Możliwe operacje pozostawienia kubitu w takim samym stanie - bramka I, zmiany stanu na przeciwny bramka X. Czyli pierwszy gracz ustala pierwszą bramkę, drugi drugą i ponownie pierwszy trzecią. Otwarcie pudełka to pomiar stanu kubitu.</p>
+<blockquote class="blockquote">
+<p>Przeanalizuj wynik dla sekwencji I X I</p>
+</blockquote>
+<p>A co jeśli pierwszy gracz wie, że działa na kubicie?</p>
+<blockquote class="blockquote">
+<p>Czy może sprawic on, że wygra zawsze? (skoro wie, że działa na kubicie może użyc innych bramek)</p>
+</blockquote>
+</section>
+</section>
+<section id="bramki-dwukubitowe" class="level2">
+<h2 class="anchored" data-anchor-id="bramki-dwukubitowe">Bramki dwukubitowe</h2>
+<p>Analogicznie do bramek jednokubitowych reprezentowanych przez macierze unitarne <span class="math inline">\(2\times 2\)</span> możemy skonstruowac dowolną wielo-kubitową bramkę. Dla n kubitów mamy <span class="math inline">\(2^n \times 2^n\)</span> unitarną macierz reprezentującą taką bramkę. Ponieważ bramki wielo kubiotwe działają na raz na kilka kubitów mogą służyc one do otrzymywania stanów splątanych. Mamy również możliwośc stworzyc bramkę warunkową (kontrolowaną), która zmienia bit docelowy jeśli kontrolny bit jest w stanie <span class="math inline">\(\ket{1}\)</span>.</p>
+<p>W ogólności taka bramka może zostac zapisana jako: <span class="math display">\[
+\textbf{CU}= \ket{0}\bra{0} \otimes \textbf{I} + \ket{1}\bra{1} \otimes \textbf{\textbf{U}}
+\]</span></p>
+<p>Dowolna bramka działajaca na 1 kubit może byc przedstawiona jako mecierz <span class="math display">\[
+\textbf{U} = \begin{bmatrix} u_{00} \, u_{01} \\ u_{10}\, u_{11} \end{bmatrix}
+\]</span></p>
+<p>dlatego:</p>
+<p><span class="math display">\[
+\textbf{CU}=  \begin{bmatrix} 1 \,\, \,\,\, 0 \,\,\,\,\, 0 \,\,\,\,\, 0 \\
+0\,\, \,\,\, 1 \,\,\,\,\, 0 \,\,\,\,\, 0 \\
+0\,\,\,\, 0\,\,\,  u_{00} \,\, u_{01} \\ 0\,\,\,\, 0\,\,\, u_{10}\, \, u_{11} \end{bmatrix}
+\]</span></p>
+<p>Szczegółowe działanie bramki można zapisac jako:</p>
+<p><span class="math display">\[\begin{align*}
+\textbf{CU} \ket{0} \otimes \ket{0} &amp;=&amp;  \ket{0} \otimes \ket{0} \\
+\textbf{CU} \ket{0} \otimes \ket{1} &amp;=&amp; \ket{0}\otimes \ket{1} \\
+\textbf{CU} \ket{1}\otimes \ket{0} &amp;=&amp; \ket{1}\otimes \textbf{U} \ket{0} \\
+\textbf{CU} \ket{1}\otimes \ket{1} &amp;=&amp; \ket{1}\otimes \textbf{U} \ket{1} \\
+\end{align*}\]</span></p>
+<p>Dla kwantowej bramki NOT <span class="math inline">\(\textbf{U}= X\)</span> <span class="math display">\[
+\text{CNOT} = \begin{bmatrix} 1 \,\, \,\,\, 0 \,\,\,\,\, 0 \,\,\,\,\, 0 \\
+0\,\, \,\,\, 1 \,\,\,\,\, 0 \,\,\,\,\, 0 \\
+0\,\,\,\,\, 0\,\,\,\,\,  0 \,\,\,\,\, 1 \\ 0\,\,\,\,\, 0\,\,\,\,\, 1\,\,\,\,\, 0 \end{bmatrix}
+\]</span> Bramka ta do drugiego kubitu (targetu) stosuje bramkę X jeśli pierwszy kubit jest w pozycji <span class="math inline">\(\ket{1}\)</span>. W przeciwnym wypadku nie zmienia się nic.</p>
+<p><span class="math display">\[\begin{align*}
+\textbf{CNOT} \ket{0} \otimes \ket{0} &amp;=&amp;  \ket{0} \otimes \ket{0} \\
+\textbf{CNOT} \ket{0} \otimes \ket{1} &amp;=&amp; \ket{0}\otimes \ket{1} \\
+\textbf{CNOT} \ket{1}\otimes \ket{0} &amp;=&amp; \ket{1}\otimes \ket{1} \\
+\textbf{CNOT} \ket{1}\otimes \ket{1} &amp;=&amp; \ket{1}\otimes \ket{0} \\
+\end{align*}\]</span></p>
+<blockquote class="blockquote">
+<p>Rozpoczynajac od stanu <span class="math inline">\(\ket{0} \otimes \ket{0}\)</span> zadziałaj na pierwszy kubit bramka Hadamarda a na tak otrzymany stan zadziałaj CNOT. Jaki stan uzyskujemy?</p>
+</blockquote>
 
 
 </section>

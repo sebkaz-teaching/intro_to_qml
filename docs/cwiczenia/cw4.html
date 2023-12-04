@@ -240,7 +240,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#bb84---kawantowa-dystrybucja-klucza" id="toc-bb84---kawantowa-dystrybucja-klucza" class="nav-link" data-scroll-target="#bb84---kawantowa-dystrybucja-klucza">BB84 - Kawantowa dystrybucja klucza</a></li>
   <li><a href="#tworzenie-klucza" id="toc-tworzenie-klucza" class="nav-link" data-scroll-target="#tworzenie-klucza">Tworzenie klucza</a></li>
   </ul></li>
-  <li><a href="#kwantowa-teleportacja" id="toc-kwantowa-teleportacja" class="nav-link" data-scroll-target="#kwantowa-teleportacja">Kwantowa teleportacja</a></li>
+  <li><a href="#kwantowa-teleportacja" id="toc-kwantowa-teleportacja" class="nav-link" data-scroll-target="#kwantowa-teleportacja">Kwantowa teleportacja</a>
+  <ul class="collapse">
+  <li><a href="#the-quantum-teleportation-protocol" id="toc-the-quantum-teleportation-protocol" class="nav-link" data-scroll-target="#the-quantum-teleportation-protocol">The Quantum Teleportation Protocol</a></li>
+  </ul></li>
   <li><a href="#shor" id="toc-shor" class="nav-link" data-scroll-target="#shor">Shor</a></li>
   </ul>
 </nav>
@@ -766,13 +769,221 @@ INTRUDER ALERT!</code></pre>
 </section>
 <section id="kwantowa-teleportacja" class="level2">
 <h2 class="anchored" data-anchor-id="kwantowa-teleportacja">Kwantowa teleportacja</h2>
-<p>Quantum teleportation is a technique for transferring quantum information from a sender at one location to a receiver some distance away. Quantum teleportation is a technique for transferring quantum information from a sender at one location to a receiver some distance away.</p>
-<p>Lets say Alice wants to send a message to Bob. Specifically, suppose she wants to send the qubit state |𝜓⟩=𝛼|0⟩+𝛽|1⟩.</p>
-<p>According to the “no-cloning” theorm, you cannot make an exact copy of an unknown quantum state. Therefore Alice cannot generate a copy of |𝜓⟩ and send the copy to Bob as we cannot copy a superposition of state. However, if we were transmitting classical information, we can do this task of copying and sending the bits.</p>
-<p>If two classical bits and an entangled qubit pair is used, Alice can transfer her state |𝜓⟩ to Bob. This is called quantum teleportation as at the end Bob will have |𝜓⟩ and Alice will not anymore. Quantum teleportation is important because this is the only way Alice can send information to Bob and not violate the law of conservation of information.</p>
+<p>Quantum teleportation czyli kwantowa teleportacja to technika przekazu informacji (kwantowej) między wysyłającym i odbierającym. Jak poprzednio mozemy przyjąć, ze Alicja wysyła wiadomość do Boba. Informacja, którą chce przesłać Alicja to stan <span class="math inline">\(|\psi\rangle=\alpha |0\rangle +\beta |1\rangle\)</span>.</p>
+<p>Zgodnie z twierdzeniem o zakazie klonowania, nie mozna wykonac dokładnej kopii dowolnego stanu kwantowego. Oznacza to, ze Alicja nie moze przygotować swojego stanu i go sklonować w celu wysłania go do Boba.</p>
+<p>Uzyjemy dwóch klasycznych bitów informacji oraz splątanej pary kubitów. Ponadto trzeba pamiętać, ze w chwili kiedy Alicja wysyła swój Kubit niszczy jego stan u siebie.</p>
+<section id="the-quantum-teleportation-protocol" class="level3">
+<h3 class="anchored" data-anchor-id="the-quantum-teleportation-protocol">The Quantum Teleportation Protocol</h3>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumCircuit, QuantumRegister, ClassicalRegister, execute, Aer</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.result <span class="im">import</span> marginal_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Potrzebujemy obwodu składającego się z 3 kubitów: 1. qubit Alicji 2. qubit splatany 1 (Eva-Alicja) 3. qubit splatany 2 (Eva-Bob)</p>
+<p>i 3 klasycznych rejestrów.</p>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_registers():</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    alice_q <span class="op">=</span> QuantumRegister(<span class="dv">1</span>, <span class="st">'alice (q)'</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    eva_alice_q <span class="op">=</span> QuantumRegister(<span class="dv">1</span>, <span class="st">'eva/alice (q)'</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    eva_bob_q <span class="op">=</span> QuantumRegister(<span class="dv">1</span>, <span class="st">'eva/bob (q)'</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    bob_c <span class="op">=</span> ClassicalRegister(<span class="dv">3</span>, <span class="st">'bob (c)'</span>)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> QuantumCircuit(alice_q, eva_alice_q, eva_bob_q, bob_c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> create_registers()</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>qc.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+<p><img src="cw4_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Przygotujmy losowy stan Alicji, który prześlemy</p>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_amplitudes():</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    alpha <span class="op">=</span> np.sqrt(random.uniform(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    beta <span class="op">=</span> np.sqrt(<span class="dv">1</span> <span class="op">-</span> alpha<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> alpha, beta</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>generate_amplitudes()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
+<pre><code>(0.4583992998876675, 0.8887463540642495)</code></pre>
+</div>
+</div>
+<p>Dodajemy bramki</p>
+<div class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add_gates(circ, alpha, beta):</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># stan alicji q0</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    circ.initialize([alpha, beta], <span class="dv">0</span>)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    circ.barrier()</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># stan splątany q1 i q2</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    circ.h(<span class="dv">1</span>)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    circ.cnot(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    circ.barrier()</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">#  alicja stosuje bramki łacząc swoj kubit i otrzymany kubit od evy</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    circ.cnot(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    circ.h(<span class="dv">0</span>)</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    circ.barrier()</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># alicja mierzy kubity i przesyla info do Boba</span></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    circ.measure(<span class="dv">0</span>,<span class="dv">0</span>)</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>    circ.measure(<span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># realizacja boba</span></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> circ.if_test((<span class="dv">1</span>, <span class="dv">1</span>)):</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>        circ.x(<span class="dv">2</span>)</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> circ.if_test((<span class="dv">0</span>, <span class="dv">1</span>)):</span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>        circ.z(<span class="dv">2</span>)</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>    circ.measure(<span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> circ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>alpha, beta <span class="op">=</span> generate_amplitudes()</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'alpha = </span><span class="sc">{</span>alpha<span class="sc">:.4f}</span><span class="ss">,  beta = </span><span class="sc">{</span>beta<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>circ <span class="op">=</span> create_registers()</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>circ <span class="op">=</span> add_gates(circ, alpha, beta)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>display(circ.draw(<span class="st">'mpl'</span>, cregbundle<span class="op">=</span><span class="va">False</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>alpha = 0.6732,  beta = 0.7395</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="cw4_files/figure-html/cell-27-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>device <span class="op">=</span> Aer.get_backend(<span class="st">"qasm_simulator"</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>shots <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>job <span class="op">=</span> device.run(circ, shots<span class="op">=</span>shots)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> job.result()</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>counts <span class="op">=</span> result.get_counts(circ)</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>counts_m <span class="op">=</span> marginal_counts(counts, [<span class="dv">2</span>])</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>number_of_0s <span class="op">=</span> counts_m.get(<span class="st">'0'</span>)</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>number_of_1s <span class="op">=</span> counts_m.get(<span class="st">'1'</span>)</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>alpha <span class="op">=</span> np.sqrt(number_of_0s <span class="op">/</span> shots)</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>beta <span class="op">=</span> np.sqrt(number_of_1s <span class="op">/</span> shots)</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"stan =  (</span><span class="sc">{:.4f}</span><span class="st">, </span><span class="sc">{:.4f}</span><span class="st">)"</span>.<span class="bu">format</span>(alpha, beta))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>stan =  (0.6603, 0.7510)</code></pre>
+</div>
+</div>
+<p>Step 4: Bob dekoder</p>
+<p>Bob, który posiada kubit 3 q2 (wcześniej splątany) stosuje następujące bramki w zaleznosci od klasycznej informacji, którą orzymał:</p>
+<p><span class="math display">\[00 \to Identity \]</span></p>
+<p><span class="math display">\[01 \to Apply 𝑋 gate \]</span></p>
+<p><span class="math display">\[ 10 \to Apply Z gate \]</span></p>
+<p><span class="math display">\[ 11 \to Apply 𝑍𝑋 gate \]</span></p>
+</section>
 </section>
 <section id="shor" class="level2">
 <h2 class="anchored" data-anchor-id="shor">Shor</h2>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> initialize_qubits(given_circuit, n, m):</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    given_circuit.h(<span class="bu">range</span>(n))</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    given_circuit.x(n<span class="op">+</span>m<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumCircuit</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> c_amod15(a, x):</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a <span class="kw">not</span> <span class="kw">in</span> [<span class="dv">2</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">11</span>,<span class="dv">13</span>]:</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="st">"'a' must be 2,7,8,11,13"</span>)</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>    U <span class="op">=</span> QuantumCircuit(<span class="dv">4</span>)        </span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> iteration <span class="kw">in</span> <span class="bu">range</span>(x):</span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> a <span class="kw">in</span> [<span class="dv">2</span>,<span class="dv">13</span>]:</span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>            U.swap(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>            U.swap(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>            U.swap(<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> a <span class="kw">in</span> [<span class="dv">7</span>,<span class="dv">8</span>]:</span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>            U.swap(<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a>            U.swap(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a>            U.swap(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> a <span class="op">==</span> <span class="dv">11</span>:</span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a>            U.swap(<span class="dv">1</span>,<span class="dv">3</span>)</span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>            U.swap(<span class="dv">0</span>,<span class="dv">2</span>)</span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> a <span class="kw">in</span> [<span class="dv">7</span>,<span class="dv">11</span>,<span class="dv">13</span>]:</span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> q <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a>                U.x(q)</span>
+<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a>    U <span class="op">=</span> U.to_gate()</span>
+<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a>    U.name <span class="op">=</span> <span class="st">"</span><span class="sc">%i</span><span class="st">^</span><span class="sc">%i</span><span class="st"> mod 15"</span> <span class="op">%</span> (a, x)</span>
+<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a>    c_U <span class="op">=</span> U.control()</span>
+<span id="cb37-31"><a href="#cb37-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> c_U</span>
+<span id="cb37-32"><a href="#cb37-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-33"><a href="#cb37-33" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> modular_exponentiation(circuit, n, m, a):</span>
+<span id="cb37-34"><a href="#cb37-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb37-35"><a href="#cb37-35" aria-hidden="true" tabindex="-1"></a>        exponent <span class="op">=</span> <span class="dv">2</span><span class="op">**</span>x</span>
+<span id="cb37-36"><a href="#cb37-36" aria-hidden="true" tabindex="-1"></a>        circuit.append(c_amod15(a, exponent), [x] <span class="op">+</span> <span class="bu">list</span>(<span class="bu">range</span>(n, n<span class="op">+</span>m)))</span>
+<span id="cb37-37"><a href="#cb37-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-38"><a href="#cb37-38" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> QFT</span>
+<span id="cb37-39"><a href="#cb37-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-40"><a href="#cb37-40" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> inverse_qft(circuit, measurement_qubits):</span>
+<span id="cb37-41"><a href="#cb37-41" aria-hidden="true" tabindex="-1"></a>    circuit.append(QFT( <span class="bu">len</span>(measurement_qubits), do_swaps<span class="op">=</span><span class="va">False</span>).inverse(), measurement_qubits)</span>
+<span id="cb37-42"><a href="#cb37-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-43"><a href="#cb37-43" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> shors_algorithm(n, m, a):</span>
+<span id="cb37-44"><a href="#cb37-44" aria-hidden="true" tabindex="-1"></a>    qc <span class="op">=</span> QuantumCircuit(n<span class="op">+</span>m, n)</span>
+<span id="cb37-45"><a href="#cb37-45" aria-hidden="true" tabindex="-1"></a>    initialize_qubits(qc, n, m)</span>
+<span id="cb37-46"><a href="#cb37-46" aria-hidden="true" tabindex="-1"></a>    qc.barrier()</span>
+<span id="cb37-47"><a href="#cb37-47" aria-hidden="true" tabindex="-1"></a>    modular_exponentiation(qc, n, m, a)</span>
+<span id="cb37-48"><a href="#cb37-48" aria-hidden="true" tabindex="-1"></a>    qc.barrier()</span>
+<span id="cb37-49"><a href="#cb37-49" aria-hidden="true" tabindex="-1"></a>    inverse_qft(qc, <span class="bu">range</span>(n))</span>
+<span id="cb37-50"><a href="#cb37-50" aria-hidden="true" tabindex="-1"></a>    qc.measure(<span class="bu">range</span>(n), <span class="bu">range</span>(n))</span>
+<span id="cb37-51"><a href="#cb37-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qc</span>
+<span id="cb37-52"><a href="#cb37-52" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb37-53"><a href="#cb37-53" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">4</span><span class="op">;</span> m <span class="op">=</span> <span class="dv">4</span><span class="op">;</span> a <span class="op">=</span> <span class="dv">7</span></span>
+<span id="cb37-54"><a href="#cb37-54" aria-hidden="true" tabindex="-1"></a>final_circuit <span class="op">=</span> shors_algorithm(n, m, a)</span>
+<span id="cb37-55"><a href="#cb37-55" aria-hidden="true" tabindex="-1"></a>final_circuit.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="45">
+<p><img src="cw4_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>simulator <span class="op">=</span> Aer.get_backend(<span class="st">'qasm_simulator'</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>counts <span class="op">=</span> execute(final_circuit, backend<span class="op">=</span>simulator, shots<span class="op">=</span><span class="dv">1000</span>).result().get_counts(final_circuit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> measured_value <span class="kw">in</span> counts:</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span><span class="bu">int</span>(measured_value[::<span class="op">-</span><span class="dv">1</span>], <span class="dv">2</span>)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>9
+6
+5
+10
+15
+11
+8
+12
+14
+7
+0
+4
+13</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> gcd</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> counts:</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    measured_value <span class="op">=</span> <span class="bu">int</span>(i[::<span class="op">-</span><span class="dv">1</span>], <span class="dv">2</span>)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> measured_value <span class="op">%</span> <span class="dv">2</span> <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Measured value not even"</span>)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span> <span class="co">#measured value should be even as we are doing a^(r/2) mod N and r/2 should be int</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="bu">int</span>((a <span class="op">**</span> (measured_value<span class="op">/</span><span class="dv">2</span>)) <span class="op">%</span> <span class="dv">15</span>)</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (x <span class="op">+</span> <span class="dv">1</span>) <span class="op">%</span> <span class="dv">15</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>    factors <span class="op">=</span> gcd(x <span class="op">+</span> <span class="dv">1</span>, <span class="dv">15</span>), gcd(x <span class="op">-</span> <span class="dv">1</span>, <span class="dv">15</span>) <span class="co">#we saw earlier that a^(r/2)+1 or a^(r/2)-1 should be a factor of 15</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(factors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Measured value not even
+(1, 3)
+Measured value not even
+(1, 3)
+Measured value not even
+Measured value not even
+(1, 15)
+(5, 3)
+(1, 3)
+Measured value not even
+(1, 15)
+(5, 3)
+Measured value not even</code></pre>
+</div>
+</div>
 
 
 </section>
