@@ -77,7 +77,7 @@ Kwantowe bity z wykorzystaniem biblioteki IBM Qiskit i Pennylane
 
 Jedno - kubitowe bramki logiczne
 
-4. 27-11-2023 (poniedziałek) 11:40-13:20 - Lab4
+4. 27-11-2023 (poniedziałek) 11:40-13:20 - <del>Lab4</del>
 
 Wielokubitowe bramki logiczne
 
