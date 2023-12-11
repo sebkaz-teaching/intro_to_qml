@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Wstęp do kwantowego uczenia maszynowego - Kwantowe uczenie maszynowe</title>
+<title>Wstęp do kwantowego uczenia maszynowego - Algorytmy kwantowego uczenia maszynowego</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -134,7 +100,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Kwantowe uczenie maszynowe</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Algorytmy kwantowego uczenia maszynowego</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -238,7 +204,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#parameterized-quantum-circuit" id="toc-parameterized-quantum-circuit" class="nav-link active" data-scroll-target="#parameterized-quantum-circuit">Parameterized Quantum Circuit</a></li>
+  <li><a href="#pqc" id="toc-pqc" class="nav-link active" data-scroll-target="#pqc">PQC</a></li>
+  <li><a href="#kwantowe-algorytmy-wariacyjne" id="toc-kwantowe-algorytmy-wariacyjne" class="nav-link" data-scroll-target="#kwantowe-algorytmy-wariacyjne">Kwantowe Algorytmy Wariacyjne</a></li>
+  <li><a href="#quantum-neural-networks" id="toc-quantum-neural-networks" class="nav-link" data-scroll-target="#quantum-neural-networks">Quantum Neural Networks</a></li>
+  <li><a href="#quantum-support-vector-classification" id="toc-quantum-support-vector-classification" class="nav-link" data-scroll-target="#quantum-support-vector-classification">Quantum Support Vector Classification</a></li>
+  <li><a href="#variational-quantum-eigensolver" id="toc-variational-quantum-eigensolver" class="nav-link" data-scroll-target="#variational-quantum-eigensolver">Variational Quantum Eigensolver</a></li>
+  <li><a href="#qubo" id="toc-qubo" class="nav-link" data-scroll-target="#qubo">QUBO</a></li>
+  <li><a href="#quantum-approximation-optimization-algorithm" id="toc-quantum-approximation-optimization-algorithm" class="nav-link" data-scroll-target="#quantum-approximation-optimization-algorithm">Quantum Approximation Optimization Algorithm</a></li>
   </ul>
 </nav>
     </div>
@@ -247,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Kwantowe uczenie maszynowe</h1>
+<h1 class="title">Algorytmy kwantowego uczenia maszynowego</h1>
 </div>
 
 
@@ -262,27 +234,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="parameterized-quantum-circuit" class="level2">
-<h2 class="anchored" data-anchor-id="parameterized-quantum-circuit">Parameterized Quantum Circuit</h2>
-<p>Parametryzowany Obwód Kwantowy (PQC) to typ obwodu kwantowego, który wykorzystuje parametry klasyczne. Te obwody są kluczowym elementem <em>wariacyjnych algorytmów kwantowych</em>, które są klasą algorytmów kwantowych wykorzystujących klasyczne techniki optymalizacji do znalezienia optymalnych parametrów dla obwodu kwantowego.</p>
-<p>Struktura PQC jest zazwyczaj stała i składa się z serii bramek kwantowych. Parametry tych bramek, jednak, mogą być dostosowane. Pozwala to na dostrojenie obwodu do rozwiązania konkretnego problemu. Parametry są zazwyczaj optymalizowane za pomocą klasycznego algorytmu optymalizacji, z celem znalezienia zestawu parametrów, które minimalizują pewną funkcję kosztu.</p>
-<p>PQC są szczególnie przydatne w kwantowym uczeniu maszynowym, gdzie mogą być używane do konstrukcji <em>kwantowych sieci neuronowych</em>. Te sieci mogą być trenowane w podobny sposób do klasycznych sieci neuronowych, poprzez dostosowywanie parametrów bramek kwantowych do minimalizacji funkcji kosztu.</p>
-<p>Podsumowując, Parametryzowane Obwody Kwantowe są potężnym narzędziem w dziedzinie informatyki kwantowej, umożliwiając integrację klasycznych technik optymalizacji z obliczeniami kwantowymi. Są kluczowym elementem wielu algorytmów kwantowych i mają szeroki zakres zastosowań, od kwantowego uczenia maszynowego po chemię kwantową.</p>
-<p>Oto prosty przykład PQC w Pythonie za pomocą biblioteki Qiskit:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumCircuit</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Utwórz Parametryzowany Obwód Kwantowy z 2 kubitami</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Dodaj parametryzowaną bramkę</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit <span class="im">import</span> Parameter</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> Parameter(<span class="st">'θ'</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>qc.rx(theta, <span class="dv">0</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Wyświetl obwód</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(qc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>W tym przykładzie tworzymy obwód kwantowy z dwoma kubitami i dodajemy parametryzowaną bramkę RX do pierwszego kubitu. Parametr ‘θ’ może być dostosowany do zmiany zachowania obwodu.</p>
-<p>//TODO dodac info o VQE</p>
+<p>Dziedziną łączącą klasyczne uczenie maszynowe i obliczenia kwantowe nazywamy kwantowym uczeniem maszynowym. QML powstało aby szybciej i sprawniej rozwiązywać problemu uczenia maszynowego. Do tego celu chcemy wykorzystać procesory kwantowe oraz własności algorytmów kwantowych i ich przewagi nad klasycznymi odpowiednikami.</p>
+<section id="pqc" class="level2">
+<h2 class="anchored" data-anchor-id="pqc">PQC</h2>
+</section>
+<section id="kwantowe-algorytmy-wariacyjne" class="level2">
+<h2 class="anchored" data-anchor-id="kwantowe-algorytmy-wariacyjne">Kwantowe Algorytmy Wariacyjne</h2>
+<p>Variational Quantum Algorithms (VQA) czyli kwantowe algorytmy wariacyjne nalezą do klasy algorytmów hybrydowych. Oznacza to, ze do ich realizacji wykorzystamy zarówno procesor kwantowy jak i klasyczne algorytmy optymalizacyjne.</p>
+</section>
+<section id="quantum-neural-networks" class="level2">
+<h2 class="anchored" data-anchor-id="quantum-neural-networks">Quantum Neural Networks</h2>
+</section>
+<section id="quantum-support-vector-classification" class="level2">
+<h2 class="anchored" data-anchor-id="quantum-support-vector-classification">Quantum Support Vector Classification</h2>
+</section>
+<section id="variational-quantum-eigensolver" class="level2">
+<h2 class="anchored" data-anchor-id="variational-quantum-eigensolver">Variational Quantum Eigensolver</h2>
+</section>
+<section id="qubo" class="level2">
+<h2 class="anchored" data-anchor-id="qubo">QUBO</h2>
+</section>
+<section id="quantum-approximation-optimization-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="quantum-approximation-optimization-algorithm">Quantum Approximation Optimization Algorithm</h2>
 
 
 </section>

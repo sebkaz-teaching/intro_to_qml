@@ -277,47 +277,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumCircuit, execute, Aer, QuantumRegister, ClassicalRegister</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.visualization <span class="im">import</span> plot_histogram, plot_bloch_multivector</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p>Parametryzowane algorytmy kwantowe, czyli takie w których realizujemy obwody przez bramki parametryzowane (liczbami) są podstawowym budulcem algorytmów kwantowego uczenia maszynowego. Bardzo często mozna się spotkać z innymi nazwami: <code>parameterized trial states</code>, <code>variational forms</code>, lub <code>ansatzes</code>.</p>
 <p>Ponizszy przykład przedstawia obwód z dwoma bramkami parametryzowanymi jedną liczbą <span class="math inline">\(\theta\)</span>. Do oznaczenia parametru wykorzystano obiekt <code>Parameter</code>.</p>
-<div class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit <span class="im">import</span> QuantumCircuit, Parameter</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> Parameter(<span class="st">'angle'</span>) <span class="co"># niezdefiniowany parametr</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>qc.rz(theta, <span class="dv">0</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>qc.crz(theta, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>qc.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="23">
-<p><img src="parametrized_q_c_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit <span class="im">import</span> QuantumCircuit, Parameter</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> Parameter(<span class="st">'angle'</span>) <span class="co"># niezdefiniowany parametr</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>qc.rz(theta, <span class="dv">0</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>qc.crz(theta, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>qc.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<p><img src="parametrized_q_c_files/figure-html/cell-2-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>qc.parameters</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(qc.parameters)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>ParameterView([Parameter(angle)])</code></pre>
 </div>
 </div>
 <p>Jezeli chcemy zastosować wiele parametrów dla róznych bramek mozemy uzyc klasy kilku obiektów na podstawie klasy <code>Parameters</code> lub zastosować klasę <code>ParameterVector</code>.</p>
-<div class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit <span class="im">import</span> ParameterVector</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>theta_list <span class="op">=</span> ParameterVector(<span class="st">'theta'</span>, length<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>qc.rz(theta_list[<span class="dv">0</span>], <span class="dv">0</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>qc.crz(theta_list[<span class="dv">1</span>], <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>qc.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
-<p><img src="parametrized_q_c_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit <span class="im">import</span> ParameterVector</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>theta_list <span class="op">=</span> ParameterVector(<span class="st">'theta'</span>, length<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>qc <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>qc.rz(theta_list[<span class="dv">0</span>], <span class="dv">0</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>qc.crz(theta_list[<span class="dv">1</span>], <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>qc.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<p><img src="parametrized_q_c_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>qc.parameters</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="26">
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>qc.parameters</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>ParameterView([ParameterVectorElement(theta[0]), ParameterVectorElement(theta[1])])</code></pre>
 </div>
 </div>
@@ -334,71 +330,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="expressibility-and-entangling-capability" class="level3">
 <h3 class="anchored" data-anchor-id="expressibility-and-entangling-capability">Expressibility and entangling capability</h3>
 <p><code>Expressibility</code> (zdolność do generowania stanów w przestrzeni Hilberta) oraz <code>entangling capability</code> (mozliwość splątania kubitów) to dwie miary pozwalające porównać rózne PQC.</p>
-<div class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># First, we need to define the circuits:</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>theta_param <span class="op">=</span> Parameter(<span class="st">'θ'</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>phi_param <span class="op">=</span> Parameter(<span class="st">'Φ'</span>)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Circuit A</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>qc_A <span class="op">=</span> QuantumCircuit(<span class="dv">1</span>)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>qc_A.h(<span class="dv">0</span>)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>qc_A.rz(theta_param, <span class="dv">0</span>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>display(qc_A.draw(<span class="st">'mpl'</span>))</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Circuit B</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>qc_B <span class="op">=</span> QuantumCircuit(<span class="dv">1</span>)</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>qc_B.h(<span class="dv">0</span>)</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>qc_B.rz(theta_param, <span class="dv">0</span>)</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>qc_B.rx(phi_param, <span class="dv">0</span>)</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>display(qc_B.draw(<span class="st">'mpl'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># First, we need to define the circuits:</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>theta_param <span class="op">=</span> Parameter(<span class="st">'θ'</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>phi_param <span class="op">=</span> Parameter(<span class="st">'Φ'</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Circuit A</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>qc_A <span class="op">=</span> QuantumCircuit(<span class="dv">1</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>qc_A.h(<span class="dv">0</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>qc_A.rz(theta_param, <span class="dv">0</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>display(qc_A.draw(<span class="st">'mpl'</span>))</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Circuit B</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>qc_B <span class="op">=</span> QuantumCircuit(<span class="dv">1</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>qc_B.h(<span class="dv">0</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>qc_B.rz(theta_param, <span class="dv">0</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>qc_B.rx(phi_param, <span class="dv">0</span>)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>display(qc_B.draw(<span class="st">'mpl'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="parametrized_q_c_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="parametrized_q_c_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Next we uniformly sample the parameter space for the two parameters theta and phi</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">0</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>num_param <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> [<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>np.random.uniform() <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_param)]</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>phi <span class="op">=</span> [<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>np.random.uniform() <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_param)]</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Then we take the parameter value lists, build the state vectors corresponding</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># to each circuit, and plot them on the Bloch sphere:</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.visualization.bloch <span class="im">import</span> Bloch</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.quantum_info <span class="im">import</span> Statevector</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> state_to_bloch(state_vec):</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Converts state vectors to points on the Bloch sphere</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    phi <span class="op">=</span> np.angle(state_vec.data[<span class="dv">1</span>])<span class="op">-</span>np.angle(state_vec.data[<span class="dv">0</span>])</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    theta <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>np.arccos(np.<span class="bu">abs</span>(state_vec.data[<span class="dv">0</span>]))</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [np.sin(theta)<span class="op">*</span>np.cos(phi),np.sin(theta)<span class="op">*</span>np.sin(phi),np.cos(theta)]</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Bloch sphere plot formatting</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>width, height <span class="op">=</span> plt.figaspect(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>fig<span class="op">=</span>plt.figure(figsize<span class="op">=</span>(width, height))</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>ax1, ax2 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, projection<span class="op">=</span><span class="st">'3d'</span>), fig.add_subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, projection<span class="op">=</span><span class="st">'3d'</span>)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>b1,b2 <span class="op">=</span> Bloch(axes<span class="op">=</span>ax1), Bloch(axes<span class="op">=</span>ax2)</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>b1.point_color, b2.point_color <span class="op">=</span> [<span class="st">'tab:blue'</span>],[<span class="st">'tab:blue'</span>]</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>b1.point_marker, b2.point_marker<span class="op">=</span> [<span class="st">'o'</span>],[<span class="st">'o'</span>]</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>b1.point_size, b2.point_size<span class="op">=</span>[<span class="dv">2</span>],[<span class="dv">2</span>]</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate state vectors for circuit A and circuit B for each set of sampled parameters</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co"># and add to their respective Bloch sphere</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_param):    </span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    state_1<span class="op">=</span>Statevector.from_instruction(qc_A.bind_parameters({theta_param:theta[i]}))</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    state_2<span class="op">=</span>Statevector.from_instruction(qc_B.bind_parameters({theta_param:theta[i], phi_param:phi[i]}))</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    b1.add_points(state_to_bloch(state_1))</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    b2.add_points(state_to_bloch(state_2))</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>b1.show()</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>b2.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="parametrized_q_c_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="parametrized_q_c_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Next we uniformly sample the parameter space for the two parameters theta and phi</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">0</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>num_param <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> [<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>np.random.uniform() <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_param)]</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>phi <span class="op">=</span> [<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>np.random.uniform() <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_param)]</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Then we take the parameter value lists, build the state vectors corresponding</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># to each circuit, and plot them on the Bloch sphere:</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.visualization.bloch <span class="im">import</span> Bloch</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.quantum_info <span class="im">import</span> Statevector</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> state_to_bloch(state_vec):</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Converts state vectors to points on the Bloch sphere</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    phi <span class="op">=</span> np.angle(state_vec.data[<span class="dv">1</span>])<span class="op">-</span>np.angle(state_vec.data[<span class="dv">0</span>])</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    theta <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>np.arccos(np.<span class="bu">abs</span>(state_vec.data[<span class="dv">0</span>]))</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [np.sin(theta)<span class="op">*</span>np.cos(phi),np.sin(theta)<span class="op">*</span>np.sin(phi),np.cos(theta)]</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Bloch sphere plot formatting</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>width, height <span class="op">=</span> plt.figaspect(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>fig<span class="op">=</span>plt.figure(figsize<span class="op">=</span>(width, height))</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>ax1, ax2 <span class="op">=</span> fig.add_subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>, projection<span class="op">=</span><span class="st">'3d'</span>), fig.add_subplot(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, projection<span class="op">=</span><span class="st">'3d'</span>)</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>b1,b2 <span class="op">=</span> Bloch(axes<span class="op">=</span>ax1), Bloch(axes<span class="op">=</span>ax2)</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>b1.point_color, b2.point_color <span class="op">=</span> [<span class="st">'tab:blue'</span>],[<span class="st">'tab:blue'</span>]</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>b1.point_marker, b2.point_marker<span class="op">=</span> [<span class="st">'o'</span>],[<span class="st">'o'</span>]</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>b1.point_size, b2.point_size<span class="op">=</span>[<span class="dv">2</span>],[<span class="dv">2</span>]</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate state vectors for circuit A and circuit B for each set of sampled parameters</span></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="co"># and add to their respective Bloch sphere</span></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(num_param):    </span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    state_1<span class="op">=</span>Statevector.from_instruction(qc_A.bind_parameters({theta_param:theta[i]}))</span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    state_2<span class="op">=</span>Statevector.from_instruction(qc_B.bind_parameters({theta_param:theta[i], phi_param:phi[i]}))</span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    b1.add_points(state_to_bloch(state_1))</span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    b2.add_points(state_to_bloch(state_2))</span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>b1.show()</span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>b2.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="parametrized_q_c_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Biorąc pod uwagę otrzymane wyniki widać, ze pierwszy obwód ma małe expressibility natomiast drugi duze (w drugim przypadku jednak rozkład nie jest jednorodny).</p>
@@ -406,29 +402,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="entangling-capability" class="level2">
 <h2 class="anchored" data-anchor-id="entangling-capability">Entangling capability</h2>
 <p>Drugą, wazną cechą obwodów jest mozliwosc wykorzystania splątania. Aby zmierzyć jak bardzo stany są splątane mozemy uzyć miary Meyer’a-Wallach’a. Dla stanów separowalnych miara ta przyjmuje wartość <span class="math inline">\(0\)</span>, natomiast dla stanów Bella <span class="math inline">\(1\)</span>.</p>
-<div class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>q1 <span class="op">=</span> QuantumRegister(<span class="dv">4</span>, <span class="st">'q'</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>c1 <span class="op">=</span> QuantumCircuit(q1)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>c1.rz(<span class="dv">0</span>,[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>c1.rx(<span class="dv">0</span>,q1)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>c1.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="29">
-<p><img src="parametrized_q_c_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumRegister, QuantumCircuit</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>q1 <span class="op">=</span> QuantumRegister(<span class="dv">4</span>, <span class="st">'q'</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>c1 <span class="op">=</span> QuantumCircuit(q1)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>c1.rz(<span class="dv">0</span>,[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>c1.rx(<span class="dv">0</span>,q1)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>c1.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<p><img src="parametrized_q_c_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Ten obwód nie ma operacji wprowadzających stan splątany - brak bramek dwukubitowych. Miara M-W = 0.</p>
-<div class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>q2 <span class="op">=</span> QuantumRegister(<span class="dv">4</span>, <span class="st">'q'</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>c2 <span class="op">=</span> QuantumCircuit(q1)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>c2.rz(<span class="dv">0</span>,[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>c2.rx(<span class="dv">0</span>,q1)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>c2.cx(<span class="dv">0</span>,<span class="dv">1</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>c2.cx(<span class="dv">2</span>,<span class="dv">3</span>)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>c2.cx(<span class="dv">1</span>,<span class="dv">2</span>)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>c2.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="30">
-<p><img src="parametrized_q_c_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>q2 <span class="op">=</span> QuantumRegister(<span class="dv">4</span>, <span class="st">'q'</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>c2 <span class="op">=</span> QuantumCircuit(q1)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>c2.rz(<span class="dv">0</span>,[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>c2.rx(<span class="dv">0</span>,q1)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>c2.cx(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>c2.cx(<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>c2.cx(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>c2.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<p><img src="parametrized_q_c_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>W tym przypadku istnieją bramki dwukubitowe wprowadzające stany splątane dlatego miara M-W będzie większa od 0. Więcej info <a href="https://medium.com/qiskit/we-need-new-language-to-discuss-parameterized-quantum-circuits-60672f189b5f">tutaj</a></p>
@@ -457,51 +454,51 @@ x_i \to |\phi(x_i)\rangle
 <p><span class="math display">\[
 \Phi_S \colon x \to x_i
 \]</span> Otrzymany obwód nie zawiera oddziaływania między zmiennymi (zakodowanych danych), co wiąze się z brakiem wykorzystania efektu splątania.</p>
-<div class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> ZFeatureMap</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>qc_z <span class="op">=</span> ZFeatureMap(feature_dimension<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>qc_z.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> ZFeatureMap</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>qc_z <span class="op">=</span> ZFeatureMap(feature_dimension<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>qc_z.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<p><img src="parametrized_q_c_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>qc_z.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
 <p><img src="parametrized_q_c_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>qc_z.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="32">
-<p><img src="parametrized_q_c_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="zzfeaturemap" class="level3">
 <h3 class="anchored" data-anchor-id="zzfeaturemap">ZZFeatureMap</h3>
 <p>Second-order Pauli-Z evolution circuit.<a href="https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.library.ZZFeatureMap">documentacja</a></p>
-<div class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> ZZFeatureMap</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>qc_zz <span class="op">=</span> ZZFeatureMap(feature_dimension<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">1</span>, entanglement<span class="op">=</span><span class="st">'full'</span>,insert_barriers<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>qc_zz.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="33">
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> ZZFeatureMap</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>qc_zz <span class="op">=</span> ZZFeatureMap(feature_dimension<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">1</span>, entanglement<span class="op">=</span><span class="st">'full'</span>,insert_barriers<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>qc_zz.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<p><img src="parametrized_q_c_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>qc_zz.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
 <p><img src="parametrized_q_c_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>qc_zz.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="34">
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>qc_zz <span class="op">=</span> ZZFeatureMap(feature_dimension<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">1</span>, entanglement<span class="op">=</span><span class="st">'linear'</span>,insert_barriers<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>qc_zz.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
 <p><img src="parametrized_q_c_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>qc_zz <span class="op">=</span> ZZFeatureMap(feature_dimension<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">1</span>, entanglement<span class="op">=</span><span class="st">'linear'</span>,insert_barriers<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>qc_zz.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="35">
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>qc_zz.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
 <p><img src="parametrized_q_c_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<div class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>qc_zz.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="36">
-<p><img src="parametrized_q_c_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -509,30 +506,30 @@ x_i \to |\phi(x_i)\rangle
 <section id="pauli-feature-map" class="level2">
 <h2 class="anchored" data-anchor-id="pauli-feature-map">Pauli Feature Map</h2>
 <p><a href="https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.library.PauliFeatureMap">documentacja</a></p>
-<div class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> PauliFeatureMap</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>qc_p <span class="op">=</span> PauliFeatureMap(feature_dimension<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">1</span>, paulis <span class="op">=</span> [<span class="st">'Z'</span>,<span class="st">'ZZ'</span>,<span class="st">'ZY'</span>])</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>qc_p.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="37">
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> PauliFeatureMap</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>qc_p <span class="op">=</span> PauliFeatureMap(feature_dimension<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">1</span>, paulis <span class="op">=</span> [<span class="st">'Z'</span>,<span class="st">'ZZ'</span>,<span class="st">'ZY'</span>])</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>qc_p.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<p><img src="parametrized_q_c_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>qc_p.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
 <p><img src="parametrized_q_c_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>qc_p.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="38">
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>qc_p <span class="op">=</span> PauliFeatureMap(feature_dimension<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">1</span>, paulis <span class="op">=</span> [<span class="st">'Z'</span>,<span class="st">'ZZ'</span>])</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>display(qc_p.draw(<span class="st">'mpl'</span>))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>qc_p.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
 <p><img src="parametrized_q_c_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
 </div>
-</div>
-<div class="cell" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>qc_p <span class="op">=</span> PauliFeatureMap(feature_dimension<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">1</span>, paulis <span class="op">=</span> [<span class="st">'Z'</span>,<span class="st">'ZZ'</span>])</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>display(qc_p.draw(<span class="st">'mpl'</span>))</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>qc_p.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="parametrized_q_c_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="39">
-<p><img src="parametrized_q_c_files/figure-html/cell-19-output-2.png" class="img-fluid"></p>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<p><img src="parametrized_q_c_files/figure-html/cell-18-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Jeśli mamy juz określony sposób kodowania danych, komputer kwantowy moze je przeanalizować w odpowiedniej przestrzeni Hilberta i np znaleźć hiperplaszczyzne dla procesu klasyfikacji.</p>
@@ -543,67 +540,69 @@ x_i \to |\phi(x_i)\rangle
 |\psi(x:\theta)\rangle = U(w)|\psi(x)\rangle
 \]</span></p>
 <p>Jednym z przykładowych modeli w bibliotece Qiskit jest obwód realizowany jako <code>RealAmplitudes</code>. Ilośc parametrów modelu moze być ustalana za pomocą głębokości obwodu - czyli ile razy powtórzymy ten sam schemat.</p>
-<div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> TwoLocal</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>qc_twolocal <span class="op">=</span> TwoLocal(num_qubits<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">2</span>, rotation_blocks<span class="op">=</span>[<span class="st">'ry'</span>,<span class="st">'rz'</span>],</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                entanglement_blocks<span class="op">=</span><span class="st">'cz'</span>, skip_final_rotation_layer<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>                insert_barriers<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>qc_twolocal.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="16">
-<p><img src="parametrized_q_c_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
-</div>
-</div>
 <div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>qc_13 <span class="op">=</span> TwoLocal(<span class="dv">3</span>, rotation_blocks<span class="op">=</span><span class="st">'ry'</span>,</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                 entanglement_blocks<span class="op">=</span><span class="st">'crz'</span>, entanglement<span class="op">=</span><span class="st">'sca'</span>,</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                 reps<span class="op">=</span><span class="dv">3</span>, skip_final_rotation_layer<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                 insert_barriers<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>qc_13.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> TwoLocal</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>qc_twolocal <span class="op">=</span> TwoLocal(num_qubits<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">2</span>, rotation_blocks<span class="op">=</span>[<span class="st">'ry'</span>,<span class="st">'rz'</span>],</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                entanglement_blocks<span class="op">=</span><span class="st">'cz'</span>, skip_final_rotation_layer<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                insert_barriers<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>qc_twolocal.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
-<p><img src="parametrized_q_c_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+<p><img src="parametrized_q_c_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>qc_13 <span class="op">=</span> TwoLocal(<span class="dv">3</span>, rotation_blocks<span class="op">=</span><span class="st">'ry'</span>,</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                 entanglement_blocks<span class="op">=</span><span class="st">'crz'</span>, entanglement<span class="op">=</span><span class="st">'sca'</span>,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                 reps<span class="op">=</span><span class="dv">3</span>, skip_final_rotation_layer<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                 insert_barriers<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>qc_13.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<p><img src="parametrized_q_c_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <section id="nlocal" class="level3">
 <h3 class="anchored" data-anchor-id="nlocal">NLocal</h3>
-<div class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumCircuit</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit <span class="im">import</span> ParameterVector </span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> NLocal</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># rotation block:</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>rot <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> ParameterVector(<span class="st">'r'</span>, <span class="dv">2</span>)</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>rot.ry(params[<span class="dv">0</span>], <span class="dv">0</span>)</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>rot.rz(params[<span class="dv">1</span>], <span class="dv">1</span>)</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="co"># entanglement block:</span></span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>ent <span class="op">=</span> QuantumCircuit(<span class="dv">4</span>)</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> ParameterVector(<span class="st">'e'</span>, <span class="dv">3</span>)</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>ent.crx(params[<span class="dv">0</span>], <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>ent.crx(params[<span class="dv">1</span>], <span class="dv">1</span>, <span class="dv">2</span>)</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>ent.crx(params[<span class="dv">2</span>], <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>qc_nlocal <span class="op">=</span> NLocal(num_qubits<span class="op">=</span><span class="dv">6</span>, rotation_blocks<span class="op">=</span>rot,</span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>                   entanglement_blocks<span class="op">=</span>ent, entanglement<span class="op">=</span><span class="st">'linear'</span>,</span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>                   skip_final_rotation_layer<span class="op">=</span><span class="va">True</span>, insert_barriers<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>qc_nlocal.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
-<p><img src="parametrized_q_c_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumCircuit</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit <span class="im">import</span> ParameterVector </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> NLocal</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># rotation block:</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>rot <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>)</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> ParameterVector(<span class="st">'r'</span>, <span class="dv">2</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>rot.ry(params[<span class="dv">0</span>], <span class="dv">0</span>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>rot.rz(params[<span class="dv">1</span>], <span class="dv">1</span>)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co"># entanglement block:</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>ent <span class="op">=</span> QuantumCircuit(<span class="dv">4</span>)</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> ParameterVector(<span class="st">'e'</span>, <span class="dv">3</span>)</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>ent.crx(params[<span class="dv">0</span>], <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>ent.crx(params[<span class="dv">1</span>], <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>ent.crx(params[<span class="dv">2</span>], <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>qc_nlocal <span class="op">=</span> NLocal(num_qubits<span class="op">=</span><span class="dv">6</span>, rotation_blocks<span class="op">=</span>rot,</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>                   entanglement_blocks<span class="op">=</span>ent, entanglement<span class="op">=</span><span class="st">'linear'</span>,</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>                   skip_final_rotation_layer<span class="op">=</span><span class="va">True</span>, insert_barriers<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>qc_nlocal.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<p><img src="parametrized_q_c_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="optymalizatory" class="level3">
 <h3 class="anchored" data-anchor-id="optymalizatory">Optymalizatory</h3>
+<p>Zainstaluj bibliotekę qiskit-algorithms <code>pip install qiskit-algorithms</code>.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit<span class="op">-</span>algorithms.optimizers <span class="im">import</span> COBYLA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol type="1">
 <li>COBYLA (Constrained Optimization By Linear Approximation optimizer)</li>
 <li>SPSA (Simultaneous Perturbation Sochastic Approximation optimizer)</li>
 <li>SLSQP (Sequential Least Squares Programming optimizer)</li>
 </ol>
-<div class="cell" data-execution_count="40">
+<div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.utils <span class="im">import</span> algorithm_globals</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>algorithm_globals.random_seed <span class="op">=</span> <span class="dv">42</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -621,35 +620,37 @@ x_i \to |\phi(x_i)\rangle
 <span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>                one_hot<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="43">
+<div class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(TRAIN_DATA), <span class="bu">len</span>(TRAIN_LABELS), <span class="bu">len</span>(TEST_DATA), <span class="bu">len</span>(TEST_LABELS)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="43">
+<div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>(40, 40, 10, 10)</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="44">
+<div class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>TRAIN_DATA[<span class="dv">0</span>], TRAIN_LABELS[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="44">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>(array([4.90088454, 4.1469023 ]), 0)</code></pre>
 </div>
 </div>
 <p>Do zakodowania danych w stanie kwantowym uzyjemy: ZZFeatureMap o głębokości 2.</p>
-<div class="cell" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> ZZFeatureMap, TwoLocal</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>FEATURE_MAP <span class="op">=</span> ZZFeatureMap(feature_dimension<span class="op">=</span><span class="dv">2</span>, reps<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> ZZFeatureMap</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>FEATURE_MAP <span class="op">=</span> ZZFeatureMap(feature_dimension<span class="op">=</span><span class="dv">2</span>, reps<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Jako model wykorzystamy TwoLocal z bramkami ry rz i cz do splątania.</p>
-<div class="cell" data-execution_count="47">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>VAR_FORM <span class="op">=</span> TwoLocal(<span class="dv">2</span>, [<span class="st">'ry'</span>, <span class="st">'rz'</span>], <span class="st">'cz'</span>, reps<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>AD_HOC_CIRCUIT <span class="op">=</span> FEATURE_MAP.compose(VAR_FORM)</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>AD_HOC_CIRCUIT.measure_all()</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>AD_HOC_CIRCUIT.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="47">
-<p><img src="parametrized_q_c_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> TwoLocal</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>VAR_FORM <span class="op">=</span> TwoLocal(<span class="dv">2</span>, [<span class="st">'ry'</span>, <span class="st">'rz'</span>], <span class="st">'cz'</span>, reps<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>AD_HOC_CIRCUIT <span class="op">=</span> FEATURE_MAP.compose(VAR_FORM)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>AD_HOC_CIRCUIT.measure_all()</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>AD_HOC_CIRCUIT.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<p><img src="parametrized_q_c_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="48">
+<div class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> circuit_instance(data, variational):</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Assigns parameter values to `AD_HOC_CIRCUIT`.</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
@@ -658,23 +659,22 @@ x_i \to |\phi(x_i)\rangle
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
 <span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co">        QuantumCircuit: `AD_HOC_CIRCUIT` with parameters assigned</span></span>
 <span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># pylint: disable=invalid-name</span></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    parameters <span class="op">=</span> {}</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, p <span class="kw">in</span> <span class="bu">enumerate</span>(FEATURE_MAP.ordered_parameters):</span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>        parameters[p] <span class="op">=</span> data[i]</span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, p <span class="kw">in</span> <span class="bu">enumerate</span>(VAR_FORM.ordered_parameters):</span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>        parameters[p] <span class="op">=</span> variational[i]</span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> AD_HOC_CIRCUIT.assign_parameters(parameters)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    parameters <span class="op">=</span> {}</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, p <span class="kw">in</span> <span class="bu">enumerate</span>(FEATURE_MAP.ordered_parameters):</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>        parameters[p] <span class="op">=</span> data[i]</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, p <span class="kw">in</span> <span class="bu">enumerate</span>(VAR_FORM.ordered_parameters):</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>        parameters[p] <span class="op">=</span> variational[i]</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> AD_HOC_CIRCUIT.assign_parameters(parameters)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>poniewaz wynikami są bitstringi musimy podać ich interpretacje i przeliczać je na klasę rozwiązań. Jednym z przykładowych rozwiązań jest wykorzystanie funkcji <a href="https://en.wikipedia.org/wiki/Parity_function">parity</a>.</p>
-<div class="cell" data-execution_count="49">
+<div class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parity(bitstring):</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Returns 1 if parity of `bitstring` is even, otherwise 0."""</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    hamming_weight <span class="op">=</span> <span class="bu">sum</span>(<span class="bu">int</span>(k) <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">list</span>(bitstring))</span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (hamming_weight<span class="op">+</span><span class="dv">1</span>) <span class="op">%</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Pomocniczo zdefiniujemy funkcję obliczającą prawdopodobieństwo (częstotliwość) dla danej klasy wynikowej. Nasz obwód będzie uruchamiany wiele razy, dzięki czemu uzyskamy zliczenia w róznych eksperymentach.</p>
-<div class="cell" data-execution_count="50">
+<div class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> label_probability(results):</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Converts a dict of bitstrings and their counts,</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co">    to parities and their counts"""</span></span>
@@ -686,7 +686,7 @@ x_i \to |\phi(x_i)\rangle
 <span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> probabilities</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Posiadając powyzsze elementy mozemy zdefiniować funkcję realizującą klasyfikację.</p>
-<div class="cell" data-execution_count="51">
+<div class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> BasicAer, execute</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> classification_probability(data, variational):</span>
@@ -706,7 +706,7 @@ x_i \to |\phi(x_i)\rangle
 <span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> classification</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Poniewaz będziemy chcieli trenować model będziemy potrzebowali zdefiniować funkcję straty i kosztu</p>
-<div class="cell" data-execution_count="52">
+<div class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cross_entropy_loss(classification, expected):</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Calculate accuracy of predictions using cross entropy loss.</span></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
@@ -733,16 +733,15 @@ x_i \to |\phi(x_i)\rangle
 <span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
 <span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a><span class="co">        float: Cost (metric of performance)</span></span>
 <span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># pylint: disable=invalid-name</span></span>
-<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>    classifications <span class="op">=</span> classification_probability(data, variational)</span>
-<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a>    cost <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, classification <span class="kw">in</span> <span class="bu">enumerate</span>(classifications):</span>
-<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a>        cost <span class="op">+=</span> cross_entropy_loss(classification, labels[i])</span>
-<span id="cb35-32"><a href="#cb35-32" aria-hidden="true" tabindex="-1"></a>    cost <span class="op">/=</span> <span class="bu">len</span>(data)</span>
-<span id="cb35-33"><a href="#cb35-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cost</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a>    classifications <span class="op">=</span> classification_probability(data, variational)</span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>    cost <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, classification <span class="kw">in</span> <span class="bu">enumerate</span>(classifications):</span>
+<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a>        cost <span class="op">+=</span> cross_entropy_loss(classification, labels[i])</span>
+<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a>    cost <span class="op">/=</span> <span class="bu">len</span>(data)</span>
+<span id="cb35-32"><a href="#cb35-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cost</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Mozemy teraz przypisac optymalizator</p>
-<div class="cell" data-execution_count="55">
+<div class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> OptimizerLog:</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Log to store optimizer's intermediate results"""</span></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
@@ -757,108 +756,104 @@ x_i \to |\phi(x_i)\rangle
 <span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.costs.append(cost)</span>
 <span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up the optimization</span></span>
-<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.algorithms.optimizers <span class="im">import</span> SPSA</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit_algorithms.optimizers  <span class="im">import</span> SPSA</span>
 <span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>log <span class="op">=</span> OptimizerLog()</span>
 <span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> SPSA(maxiter<span class="op">=</span><span class="dv">100</span>, callback<span class="op">=</span>log.update)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/_3/_nd7tv0d2gsfqkjz0fh2slbw0000gn/T/ipykernel_14515/1116441460.py:15: DeprecationWarning: ``qiskit.algorithms`` has been migrated to an independent package: https://github.com/qiskit-community/qiskit-algorithms. The ``qiskit.algorithms`` import path is deprecated as of qiskit-terra 0.25.0 and will be removed no earlier than 3 months after the release date. Please run ``pip install qiskit_algorithms`` and use ``import qiskit_algorithms`` instead.
-  from qiskit.algorithms.optimizers import SPSA</code></pre>
-</div>
 </div>
 <p>Losujemy parametry początkowe, i wskazujemy optymalizowaną funkcję</p>
-<div class="cell" data-execution_count="56">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>initial_point <span class="op">=</span> np.random.random(VAR_FORM.num_parameters)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> objective_function(variational):</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Cost function of circuit parameters on training data.</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co">    The optimizer will attempt to minimize this."""</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cost_function(TRAIN_DATA, TRAIN_LABELS, variational)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>initial_point <span class="op">=</span> np.random.random(VAR_FORM.num_parameters)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> objective_function(variational):</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Cost function of circuit parameters on training data.</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="co">    The optimizer will attempt to minimize this."""</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cost_function(TRAIN_DATA, TRAIN_LABELS, variational)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>uruchamiamy całą procedurę</p>
-<div class="cell" data-execution_count="57">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the optimization</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> optimizer.minimize(objective_function, initial_point)</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>opt_var <span class="op">=</span> result.x</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>opt_value <span class="op">=</span> result.fun</span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>plt.plot(log.evaluations, log.costs)</span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Steps'</span>)</span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Cost'</span>)</span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the optimization</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> optimizer.minimize(objective_function, initial_point)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>opt_var <span class="op">=</span> result.x</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>opt_value <span class="op">=</span> result.fun</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>plt.plot(log.evaluations, log.costs)</span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Steps'</span>)</span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Cost'</span>)</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="parametrized_q_c_files/figure-html/cell-35-output-1.png" class="img-fluid"></p>
+<p><img src="parametrized_q_c_files/figure-html/cell-34-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Dla zbioru testowego mozemy sprawdzic jakosc przewidywań</p>
-<div class="cell" data-execution_count="58">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_classifier(data, labels, variational):</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Gets classifier's most likely predictions and accuracy of those</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="co">    predictions.</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="co">        data (list): List of data points to classify</span></span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="co">        labels (list): List of correct labels for each data point</span></span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a><span class="co">        variational (list): List of parameter values for classifier</span></span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a><span class="co">        float: Average accuracy of classifier over `data`</span></span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="co">        list: Classifier's label predictions for each data point</span></span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>    probability <span class="op">=</span> classification_probability(data, variational)</span>
-<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>    predictions <span class="op">=</span> [<span class="dv">0</span> <span class="cf">if</span> p[<span class="dv">0</span>] <span class="op">&gt;=</span> p[<span class="dv">1</span>] <span class="cf">else</span> <span class="dv">1</span> <span class="cf">for</span> p <span class="kw">in</span> probability]</span>
-<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>    accuracy <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># pylint: disable=invalid-name</span></span>
-<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, prediction <span class="kw">in</span> <span class="bu">enumerate</span>(predictions):</span>
-<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> prediction <span class="op">==</span> labels[i]:</span>
-<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>            accuracy <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>    accuracy <span class="op">/=</span> <span class="bu">len</span>(labels)</span>
-<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> accuracy, predictions</span>
-<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a>accuracy, predictions <span class="op">=</span> test_classifier(TEST_DATA, TEST_LABELS, opt_var)</span>
-<span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a>accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="58">
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_classifier(data, labels, variational):</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Gets classifier's most likely predictions and accuracy of those</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co">    predictions.</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="co">        data (list): List of data points to classify</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="co">        labels (list): List of correct labels for each data point</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="co">        variational (list): List of parameter values for classifier</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="co">        float: Average accuracy of classifier over `data`</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a><span class="co">        list: Classifier's label predictions for each data point</span></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>    probability <span class="op">=</span> classification_probability(data, variational)</span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>    predictions <span class="op">=</span> [<span class="dv">0</span> <span class="cf">if</span> p[<span class="dv">0</span>] <span class="op">&gt;=</span> p[<span class="dv">1</span>] <span class="cf">else</span> <span class="dv">1</span> <span class="cf">for</span> p <span class="kw">in</span> probability]</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>    accuracy <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># pylint: disable=invalid-name</span></span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, prediction <span class="kw">in</span> <span class="bu">enumerate</span>(predictions):</span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> prediction <span class="op">==</span> labels[i]:</span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>            accuracy <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a>    accuracy <span class="op">/=</span> <span class="bu">len</span>(labels)</span>
+<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> accuracy, predictions</span>
+<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a>accuracy, predictions <span class="op">=</span> test_classifier(TEST_DATA, TEST_LABELS, opt_var)</span>
+<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a>accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>1.0</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="59">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.lines <span class="im">import</span> Line2D</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">6</span>))</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> feature, label <span class="kw">in</span> <span class="bu">zip</span>(TRAIN_DATA, TRAIN_LABELS):</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    COLOR <span class="op">=</span> <span class="st">'C0'</span> <span class="cf">if</span> label <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">'C1'</span></span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>    plt.scatter(feature[<span class="dv">0</span>], feature[<span class="dv">1</span>],</span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>                marker<span class="op">=</span><span class="st">'o'</span>, s<span class="op">=</span><span class="dv">100</span>, color<span class="op">=</span>COLOR)</span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> feature, label, pred <span class="kw">in</span> <span class="bu">zip</span>(TEST_DATA, TEST_LABELS, predictions):</span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>    COLOR <span class="op">=</span> <span class="st">'C0'</span> <span class="cf">if</span> pred <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">'C1'</span></span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>    plt.scatter(feature[<span class="dv">0</span>], feature[<span class="dv">1</span>],</span>
-<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>                marker<span class="op">=</span><span class="st">'s'</span>, s<span class="op">=</span><span class="dv">100</span>, color<span class="op">=</span>COLOR)</span>
-<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="op">!=</span> pred:  <span class="co"># mark wrongly classified</span></span>
-<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>        plt.scatter(feature[<span class="dv">0</span>], feature[<span class="dv">1</span>], marker<span class="op">=</span><span class="st">'o'</span>, s<span class="op">=</span><span class="dv">500</span>,</span>
-<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>                    linewidths<span class="op">=</span><span class="fl">2.5</span>, facecolor<span class="op">=</span><span class="st">'none'</span>, edgecolor<span class="op">=</span><span class="st">'C3'</span>)</span>
-<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>legend_elements <span class="op">=</span> [</span>
-<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>    Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], marker<span class="op">=</span><span class="st">'o'</span>, c<span class="op">=</span><span class="st">'w'</span>, mfc<span class="op">=</span><span class="st">'C1'</span>, label<span class="op">=</span><span class="st">'A'</span>, ms<span class="op">=</span><span class="dv">10</span>),</span>
-<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a>    Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], marker<span class="op">=</span><span class="st">'o'</span>, c<span class="op">=</span><span class="st">'w'</span>, mfc<span class="op">=</span><span class="st">'C0'</span>, label<span class="op">=</span><span class="st">'B'</span>, ms<span class="op">=</span><span class="dv">10</span>),</span>
-<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a>    Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], marker<span class="op">=</span><span class="st">'s'</span>, c<span class="op">=</span><span class="st">'w'</span>, mfc<span class="op">=</span><span class="st">'C1'</span>, label<span class="op">=</span><span class="st">'predict A'</span>,</span>
-<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a>           ms<span class="op">=</span><span class="dv">10</span>),</span>
-<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a>    Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], marker<span class="op">=</span><span class="st">'s'</span>, c<span class="op">=</span><span class="st">'w'</span>, mfc<span class="op">=</span><span class="st">'C0'</span>, label<span class="op">=</span><span class="st">'predict B'</span>,</span>
-<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a>           ms<span class="op">=</span><span class="dv">10</span>),</span>
-<span id="cb42-24"><a href="#cb42-24" aria-hidden="true" tabindex="-1"></a>    Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], marker<span class="op">=</span><span class="st">'o'</span>, c<span class="op">=</span><span class="st">'w'</span>, mfc<span class="op">=</span><span class="st">'none'</span>, mec<span class="op">=</span><span class="st">'C3'</span>,</span>
-<span id="cb42-25"><a href="#cb42-25" aria-hidden="true" tabindex="-1"></a>           label<span class="op">=</span><span class="st">'wrongly classified'</span>, mew<span class="op">=</span><span class="dv">2</span>, ms<span class="op">=</span><span class="dv">15</span>)</span>
-<span id="cb42-26"><a href="#cb42-26" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb42-27"><a href="#cb42-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-28"><a href="#cb42-28" aria-hidden="true" tabindex="-1"></a>plt.legend(handles<span class="op">=</span>legend_elements, bbox_to_anchor<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>),</span>
-<span id="cb42-29"><a href="#cb42-29" aria-hidden="true" tabindex="-1"></a>           loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
-<span id="cb42-30"><a href="#cb42-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-31"><a href="#cb42-31" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Training &amp; Test Data'</span>)</span>
-<span id="cb42-32"><a href="#cb42-32" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
-<span id="cb42-33"><a href="#cb42-33" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y'</span>)</span>
-<span id="cb42-34"><a href="#cb42-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.lines <span class="im">import</span> Line2D</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">6</span>))</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> feature, label <span class="kw">in</span> <span class="bu">zip</span>(TRAIN_DATA, TRAIN_LABELS):</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    COLOR <span class="op">=</span> <span class="st">'C0'</span> <span class="cf">if</span> label <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">'C1'</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    plt.scatter(feature[<span class="dv">0</span>], feature[<span class="dv">1</span>],</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>                marker<span class="op">=</span><span class="st">'o'</span>, s<span class="op">=</span><span class="dv">100</span>, color<span class="op">=</span>COLOR)</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> feature, label, pred <span class="kw">in</span> <span class="bu">zip</span>(TEST_DATA, TEST_LABELS, predictions):</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>    COLOR <span class="op">=</span> <span class="st">'C0'</span> <span class="cf">if</span> pred <span class="op">==</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">'C1'</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>    plt.scatter(feature[<span class="dv">0</span>], feature[<span class="dv">1</span>],</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>                marker<span class="op">=</span><span class="st">'s'</span>, s<span class="op">=</span><span class="dv">100</span>, color<span class="op">=</span>COLOR)</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="op">!=</span> pred:  <span class="co"># mark wrongly classified</span></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>        plt.scatter(feature[<span class="dv">0</span>], feature[<span class="dv">1</span>], marker<span class="op">=</span><span class="st">'o'</span>, s<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>                    linewidths<span class="op">=</span><span class="fl">2.5</span>, facecolor<span class="op">=</span><span class="st">'none'</span>, edgecolor<span class="op">=</span><span class="st">'C3'</span>)</span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>legend_elements <span class="op">=</span> [</span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>    Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], marker<span class="op">=</span><span class="st">'o'</span>, c<span class="op">=</span><span class="st">'w'</span>, mfc<span class="op">=</span><span class="st">'C1'</span>, label<span class="op">=</span><span class="st">'A'</span>, ms<span class="op">=</span><span class="dv">10</span>),</span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>    Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], marker<span class="op">=</span><span class="st">'o'</span>, c<span class="op">=</span><span class="st">'w'</span>, mfc<span class="op">=</span><span class="st">'C0'</span>, label<span class="op">=</span><span class="st">'B'</span>, ms<span class="op">=</span><span class="dv">10</span>),</span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>    Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], marker<span class="op">=</span><span class="st">'s'</span>, c<span class="op">=</span><span class="st">'w'</span>, mfc<span class="op">=</span><span class="st">'C1'</span>, label<span class="op">=</span><span class="st">'predict A'</span>,</span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>           ms<span class="op">=</span><span class="dv">10</span>),</span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>    Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], marker<span class="op">=</span><span class="st">'s'</span>, c<span class="op">=</span><span class="st">'w'</span>, mfc<span class="op">=</span><span class="st">'C0'</span>, label<span class="op">=</span><span class="st">'predict B'</span>,</span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a>           ms<span class="op">=</span><span class="dv">10</span>),</span>
+<span id="cb41-24"><a href="#cb41-24" aria-hidden="true" tabindex="-1"></a>    Line2D([<span class="dv">0</span>], [<span class="dv">0</span>], marker<span class="op">=</span><span class="st">'o'</span>, c<span class="op">=</span><span class="st">'w'</span>, mfc<span class="op">=</span><span class="st">'none'</span>, mec<span class="op">=</span><span class="st">'C3'</span>,</span>
+<span id="cb41-25"><a href="#cb41-25" aria-hidden="true" tabindex="-1"></a>           label<span class="op">=</span><span class="st">'wrongly classified'</span>, mew<span class="op">=</span><span class="dv">2</span>, ms<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb41-26"><a href="#cb41-26" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb41-27"><a href="#cb41-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-28"><a href="#cb41-28" aria-hidden="true" tabindex="-1"></a>plt.legend(handles<span class="op">=</span>legend_elements, bbox_to_anchor<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb41-29"><a href="#cb41-29" aria-hidden="true" tabindex="-1"></a>           loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb41-30"><a href="#cb41-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-31"><a href="#cb41-31" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Training &amp; Test Data'</span>)</span>
+<span id="cb41-32"><a href="#cb41-32" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
+<span id="cb41-33"><a href="#cb41-33" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y'</span>)</span>
+<span id="cb41-34"><a href="#cb41-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="parametrized_q_c_files/figure-html/cell-37-output-1.png" class="img-fluid"></p>
+<p><img src="parametrized_q_c_files/figure-html/cell-36-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 
