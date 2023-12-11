@@ -20,6 +20,7 @@ website:
           - cwiczenia/cw2.ipynb
           - cwiczenia/cw3.ipynb
           - cwiczenia/cw4.ipynb
+          - cwiczenia/parametrized_q_c.ipynb
   navbar:
     left:
           - href: sylabus.qmd
