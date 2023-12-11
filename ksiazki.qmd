@@ -23,6 +23,10 @@ title: Książki i strony WWW
 
 5. P. Gawron, M. Cholewa, ... _Rewolucja stanu. Fantastyczne wprowadzenie do informatyki kwantowej_. Quantumz.io 2021
 
+6. A. Saxena, J. Mancilla, I. Montalban, C. Pere, _Financial Modeling Using Quantum Computing_. Packt 2023
+
+7. M. Schuld, F. Petruccione, _Machine Learning with Quantum Computers_, Springer 2021.
+
 <div id="AI">
 ### AI 
 </div>
