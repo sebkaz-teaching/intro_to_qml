@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Wstęp do kwantowego uczenia maszynowego - Modele kwantowe na danych IRIS</title>
+<title>Wstęp do kwantowego uczenia maszynowego - Kwantowy model klasyfikatora wariacyjnego</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -139,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Modele kwantowe na danych IRIS</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cwiczenia/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../cwiczenia/ml.html">Kwantowy model klasyfikatora wariacyjnego</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -227,8 +227,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../cwiczenia/parametrized_q_c.html" class="sidebar-item-text sidebar-link">
+  <a href="../cwiczenia/cw5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Parameterized Quantum Circuit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cwiczenia/ml.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Kwantowy model klasyfikatora wariacyjnego</span></a>
   </div>
 </li>
       </ul>
@@ -244,10 +250,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#załadowanie-danych" id="toc-załadowanie-danych" class="nav-link active" data-scroll-target="#załadowanie-danych">Załadowanie danych</a></li>
-  <li><a href="#normalizacja" id="toc-normalizacja" class="nav-link" data-scroll-target="#normalizacja">Normalizacja</a>
-  <ul class="collapse">
-  <li><a href="#zzfeaturemap--" id="toc-zzfeaturemap--" class="nav-link" data-scroll-target="#zzfeaturemap--">ZZFeatureMap -</a></li>
-  </ul></li>
+  <li><a href="#normalizacja" id="toc-normalizacja" class="nav-link" data-scroll-target="#normalizacja">Normalizacja</a></li>
+  <li><a href="#klasyczny-model-svc" id="toc-klasyczny-model-svc" class="nav-link" data-scroll-target="#klasyczny-model-svc">Klasyczny model SVC</a></li>
+  <li><a href="#kodowanie-danych---zzfeaturemap" id="toc-kodowanie-danych---zzfeaturemap" class="nav-link" data-scroll-target="#kodowanie-danych---zzfeaturemap">Kodowanie danych - ZZFeatureMap</a></li>
+  <li><a href="#wybór-modelu---realamplitudes" id="toc-wybór-modelu---realamplitudes" class="nav-link" data-scroll-target="#wybór-modelu---realamplitudes">Wybór modelu - RealAmplitudes</a></li>
+  <li><a href="#wybór-optymalizatora-cobyla" id="toc-wybór-optymalizatora-cobyla" class="nav-link" data-scroll-target="#wybór-optymalizatora-cobyla">Wybór optymalizatora COBYLA</a></li>
+  <li><a href="#variational-quantum-classifier" id="toc-variational-quantum-classifier" class="nav-link" data-scroll-target="#variational-quantum-classifier">Variational Quantum Classifier</a></li>
   </ul>
 </nav>
     </div>
@@ -256,7 +264,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Modele kwantowe na danych IRIS</h1>
+<h1 class="title">Kwantowy model klasyfikatora wariacyjnego</h1>
 </div>
 
 
@@ -439,6 +447,9 @@ latter are NOT linearly separable from each other.
 </div>
 </div>
 <p>Z otrzymanego wykresu łatwo zauwazyć iz klasa <code>0</code> jest dobrze separowalna szczególnie dla zmiennej <code>sepal width</code>.</p>
+</section>
+<section id="klasyczny-model-svc" class="level2">
+<h2 class="anchored" data-anchor-id="klasyczny-model-svc">Klasyczny model SVC</h2>
 <div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit_algorithms.utils <span class="im">import</span> algorithm_globals</span>
@@ -465,8 +476,9 @@ latter are NOT linearly separable from each other.
 Classical SVC on the test dataset:     0.97</code></pre>
 </div>
 </div>
-<section id="zzfeaturemap--" class="level3">
-<h3 class="anchored" data-anchor-id="zzfeaturemap--">ZZFeatureMap -</h3>
+</section>
+<section id="kodowanie-danych---zzfeaturemap" class="level2">
+<h2 class="anchored" data-anchor-id="kodowanie-danych---zzfeaturemap">Kodowanie danych - ZZFeatureMap</h2>
 <div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> ZZFeatureMap</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>num_features <span class="op">=</span> features.shape[<span class="dv">1</span>]</span>
@@ -477,7 +489,10 @@ Classical SVC on the test dataset:     0.97</code></pre>
 <p><img src="ml_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p>Przyjrzyj się uwaznie i zobacz, ze obwód jest parametryzowany przez <span class="math inline">\(x \left[ 0 \right],\ldots x\left[3\right]\)</span>.</p>
+<p>Przyjrzyj się uwaznie i zobacz, ze obwód ten jest parametryzowany przez cztery zmienne <span class="math inline">\(x \left[ 0 \right],\ldots x\left[3\right]\)</span>.</p>
+</section>
+<section id="wybór-modelu---realamplitudes" class="level2">
+<h2 class="anchored" data-anchor-id="wybór-modelu---realamplitudes">Wybór modelu - RealAmplitudes</h2>
 <div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> RealAmplitudes</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -487,6 +502,9 @@ Classical SVC on the test dataset:     0.97</code></pre>
 <p><img src="ml_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
 </div>
 </div>
+</section>
+<section id="wybór-optymalizatora-cobyla" class="level2">
+<h2 class="anchored" data-anchor-id="wybór-optymalizatora-cobyla">Wybór optymalizatora COBYLA</h2>
 <div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit_algorithms.optimizers <span class="im">import</span> COBYLA</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -497,6 +515,7 @@ Classical SVC on the test dataset:     0.97</code></pre>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>sampler <span class="op">=</span> Sampler()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Zdefiniujmy dodatkową funkcję pozwalającą przeglądać postęp uczenia modelu.</p>
 <div class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> clear_output</span>
@@ -514,6 +533,9 @@ Classical SVC on the test dataset:     0.97</code></pre>
 <span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    plt.plot(<span class="bu">range</span>(<span class="bu">len</span>(objective_func_vals)), objective_func_vals)</span>
 <span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="variational-quantum-classifier" class="level2">
+<h2 class="anchored" data-anchor-id="variational-quantum-classifier">Variational Quantum Classifier</h2>
 <div class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit_machine_learning.algorithms.classifiers <span class="im">import</span> VQC</span>
@@ -554,7 +576,6 @@ Quantum VQC on the test dataset:     0.87</code></pre>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Wstęp do kwantowego uczenia maszynowego - Klasyfikacja z wykorzystaniem Algorytmu Grovera</title>
+<title>Wstęp do kwantowego uczenia maszynowego - Kodowanie danych</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -94,6 +60,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../style.css">
 </head>
@@ -134,7 +102,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Klasyfikacja z wykorzystaniem Algorytmu Grovera</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Kodowanie danych</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -240,14 +208,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#basis-encoding" id="toc-basis-encoding" class="nav-link active" data-scroll-target="#basis-encoding">Basis encoding</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Klasyfikacja z wykorzystaniem Algorytmu Grovera</h1>
+<h1 class="title">Kodowanie danych</h1>
 </div>
 
 
@@ -262,94 +236,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dane testowe</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> generate_data():</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> {<span class="st">'A'</span>: [(<span class="fl">0.2</span>, <span class="fl">0.5</span>), (<span class="fl">0.1</span>, <span class="fl">0.4</span>), (<span class="fl">0.4</span>, <span class="fl">0.8</span>)],</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">'B'</span>: [(<span class="fl">0.7</span>, <span class="fl">0.2</span>), (<span class="fl">0.6</span>, <span class="fl">0.3</span>), (<span class="fl">0.8</span>, <span class="fl">0.1</span>)]}</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>generate_data()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit <span class="im">import</span> QuantumCircuit, assemble, transpile</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.visualization <span class="im">import</span> plot_histogram</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tworzenie obwodu kwantowego dla algorytmu Grovera</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> grover_circuit():</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    qc <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>, <span class="dv">2</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Inicjalizacja superpozycji równomiernej</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    qc.h([<span class="dv">0</span>, <span class="dv">1</span>])</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    qc.barrier()</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Faza odwracająca dla klasyfikacji</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    qc.cz(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Inwersja przez odbicie średniej</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    qc.h([<span class="dv">0</span>, <span class="dv">1</span>])</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    qc.z([<span class="dv">0</span>, <span class="dv">1</span>])</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    qc.cz(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    qc.h([<span class="dv">0</span>, <span class="dv">1</span>])</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>W algorytmie Grovera chodzi o przyspieszenie wyszukiwania w niesortowanym zbiorze danych przy użyciu kwantowego mechanizmu wzmacniania amplitud. W kontekście klasyfikacji, można użyć algorytmu Grovera do znalezienia punktu w przestrzeni danych, który spełnia określone warunki, co pozwoli na przypisanie go do jednej z klas.</p>
-<p>W przykładzie klasyfikacji z algorytmem Grovera:</p>
-<ol type="1">
-<li><strong>Inicjalizacja superpozycji</strong>: Pierwszy krok to stworzenie superpozycji stanów kwantowych, co jest osiągane przez zastosowanie bramki Hadamarda (<code>qc.h()</code>) do wszystkich kubitów.</li>
-<li><strong>Faza odwracająca</strong>: Następnie używamy bramki fazowej (w tym przypadku bramki <code>cz</code>) do odwrócenia fazy amplitudy stanu reprezentującego poprawne odpowiedzi.</li>
-<li><strong>Inwersja przez odbicie średniej</strong>: Kolejnym krokiem jest inwersja amplitudy stanu, co jest osiągane przez zastosowanie bramek Hadamarda, bramek fazowych i bramek <code>cz</code>.</li>
-<li><strong>Pomiar wyników</strong>: Na końcu dokonujemy pomiaru wszystkich kubitów, co skutkuje otrzymaniem pewnego wyniku, który odpowiada jednemu z możliwych stanów kubitów.</li>
-</ol>
-<p>W kontekście klasyfikacji, możemy użyć informacji z wyników pomiarów, aby przyporządkować punkt danych do jednej z klas. Na przykład, w tym przypadku, gdy wynik to ‘00’, punkt jest przypisany do klasy <code>A</code>, a w przeciwnym razie do klasy <code>B</code>.</p>
-<p>W implementacji, funkcja <code>grover_circuit</code> tworzy kwantowy obwód realizujący opisane kroki algorytmu Grovera. W funkcji <code>classify_data</code>, dla każdego punktu danych z danego zbioru, jest on wprowadzany do obwodu kwantowego, a wyniki pomiaru są analizowane w celu przypisania punktu do odpowiedniej klasy.</p>
-<p>Warto zauważyć, że implementacja jest w pełni symulacyjna, a prawdziwe korzyści z algorytmu Grovera można uzyskać na prawdziwym komputerze kwantowym, zwłaszcza w przypadku większych zbiorów danych.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Klasyfikacja danych przy użyciu algorytmu Grovera</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> classify_data(data, quantum_circuit):</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    classified_points <span class="op">=</span> {<span class="st">'A'</span>: [], <span class="st">'B'</span>: []}</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> category, points <span class="kw">in</span> data.items():</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(points)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> point <span class="kw">in</span> points:</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f"wyniki dla point:  </span><span class="sc">{</span>point<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Przygotowanie obwodu kwantowego dla każdego punktu danych</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>            qc <span class="op">=</span> QuantumCircuit(<span class="dv">2</span>, <span class="dv">2</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Wprowadzenie danych do obwodu</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> idx, coord <span class="kw">in</span> <span class="bu">enumerate</span>(point):</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> coord <span class="op">*</span> <span class="fl">3.14159</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="ss">f"theta: </span><span class="sc">{</span>theta<span class="sc">}</span><span class="ss"> dla coord: </span><span class="sc">{</span>coord<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                qc.u(theta, <span class="dv">0</span>, <span class="dv">0</span>, idx)</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>            qc.compose(grover_circuit(), qubits<span class="op">=</span>[<span class="dv">0</span>, <span class="dv">1</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Pomiar wyników</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>            qc.measure([<span class="dv">0</span>, <span class="dv">1</span>], [<span class="dv">0</span>, <span class="dv">1</span>])</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>            display(qc.draw(<span class="st">'mpl'</span>))</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Symulacja obwodu</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>            backend <span class="op">=</span> Aer.get_backend(<span class="st">'qasm_simulator'</span>)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>            result <span class="op">=</span> backend.run(qc, shots<span class="op">=</span><span class="dv">1000</span>).result()</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>            counts <span class="op">=</span> result.get_counts(qc)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Klasyfikacja wyniku</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>            most_frequent_result <span class="op">=</span> <span class="bu">max</span>(counts, key<span class="op">=</span>counts.get)</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> most_frequent_result <span class="op">==</span> <span class="st">'00'</span>:</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>                classified_points[category].append(point)</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>                classified_points[category].append(point)</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> classified_points</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> generate_data()</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>classified_points <span class="op">=</span> classify_data(data, grover_circuit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>Tak jak pokazywaliśmy w części wykładowej, będziemy zainsteresowanie przetwarzaniem klasycznych danych za pomocą kwantowych układów.</p>
+<p>Rozwazmy klasyczny zbiór danych <span class="math inline">\(X\)</span> realizujący <span class="math inline">\(N\)</span> zmiennych i składający się z <span class="math inline">\(M\)</span> wierszy. <span class="math display">\[
+X = \{ x^1, \dots, x^m,\dots x^M \}
+\]</span></p>
+<p>Chcemy przetworzyć otrzymane dane tak, by mozna je wykorzystać do obliczeń kwantowych. Procedury, które pokazemy mozna traktować jako penwego rodzaju embedding.</p>
+<section id="basis-encoding" class="level2">
+<h2 class="anchored" data-anchor-id="basis-encoding">Basis encoding</h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

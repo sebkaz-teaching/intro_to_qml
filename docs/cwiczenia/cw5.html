@@ -136,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cwiczenia/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../cwiczenia/parametrized_q_c.html">Parameterized Quantum Circuit</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cwiczenia/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../cwiczenia/cw5.html">Parameterized Quantum Circuit</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -224,8 +224,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../cwiczenia/parametrized_q_c.html" class="sidebar-item-text sidebar-link active">
+  <a href="../cwiczenia/cw5.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Parameterized Quantum Circuit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cwiczenia/ml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kwantowy model klasyfikatora wariacyjnego</span></a>
   </div>
 </li>
       </ul>
@@ -289,7 +295,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>qc.crz(theta, <span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>qc.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
-<p><img src="parametrized_q_c_files/figure-html/cell-2-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-2-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="2">
@@ -308,7 +314,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>qc.crz(theta_list[<span class="dv">1</span>], <span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>qc.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-<p><img src="parametrized_q_c_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="4">
@@ -350,10 +356,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>qc_B.rx(phi_param, <span class="dv">0</span>)</span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>display(qc_B.draw(<span class="st">'mpl'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="parametrized_q_c_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="parametrized_q_c_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="6">
@@ -394,7 +400,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>b1.show()</span>
 <span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>b2.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="parametrized_q_c_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Biorąc pod uwagę otrzymane wyniki widać, ze pierwszy obwód ma małe expressibility natomiast drugi duze (w drugim przypadku jednak rozkład nie jest jednorodny).</p>
@@ -410,7 +416,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>c1.rx(<span class="dv">0</span>,q1)</span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>c1.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
-<p><img src="parametrized_q_c_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Ten obwód nie ma operacji wprowadzających stan splątany - brak bramek dwukubitowych. Miara M-W = 0.</p>
@@ -425,7 +431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>c2.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
-<p><img src="parametrized_q_c_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>W tym przypadku istnieją bramki dwukubitowe wprowadzające stany splątane dlatego miara M-W będzie większa od 0. Więcej info <a href="https://medium.com/qiskit/we-need-new-language-to-discuss-parameterized-quantum-circuits-60672f189b5f">tutaj</a></p>
@@ -460,13 +466,13 @@ x_i \to |\phi(x_i)\rangle
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>qc_z <span class="op">=</span> ZFeatureMap(feature_dimension<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>qc_z.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
-<p><img src="parametrized_q_c_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>qc_z.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
-<p><img src="parametrized_q_c_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -479,26 +485,26 @@ x_i \to |\phi(x_i)\rangle
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>qc_zz <span class="op">=</span> ZZFeatureMap(feature_dimension<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">1</span>, entanglement<span class="op">=</span><span class="st">'full'</span>,insert_barriers<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>qc_zz.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
-<p><img src="parametrized_q_c_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>qc_zz.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
-<p><img src="parametrized_q_c_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>qc_zz <span class="op">=</span> ZZFeatureMap(feature_dimension<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">1</span>, entanglement<span class="op">=</span><span class="st">'linear'</span>,insert_barriers<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>qc_zz.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
-<p><img src="parametrized_q_c_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>qc_zz.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
-<p><img src="parametrized_q_c_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -512,13 +518,13 @@ x_i \to |\phi(x_i)\rangle
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>qc_p <span class="op">=</span> PauliFeatureMap(feature_dimension<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">1</span>, paulis <span class="op">=</span> [<span class="st">'Z'</span>,<span class="st">'ZZ'</span>,<span class="st">'ZY'</span>])</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>qc_p.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
-<p><img src="parametrized_q_c_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>qc_p.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
-<p><img src="parametrized_q_c_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="17">
@@ -526,10 +532,10 @@ x_i \to |\phi(x_i)\rangle
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>display(qc_p.draw(<span class="st">'mpl'</span>))</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>qc_p.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="parametrized_q_c_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="17">
-<p><img src="parametrized_q_c_files/figure-html/cell-18-output-2.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-18-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Jeśli mamy juz określony sposób kodowania danych, komputer kwantowy moze je przeanalizować w odpowiedniej przestrzeni Hilberta i np znaleźć hiperplaszczyzne dla procesu klasyfikacji.</p>
@@ -549,7 +555,7 @@ x_i \to |\phi(x_i)\rangle
 <span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>qc_twolocal.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
-<p><img src="parametrized_q_c_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="19">
@@ -560,7 +566,7 @@ x_i \to |\phi(x_i)\rangle
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>qc_13.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
-<p><img src="parametrized_q_c_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <section id="nlocal" class="level3">
@@ -589,7 +595,7 @@ x_i \to |\phi(x_i)\rangle
 <span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>qc_nlocal.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
-<p><img src="parametrized_q_c_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -647,7 +653,7 @@ x_i \to |\phi(x_i)\rangle
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>AD_HOC_CIRCUIT.measure_all()</span>
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>AD_HOC_CIRCUIT.decompose().draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
-<p><img src="parametrized_q_c_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="26">
@@ -783,7 +789,7 @@ x_i \to |\phi(x_i)\rangle
 <span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Cost'</span>)</span>
 <span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="parametrized_q_c_files/figure-html/cell-34-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-34-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p>Dla zbioru testowego mozemy sprawdzic jakosc przewidywań</p>
@@ -853,7 +859,7 @@ x_i \to |\phi(x_i)\rangle
 <span id="cb41-33"><a href="#cb41-33" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y'</span>)</span>
 <span id="cb41-34"><a href="#cb41-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="parametrized_q_c_files/figure-html/cell-36-output-1.png" class="img-fluid"></p>
+<p><img src="cw5_files/figure-html/cell-36-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 
