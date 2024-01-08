@@ -22,6 +22,7 @@ website:
           - cwiczenia/cw4.ipynb
           - cwiczenia/cw5.ipynb
           - cwiczenia/ml.ipynb
+          - cwiczenia/titanic.ipynb
   navbar:
     left:
           - href: sylabus.qmd

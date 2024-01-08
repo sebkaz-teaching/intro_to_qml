@@ -375,14 +375,14 @@
     "href": "index.html#technologie",
     "title": "Informacje ogólne",
     "section": "Technologie",
-    "text": "Technologie\nUczestnicząc w zajęciach musisz opanować i przynajmniej w podstawowym zakresie posługiwać się następującymi technologiami informatycznymi:\n\nGIT\nPython, Jupyter notebook, Jupyter lab, Colab\nDocker"
+    "text": "Technologie\nUczestnicząc w zajęciach musisz opanować i przynajmniej w podstawowym zakresie posługiwać się następującymi technologiami informatycznymi:\n\nAlgebra liniowa - wektory, macierze, baza, iloczyn skalarny, iloczyn tensorowy\nPython, Jupyter notebook, Jupyter lab, Colab\nAlgorytmy sieci neuronowych i uczenia maszynowego w procesie klasyfikacji binarnej"
   },
   {
     "objectID": "index.html#qpoland",
     "href": "index.html#qpoland",
     "title": "Informacje ogólne",
     "section": "QPoland",
-    "text": "QPoland\nQPoland jest cześcią międzynarodowej sieci QWorld.\n\nQWorld is a global network of individuals, groups, and communities collaborating on education and implementation of quantum technologies and research activities."
+    "text": "QPoland\nQPoland jest cześcią międzynarodowej sieci QWorld.\nZapraszamy do wspólnego poszerzania wiedzy. Szczegóły &gt; QWorld is a global network of individuals, groups, and communities collaborating on education and implementation of quantum technologies and research activities."
   },
   {
     "objectID": "cwiczenia/qaoa.html",
