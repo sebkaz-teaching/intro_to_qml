@@ -715,8 +715,12 @@ Do implementacji pamięci RAM wykorzystuje się zbiór bramek logicznych (NAND) 
 </section>
 <section id="kody---rozwiązania-zadań" class="level2">
 <h2 class="anchored" data-anchor-id="kody---rozwiązania-zadań">kody - rozwiązania zadań</h2>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
+<!-- // TODO  Napisać kod który bierze string przekłada na bity np 4 litery.
+Następnie losuje ciąg 0 i 1 jako szyfr i pokazuje wynik szyfrowania. 
+Potem jak mam klucz to jak to odszyfrować. -Przyda się do BB84
+
+-->
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> experiment <span class="kw">in</span> [<span class="dv">100</span>,<span class="dv">1000</span>,<span class="dv">10000</span>,<span class="dv">100000</span>]:</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    heads <span class="op">=</span> tails <span class="op">=</span> <span class="dv">0</span></span>
@@ -727,62 +731,23 @@ Do implementacji pamięci RAM wykorzystuje się zbiór bramek logicznych (NAND) 
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"heads ="</span>,heads,<span class="st">"  tails = "</span>,tails)</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"the ratio of #heads/#tails is"</span>,(<span class="bu">round</span>(heads<span class="op">/</span>tails,<span class="dv">4</span>)))</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>() <span class="co"># empty line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>experiment: 100
-heads = 61   tails =  39
-the ratio of #heads/#tails is 1.5641
-
-experiment: 1000
-heads = 496   tails =  504
-the ratio of #heads/#tails is 0.9841
-
-experiment: 10000
-heads = 5011   tails =  4989
-the ratio of #heads/#tails is 1.0044
-
-experiment: 100000
-heads = 49812   tails =  50188
-the ratio of #heads/#tails is 0.9925
-</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># let's pick a random number between {0,1,...,99}</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># it is expected to be less than 60 with probability 0.6</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     and greater than or equal to 60 with probability 0.4</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ten sam przypadek możesz zrealizować dla losowania wartosci rzeczywistej</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># pomiędzy 0 i 1.</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> experiment <span class="kw">in</span> [<span class="dv">100</span>,<span class="dv">1000</span>,<span class="dv">10000</span>,<span class="dv">100000</span>]:</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    heads <span class="op">=</span> tails <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(experiment):</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> randrange(<span class="dv">100</span>) <span class="op">&lt;</span><span class="dv">60</span>: heads <span class="op">=</span> heads <span class="op">+</span> <span class="dv">1</span> <span class="co"># with probability 0.6</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: tails <span class="op">=</span> tails <span class="op">+</span> <span class="dv">1</span> <span class="co"># with probability 0.4</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"experiment:"</span>,experiment)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"heads ="</span>,heads,<span class="st">"  tails = "</span>,tails)</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"the ratio of #heads/#tails is"</span>,(<span class="bu">round</span>(heads<span class="op">/</span>tails,<span class="dv">4</span>)))</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>() <span class="co"># empty line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>experiment: 100
-heads = 61   tails =  39
-the ratio of #heads/#tails is 1.5641
-
-experiment: 1000
-heads = 590   tails =  410
-the ratio of #heads/#tails is 1.439
-
-experiment: 10000
-heads = 6072   tails =  3928
-the ratio of #heads/#tails is 1.5458
-
-experiment: 100000
-heads = 60321   tails =  39679
-the ratio of #heads/#tails is 1.5202
-</code></pre>
-</div>
-</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># let's pick a random number between {0,1,...,99}</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># it is expected to be less than 60 with probability 0.6</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     and greater than or equal to 60 with probability 0.4</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ten sam przypadek możesz zrealizować dla losowania wartosci rzeczywistej</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># pomiędzy 0 i 1.</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> experiment <span class="kw">in</span> [<span class="dv">100</span>,<span class="dv">1000</span>,<span class="dv">10000</span>,<span class="dv">100000</span>]:</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    heads <span class="op">=</span> tails <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(experiment):</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> randrange(<span class="dv">100</span>) <span class="op">&lt;</span><span class="dv">60</span>: heads <span class="op">=</span> heads <span class="op">+</span> <span class="dv">1</span> <span class="co"># with probability 0.6</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: tails <span class="op">=</span> tails <span class="op">+</span> <span class="dv">1</span> <span class="co"># with probability 0.4</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"experiment:"</span>,experiment)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"heads ="</span>,heads,<span class="st">"  tails = "</span>,tails)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"the ratio of #heads/#tails is"</span>,(<span class="bu">round</span>(heads<span class="op">/</span>tails,<span class="dv">4</span>)))</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>() <span class="co"># empty line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

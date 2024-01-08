@@ -253,13 +253,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#kodowanie-danych---quantum-feature-map" id="toc-kodowanie-danych---quantum-feature-map" class="nav-link" data-scroll-target="#kodowanie-danych---quantum-feature-map">Kodowanie danych - Quantum Feature Map</a></li>
   <li><a href="#zfeaturemap" id="toc-zfeaturemap" class="nav-link" data-scroll-target="#zfeaturemap">ZFeatureMap</a></li>
   <li><a href="#zzfeaturemap" id="toc-zzfeaturemap" class="nav-link" data-scroll-target="#zzfeaturemap">ZZFeatureMap</a></li>
-  </ul></li>
   <li><a href="#pauli-feature-map" id="toc-pauli-feature-map" class="nav-link" data-scroll-target="#pauli-feature-map">Pauli Feature Map</a></li>
+  </ul></li>
   <li><a href="#model-circuit" id="toc-model-circuit" class="nav-link" data-scroll-target="#model-circuit">Model Circuit</a>
   <ul class="collapse">
   <li><a href="#nlocal" id="toc-nlocal" class="nav-link" data-scroll-target="#nlocal">NLocal</a></li>
   <li><a href="#optymalizatory" id="toc-optymalizatory" class="nav-link" data-scroll-target="#optymalizatory">Optymalizatory</a></li>
   </ul></li>
+  <li><a href="#przykład-klasyfikacji-danych" id="toc-przykład-klasyfikacji-danych" class="nav-link" data-scroll-target="#przykład-klasyfikacji-danych">Przykład Klasyfikacji danych</a></li>
   </ul>
 </nav>
     </div>
@@ -438,15 +439,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="pqc-dla-ml" class="level2">
 <h2 class="anchored" data-anchor-id="pqc-dla-ml">PQC dla ML</h2>
-<p>W QML parametryzowane obwody są uzywane do dwóch głównych zadań. 1. Zakodowanie klasycznych danych na układ kwantowy - dane przekładane są na parametry kątów 2. Jako model kwantowy gdzie parametry ustalane są z wykorzystaniem klasycznego optymalizatora</p>
+<p>W QML parametryzowane obwody są uzywane do dwóch głównych zadań.</p>
+<ol type="1">
+<li>Zakodowanie klasycznych danych na układ kwantowy - dane przekładane są na parametry kątów</li>
+<li>Jako model kwantowy gdzie parametry ustalane są z wykorzystaniem klasycznego optymalizatora</li>
+</ol>
 <section id="kodowanie-danych---quantum-feature-map" class="level3">
 <h3 class="anchored" data-anchor-id="kodowanie-danych---quantum-feature-map">Kodowanie danych - Quantum Feature Map</h3>
-<p>Aby zrealizować modele uczenia maszynowego na klasycznych danych z wykorzystaniem PQC musimy wykonać i wybrać kilka operacji pozwalających operować na naszych danych za pomocą obwodów kwantowych. Zadanie to często nazywane jest reprezentacją danych klasycznych w pewnej przestrzeni Hilberta, a więc moze być nazywane embeddingiem danych. Tak jak ma to miejsce dla danych grafowych czy tez w sytuacjii gdy stosujemy rózne metody zmieniające postać danych np .kernel methods w SVM. W przypadku obwodów kwantowych ich działanie opiera się na przetworzeniu początkowego stanu kwantowego wyrazanego jako iloczyn tensorowy kubitów. Dlatego naturalnym sposobem jest przedstawienie danych jako wektor w pewnej przestrzeni Hilberta.</p>
-<p>Tak przygotowany i sparametryzowany stan mozna wykorzystać np w modelach typu Variational Quantum Circuit, gdzie oprócz stanu budujemy kolejny PQC, tym razem realizujący parametry naszego modelu jako parametry bramek kwantowych. Całość optymalizowana jest za pomocą róznego rodzaju optymalizatorów.</p>
-<p>Nasze zadanie sprowadzić mozna do pobrania klasycznego punktu danych <span class="math inline">\(x\)</span> oraz zakodowania go za pomocą bramek (parametryzowanych) w obwodzie kwantowym. <span class="math display">\[
+<p>Aby zrealizować modele uczenia maszynowego na klasycznych danych z wykorzystaniem PQC musimy wykonać i wybrać kilka operacji pozwalających operować na naszych danych za pomocą obwodów kwantowych.</p>
+<p>Zadanie to często nazywane jest reprezentacją danych klasycznych w pewnej przestrzeni Hilberta, a więc moze być nazywane embeddingiem danych. Tak jak ma to miejsce dla danych grafowych czy tez w sytuacjii gdy stosujemy rózne metody zmieniające postać danych np. kernel methods w SVM.</p>
+<p>W przypadku obwodów kwantowych ich działanie opiera się na przetworzeniu początkowego stanu kwantowego wyrazanego jako iloczyn tensorowy kubitów. Dlatego naturalnym sposobem jest przedstawienie danych jako wektor w pewnej przestrzeni Hilberta.</p>
+<p>Tak przygotowany i sparametryzowany stan mozna wykorzystać np w modelach typu <code>Variational Quantum Circuit</code>, gdzie oprócz stanu budujemy kolejny PQC, tym razem realizujący parametry naszego modelu jako parametry bramek kwantowych. Całość optymalizowana jest za pomocą róznego rodzaju optymalizatorów.</p>
+<p>Nasze zadanie sprowadzić mozna do pobrania klasycznego punktu danych <span class="math inline">\(\vec{x}\)</span> oraz zakodowania go za pomocą bramek (parametryzowanych) w obwodzie kwantowym. <span class="math display">\[
 x_i \to |\phi(x_i)\rangle
 \]</span></p>
-<p>QFM (Quantum Feature Map) <span class="math inline">\(V(\Phi(\vec{x}))\)</span> przetwarza klasyczne dane na dane kwantowe. <span class="math inline">\(\Phi(.)\)</span> to klasyczna funkcja zastosowana do klasycznych danych. <span class="math inline">\(V\)</span> - to parametryzowany obwód zmieniający dane klasyczne na kwantowe.</p>
+<p>QFM (Quantum Feature Map) <span class="math inline">\(V(\Phi(\vec{x}))\)</span> przetwarza klasyczne dane na dane kwantowe.</p>
+<p><span class="math inline">\(\Phi(.)\)</span> to <strong>klasyczna</strong> funkcja zastosowana do klasycznych danych.</p>
+<p><span class="math inline">\(V\)</span> - to <strong>parametryzowany obwód</strong> zmieniający dane klasyczne na kwantowe.</p>
 <p>Trzy podstawowe czynniki związane z wyborem <code>feature map</code>:</p>
 <ul>
 <li>głębokość obwodu - sekcja bramek kodujących moze być realizowana wiele razy (poprzez parametr <code>reps</code>)</li>
@@ -456,7 +465,7 @@ x_i \to |\phi(x_i)\rangle
 </section>
 <section id="zfeaturemap" class="level3">
 <h3 class="anchored" data-anchor-id="zfeaturemap">ZFeatureMap</h3>
-<p>The first order Pauli Z-evolution circuit. <a href="https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.library.ZFeatureMap">documentation</a></p>
+<p>The first order Pauli Z-evolution circuit. <a href="https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.library.ZFeatureMap">Documentacja</a></p>
 <p><span class="math display">\[
 \Phi_S \colon x \to x_i
 \]</span> Otrzymany obwód nie zawiera oddziaływania między zmiennymi (zakodowanych danych), co wiąze się z brakiem wykorzystania efektu splątania.</p>
@@ -478,12 +487,14 @@ x_i \to |\phi(x_i)\rangle
 </section>
 <section id="zzfeaturemap" class="level3">
 <h3 class="anchored" data-anchor-id="zzfeaturemap">ZZFeatureMap</h3>
-<p>Second-order Pauli-Z evolution circuit.<a href="https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.library.ZZFeatureMap">documentacja</a></p>
+<p>Second-order Pauli-Z evolution circuit. <a href="https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.library.ZZFeatureMap">Documentacja</a></p>
 <div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> ZZFeatureMap</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>qc_zz <span class="op">=</span> ZZFeatureMap(feature_dimension<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">1</span>, entanglement<span class="op">=</span><span class="st">'full'</span>,insert_barriers<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>qc_zz.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>qc_zz <span class="op">=</span> ZZFeatureMap(feature_dimension<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">1</span>, </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                     entanglement<span class="op">=</span><span class="st">'full'</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                     insert_barriers<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>qc_zz.draw(<span class="st">'mpl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <p><img src="cw5_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
 </div>
@@ -508,10 +519,9 @@ x_i \to |\phi(x_i)\rangle
 </div>
 </div>
 </section>
-</section>
-<section id="pauli-feature-map" class="level2">
-<h2 class="anchored" data-anchor-id="pauli-feature-map">Pauli Feature Map</h2>
-<p><a href="https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.library.PauliFeatureMap">documentacja</a></p>
+<section id="pauli-feature-map" class="level3">
+<h3 class="anchored" data-anchor-id="pauli-feature-map">Pauli Feature Map</h3>
+<p><a href="https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.library.PauliFeatureMap">Dokumentacja</a></p>
 <div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> PauliFeatureMap</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -527,6 +537,7 @@ x_i \to |\phi(x_i)\rangle
 <p><img src="cw5_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
 </div>
 </div>
+<p>Zaobaczmy jakiemu kodowaniu odpowiada <code>PauliFeatureMap</code> dla operatorów <code>Z</code> i <code>ZZ</code>.</p>
 <div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>qc_p <span class="op">=</span> PauliFeatureMap(feature_dimension<span class="op">=</span><span class="dv">3</span>, reps<span class="op">=</span><span class="dv">1</span>, paulis <span class="op">=</span> [<span class="st">'Z'</span>,<span class="st">'ZZ'</span>])</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>display(qc_p.draw(<span class="st">'mpl'</span>))</span>
@@ -540,12 +551,13 @@ x_i \to |\phi(x_i)\rangle
 </div>
 <p>Jeśli mamy juz określony sposób kodowania danych, komputer kwantowy moze je przeanalizować w odpowiedniej przestrzeni Hilberta i np znaleźć hiperplaszczyzne dla procesu klasyfikacji.</p>
 </section>
+</section>
 <section id="model-circuit" class="level2">
 <h2 class="anchored" data-anchor-id="model-circuit">Model Circuit</h2>
 <p>Kolejnym elementem jest obwód realizujący model. Tutaj równiez istnieje wiele mozliwych implementacji. W ogólności tworzymy parametryzowany operator unitarny <span class="math inline">\(U(w)\)</span> dla którego: <span class="math display">\[
 |\psi(x:\theta)\rangle = U(w)|\psi(x)\rangle
 \]</span></p>
-<p>Jednym z przykładowych modeli w bibliotece Qiskit jest obwód realizowany jako <code>RealAmplitudes</code>. Ilośc parametrów modelu moze być ustalana za pomocą głębokości obwodu - czyli ile razy powtórzymy ten sam schemat.</p>
+<p>Jednym z przykładowych modeli w bibliotece Qiskit jest obwód realizowany jako <code>RealAmplitudes</code>. Ilośc parametrów modelu moze być ustalana za pomocą głębokości obwodu - czyli ile razy powtórzymy dany schemat.</p>
 <div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.circuit.library <span class="im">import</span> TwoLocal</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -608,6 +620,10 @@ x_i \to |\phi(x_i)\rangle
 <li>SPSA (Simultaneous Perturbation Sochastic Approximation optimizer)</li>
 <li>SLSQP (Sequential Least Squares Programming optimizer)</li>
 </ol>
+</section>
+</section>
+<section id="przykład-klasyfikacji-danych" class="level2">
+<h2 class="anchored" data-anchor-id="przykład-klasyfikacji-danych">Przykład Klasyfikacji danych</h2>
 <div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qiskit.utils <span class="im">import</span> algorithm_globals</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>algorithm_globals.random_seed <span class="op">=</span> <span class="dv">42</span></span>
@@ -864,7 +880,6 @@ x_i \to |\phi(x_i)\rangle
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

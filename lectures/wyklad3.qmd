@@ -240,7 +240,7 @@ Iloczyn skalarny $\braket{\psi}{\phi}$ wektorów $\ket{\psi}$ i $\ket{\phi}$ czy
 
 ### Stan 
 
-W fizyce klasycznej znajomoś stan układu oznacza, iż wiemy wszystko co jest potrzebne
+W fizyce klasycznej znajomość stanu układu oznacza, iż wiemy wszystko co jest potrzebne
 
 Stanem w mechanice kwantowej nazywamy wektor:
 
@@ -429,3 +429,45 @@ $$
 
 > Bardzo ważnym etapem jest wybór bazy w której dokonujemy pomiaru. 
 > np. dla wektora $\ket{+}$ pomiar w bazie standardowej pozwoli otrzymac wyniki stanu $\ket{0}$ i $\ket{1}$ z prawdopodobieństwami $\frac{1}{2}$. Natomiast jeśli pomiar dokonywany byłby w bazie Hadamarda to zawsze otrzymamy stan $\ket{+}$ z prawdopodobieństwem 1. 
+
+
+## Kilka ciekawostek matematycznych
+
+Stan kubitów, czyli dwuwymiarowych układów kwantowych, opisujemy wektorem  `ket` $\ket{a}$.
+Wektory te reprezentowane są jako `listy` zapisane w kolumnach. 
+$$ \ket{a} = \begin{bmatrix} a_0 \\ a_1 \end{bmatrix} $$
+
+Oprócz wektorów `ket` wprowadziliśmy wektory `bra` powstające w wyniku operacji transpozycji i sprzęzenia 
+zespolonego. Operacja ta jest bijekcją. 
+<!-- // TODO sprawdzić i opisać to dokładniej. -->
+
+Przez bijekcję rozumiemy odwzorowanie bądź funkcję, która każdemu elementowi dziedziny przypisuje tylko jeden element przeciwdziedziny oraz dodatkowo cały zbiór dziedziny jest odwzorowany na przeciwdziedzinę. 
+Zauważ, że druga własność jest potrzebna do zdefiniowania funkcji odwrotnej. 
+Aby mówić o funkcji (odwrotnej), wszystkie elementy dziedziny (przeciwdziedziny) muszą zostać odwzorowane. 
+Dzięki tej własności możemy zdefiniować całą przestrzeń dualną, w której podstawowymi składnikami są wektory dualne. Ponadto, wszystkie elementy przestrzeni wektorów bra mają swoje różne odpowiedniki w przestrzeni ketów i odwrotnie. To pozwala również stwierdzić, że tak naprawdę obie przestrzenie są izomorficzne, czyli takie same. Jedyną różnicą jest forma zapisu elementów.
+Operacja ta podobna jest do wpowadzenia wektorów dualnych na poziomie zakrzywionych rozmaitości rózniczkowalnych (ang. manifolds).
+W drugim przypadku definiujemy wektory kontrawariantne i kowariantne. 
+
+Wektory bra definiujemy jako listę wierszową.
+$$ \bra{b} = \begin{bmatrix} a_0 \,\,\,  a_1 \end{bmatrix} $$
+
+Do definicji przestrzeni wektorowej dodaliśmy definicję iloczynu skalarny.
+Zauważ, iz nie mówimy w tym przypadku o działaniu. 
+Działania definiowały nam własności przestrzeni wektorowej. 
+Wynikiem dodawania wektorów jak i mnożenia ich przez liczbę był zawsze jakiś wektor. 
+A więc działania nie wyprowadzały nas poza przestrzeń wektorową. 
+W przypadku iloczynu skalarnego wybieramy wektor oraz drugi wektor dualny. 
+Po złozeniu jednego i drugiego otrzymujemy liczbę (skalar).
+$$ \braket{a}{b} $$
+
+
+
+ Do jego wprowadenia wymagane było wprowadzenie 
+przestrzeni dualnej. 
+
+Korzystając z wektorów bra i ket możemy zdefiniować jeszcze jedną operacje. 
+
+$$ \ket{a} \bra{b} $$
+Tym razem to co otrzymujemy mozemy traktować jako operator. 
+
+

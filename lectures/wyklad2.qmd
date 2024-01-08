@@ -357,7 +357,13 @@ Jeśli użyjemy jej więcej niż raz, to łatwo jest złamać szyfrowanie.
 
 ## kody - rozwiązania zadań 
 
-```{python}
+<!-- // TODO  Napisać kod który bierze string przekłada na bity np 4 litery.
+Następnie losuje ciąg 0 i 1 jako szyfr i pokazuje wynik szyfrowania. 
+Potem jak mam klucz to jak to odszyfrować. -Przyda się do BB84
+
+-->
+
+```python
 from random import randrange
 # randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)
 for experiment in [100,1000,10000,100000]:
@@ -371,7 +377,7 @@ for experiment in [100,1000,10000,100000]:
     print() # empty line
 ```
 
-```{python}
+```python
 from random import randrange
 
 # let's pick a random number between {0,1,...,99}

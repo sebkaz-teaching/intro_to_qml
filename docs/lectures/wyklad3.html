@@ -234,6 +234,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#przykład" id="toc-przykład" class="nav-link" data-scroll-target="#przykład">Przykład</a></li>
   </ul></li>
+  <li><a href="#kilka-ciekawostek-matematycznych" id="toc-kilka-ciekawostek-matematycznych" class="nav-link" data-scroll-target="#kilka-ciekawostek-matematycznych">Kilka ciekawostek matematycznych</a></li>
   </ul>
 </nav>
     </div>
@@ -381,7 +382,7 @@ z z^* = 1
 <p>Iloczyn skalarny <span class="math inline">\(\braket{\psi}{\phi}\)</span> wektorów <span class="math inline">\(\ket{\psi}\)</span> i <span class="math inline">\(\ket{\phi}\)</span> czytamy jako <em>braket u v</em>.</p>
 <section id="stan" class="level3">
 <h3 class="anchored" data-anchor-id="stan">Stan</h3>
-<p>W fizyce klasycznej znajomoś stan układu oznacza, iż wiemy wszystko co jest potrzebne</p>
+<p>W fizyce klasycznej znajomość stanu układu oznacza, iż wiemy wszystko co jest potrzebne</p>
 <p>Stanem w mechanice kwantowej nazywamy wektor:</p>
 <p><span class="math display">\[\ket{\psi} = x_0 \ket{0} + x_1 \ket{1} + \dots x_{n-1} \ket{n-1}\]</span></p>
 <p>Chcemy aby współczynniki <span class="math inline">\(x_i\)</span> były liczbami zespolonymi a cały wektor był unormowany do 1.</p>
@@ -490,9 +491,20 @@ z z^* = 1
 <blockquote class="blockquote">
 <p>Bardzo ważnym etapem jest wybór bazy w której dokonujemy pomiaru. np. dla wektora <span class="math inline">\(\ket{+}\)</span> pomiar w bazie standardowej pozwoli otrzymac wyniki stanu <span class="math inline">\(\ket{0}\)</span> i <span class="math inline">\(\ket{1}\)</span> z prawdopodobieństwami <span class="math inline">\(\frac{1}{2}\)</span>. Natomiast jeśli pomiar dokonywany byłby w bazie Hadamarda to zawsze otrzymamy stan <span class="math inline">\(\ket{+}\)</span> z prawdopodobieństwem 1.</p>
 </blockquote>
-
-
 </section>
+</section>
+<section id="kilka-ciekawostek-matematycznych" class="level2">
+<h2 class="anchored" data-anchor-id="kilka-ciekawostek-matematycznych">Kilka ciekawostek matematycznych</h2>
+<p>Stan kubitów, czyli dwuwymiarowych układów kwantowych, opisujemy wektorem <code>ket</code> <span class="math inline">\(\ket{a}\)</span>. Wektory te reprezentowane są jako <code>listy</code> zapisane w kolumnach. <span class="math display">\[ \ket{a} = \begin{bmatrix} a_0 \\ a_1 \end{bmatrix} \]</span></p>
+<p>Oprócz wektorów <code>ket</code> wprowadziliśmy wektory <code>bra</code> powstające w wyniku operacji transpozycji i sprzęzenia zespolonego. Operacja ta jest bijekcją. <!-- // TODO sprawdzić i opisać to dokładniej. --></p>
+<p>Przez bijekcję rozumiemy odwzorowanie bądź funkcję, która każdemu elementowi dziedziny przypisuje tylko jeden element przeciwdziedziny oraz dodatkowo cały zbiór dziedziny jest odwzorowany na przeciwdziedzinę. Zauważ, że druga własność jest potrzebna do zdefiniowania funkcji odwrotnej. Aby mówić o funkcji (odwrotnej), wszystkie elementy dziedziny (przeciwdziedziny) muszą zostać odwzorowane. Dzięki tej własności możemy zdefiniować całą przestrzeń dualną, w której podstawowymi składnikami są wektory dualne. Ponadto, wszystkie elementy przestrzeni wektorów bra mają swoje różne odpowiedniki w przestrzeni ketów i odwrotnie. To pozwala również stwierdzić, że tak naprawdę obie przestrzenie są izomorficzne, czyli takie same. Jedyną różnicą jest forma zapisu elementów. Operacja ta podobna jest do wpowadzenia wektorów dualnych na poziomie zakrzywionych rozmaitości rózniczkowalnych (ang. manifolds). W drugim przypadku definiujemy wektory kontrawariantne i kowariantne.</p>
+<p>Wektory bra definiujemy jako listę wierszową. <span class="math display">\[ \bra{b} = \begin{bmatrix} a_0 \,\,\,  a_1 \end{bmatrix} \]</span></p>
+<p>Do definicji przestrzeni wektorowej dodaliśmy definicję iloczynu skalarny. Zauważ, iz nie mówimy w tym przypadku o działaniu. Działania definiowały nam własności przestrzeni wektorowej. Wynikiem dodawania wektorów jak i mnożenia ich przez liczbę był zawsze jakiś wektor. A więc działania nie wyprowadzały nas poza przestrzeń wektorową. W przypadku iloczynu skalarnego wybieramy wektor oraz drugi wektor dualny. Po złozeniu jednego i drugiego otrzymujemy liczbę (skalar). <span class="math display">\[ \braket{a}{b} \]</span></p>
+<p>Do jego wprowadenia wymagane było wprowadzenie przestrzeni dualnej.</p>
+<p>Korzystając z wektorów bra i ket możemy zdefiniować jeszcze jedną operacje.</p>
+<p><span class="math display">\[ \ket{a} \bra{b} \]</span> Tym razem to co otrzymujemy mozemy traktować jako operator.</p>
+
+
 </section>
 
 </main> <!-- /main -->
