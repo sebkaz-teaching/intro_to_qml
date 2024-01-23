@@ -292,13 +292,12 @@ H = H_1 + H_2 + \dots + H_n
 <p>Mozemy wykorzystać wzór <code>Trotter'a-Suzuki</code> który przybliza dowolną sumę macierzy <span class="math display">\[
 e^{A + B} \approx \left( e^{A/n} e^{B/n} \right)^n
 \]</span></p>
-<p>so for <span class="math inline">\(H=\sum_k H_k\)</span> we get <span class="math display">\[ U(H,t,n) = \prod_{j=1}^n \prod_k e^{-i H_k t/n} \]</span></p>
-<p>Combinatorial optimization problems are ubiquitous across many areas of science and application areas.</p>
+<p>dlatego dla <span class="math inline">\(H=\sum_k H_k\)</span> otrzymujemy <span class="math display">\[ U(H,t,n) = \prod_{j=1}^n \prod_k e^{-i H_k t/n} \]</span></p>
+<p>Kombinatoryczne problemy opytmalizacyjne realizowane są na wielu płaszczyznach naukowych i aplikacyjnych:</p>
 <ul>
-<li>logistics,</li>
-<li>scheduling,</li>
-<li>planning,</li>
-<li>portfolio optimization</li>
+<li>logistyka,</li>
+<li>planowanie,</li>
+<li>optymalizacja portfolio,</li>
 <li>…</li>
 </ul>
 <p>Combinatorial optimization problems are problems involving a large number of yes/no decisions with each set of decisions yielding a corresponding objective function value, like a cost or profit value.</p>
@@ -310,9 +309,17 @@ e^{A + B} \approx \left( e^{A/n} e^{B/n} \right)^n
 <li>Task allocation Problems</li>
 <li>Maximum–Cut Problems</li>
 </ul>
-<p>The QUBO objective function:</p>
-<p><span class="math display">\[ F(q) = \sum_a v_a q_a + \sum_{a &lt; b} \omega_{a b} q_a q_b \]</span> where <span class="math inline">\(q_a \in \{0,1\}\)</span>, <span class="math inline">\(v_a\)</span> and <span class="math inline">\(\omega_a\)</span> are real coefficients for the linear and quadratic parts. The QUBO objective function is NP-hard in nature.</p>
-<p>Let’s change the variables: <span class="math display">\[z_a = 2q_a-1\]</span> where <span class="math inline">\(z \in {-1,1}\)</span> <span class="math display">\[F(z) = \sum_a h_a z_a + \sum_{a &lt; b} J_{a b} z_a z_b \]</span></p>
+<p>QUBO objective function:</p>
+<p><span class="math display">\[
+F(q) = \sum_a v_a q_a + \sum_{a &lt; b} \omega_{a b} q_a q_b
+\]</span> gdzie <span class="math inline">\(q_a \in \{0,1\}\)</span>, <span class="math inline">\(v_a\)</span> oraz <span class="math inline">\(\omega_a\)</span> to rzeczywiste współczynniki dla liniowej i kwadratowej części.</p>
+<p>The QUBO objective function is NP-hard in nature.</p>
+<p>Wprowadzmy zamianę zmiennych: <span class="math display">\[
+z_a = 2q_a-1
+\]</span> gdzie <span class="math inline">\(z \in {-1,1}\)</span></p>
+<p><span class="math display">\[
+F(z) = \sum_a h_a z_a + \sum_{a &lt; b} J_{a b} z_a z_b
+\]</span></p>
 <p>One popular method of encoding an optimization problem to be solved using QAOA, is to first formulate the problem as an <code>Ising Objective function</code>. The Ising model is a popular statistical mechanics model, associated primarily with ferromagnetism. Because it has been shown to be NP-Complete in nature, the objective function associated with it can be used to represent hard problems.</p>
 <section id="max-cut" class="level3">
 <h3 class="anchored" data-anchor-id="max-cut">Max-Cut</h3>
